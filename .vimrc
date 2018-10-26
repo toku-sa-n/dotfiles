@@ -37,9 +37,6 @@ syntax on
 "Number
 colorscheme ron
 
-"Tab
-set list listchars=tab:>-,trail:_
-
 "Errormarker
 let g:errormarker_errortext='!!'
 let g:errormarker_warningtext='??'
@@ -47,10 +44,13 @@ let g:errormarker_errorgroup='Error'
 let g:errormarker_warninggroup='Warn'
 
 "indent
+set list listchars=tab:>-,trail:_
 set autoindent
 set cindent
 set expandtab
 set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 "indentGuide
 let g:indent_guides_auto_colors = 0
@@ -93,11 +93,17 @@ cnoreabbrev make make!
 set scrolloff=5
 
 "About searching
-set ignorecase
-set smartcase
-set wrapscan
+set ignorecase  " A and a is the same
+set smartcase   " If the sentence to search contains UPPER, then no-ignorecase.
+set wrapscan    " Automatically go to the head of the file when searching.
+set incsearch   " Automatically start to search when typing the word to search.
+
 
 "Auto load when editing file is changed
 set autoread
 "Autocomplete of command line
 set wildmode=list:longest
+
+
+"Endless Moving
+set whichwrap=h,l,<,>,[,],b
