@@ -45,6 +45,7 @@ alias upgr='sudo pacman -Syu&&sudo pacman -Rns $(pacman -Qdtq) '
 alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 alias untargz='tar -zxvf'
 alias detailPac='pacman -Qi'
+alias ns='sudo netctl start '
 
 #hisotry
 setopt hist_ignore_dups

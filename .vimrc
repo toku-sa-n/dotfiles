@@ -63,15 +63,8 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 "autoformat
-
-"autoComplete
-for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
-        exec "imap ".k." ".k."<C-N><C-P>"
-endfor
-
-"autoformat
 noremap <F3> :Autoformat<CR>
-au BufWritePre *.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat | w
+au BufWritePre *.hs,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat | w
 
 "cancelAutoComment
 set formatoptions-=cro
@@ -107,3 +100,4 @@ set wildmode=list:longest
 
 "Endless Moving
 set whichwrap=h,l,<,>,[,],b
+
