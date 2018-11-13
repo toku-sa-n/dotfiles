@@ -65,15 +65,3 @@ chpwd(){
 #history of cd
 setopt auto_pushd
 setopt pushd_ignore_dups
-
-#backup
-~/backup/bksh.sh
-#command-not-found
-#source /etc/zsh_command_not_found
-
-#ibus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drx
-
