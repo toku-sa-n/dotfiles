@@ -34,7 +34,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias scroff='xset dpms force off && i3lock -c 000000 -e -f -u'
 alias untargz='tar -zxvf'
-alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|less'
+alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
 
 #hisotry
 setopt hist_ignore_dups
