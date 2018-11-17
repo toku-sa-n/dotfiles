@@ -20,6 +20,7 @@ Plugin 'dag/vim2hs'
 Plugin 'kana/vim-filetype-haskell'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'morhetz/gruvbox'
+Plugin 'vim-latex/vim-latex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,9 +55,6 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
-autocmd BufNewFile,BufRead *.rb setlocal softtabstop=2
-autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
 let g:hindent_indent_size=4
 
 "indentGuide
@@ -144,3 +142,17 @@ set laststatus=2
 "For C
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
+
+"For Ruby
+autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
+autocmd BufNewFile,BufRead *.rb setlocal softtabstop=2
+autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
+
+"For LaTeX
+let g:tex_flavor='latex'
+let g:Tex_CompileRule_dvi='platex $*.tex'
+let g:Tex_MultipleCompileFormats='dvi,pdf'
+let g:Tex_FormatDependency_pdf='dvi,pdf'
+let g:Tex_CompileRule_pdf='dvipdfmx -interaction=nonstopmode $*.dvi'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf='mupdf'

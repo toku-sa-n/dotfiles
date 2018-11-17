@@ -19,12 +19,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 setopt correct
 autoload -Uz colors
 colors
-#iBus
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-exec ibus-daemon -dx &
-#exec ibus restart
 #prompt
 export PROMPT="${bg[green]}%~${reset_color}
 %#"
@@ -46,6 +40,7 @@ alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 alias untargz='tar -zxvf'
 alias detailPac='pacman -Qi'
 alias ns='sudo netctl start '
+alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|less'
 
 #hisotry
 setopt hist_ignore_dups
