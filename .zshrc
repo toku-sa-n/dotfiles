@@ -35,7 +35,7 @@ alias ....='cd ../../..'
 alias scroff='xset dpms force off && i3lock -c 000000 -e -f -u'
 alias inst='sudo pacman -S '
 alias unst='sudo pacman -Rs '
-alias upgr='sudo pacman -Syu&&sudo pacman -Rns $(pacman -Qdtq) '
+alias upgr='sudo pacman -Syu'
 alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 alias untargz='tar -zxvf'
 alias detailPac='pacman -Qi'
@@ -60,3 +60,11 @@ chpwd(){
 #history of cd
 setopt auto_pushd
 setopt pushd_ignore_dups
+
+#Depends on the distribution using now
+function(){
+    local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
+    if  echo $dist | grep -sq 'arch' ; then
+        echo 'ok'
+    fi
+}
