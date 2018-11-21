@@ -1,3 +1,17 @@
+#zplug {{{
+source ~/.zplug/init.zsh
+
+zplug "zsh-users/zsh-autosuggestions"
+
+if ! zplug check --verbose; then
+    printf 'Install?[y/N]:'
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+# }}}
 # PATH
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 # Lines configured by zsh-newuser-install
@@ -24,9 +38,8 @@ export PROMPT="${bg[green]}%~${reset_color}
 %#"
 
 #alias
-alias la='ls -F -a --color=auto'
-alias ll='ls -F -la --color=auto'
-alias llh='ls -F -lah --color=auto'
+alias la='ls -aF --color=auto'
+alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto'
 alias gcc='gcc -fdiagnostics-color'
 alias vi='vim'
@@ -58,7 +71,7 @@ setopt pushd_ignore_dups
 #Depends on the distribution using now
 
 function arch(){
-    alias detailPac='pacman -Qi'
+    alias detailpac='pacman -Qi'
     alias ns='sudo netctl start '
     alias inst='sudo pacman -S '
     alias unst='sudo pacman -Rs '

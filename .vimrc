@@ -1,3 +1,4 @@
+"Vundle{{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -8,9 +9,7 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'mh21/errormarker.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-endwise'
@@ -35,18 +34,40 @@ filetype plugin indent on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
+"}}}
+"Display"{{{
 
 "Colorchange
 syntax on
 set termguicolors
 colorscheme gruvbox
 
-"Errormarker
-let g:errormarker_errortext='!!'
-let g:errormarker_warningtext='??'
-let g:errormarker_errorgroup='Error'
-let g:errormarker_warninggroup='Warn'
+set display=lastline
+set number
 
+"Show which keys are pressed
+set showcmd
+
+"Move the pair parenthesis when entering ( or ).
+set showmatch
+set matchtime=10
+
+"Fold
+set foldmethod=marker
+set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
+
+"autoformat
+noremap <F3> :Autoformat<CR>
+au BufWritePre *.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat 
+
+set pumheight=10
+set laststatus=2
+
+"Scroll
+set scrolloff=5
+
+"}}}
+"indent{{{
 "indent
 set list listchars=tab:>-,trail:_
 set autoindent
@@ -60,17 +81,15 @@ let g:hindent_indent_size=4
 "indentGuide
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level=2
-hi IndentGuidesOdd guibg=red ctermbg=54
-hi IndentGuidesEven guibg=green ctermbg=24
-set sw=4 
-autocmd BufNewFile,BufRead *.rb setlocal sw=2
+highlight IndentGuidesOdd guibg=red ctermbg=54
+highlight IndentGuidesEven guibg=green ctermbg=24
 let g:indent_guides_color_change_percent = 10
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-
-"autoComplete
+"}}}
+"Completions{{{
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
-        exec "imap ".k." ".k."<C-N><C-P>"
+    exec "imap ".k." ".k."<C-N><C-P>"
 endfor
 au BufNewFile,BufRead *.c,*.cpp let g:vim_tags_project_tags_command="ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q"
 set tags+=~/.vim/tags/cpp
@@ -84,47 +103,38 @@ let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible()==0|silent! pclose|endif
 noremap <F12> :TagsGenerate
-
-"autoformat
-noremap <F3> :Autoformat<CR>
-au BufWritePre *.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat | w
 au BufWritePre *.c,*.cpp :TagsGenerate
-
-"cancelAutoComment
-set formatoptions-=cro
-
-"autoFold
-set foldmethod=syntax
-set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
-
-"Show which keys are pressed
-set showcmd
-
-"highlight
-set hlsearch
-
-"For preventing bugs of make
-cnoreabbrev make make!
-
-"Scroll
-set scrolloff=5
-
-"--- Search ---
+"}}}
+"Search{{{
 
 set ignorecase  " A and a is the same
 set smartcase   " If the sentence to search contains UPPER, then no-ignorecase.
 set wrapscan    " Automatically go to the head of the file when searching.
 set incsearch   " Automatically start to search when typing the word to search.
 set gdefault    " Always add "g" s/foo/bar/g <---
+set hlsearch
+set smartcase   " If the word contains UPPER, then do not ignore UPPER and lower when searching.
 
 
 "Auto load when editing file is changed
 set autoread
+set autowrite
 
 "Autocomplete of command line
+set wildmenu
 set wildmode=list:longest
 
-"--- Moving ---
+"Show the searched word at the center of the display.
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+nmap <silent> <Esc><Esc> :nohl<CR>
+"}}}
+"Moving{{{
 
 "Endless Moving
 set whichwrap=h,l,<,>,[,],b
@@ -133,26 +143,53 @@ set whichwrap=h,l,<,>,[,],b
 noremap j gj
 noremap k gk
 
-"--- For programming ---
+"}}}
+"Shortcut{{{
+inoremap jj <Esc>
+nnoremap + <C-a>
+nnoremap - <C-x>
+nnoremap Y y$
+nnoremap gO O<Esc>
+nnoremap go o<Esc>
+"}}}
+"vimrc{{{
+nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut which is ":source ~/.vimrc" if .vimrc are opened.
+"}}}
+"Others{{{
+"--- For files ---
+set ignorecase
 
-"General
-set pumheight=10
-set laststatus=2
+"--- Language ---
+set helplang=ja,en
 
-"For C
+"cancelAutoComment
+set formatoptions-=cro
+"For preventing bugs of make
+cnoreabbrev make make!
+
+set ttyfast
+
+set matchpairs+=「:」,<:>
+"}}}
+"For programming{{{
+"C{{{
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
-
-"For Ruby
+set cinwords+=case
+"}}}
+"Ruby{{{
 autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
 autocmd BufNewFile,BufRead *.rb setlocal softtabstop=2
 autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
-
-"For LaTeX
+"}}}
+"LaTeX{{{
 let g:tex_flavor='latex'
 let g:Tex_CompileRule_dvi='platex $*.tex'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
 let g:Tex_FormatDependency_pdf='dvi,pdf'
 let g:Tex_CompileRule_pdf='dvipdfmx -interaction=nonstopmode $*.dvi'
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRule_pdf='mupdf'
+autocmd BufNewFile,BufRead *.tex set iskeyword+=:
+let g:Tex_ViewRule_pdf='mupdf'"
+let g:Tex_Env_table = "\\begin{table}[<+Hhtbp+>]\<CR>\\centering\<CR>\\caption{<++>}\<CR>\\begin{tabular}{<+lcr+>}\\toprule\<CR><++>\<CR>\\end{tabular}\<CR>\\end{table}<++>"
+"}}}}}}
