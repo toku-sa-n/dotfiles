@@ -21,6 +21,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-latex/vim-latex'
 Plugin 'steffanc/cscopemaps.vim'
+Plugin 'thinca/vim-splash'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,6 +44,7 @@ filetype plugin indent on
 syntax on
 set termguicolors
 colorscheme gruvbox
+set background=dark
 
 set display=lastline
 set number
@@ -67,6 +70,13 @@ set laststatus=2
 "Scroll
 set scrolloff=5
 
+let g:splash#path=$HOME.'/dotfiles/title.txt'
+
+highlight Normal NONE
+highlight NonText NONE
+highlight LineNr NONE
+highlight Folded NONE
+highlight EndOfBuffer NONE
 "}}}
 "indent{{{
 "indent
@@ -80,10 +90,11 @@ set shiftwidth=4
 let g:hindent_indent_size=4
 
 "indentGuide
-let g:indent_guides_auto_colors = 0
+autocmd BufNewFile,BufRead *.txt  IndentGuidesDisable
+"let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level=2
-highlight IndentGuidesOdd guibg=red ctermbg=54
-highlight IndentGuidesEven guibg=green ctermbg=24
+"highlight IndentGuidesOdd guibg=red ctermbg=54
+"highlight IndentGuidesEven guibg=green ctermbg=24
 let g:indent_guides_color_change_percent = 10
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
@@ -154,7 +165,7 @@ nnoremap gO O<Esc>
 nnoremap go o<Esc>
 "}}}
 "vimrc{{{
-nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut which is ":source ~/.vimrc" if .vimrc are opened.
+nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
 "}}}
 "Others{{{
 "--- For files ---
@@ -193,4 +204,7 @@ let g:Tex_DefaultTargetFormat='pdf'
 autocmd BufNewFile,BufRead *.tex set iskeyword+=:
 let g:Tex_ViewRule_pdf='mupdf'"
 let g:Tex_Env_table = "\\begin{table}[<+Hhtbp+>]\<CR>\\centering\<CR>\\caption{<++>}\<CR>\\begin{tabular}{<+lcr+>}\\toprule\<CR><++>\<CR>\\end{tabular}\<CR>\\end{table}<++>"
+let g:Tex_Env_equation="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
+let g:Tex_Env_align="\\begin{align}\<CR><+contents+>\<CR>\\end{align}<++>"
+autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 "}}}}}}

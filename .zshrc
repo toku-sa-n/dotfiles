@@ -39,7 +39,6 @@ setopt print_eight_bit
 setopt extended_glob
 setopt globdots
 
-bindkey "^I" menu-complete
 # }}}
 # PATH
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
