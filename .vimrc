@@ -20,6 +20,7 @@ Plugin 'kana/vim-filetype-haskell'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-latex/vim-latex'
+Plugin 'steffanc/cscopemaps.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

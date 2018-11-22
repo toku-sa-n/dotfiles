@@ -2,6 +2,7 @@
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
+zplug "mollifier/cd-bookmark"
 
 if ! zplug check --verbose; then
     printf 'Install?[y/N]:'
@@ -11,6 +12,34 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+# }}}
+#Colors definition {{{
+local DEFAULT=$'%{^[[m%}'$
+local RED=$'%{^[[1;31m%}'$
+local GREEN=$'%{^[[1;32m%}'$
+local YELLOW=$'%{^[[1;33m%}'$
+local BLUE=$'%{^[[1;34m%}'$
+local PURPLE=$'%{^[[1;35m%}'$
+local LIGHT_BLUE=$'%{^[[1;36m%}'$
+local WHITE=$'%{^[[1;37m%}'$
+# }}}
+#Completions {{{
+setopt auto_param_slash
+setopt mark_dirs
+setopt list_types
+setopt auto_menu
+setopt auto_param_keys
+setopt interactive_comments
+setopt magic_equal_subst
+
+setopt complete_in_word
+setopt always_last_prompt
+
+setopt print_eight_bit
+setopt extended_glob
+setopt globdots
+
+bindkey "^I" menu-complete
 # }}}
 # PATH
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
@@ -37,7 +66,7 @@ colors
 export PROMPT="${bg[green]}%~${reset_color}
 %#"
 
-#alias
+#aliases {{{
 alias la='ls -aF --color=auto'
 alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto'
@@ -48,7 +77,11 @@ alias ....='cd ../../..'
 alias scroff='xset dpms force off && i3lock -c 000000 -e -f -u'
 alias untargz='tar -zxvf'
 alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
+alias cdb='cd-bookmark '
 
+alias -g L='| less'
+alias -g G='| grep'
+# }}}
 #hisotry
 setopt hist_ignore_dups
 setopt hist_save_no_dups
