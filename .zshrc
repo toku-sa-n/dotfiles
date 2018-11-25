@@ -56,7 +56,7 @@ compinit
 # End of lines added by compinstall
 autoload -U promptinit
 promptinit
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 setopt correct
 autoload -Uz colors
