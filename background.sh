@@ -3,10 +3,10 @@
 IMG_DIR="$HOME/background_images"
 
 if [ ! -d $IMG_DIR ]; then
-    echo Make background_images directory(Y/N)?
+    echo "Make background_images directory(Y/N)?"
     read YN
-    if [ $YN -eq "Y" ]; then
-        mkdir "$IMG_DIR"
+    if [ $YN = "Y" ]; then
+        mkdir -v "$IMG_DIR"
     fi
 else
     if [ "$(ls -A $IMG_DIR)" ]; then
