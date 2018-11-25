@@ -100,6 +100,9 @@ chpwd(){
 setopt auto_pushd
 setopt pushd_ignore_dups
 
+#Background
+~/.background.sh
+
 #Depends on the distribution using now
 
 function arch(){
