@@ -58,6 +58,9 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
+compton &
+~/.background.sh
+
 #autolock
 xautolock -locker 'i3lock -c 000000 -e -f ' -time 1 &
 #dropbox
