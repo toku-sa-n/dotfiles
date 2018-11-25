@@ -1,5 +1,7 @@
 #!/bin/sh
 
+LANG="ja_JP.UTF-8"
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -60,6 +62,8 @@ ibus-daemon -drx
 
 compton &
 ~/.background.sh
+
+
 
 #autolock
 xautolock -locker 'i3lock -c 000000 -e -f ' -time 1 &

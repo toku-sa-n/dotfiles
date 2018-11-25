@@ -26,6 +26,8 @@ Plugin 'szw/vim-dict'
 Plugin 'vim-jp/vim-vimlparser'
 Plugin 'syngan/vim-vimlint'
 
+Plugin 'vim-scripts/OmniCppComplete'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on
@@ -101,7 +103,31 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 "}}}
 "Completions{{{
-inoremap . .<C-X><C-N>
+set omnifunc=syntaxcomplete#Complete
+
+set tags+=~/.vim/tags/cpp
+
+map <C-F12> :!ctags -R -sort=yes --c++-kinds=+p --fields=+iaS --extras=+q .<CR>
+
+" OmniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+
+"set completeopt=menuone
+for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
+  exec "imap " . k . " " . k . "<C-N><C-P>"
+endfor
+
+imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 "}}}
 "Search{{{
 
@@ -162,7 +188,7 @@ set helplang=ja,en
 
 "cancelAutoComment
 set formatoptions-=cro
-"For preventing bugs of make
+"For preventing to create a new Buffer of make
 cnoreabbrev make make!
 
 set ttyfast
