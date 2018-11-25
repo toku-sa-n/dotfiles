@@ -13,8 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-endwise'
-Plugin 'vim-scripts/OmniCppComplete'
-Plugin 'szw/vim-tags'
 Plugin 'dag/vim2hs'
 Plugin 'kana/vim-filetype-haskell'
 Plugin 'vim-syntastic/syntastic'
@@ -23,6 +21,10 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'steffanc/cscopemaps.vim'
 Plugin 'thinca/vim-splash'
 Plugin 'tpope/vim-fugitive'
+Plugin 'szw/vim-dict'
+
+Plugin 'vim-jp/vim-vimlparser'
+Plugin 'syngan/vim-vimlint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,7 +76,6 @@ let g:splash#path=$HOME.'/dotfiles/title.txt'
 
 highlight Normal NONE
 highlight NonText NONE
-highlight LineNr NONE
 highlight Folded NONE
 highlight EndOfBuffer NONE
 "}}}
@@ -100,22 +101,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 "}}}
 "Completions{{{
-for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", '\zs')
-    exec "imap ".k." ".k."<C-N><C-P>"
-endfor
-au BufNewFile,BufRead *.c,*.cpp let g:vim_tags_project_tags_command="ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q"
-set tags+=~/.vim/tags/cpp
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-au CursorMovedI,InsertLeave * if pumvisible()==0|silent! pclose|endif
-noremap <F12> :TagsGenerate
-au BufWritePre *.c,*.cpp :TagsGenerate
+inoremap . .<C-X><C-N>
 "}}}
 "Search{{{
 
@@ -189,6 +175,9 @@ autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
 set cinwords+=case
 "}}}
+autocmd BufNewFile,BufRead *.html setlocal tabstop=2
+autocmd BufNewFile,BufRead *.html setlocal softtabstop=2
+autocmd BufNewFile,BufRead *.html setlocal shiftwidth=2
 "Ruby{{{
 autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
 autocmd BufNewFile,BufRead *.rb setlocal softtabstop=2
