@@ -1,46 +1,35 @@
-"Vundle{{{
-set nocompatible              " be iMproved, required
-filetype off                  " required
+scriptencoding utf-8
+"vim-plug{{{
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-endwise'
+Plug 'dag/vim2hs'
+Plug 'kana/vim-filetype-haskell'
+Plug 'vim-syntastic/syntastic'
+Plug 'morhetz/gruvbox'
+Plug 'vim-latex/vim-latex'
+Plug 'steffanc/cscopemaps.vim'
+Plug 'thinca/vim-splash'
+Plug 'tpope/vim-fugitive'
+Plug 'szw/vim-dict'
 
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plug 'vim-jp/vim-vimlparser'
+Plug 'syngan/vim-vimlint'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-endwise'
-Plugin 'dag/vim2hs'
-Plugin 'kana/vim-filetype-haskell'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'morhetz/gruvbox'
-Plugin 'vim-latex/vim-latex'
-Plugin 'steffanc/cscopemaps.vim'
-Plugin 'thinca/vim-splash'
-Plugin 'tpope/vim-fugitive'
-Plugin 'szw/vim-dict'
+Plug 'vim-jp/vimdoc-ja'
 
-Plugin 'vim-jp/vim-vimlparser'
-Plugin 'syngan/vim-vimlint'
+Plug 'vim-scripts/OmniCppComplete'
 
-Plugin 'vim-scripts/OmniCppComplete'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
+call plug#end()
 "}}}
 "Display"{{{
 
@@ -65,6 +54,7 @@ set foldmethod=marker
 set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 
 "autoformat
+filetype plugin indent on
 noremap <F3> :Autoformat<CR>
 au BufWritePre *.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat 
 
@@ -107,7 +97,7 @@ set omnifunc=syntaxcomplete#Complete
 
 set tags+=~/.vim/tags/cpp
 
-map <C-F12> :!ctags -R -sort=yes --c++-kinds=+p --fields=+iaS --extras=+q .<CR>
+map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q .<CR>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -121,13 +111,8 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
+set complete+=U,k,d,]
 
-"set completeopt=menuone
-for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
-  exec "imap " . k . " " . k . "<C-N><C-P>"
-endfor
-
-imap <expr> <TAB> pumvisible() ? "\<Down>" : "\<Tab>"
 "}}}
 "Search{{{
 
