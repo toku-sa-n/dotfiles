@@ -103,6 +103,9 @@ alias -g G='| grep'
 
 alias gi="git init && gac 'Initial commit'"
 alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gm="git commit -m"
 alias gac="git add . && git commit -m"
 
 alias gp="git push"
@@ -128,9 +131,9 @@ alias xrc="vim ~/.xinitrc"
 
 function arch(){
     alias detailpac='pacman -Qi'
-    alias ns='sudo netctl start '
-    alias inst='sudo pacman -S '
-    alias unst='sudo pacman -Rs '
+    alias ns='sudo netctl start'
+    alias inst='sudo pacman -S'
+    alias unst='sudo pacman -Rs'
     alias upgr='sudo pacman -Syu'
     alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 }
