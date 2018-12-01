@@ -62,7 +62,7 @@ setopt correct
 autoload -Uz colors
 colors
 #prompt
-export PROMPT="${bg[green]}%~${reset_color}
+export PROMPT="[${fg[yellow]}%~${reset_color}]
 %#"
 
 #hisotry
