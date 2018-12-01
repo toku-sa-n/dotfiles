@@ -63,6 +63,10 @@ ibus-daemon -drx
 compton &
 ~/.background.sh
 
+#export
+export EDITOR=vim
+export VISUAL=vim
+
 
 
 #autolock
