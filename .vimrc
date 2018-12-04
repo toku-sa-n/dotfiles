@@ -7,7 +7,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-endwise'
@@ -18,8 +17,9 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-latex/vim-latex'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'   " Git wrapper
 Plug 'szw/vim-dict'
+Plug 'godlygeek/tabular'    " line up
 
 
 Plug 'vim-jp/vim-vimlparser'
@@ -28,6 +28,7 @@ Plug 'syngan/vim-vimlint'
 Plug 'vim-jp/vimdoc-ja'
 
 Plug 'vim-scripts/OmniCppComplete'
+
 
 call plug#end()
 "}}}
@@ -100,14 +101,14 @@ set tags+=~/.vim/tags/cpp
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q .<CR>
 
 " OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let g:OmniCpp_NamespaceSearch = 1
+let g:OmniCpp_GlobalScopeSearch = 1
+let g:OmniCpp_ShowAccess = 1
+let g:OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let g:OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let g:OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let g:OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let g:OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
@@ -207,4 +208,6 @@ let g:Tex_Env_table = "\\begin{table}[<+Hhtbp+>]\<CR>\\centering\<CR>\\caption{<
 let g:Tex_Env_equation="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
 let g:Tex_Env_align="\\begin{align}\<CR><+contents+>\<CR>\\end{align}<++>"
 autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
+autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
+autocmd BufNewFile,BufRead *.tex call IMAP('`j','\mathrm{<++>}<++>','tex')
 "}}}}}}
