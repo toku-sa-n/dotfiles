@@ -2,22 +2,30 @@
 
 #Autosettings for i3 and i3blocks
 
-if [ ! -d $HOME/.config/i3 ]; then
-    mkdir $HOME/.config/i3
-elif [ -f $HOME/.config/i3/config ]; then
-    mv $HOME/.config/i3/config $HOME/.config/i3/config.old
+I3_DIR=$HOME/.config/i3
+BLOCKS_DIR=$HOME/.config/i3blocks
+
+I3_CONFIG=$I3_DIR/config
+BLOCKS_CONFIG=$BLOCKS_DIR/config
+
+DOTFILES=$HOME/dotfiles
+
+if [ ! -d $I3_DIR ]; then
+    mkdir $I3_DIR
+elif [ -f $I3_CONFIG ] && [ ! -L $I3_CONFIG ]; then
+    mv $I3_CONFIG $I3_DIR/config.old
 fi
 
-if [ ! -d $HOME/.config/i3blocks ]; then
-    mkdir $HOME/.config/i3blocks
-elif [ -f $HOME/.config/i3blocks/config ]; then
-    mv $HOME/.config/i3blocks/config $HOME/.config/i3blocks/config.old
+if [ ! -d $BLOCKS_DIR ]; then
+    mkdir $BLOCKS_DIR
+elif [ -f $BLOCKS_CONFIG ] && [ ! -L $BLOCKS_CONFIG ]; then
+    mv $BLOCKS_CONFIG $BLOCKS_DIR/config.old
 fi
 
-if [ ! -L $HOME/.config/i3/config ]; then
-    ln -sF $HOME/dotfiles/.i3config $HOME/.config/i3/config
+if [ ! -L $I3_CONFIG ]; then
+    ln -sF $DOTFILES/.i3config $I3_CONFIG
 fi
-if [ ! -L $HOME/.config/i3/config ]; then
-    ln -sF $HOME/dotfiles/.i3blocks_config $HOME/.config/i3blocks/config
+if [ ! -L $BLOCKS_CONFIG ]; then
+    ln -sF $DOTFILES/.i3blocks_config $BLOCKS_CONFIG
 fi
 echo "Restart i3."
