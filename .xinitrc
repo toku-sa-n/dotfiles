@@ -55,11 +55,11 @@ xclock -geometry 50x50-1+1 &
 xterm -geometry 80x50+494+51 &
 xterm -geometry 80x20+494-0 &
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drx
-
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+fcitx &
 compton &
 ~/.background.sh
 
@@ -74,4 +74,3 @@ xautolock -locker 'i3lock -c 000000 -e -f ' -time 1 &
 #dropbox
 ~/.dropbox-dist/dropboxd &
 exec i3
-
