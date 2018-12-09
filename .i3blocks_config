@@ -6,7 +6,7 @@ interval=60
 
 [memory]
 label=.
-command=free -h|awk 'match($0,/^Mem/){print $3 " / " $2}'
+command=echo -n $(free -h|awk 'match($0,/^Mem/){print $3 " / " $2}') ; echo -n "    " ;  echo -n $(free -b | awk 'match($0,/^Mem/){print int ($3*1000/$2)/10}') ; echo "%"
 color=#8fa1b3
 interval=1
 
