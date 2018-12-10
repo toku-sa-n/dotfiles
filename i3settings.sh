@@ -29,20 +29,24 @@ if [ ! -L $BLOCKS_CONFIG ]; then
     ln -sF $DOTFILES/.i3blocks_config $BLOCKS_CONFIG
 fi
 
-FONTLIST=$(pacman -Ql|awk -F " " '{print $1}'|uniq)
+PACLIST=$(pacman -Ql|awk -F " " '{print $1}'|uniq)
 
-INST_FONT=""
+INST_PAC=""
 
-if ! echo "$FONTLIST" | grep -q "awesome-terminal-fonts"; then
-    INST_FONT="awesome-terminal-fonts"
+if ! echo "$PACLIST" | grep -q "awesome-terminal-fonts"; then
+    INST_PAC="awesome-terminal-fonts"
 fi
 
-if ! echo "$FONTLIST" | grep -q "ttf-font-awesome" ; then
-    INST_FONT="$INST_FONT ttf-font-awesome"
+if ! echo "$PACLIST" | grep -q "ttf-font-awesome" ; then
+    INST_PAC="$INST_PAC ttf-font-awesome"
 fi
 
-if [[ -n "$INST_FONT" ]]; then
-    sudo pacman -S $INST_FONT
+if ! echo "$PACLIST" | grep -q "upower" ; then
+    INST_PAC="$INST_PAC upower"
+fi
+
+if [[ -n "$INST_PAC" ]]; then
+    sudo pacman -S $INST_PAC
 fi
 
 echo "Restart i3."

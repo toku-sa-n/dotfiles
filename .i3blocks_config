@@ -41,4 +41,5 @@ color=#8fa1b3
 interval=1
 
 [battery]
+command=upower -i /org/freedesktop/UPower/devices/battery_BAT0|grep percentage|awk '{print $2}'
 interval=30
