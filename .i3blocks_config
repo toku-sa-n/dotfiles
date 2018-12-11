@@ -6,7 +6,7 @@ interval=60
 
 [memory]
 label=.
-command=echo -n $(free -h|awk 'match($0,/^Mem/){print $3 " / " $2}') ; echo -n "    " ;  echo -n $(free -b | awk 'match($0,/^Mem/){print int ($3*1000/$2)/10}') ; echo "%"
+command=echo -n $(free -h|awk 'match($0,/^Mem/){print $3 " / " $2}') ; echo -n "  :  " ;  echo -n $(free -b | awk 'match($0,/^Mem/){print int ($3*1000/$2)/10}') ; echo "%"
 color=#8fa1b3
 interval=1
 
@@ -18,7 +18,7 @@ interval=1
 
 [network]
 label=
-command=[[ $(iw dev wlp4s0 link) != 'Not connected.' ]] && echo "$(iw dev wlp4s0 link | sed '/SSID/!d;s/ //g;s/[^:]*://') : -$(iw dev wlp4s0 link | grep signal | grep -o '[0-9]*')dBm"
+command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
 color=#8fa1b3
 interval=1
 
