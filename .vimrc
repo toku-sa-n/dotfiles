@@ -212,4 +212,5 @@ let g:Tex_HotKeyMappings='align,table,equation'
 autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('`J','\mathrm{<++>}<++>','tex')
+autocmd BufNewFile,BufRead *.tex call IMAP('``','\pm','tex')
 "}}}}}}
