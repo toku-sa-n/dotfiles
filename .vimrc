@@ -183,10 +183,10 @@ set matchpairs+=「:」,<:>
 "}}}
 "For programming{{{
 "C{{{
-autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O"{{{
+autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O"
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
 set cinwords+=case
-"}}}}}}
+"}}}
 "HTML{{{
 autocmd BufNewFile,BufRead *.html setlocal tabstop=2
 autocmd BufNewFile,BufRead *.html setlocal softtabstop=2
