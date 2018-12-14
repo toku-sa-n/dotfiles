@@ -193,7 +193,7 @@ autocmd BufNewFile,BufRead *.html setlocal softtabstop=2
 autocmd BufNewFile,BufRead *.html setlocal shiftwidth=2
 "}}}
 "Perl{{{
-autocmd Filetype perl setlocal equilprg=perltidy\ -st
+autocmd Filetype perl setlocal equalprg=perltidy\ -st
 "}}}
 "Ruby{{{
 autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
