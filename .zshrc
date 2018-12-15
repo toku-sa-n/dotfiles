@@ -42,6 +42,7 @@ setopt globdots
 # }}}
 # PATH
 export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
+export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
