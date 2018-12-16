@@ -14,11 +14,12 @@ Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'vim-syntastic/syntastic'
 Plug 'morhetz/gruvbox'
-Plug 'vim-latex/vim-latex'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
+Plug 'vim-latex/vim-latex'
 Plug 'tpope/vim-fugitive'   " Git wrapper
 Plug 'szw/vim-dict'
+Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'    " line up
 
 
@@ -57,7 +58,7 @@ set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 "autoformat
 filetype plugin indent on
 noremap <F3> :Autoformat<CR>
-au BufWritePre *.hs,*.pl,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+au BufWritePre *.hs,*.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
 
 set pumheight=10
 set laststatus=2
@@ -180,6 +181,8 @@ cnoreabbrev make make!
 set ttyfast
 
 set matchpairs+=「:」,<:>
+
+
 "}}}
 "For programming{{{
 "C{{{
@@ -218,4 +221,5 @@ autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('`J','\mathrm{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('``','\pm','tex')
+autocmd BufRead *.tex call Tex_ViewLaTeX()
 "}}}}}}
