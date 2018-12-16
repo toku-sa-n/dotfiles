@@ -21,6 +21,8 @@ Plug 'tpope/vim-fugitive'   " Git wrapper
 Plug 'szw/vim-dict'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'    " line up
+Plug 'kana/vim-textobj-user'    "needed for vim-textobj-entire
+Plug 'kana/vim-textobj-entire'  "ae for targeting the entire content of the current buffer.
 
 
 Plug 'vim-jp/vim-vimlparser'
