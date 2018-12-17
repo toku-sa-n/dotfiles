@@ -33,4 +33,4 @@ interval=30
 
 [Dropbox]
 command=echo -n "Dropbox: "; dropbox-cli status
-interval=30
+interval=1
