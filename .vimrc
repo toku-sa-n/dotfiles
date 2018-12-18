@@ -76,6 +76,16 @@ highlight NonText NONE
 highlight Folded NONE
 highlight EndOfBuffer NONE
 "}}}
+"Syntastic{{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
 "indent{{{
 "indent
 set list listchars=tab:>-,trail:_
@@ -192,6 +202,8 @@ set matchpairs+=「:」,<:>
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O"
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
 set cinwords+=case
+autocmd BufNewFile,BufRead *.c,*.h,*.cpp set foldmethod=indent
+let g:syntastic_c_checkers=['gcc','clang','cppcheck']
 "}}}
 "HTML{{{
 autocmd BufNewFile,BufRead *.html setlocal tabstop=2
