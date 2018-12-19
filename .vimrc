@@ -13,7 +13,7 @@ Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'vim-syntastic/syntastic'
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
 Plug 'vim-latex/vim-latex'
@@ -55,7 +55,7 @@ set termguicolors
 set background=dark
 
 set display=lastline
-colorscheme solarized
+colorscheme gruvbox
 set number
 
 "Show which keys are pressed
