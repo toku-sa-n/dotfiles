@@ -13,25 +13,36 @@ Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'vim-syntastic/syntastic'
-Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
 Plug 'vim-latex/vim-latex'
 Plug 'tpope/vim-fugitive'   " Git wrapper
+Plug 'airblade/vim-gitgutter'
 Plug 'szw/vim-dict'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'    " line up
 Plug 'kana/vim-textobj-user'    "needed for vim-textobj-entire
 Plug 'kana/vim-textobj-entire'  "ae for targeting the entire content of the current buffer.
 Plug 'adimit/prolog.vim'
-
-
 Plug 'vim-jp/vim-vimlparser'
 Plug 'syngan/vim-vimlint'
-
 Plug 'vim-jp/vimdoc-ja'
-
 Plug 'vim-scripts/OmniCppComplete'
+Plug 'vim-airline/vim-airline'
+
+
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
+
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 
 
 call plug#end()
@@ -41,10 +52,10 @@ call plug#end()
 "Colorchange
 syntax on
 set termguicolors
-colorscheme gruvbox
 set background=dark
 
 set display=lastline
+colorscheme solarized
 set number
 
 "Show which keys are pressed
