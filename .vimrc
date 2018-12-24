@@ -30,6 +30,7 @@ Plug 'syngan/vim-vimlint'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/OmniCppComplete'
 Plug 'vim-airline/vim-airline'
+Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 
 
 if has('nvim')
@@ -273,5 +274,9 @@ autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('`J','\mathrm{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('``','\pm','tex')
+autocmd BufNewFile,BufRead *.tex imap <C-I> <Plug>Tex_InsertItemOnThisLine()
 autocmd BufRead *.tex call Tex_ViewLaTeX()
+set concealcursor=""
+set conceallevel=2
+let g:tex_conceal="abdmgs"
 "}}}}}}
