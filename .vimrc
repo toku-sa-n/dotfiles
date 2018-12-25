@@ -237,7 +237,7 @@ endif
 "}}}
 "For programming{{{
 "C{{{
-autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O"
+autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
 set cinwords+=case
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp set foldmethod=indent
