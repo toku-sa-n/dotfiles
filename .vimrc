@@ -278,5 +278,9 @@ autocmd BufNewFile,BufRead *.tex imap <C-I> <Plug>Tex_InsertItemOnThisLine()
 autocmd BufRead *.tex call Tex_ViewLaTeX()
 set concealcursor=""
 set conceallevel=2
+<<<<<<< HEAD
 let g:tex_conceal="abdmgs"
+=======
+let g:tex_conceal="abdgm"
+>>>>>>> fd0232d6f863609ceeef1c50000810df59f7aed5
 "}}}}}}
