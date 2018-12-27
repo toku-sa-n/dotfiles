@@ -237,7 +237,7 @@ endif
 "}}}
 "For programming{{{
 "C{{{
-autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O"
+autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
 set cinwords+=case
 autocmd BufNewFile,BufRead *.c,*.h,*.cpp set foldmethod=indent
@@ -274,8 +274,9 @@ autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('`J','\mathrm{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('``','\pm','tex')
+autocmd BufNewFile,BufRead *.tex imap <C-I> <Plug>Tex_InsertItemOnThisLine()
 autocmd BufRead *.tex call Tex_ViewLaTeX()
 set concealcursor=""
 set conceallevel=2
-let g:tex_conceal="abdgm"
+let g:tex_conceal="abdmgs"
 "}}}}}}
