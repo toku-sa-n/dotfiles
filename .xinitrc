@@ -68,7 +68,6 @@ export EDITOR=vim
 export VISUAL=vim
 
 
-
 #autolock
 xautolock -locker 'i3lock -c 000000 -e -f ' -time 1 &
 #dropbox

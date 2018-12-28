@@ -58,7 +58,7 @@ compinit
 autoload -U promptinit
 promptinit
 [ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 setopt correct
 autoload -Uz colors
 colors

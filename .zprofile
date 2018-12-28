@@ -1,1 +1,2 @@
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+tty=$(tty|cut -b10-)
+[[ -z $DISPLAY && ! $tty -eq 1 ]] && exec startx
