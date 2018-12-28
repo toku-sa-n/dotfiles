@@ -273,8 +273,7 @@ let g:Tex_HotKeyMappings='align,table,equation'
 autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
 autocmd BufNewFile,BufRead *.tex call IMAP('`J','\mathrm{<++>}<++>','tex')
-autocmd BufNewFile,BufRead *.tex call IMAP('``','\pm','tex')
-autocmd BufNewFile,BufRead *.tex imap <C-I> <Plug>Tex_InsertItemOnThisLine()
+autocmd BufNewFile,BufRead *.tex call IMAP('``','\partial','tex')
 autocmd BufRead *.tex call Tex_ViewLaTeX()
 set concealcursor=""
 set conceallevel=2
