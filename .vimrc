@@ -74,7 +74,7 @@ set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 "autoformat
 filetype plugin indent on
 noremap <F3> :Autoformat<CR>
-au BufWritePre *.hs,*.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+au BufWritePre *.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
 
 set pumheight=10
 set laststatus=2
