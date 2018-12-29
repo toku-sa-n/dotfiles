@@ -257,6 +257,14 @@ autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
 autocmd BufNewFile,BufRead *.rb setlocal softtabstop=2
 autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
 "}}}
+"Haskell{{{
+let g:haskellmode_completion_ghc=0
+autocmd Filetype haskell setlocal tabstop=8
+autocmd Filetype haskell setlocal softtabstop=4
+autocmd Filetype haskell setlocal shiftwidth=4
+autocmd Filetype haskell setlocal shiftround
+autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
+"}}}
 "LaTeX{{{
 let g:tex_flavor='latex'
 let g:Tex_CompileRule_dvi='platex $*.tex'
