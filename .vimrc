@@ -238,24 +238,24 @@ endif
 "}}}
 "For programming{{{
 "C{{{
-autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {<CR> {<CR>}<Esc>O
-autocmd BufNewFile,BufRead *.c,*.h,*.cpp inoremap {;<CR> {<CR>};<Esc>O
+autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
+autocmd Filetype c inoremap {;<CR> {<CR>};<Esc>O
+autocmd Filetype c set foldmethod=indent
 set cinwords+=case
-autocmd BufNewFile,BufRead *.c,*.h,*.cpp set foldmethod=indent
 let g:syntastic_c_checkers=['gcc','clang','cppcheck']
 "}}}
 "HTML{{{
-autocmd BufNewFile,BufRead *.html setlocal tabstop=2
-autocmd BufNewFile,BufRead *.html setlocal softtabstop=2
-autocmd BufNewFile,BufRead *.html setlocal shiftwidth=2
+autocmd Filetype html setlocal tabstop=2
+autocmd Filetype html setlocal softtabstop=2
+autocmd Filetype html setlocal shiftwidth=2
 "}}}
 "Perl{{{
 autocmd Filetype perl setlocal equalprg=perltidy\ -st
 "}}}
 "Ruby{{{
-autocmd BufNewFile,BufRead *.rb setlocal tabstop=2
-autocmd BufNewFile,BufRead *.rb setlocal softtabstop=2
-autocmd BufNewFile,BufRead *.rb setlocal shiftwidth=2
+autocmd Filetype ruby setlocal tabstop=2
+autocmd Filetype ruby setlocal softtabstop=2
+autocmd Filetype ruby setlocal shiftwidth=2
 "}}}
 "Haskell{{{
 let g:haskellmode_completion_ghc=0
@@ -279,10 +279,10 @@ let g:Tex_Env_equation="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<+
 let g:Tex_Env_equ="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
 let g:Tex_Env_align="\\begin{align}\<CR><+contents+>\<CR>\\end{align}<++>"
 let g:Tex_HotKeyMappings='align,table,equation'
-autocmd BufNewFile,BufRead *.tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
-autocmd BufNewFile,BufRead *.tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
-autocmd BufNewFile,BufRead *.tex call IMAP('`J','\mathrm{<++>}<++>','tex')
-autocmd BufNewFile,BufRead *.tex call IMAP('``','\partial','tex')
+autocmd Filetype tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
+autocmd Filetype tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
+autocmd Filetype tex call IMAP('`J','\mathrm{<++>}<++>','tex')
+autocmd Filetype tex call IMAP('``','\partial','tex')
 autocmd BufRead *.tex call Tex_ViewLaTeX()
 set concealcursor=""
 set conceallevel=2
