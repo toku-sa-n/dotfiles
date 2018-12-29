@@ -31,6 +31,7 @@ Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/OmniCppComplete'
 Plug 'vim-airline/vim-airline'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
+Plug 'eagletmt/neco-ghc'
 
 
 if has('nvim')
