@@ -13,7 +13,7 @@ Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'vim-syntastic/syntastic'
-Plug 'morhetz/gruvbox'
+Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
 Plug 'vim-latex/vim-latex'
@@ -51,12 +51,13 @@ call plug#end()
 "Display"{{{
 
 "Colorchange
+set t_Co=256
 syntax on
 set termguicolors
 set background=dark
 
 set display=lastline
-colorscheme gruvbox
+colorscheme dim
 set number
 
 "Show which keys are pressed

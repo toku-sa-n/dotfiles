@@ -28,9 +28,11 @@ color=#8fa1b3
 interval=1
 
 [battery]
-command=upower -i /org/freedesktop/UPower/devices/battery_BAT0|grep percentage|awk '{print $2}'
+label=Battery:
+command=acpi|awk '{print $4}'
 interval=30
 
 [Dropbox]
-command=echo -n "Dropbox: "; dropbox-cli status|tr '\n' ';'
+label=Dropbox:
+command=dropbox-cli status|tr '\n' ';'
 interval=1
