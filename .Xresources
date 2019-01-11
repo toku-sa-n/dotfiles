@@ -13,7 +13,7 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 URxvt.visualBell:           true
 URxvt.saveLines:            3000
-URxvt.fading:               80
+URxvt.fading:               40
 
 !! Font list and Spacing
 URxvt.font:                 xft:Dejavu Sans Mono-9,\
