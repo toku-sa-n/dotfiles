@@ -26,8 +26,8 @@ URxvt.color0:              [90]#2E3436 /* black */
 URxvt.color1:              [90]#a40000 /* red */
 URxvt.color2:              [90]#4E9A06 /* green */
 URxvt.color3:              [90]#C4A000 /* yellow */
-URxvt.color4:              [90]#3465A4 /* blue */
-URxvt.color5:              [90]#75507B /* magenta */
+URxvt.color4:              [90]#4576B5 /* blue */
+URxvt.color5:              [90]#86618C /* magenta */
 URxvt.color6:              [90]#CE5C00 /* cyan */
 URxvt.color7:              [90]#BABDB9 /* white */
 URxvt.color8:              [90]#555753 /* brightblack */
