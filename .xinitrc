@@ -67,6 +67,9 @@ compton &
 export EDITOR=vim
 export VISUAL=vim
 
+#dropbox
+[ -e ~/.dropbox-dist/dropboxd ] && ~/.dropbox-dist/dropboxd &
+
 
 #autolock
 xautolock -locker 'i3lock -c 000000 -e -f ' -time 1 &
