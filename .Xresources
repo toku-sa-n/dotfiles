@@ -1,0 +1,52 @@
+!! ~/.Xresources
+
+!!
+!! rxvt-unicode (urxvt)
+!!
+
+URxvt.geometry:             96x32
+URxvt.scrollBar_right:      true
+URxvt.scrollBar_floating:   true
+URxvt.scrollstyle:          plain
+URxvt.cursorBlink:          true
+URxvt.cursorUnderline:      false
+URxvt.pointerBlank:         true
+URxvt.visualBell:           true
+URxvt.saveLines:            3000
+URxvt.fading:               40
+
+!! Font list and Spacing
+URxvt.font:                 xft:Dejavu Sans Mono-9,\
+                            xft:IPAGothic,\
+                            xft:Terminess Powerline:size=12
+URxvt.letterSpace:          -1
+
+Rxvt.depth:                32
+URxvt.color0:              [90]#2E3436 /* black */
+URxvt.color1:              [90]#a40000 /* red */
+URxvt.color2:              [90]#4E9A06 /* green */
+URxvt.color3:              [90]#C4A000 /* yellow */
+URxvt.color4:              [90]#3465A4 /* blue */
+URxvt.color5:              [90]#75507B /* magenta */
+URxvt.color6:              [90]#CE5C00 /* cyan */
+URxvt.color7:              [90]#BABDB9 /* white */
+URxvt.color8:              [90]#555753 /* brightblack */
+URxvt.color9:              [90]#EF2929 /* bright red */
+URxvt.color10:             [90]#8AE234 /* bright green */
+URxvt.color11:             [90]#FCE94F /* bright yellow */
+URxvt.color12:             [90]#729FCF /* bright blue */
+URxvt.color13:             [90]#AD7FA8 /* bright magenta */
+URxvt.color14:             [90]#FCAF3E /* bright cyan */
+URxvt.color15:             [90]#EEEEEC /* bright white */
+URxvt.foreground:          [90]#ebdbb2 
+URxvt.background:          [90]#282828 
+URxvt.colorIT:             [90]#8ec07c 
+URxvt.colorBD:             [90]#d5c4a1 
+URxvt.colorUL:             [90]#83a598 
+URxvt.scrollColor:         [90]#504945 
+
+URxvt.perl-ext-common:      ...,tabbed,...
+URxvt.tabbed.tabbar-fg:     7
+URxvt.tabbed.tabbar-bg:     0
+URxvt.tabbed.tab-fg:     0
+URxvt.tabbed.tab-bg:     15

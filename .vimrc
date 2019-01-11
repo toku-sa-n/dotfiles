@@ -14,6 +14,7 @@ Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'vim-syntastic/syntastic'
 Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'noahfrederick/vim-noctu'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
 Plug 'vim-latex/vim-latex'
@@ -52,13 +53,14 @@ call plug#end()
 "Display"{{{
 
 "Colorchange
-set t_Co=256
+let g:hybrid_custom_term_colors=1
+let g:hybrid_reduced_contrast=1
+set t_Co=16
 syntax on
-set termguicolors
 set background=dark
 
 set display=lastline
-colorscheme dim
+colorscheme noctu
 set number
 
 "Show which keys are pressed
@@ -84,11 +86,6 @@ set laststatus=2
 set scrolloff=5
 
 let g:splash#path=$HOME.'/dotfiles/title.txt'
-
-highlight Normal NONE
-highlight NonText NONE
-highlight Folded NONE
-highlight EndOfBuffer NONE
 "}}}
 "Syntastic{{{
 set statusline+=%#warningmsg#
