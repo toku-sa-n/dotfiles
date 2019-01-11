@@ -13,7 +13,7 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 URxvt.visualBell:           true
 URxvt.saveLines:            3000
-URxvt.fading:               40
+URxvt.fading:               80
 
 !! Font list and Spacing
 URxvt.font:                 xft:Dejavu Sans Mono-9,\
@@ -22,28 +22,28 @@ URxvt.font:                 xft:Dejavu Sans Mono-9,\
 URxvt.letterSpace:          -1
 
 Rxvt.depth:                32
-URxvt.color0:              [90]#2E3436 /* black */
-URxvt.color1:              [90]#a40000 /* red */
-URxvt.color2:              [90]#4E9A06 /* green */
-URxvt.color3:              [90]#C4A000 /* yellow */
-URxvt.color4:              [90]#4576B5 /* blue */
-URxvt.color5:              [90]#86618C /* magenta */
-URxvt.color6:              [90]#CE5C00 /* cyan */
-URxvt.color7:              [90]#BABDB9 /* white */
-URxvt.color8:              [90]#666864 /* bright black */
-URxvt.color9:              [90]#EF2929 /* bright red */
-URxvt.color10:             [90]#8AE234 /* bright green */
-URxvt.color11:             [90]#FCE94F /* bright yellow */
-URxvt.color12:             [90]#729FCF /* bright blue */
-URxvt.color13:             [90]#BE8FB9 /* bright magenta */
-URxvt.color14:             [90]#FCAF3E /* bright cyan */
-URxvt.color15:             [90]#EEEEEC /* bright white */
-URxvt.foreground:          [90]#ebdbb2 
-URxvt.background:          [90]#282828 
-URxvt.colorIT:             [90]#8ec07c 
-URxvt.colorBD:             [90]#d5c4a1 
-URxvt.colorUL:             [90]#83a598 
-URxvt.scrollColor:         [90]#504945 
+URxvt.color0:              [80]#2E3436 /* black */
+URxvt.color1:              [80]#a40000 /* red */
+URxvt.color2:              [80]#4E9A06 /* green */
+URxvt.color3:              [80]#C4A000 /* yellow */
+URxvt.color4:              [80]#4576B5 /* blue */
+URxvt.color5:              [80]#86618C /* magenta */
+URxvt.color6:              [80]#CE5C00 /* cyan */
+URxvt.color7:              [80]#BABDB9 /* white */
+URxvt.color8:              [80]#666864 /* bright black */
+URxvt.color9:              [80]#EF2929 /* bright red */
+URxvt.color10:             [80]#8AE234 /* bright green */
+URxvt.color11:             [80]#FCE94F /* bright yellow */
+URxvt.color12:             [80]#729FCF /* bright blue */
+URxvt.color13:             [80]#BE8FB9 /* bright magenta */
+URxvt.color14:             [80]#FCAF3E /* bright cyan */
+URxvt.color15:             [80]#EEEEEC /* bright white */
+URxvt.foreground:          [80]#ebdbb2 
+URxvt.background:          [80]#282828 
+URxvt.colorIT:             [80]#8ec07c 
+URxvt.colorBD:             [80]#d5c4a1 
+URxvt.colorUL:             [80]#83a598 
+URxvt.scrollColor:         [80]#504945 
 
 URxvt.perl-ext-common:      ...,tabbed,...
 URxvt.tabbed.tabbar-fg:     7
