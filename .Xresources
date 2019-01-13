@@ -18,6 +18,7 @@ URxvt.fading:               40
 !! Font list and Spacing
 URxvt.font:                 xft:Dejavu Sans Mono-9,\
                             xft:IPAGothic,\
+                            xft:Font Awesome 5 Free,\
                             xft:Terminess Powerline:size=12
 URxvt.letterSpace:          -1
 
