@@ -61,7 +61,7 @@ export XMODIFIERS=@im=fcitx
 export DefaultIMModule=fcitx
 fcitx &
 compton &
-~/.background.sh
+~/.background.sh &
 
 #export
 export EDITOR=vim
