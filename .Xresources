@@ -39,18 +39,18 @@ URxvt.color12:             #83AFDF /* bright blue */
 URxvt.color13:             #BE8FB9 /* bright magenta */
 URxvt.color14:             #FCAF3E /* bright cyan */
 URxvt.color15:             #EEEEEC /* bright white */
-URxvt.foreground:          [90]#ebdbb2 
-URxvt.background:          [80]#272727 
-URxvt.colorIT:             [90]#8ec07c 
-URxvt.colorBD:             [90]#d5c4a1 
-URxvt.colorUL:             [90]#83a598 
-URxvt.scrollColor:         [90]#504945 
+URxvt.foreground:          [90]#ebdbb2
+URxvt.background:          [80]#272727
+URxvt.colorIT:             [90]#8ec07c
+URxvt.colorBD:             [90]#d5c4a1
+URxvt.colorUL:             [90]#83a598
+URxvt.scrollColor:         [90]#504945
 
 URxvt.perl-ext-common:      ...,tabbed,xim-onthespot,...
 URxvt.tabbed.tabbar-fg:     7
 URxvt.tabbed.tabbar-bg:     0
-URxvt.tabbed.tab-fg:     0
-URxvt.tabbed.tab-bg:     15
+URxvt.tabbed.tab-fg:        0
+URxvt.tabbed.tab-bg:        15
 
 URxvt.inputMethod:          fcitx
 URxvt.preeditType:          OnTheSpot
