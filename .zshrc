@@ -90,6 +90,9 @@ chpwd(){
         ls --color=auto
 }
 
+#z command
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
 #history of cd
 setopt auto_pushd
 setopt pushd_ignore_dups
