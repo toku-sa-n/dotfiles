@@ -31,6 +31,7 @@ Plug 'syngan/vim-vimlint'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/OmniCppComplete'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 Plug 'eagletmt/neco-ghc'
 
@@ -63,6 +64,8 @@ set display=lastline
 colorscheme noctu
 set number
 
+let g:airline_theme='light'
+
 "Show which keys are pressed
 set showcmd
 
@@ -86,6 +89,8 @@ set laststatus=2
 set scrolloff=5
 
 let g:splash#path=$HOME.'/dotfiles/title.txt'
+
+hi Folded ctermbg=none
 "}}}
 "Syntastic{{{
 set statusline+=%#warningmsg#
