@@ -24,7 +24,7 @@ URxvt.letterSpace:          -1
 Rxvt.depth:                32
 URxvt.color0:              #2E3436 /* black */
 URxvt.color1:              #a40000 /* red */
-URxvt.color2:              #4E9A06 /* green */
+URxvt.color2:              #6FBC28 /* green */
 URxvt.color3:              #C4A000 /* yellow */
 URxvt.color4:              #5687C6 /* blue */
 URxvt.color5:              #86618C /* magenta */
@@ -32,7 +32,7 @@ URxvt.color6:              #CE5C00 /* cyan */
 URxvt.color7:              #BABDB9 /* white */
 URxvt.color8:              #888A86 /* bright black */
 URxvt.color9:              #EF2929 /* bright red */
-URxvt.color10:             #8AE234 /* bright green */
+URxvt.color10:             #ACF456 /* bright green */
 URxvt.color11:             #FCE94F /* bright yellow */
 URxvt.color12:             #83AFDF /* bright blue */
 URxvt.color13:             #BE8FB9 /* bright magenta */
