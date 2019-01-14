@@ -141,7 +141,7 @@ alias xrc="vim ~/.xinitrc"
 # }}}
 
 
-#Depends on the distribution using now
+#Aliases which depends on the distribution using now{{{
 
 function arch(){
     alias detailpac='pacman -Qi'
@@ -164,4 +164,4 @@ function(){
         gentoo
     fi
 }
-
+# }}}
