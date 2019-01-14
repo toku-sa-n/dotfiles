@@ -124,6 +124,8 @@ alias zpro="vim ~/.zprofile"
 alias xrc="vim ~/.xinitrc"
 # }}}
 
+eval $(thefuck --alias)
+
 
 #Aliases which depends on the distribution using now{{{
 
