@@ -122,6 +122,8 @@ alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias zpro="vim ~/.zprofile"
 alias xrc="vim ~/.xinitrc"
+
+alias f="fuck"
 # }}}
 
 eval $(thefuck --alias)
