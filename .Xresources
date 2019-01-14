@@ -17,6 +17,7 @@ URxvt.fading:               40
 
 !! Font list and Spacing
 URxvt.font:                 xft:Source Code Pro-11,\
+                            xft:Standard Symbols L,\
                             xft:IPAGothic,\
                             xft:Unifont,\
 
