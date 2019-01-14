@@ -62,10 +62,12 @@ export DefaultIMModule=fcitx
 fcitx &
 compton &
 ~/.background.sh &
+urxvtd -o -f
 
 #export
 export EDITOR=vim
 export VISUAL=vim
+export TERMINAL=urxvtc
 
 #dropbox
 [ -e ~/.dropbox-dist/dropboxd ] && ~/.dropbox-dist/dropboxd &

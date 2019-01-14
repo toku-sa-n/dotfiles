@@ -45,11 +45,6 @@ URxvt.colorBD:             [90]#d5c4a1
 URxvt.colorUL:             [90]#83a598
 URxvt.scrollColor:         [90]#504945
 
-URxvt.perl-ext-common:      ...,tabbed,xim-onthespot,...
-URxvt.tabbed.tabbar-fg:     7
-URxvt.tabbed.tabbar-bg:     0
-URxvt.tabbed.tab-fg:        0
-URxvt.tabbed.tab-bg:        15
-
+URxvt.perl-ext-common:      ...,xim-onthespot,...
 URxvt.inputMethod:          fcitx
 URxvt.preeditType:          OnTheSpot
