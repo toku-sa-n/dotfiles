@@ -152,10 +152,16 @@ function arch(){
     alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 }
 
+function gentoo(){
+    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
+}
+
 function(){
     local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
     if  echo $dist | grep -sq 'arch' ; then
         arch
+    elif echo $dist |grep -sq 'gentoo' ; then
+        gentoo
     fi
 }
 
