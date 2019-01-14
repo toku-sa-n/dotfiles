@@ -44,9 +44,11 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/neco-syntax'
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 
 
 call plug#end()
@@ -227,6 +229,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+let g:neosnippet#enable_snipmate_compatibility=1
+let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 "}}}
 "Others{{{
 "--- For files ---
@@ -250,8 +255,15 @@ else
     set pyxversion=2
 endif
 
+let g:filetype_to_ignore=['latex','plaintex','tex','text']
+autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make<CR>
+
+
 "}}}
 "For programming{{{
+"Perl{{{
+let g:syntastic_enable_perl_checker = 1
+"}}}
 "C{{{
 autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
 autocmd Filetype c inoremap {;<CR> {<CR>};<Esc>O
