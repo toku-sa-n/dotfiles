@@ -115,24 +115,8 @@ alias irb='irb --simple-prompt'
 alias -g L='| less'
 alias -g G='| grep'
 
-alias gi="git init && gac 'Initial commit'"
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gm="git commit -m"
-alias gac="git add . && git commit -m"
-
-alias gp="git push"
-alias gpo="git push origin"
-alias gpom="git push origin master"
-
-alias gl="git pull"
-alias glo="git push origin"
-alias glom="git pull origin master"
-
-alias gb="git branch"
-alias gc="git checkout"
-alias gcb="git checkout -b"
+alias less='bat'
+alias cat='bat'
 
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
