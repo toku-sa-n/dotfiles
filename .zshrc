@@ -141,6 +141,8 @@ function arch(){
 }
 
 function gentoo(){
+    alias inst='sudo emerge -avt'
+    alias unst='sudo emerge -C'
     alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
 }
 
