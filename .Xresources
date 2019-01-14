@@ -16,11 +16,9 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Dejavu Sans Mono-9,\
+URxvt.font:                 xft:Source Code Pro-11,\
                             xft:IPAGothic,\
-                            xft:Font Awesome 5 Free,\
-                            xft:Terminess Powerline:size=12
-URxvt.letterSpace:          -1
+                            xft:Unifont,\
 
 Rxvt.depth:                32
 URxvt.color0:              #2E3436 /* black */
