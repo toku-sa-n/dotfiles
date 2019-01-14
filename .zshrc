@@ -102,6 +102,7 @@ setopt pushd_ignore_dups
 alias la='ls -aF --color=auto'
 alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto'
+alias ls='exa'
 alias gcc='gcc -fdiagnostics-color'
 alias vi='vim'
 alias ...='cd ../..'
