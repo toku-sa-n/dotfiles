@@ -257,6 +257,7 @@ endif
 
 let g:filetype_to_ignore=['latex','plaintex','tex','text']
 autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make<CR>
+autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make run<CR>
 
 
 "}}}
