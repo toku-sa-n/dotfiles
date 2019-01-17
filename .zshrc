@@ -86,9 +86,6 @@ setopt no_flow_control
 setopt auto_cd
 
 #ls after cd
-chpwd(){
-        ls --color=auto
-}
 
 #z command
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
@@ -130,6 +127,9 @@ alias f="fuck"
 # }}}
 
 eval $(thefuck --alias)
+chpwd(){
+        ls --color=auto
+}
 
 
 #Aliases which depends on the distribution using now{{{
