@@ -17,7 +17,9 @@ URxvt.fading:               40
 
 !! Font list and Spacing
 URxvt.font:                 xft:Source Code Pro-11,\
+                            xft:Source Code Pro for Powerline,\
                             xft:Standard Symbols L,\
+                            xft:PowerlineSymbols,\
                             xft:IPAGothic,\
                             xft:Unifont,\
 

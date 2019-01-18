@@ -33,7 +33,9 @@ Plug 'vim-scripts/OmniCppComplete'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
+
 Plug 'eagletmt/neco-ghc'
+Plug 'zchee/deoplete-jedi'
 
 
 if has('nvim')
