@@ -34,6 +34,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 Plug 'eagletmt/neco-ghc'
+Plug 'c9s/perlomni.vim'
 
 
 if has('nvim')
