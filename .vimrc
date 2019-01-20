@@ -37,6 +37,8 @@ Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 Plug 'eagletmt/neco-ghc'
 Plug 'zchee/deoplete-jedi'
 Plug 'c9s/perlomni.vim'
+Plug 'Shougo/deoplete-clangx'
+
 
 
 if has('nvim')
@@ -88,7 +90,7 @@ set showcmd
 
 "Move the pair parenthesis when entering ( or ).
 set showmatch
-set matchtime=10
+set matchtime=5
 
 "Fold
 set foldmethod=marker
@@ -259,8 +261,8 @@ else
 endif
 
 let g:filetype_to_ignore=['latex','plaintex','tex','text']
-autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make<CR>
-autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make run<CR>
+autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make!<CR>
+autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make! run<CR>
 
 
 "}}}
@@ -314,7 +316,7 @@ autocmd Filetype tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
 autocmd Filetype tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
 autocmd Filetype tex call IMAP('`J','\mathrm{<++>}<++>','tex')
 autocmd Filetype tex call IMAP('``','\partial','tex')
-autocmd BufRead *.tex call Tex_ViewLaTeX()
+autocmd Filetype tex call Tex_ViewLaTeX()
 set concealcursor=""
 set conceallevel=2
 let g:tex_conceal="abdmgs"
