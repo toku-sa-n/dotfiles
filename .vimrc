@@ -276,6 +276,7 @@ autocmd Filetype c inoremap {;<CR> {<CR>};<Esc>O
 autocmd Filetype c set foldmethod=indent
 set cinwords+=case
 let g:syntastic_c_checkers=['gcc','clang','cppcheck']
+let g:syntastic_c_compiler_options='-W -Wall -Wconversion -lm -lncurses'
 "}}}
 "HTML{{{
 autocmd Filetype html setlocal tabstop=2
