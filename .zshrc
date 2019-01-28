@@ -41,7 +41,7 @@ setopt globdots
 
 # }}}
 # PATH
-export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.5.0/bin:$PATH:$HOME/.cargo/bin"
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -124,6 +124,8 @@ alias zpro="vim ~/.zprofile"
 alias xrc="vim ~/.xinitrc"
 
 alias f="fuck"
+
+alias find="fd"
 # }}}
 
 eval $(thefuck --alias)
