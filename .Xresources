@@ -19,6 +19,7 @@ URxvt.fading:               40
 URxvt.font:                 xft:Source\ Code\ Pro\ for\ Powerline-11,\
                             xft:Standard Symbols L,\
                             xft:PowerlineSymbols,\
+                            xft:Hack,\
                             xft:IPAGothic,\
                             xft:Unifont
 
