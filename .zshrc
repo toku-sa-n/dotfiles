@@ -2,7 +2,6 @@
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
-zplug "mollifier/cd-bookmark"
 
 if ! zplug check --verbose; then
     printf 'Install?[y/N]:'
@@ -72,7 +71,7 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '✚'
 zstyle ':vcs_info:git:*' stagedstr '●'
 zstyle ':vcs_info:git:*' formats '%b %u%c'
-export PROMPT="[${fg[yellow]}%~${reset_color}]
+export PROMPT="%(?..%{${fg[red]}Failed:${reset_color}%})[${fg[yellow]}%~${reset_color}]
 %#"
 
 #hisotry
