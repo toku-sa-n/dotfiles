@@ -1,11 +1,12 @@
 scriptencoding utf-8
 "vim-plug{{{
-
+"vim-plug auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+"}}}
 call plug#begin('~/.vim/plugged')
 Plug 'Chiel92/vim-autoformat'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -34,27 +35,27 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+let g:deoplete#enable_at_startup = 1
+"For deoplete{{{
 Plug 'eagletmt/neco-ghc'
 Plug 'zchee/deoplete-jedi'
 Plug 'c9s/perlomni.vim'
 Plug 'Shougo/deoplete-clangx'
-
-
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neco-syntax'
-
+"}}}
+"For neosnippet{{{
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
-
+"}}}
 
 call plug#end()
 "}}}
@@ -73,7 +74,7 @@ set number
 
 let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_theme='light'
 let g:airline_left_sep = ''
@@ -99,7 +100,7 @@ set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 "autoformat
 filetype plugin indent on
 noremap <F3> :Autoformat<CR>
-au BufWritePre *.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+autocmd BufWritePre *.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
 
 set pumheight=10
 set laststatus=2
@@ -132,12 +133,7 @@ set softtabstop=4
 set shiftwidth=4
 let g:hindent_indent_size=4
 
-"indentGuide
-autocmd BufNewFile,BufRead *.txt  IndentGuidesDisable
-"let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level=2
-"highlight IndentGuidesOdd guibg=red ctermbg=54
-"highlight IndentGuidesEven guibg=green ctermbg=24
 let g:indent_guides_color_change_percent = 10
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
@@ -228,11 +224,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+    set conceallevel=2 concealcursor=niv
 endif
 
 let g:neosnippet#enable_snipmate_compatibility=1
@@ -261,43 +257,66 @@ else
 endif
 
 let g:filetype_to_ignore=['latex','plaintex','tex','text']
-autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make!<CR>
-autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make! run<CR>
+
+augroup about_make
+    autocmd!
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make!<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make! run<CR>
+augroup END
 
 
 "}}}
-"For programming{{{
+"Extension specific{{{
+augroup text_specific
+    autocmd!
+    autocmd Filetype text IndentGuidesDisable
+augroup END
 "Perl{{{
 let g:syntastic_enable_perl_checker = 1
 "}}}
 "C{{{
-autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
-autocmd Filetype c inoremap {;<CR> {<CR>};<Esc>O
-autocmd Filetype c set foldmethod=indent
 set cinwords+=case
 let g:syntastic_c_checkers=['gcc','clang','cppcheck']
 let g:syntastic_c_compiler_options='-W -Wall -Wconversion -lm -lncurses'
+augroup c_specific
+    autocmd!
+    autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
+    autocmd Filetype c inoremap {;<CR> {<CR>};<Esc>O
+    autocmd Filetype c setlocal foldmethod=indent
+augroup END
 "}}}
 "HTML{{{
-autocmd Filetype html setlocal tabstop=2
-autocmd Filetype html setlocal softtabstop=2
-autocmd Filetype html setlocal shiftwidth=2
+augroup html_specific
+    autocmd!
+    autocmd Filetype html setlocal tabstop=2
+    autocmd Filetype html setlocal softtabstop=2
+    autocmd Filetype html setlocal shiftwidth=2
+augroup END
 "}}}
 "Perl{{{
-autocmd Filetype perl setlocal equalprg=perltidy\ -st
+augroup perl_specific
+    autocmd!
+    autocmd Filetype perl setlocal equalprg=perltidy\ -st
+augroup END
 "}}}
 "Ruby{{{
-autocmd Filetype ruby setlocal tabstop=2
-autocmd Filetype ruby setlocal softtabstop=2
-autocmd Filetype ruby setlocal shiftwidth=2
+augroup ruby_specific
+    autocmd!
+    autocmd Filetype ruby setlocal tabstop=2
+    autocmd Filetype ruby setlocal softtabstop=2
+    autocmd Filetype ruby setlocal shiftwidth=2
+augroup END
 "}}}
 "Haskell{{{
 let g:haskellmode_completion_ghc=0
-autocmd Filetype haskell setlocal tabstop=8
-autocmd Filetype haskell setlocal softtabstop=4
-autocmd Filetype haskell setlocal shiftwidth=4
-autocmd Filetype haskell setlocal shiftround
-autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
+augroup haskell_specific
+    autocmd!
+    autocmd Filetype haskell setlocal tabstop=8
+    autocmd Filetype haskell setlocal softtabstop=4
+    autocmd Filetype haskell setlocal shiftwidth=4
+    autocmd Filetype haskell setlocal shiftround
+    autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
+augroup END
 "}}}
 "LaTeX{{{
 let g:tex_flavor='latex'
@@ -306,19 +325,22 @@ let g:Tex_MultipleCompileFormats='dvi,pdf'
 let g:Tex_FormatDependency_pdf='dvi,pdf'
 let g:Tex_CompileRule_pdf='dvipdfmx -interaction=nonstopmode $*.dvi'
 let g:Tex_DefaultTargetFormat='pdf'
-autocmd BufNewFile,BufRead *.tex set iskeyword+=":."
 let g:Tex_ViewRule_pdf='evince'
 let g:Tex_Env_table = "\\begin{table}[<+Hhtbp+>]\<CR>\\centering\<CR>\\caption{<++>}\<CR>\\begin{tabular}{<+lcr+>}\\toprule\<CR><++>\<CR>\\end{tabular}\<CR>\\end{table}<++>"
 let g:Tex_Env_equation="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
 let g:Tex_Env_equ="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
 let g:Tex_Env_align="\\begin{align}\<CR><+contents+>\<CR>\\end{align}<++>"
 let g:Tex_HotKeyMappings='align,table,equation'
-autocmd Filetype tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
-autocmd Filetype tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
-autocmd Filetype tex call IMAP('`J','\mathrm{<++>}<++>','tex')
-autocmd Filetype tex call IMAP('``','\partial','tex')
-autocmd Filetype tex call Tex_ViewLaTeX()
 set concealcursor=""
 set conceallevel=2
 let g:tex_conceal="abdmgs"
+augroup tex_specific
+    autocmd!
+    autocmd BufNewFile,BufRead *.tex set iskeyword+=":."
+    autocmd Filetype tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
+    autocmd Filetype tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
+    autocmd Filetype tex call IMAP('`J','\mathrm{<++>}<++>','tex')
+    autocmd Filetype tex call IMAP('``','\partial','tex')
+    autocmd Filetype tex call Tex_ViewLaTeX()
+augroup END
 "}}}}}}
