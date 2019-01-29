@@ -5,13 +5,13 @@ color=#8fa1b3
 interval=1
 
 [network]
-label=
+label=.
 command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
 color=#8fa1b3
 interval=1
 
 [lightness]
-label=☀
+label=☀.
 command=echo $(expr $(cat /sys/class/backlight/intel_backlight/brightness) \* 100 / $(cat /sys/class/backlight/intel_backlight/max_brightness))%
 color=#8fa1b3
 interval=once
@@ -29,7 +29,7 @@ interval=1
 
 [battery]
 label=Battery:
-command=acpi|awk '{print $4}'
+command=acpi|awk '{print $4}'|tr -d ','
 interval=30
 
 [Dropbox]
