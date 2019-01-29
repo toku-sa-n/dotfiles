@@ -105,6 +105,9 @@ autocmd BufWritePre *.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,
 set pumheight=10
 set laststatus=2
 
+"Cursor position
+nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
+
 "Scroll
 set scrolloff=5
 
