@@ -267,6 +267,7 @@ augroup about_make
     autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make! run<CR>
 augroup END
 
+set autoread
 
 "}}}
 "Extension specific{{{
