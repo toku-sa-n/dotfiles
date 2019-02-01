@@ -125,6 +125,8 @@ alias xrc="vim ~/.xinitrc"
 
 alias f="fuck"
 
+alias mkdir='(){mkdir $1;cd $1}'
+
 alias find="fd"
 # }}}
 
