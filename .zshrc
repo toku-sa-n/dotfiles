@@ -126,6 +126,8 @@ alias xrc="vim ~/.xinitrc"
 alias f="fuck"
 
 alias find="fd"
+
+alias :q='exit'
 # }}}
 
 eval $(thefuck --alias)
