@@ -50,6 +50,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'c9s/perlomni.vim'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neco-syntax'
+Plug 'takkii/Bignyanco'
 "}}}
 "For neosnippet{{{
 Plug 'Shougo/neosnippet.vim'
@@ -235,7 +236,9 @@ if has('conceal')
 endif
 
 let g:neosnippet#enable_snipmate_compatibility=1
-let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/dotfiles/snippets/'
+
+let g:neosnippet#disable_runtime_snippets={'python':1}
 "}}}
 "Others{{{
 "--- For files ---
@@ -271,10 +274,12 @@ set autoread
 
 "}}}
 "Extension specific{{{
+"Text{{{
 augroup text_specific
     autocmd!
     autocmd Filetype text IndentGuidesDisable
 augroup END
+"}}}
 "Perl{{{
 let g:syntastic_enable_perl_checker = 1
 "}}}
@@ -347,4 +352,11 @@ augroup tex_specific
     autocmd Filetype tex call IMAP('``','\partial','tex')
     autocmd Filetype tex call Tex_ViewLaTeX()
 augroup END
+"}}}
+"Snippet{{{
+augroup snippet_specific
+    autocmd!
+    autocmd BufNewFile,BufRead *.snip set noexpandtab
+augroup END
+"}}}
 "}}}}}}
