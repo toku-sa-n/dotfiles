@@ -1,6 +1,36 @@
 snippet     def
 abbr        def...end
 options     head
-	def ${1:function_name}(${2:parameters})
+	def ${1:function_name}(${2:parameters}):
+		${3}
+	end
+	${4}
+
+snippet     class
+abbr        class...end
+options     head
+	class ${1:class_name}(${2:object})
+		def __init__(self${3}):
+			${4}
+		end
+		${5}
+	end
+	${6}
+
+snippet     if
+abbr        if...end
+options     head
+	if ${1:condition}:
 		${2}
 	end
+	${3}
+
+snippet     ife
+abbr        if...else...end
+options     head
+	if ${1:condition}:
+		${2}
+	else:
+		${3}
+	end
+	${4}
