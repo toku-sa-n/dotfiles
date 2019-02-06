@@ -54,8 +54,6 @@ Plug 'takkii/Bignyanco'
 "}}}
 "For neosnippet{{{
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
 "}}}
 
 call plug#end()
@@ -237,8 +235,10 @@ endif
 
 let g:neosnippet#enable_snipmate_compatibility=1
 let g:neosnippet#snippets_directory='~/dotfiles/snippets/'
+let g:neosnippet#disable_runtime_snippets = {
+            \   '_' : 1,
+            \ }
 
-let g:neosnippet#disable_runtime_snippets={'python':1}
 "}}}
 "Others{{{
 "--- For files ---
