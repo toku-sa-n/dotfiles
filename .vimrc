@@ -34,6 +34,7 @@ Plug 'vim-scripts/OmniCppComplete'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
+Plug 'zah/nim.vim'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -210,6 +211,12 @@ nnoremap - <C-x>
 nnoremap Y y$
 nnoremap gO O<Esc>
 nnoremap go o<Esc>
+
+" inoremap ( ()<left>
+" inoremap { {}<left>
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap [ []<left>
 "}}}
 "vimrc{{{
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
@@ -238,7 +245,7 @@ endif
 let g:neosnippet#enable_snipmate_compatibility=1
 let g:neosnippet#snippets_directory='~/dotfiles/snippets/'
 
-let g:neosnippet#disable_runtime_snippets={'python':1}
+let g:neosnippet#disable_runtime_snippets={'python':1,'ruby':1}
 "}}}
 "Others{{{
 "--- For files ---
