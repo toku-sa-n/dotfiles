@@ -1,0 +1,23 @@
+aur     dropbox-cli                 https://aur.archlinux.org/dropbox-cli.git
+aur     dropbox                     https://aur.archlinux.org/dropbox.git
+aur     fcitx-mozc-neologd-ut       https://aur.archlinux.org/fcitx-mozc-neologd-ut.git
+gem     rubocop
+pacman  dropbox
+pacman  exa
+pacman  fcitx
+pacman  fd
+pacman  firefox
+pacman  greenlet
+pacman  i3
+pacman  i3blocks
+pacman  i3lock
+pacman  mozc
+pacman  neovim
+pacman  otf-ipafont
+pacman  python
+pacman  ruby
+pacman  rxvt-unicode
+pacman  thunderbird
+pacman  vim
+pacman  z
+pacman  zsh
