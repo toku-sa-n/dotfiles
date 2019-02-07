@@ -2,6 +2,7 @@ aur     dropbox-cli                 https://aur.archlinux.org/dropbox-cli.git
 aur     dropbox                     https://aur.archlinux.org/dropbox.git
 aur     fcitx-mozc-neologd-ut       https://aur.archlinux.org/fcitx-mozc-neologd-ut.git
 gem     rubocop
+pacman  alsa-utils
 pacman  dropbox
 pacman  exa
 pacman  fcitx
