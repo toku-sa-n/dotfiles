@@ -1,28 +1,46 @@
 snippet     def
 abbr        def ... end
 options     head
-	def ${1:function_name:${2:parameters\}}
-		{3:}
+	def ${1:function_name:}${2:(${3:parameters\})}
+		${3}
 	end
-	${4:}
+	${4}
+
+snippet     if
+abbr        if ... end
+options     head
+	if ${1:condition}
+		${2}
+	end
+	${4}
+
+snippet     else
+abbr        else ... end
+options     head
+	else
+		${1}
+	end
+	${2}
+
+
 
 snippet     do
 abbr        do ... end
 	do ${1:|${2:parameters\}|}
-		${3:}
+		${3}
 	end
-	${4:}
+	${4}
 snippet     for
 abbr        for ... end
 options     head
 	for ${1:i} in ${2:}
-		${3:}
+		${3}
 	end
-	${4:}
+	${4}
 snippet     while
 abbr        while ... end
 options     head
 	while ${1:condition}
-		${2:}
+		${2}
 	end
-	${3:}
+	${3}
