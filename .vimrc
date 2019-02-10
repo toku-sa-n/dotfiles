@@ -246,10 +246,6 @@ let g:neosnippet#disable_runtime_snippets = {
             \   '_' : 1,
             \ }
 
-<<<<<<< HEAD
-=======
-let g:neosnippet#disable_runtime_snippets={'python':1,'ruby':1}
->>>>>>> 21264e5df6ab558e0f73f4ebc0dc4159ce1b888d
 "}}}
 "Others{{{
 "--- For files ---
