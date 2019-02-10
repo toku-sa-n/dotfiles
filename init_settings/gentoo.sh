@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly INSTALL_PACKAGE='sudo pacman -S'
+readonly INSTALL_PACKAGE='sudo gentoo -avt'
 readonly CALL_TO_PACKAGE_DATABASE='pacman -Qs'
 readonly UPDATE_PACKAGE_DATABASE='sudo pacman -Sy'
 
@@ -28,7 +28,7 @@ do
         continue
     fi
 
-	# confirm whether the package is installed or not.
+    # confirm whether the package is installed or not.
     $CALL_TO_PACKAGE_DATABASE $package_name >/dev/null 2>/dev/null
     return_value=$?
 

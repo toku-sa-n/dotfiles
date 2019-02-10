@@ -1,8 +1,10 @@
-aur     dropbox-cli                 https://aur.archlinux.org/dropbox-cli.git
 aur     dropbox                     https://aur.archlinux.org/dropbox.git
+aur     dropbox-cli                 https://aur.archlinux.org/dropbox-cli.git
 aur     fcitx-mozc-neologd-ut       https://aur.archlinux.org/fcitx-mozc-neologd-ut.git
+cargo   mn
 gem     rubocop
 pacman  alsa-utils
+pacman  cargo
 pacman  dropbox
 pacman  exa
 pacman  fcitx
@@ -22,3 +24,4 @@ pacman  thunderbird
 pacman  vim
 pacman  z
 pacman  zsh
+pacman  python-matplotlib
