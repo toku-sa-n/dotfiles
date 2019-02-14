@@ -93,6 +93,44 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
+#aliases {{{
+alias la='ls -aF --color=auto'
+alias ll='ls -lahF --color=auto'
+alias ls='ls -F --color=auto'
+alias l='ls'
+
+alias gcc='gcc -fdiagnostics-color'
+alias vi='vim'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias scroff='i3lock -c 000000 -e -f -u'
+alias untargz='tar -zxvf'
+alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
+alias cdb='cd-bookmark '
+alias irb='irb --simple-prompt'
+
+alias -g L='| less'
+alias -g G='| grep'
+
+
+alias vrc="vim ~/.vimrc"
+alias zrc="vim ~/.zshrc"
+alias zpro="vim ~/.zprofile"
+alias xrc="vim ~/.xinitrc"
+
+
+alias mkdir='(){mkdir $1;cd $1}'
+
+[ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
+[ -r /usr/bin/fuck ] && alias f="fuck"
+[ -r /usr/bin/exa ] && alias ls='exa'
+[ -r /usr/bin/fd ] && alias find="fd"
+
+alias :q='exit'
+# }}}
+chpwd(){
+        ls --color=auto
+}
 #Aliases which depends on the distribution using now{{{
 
 function arch(){
@@ -119,42 +157,3 @@ function(){
     fi
 }
 # }}}
-#aliases {{{
-alias la='ls -aF --color=auto'
-alias ll='ls -lahF --color=auto'
-alias ls='ls -F --color=auto'
-alias ls='exa'
-alias l='ls'
-
-alias gcc='gcc -fdiagnostics-color'
-alias vi='vim'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias scroff='i3lock -c 000000 -e -f -u'
-alias untargz='tar -zxvf'
-alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
-alias cdb='cd-bookmark '
-alias irb='irb --simple-prompt'
-
-alias -g L='| less'
-alias -g G='| grep'
-
-alias less='bat'
-alias cat='bat'
-
-alias vrc="vim ~/.vimrc"
-alias zrc="vim ~/.zshrc"
-alias zpro="vim ~/.zprofile"
-alias xrc="vim ~/.xinitrc"
-
-alias f="fuck"
-
-alias mkdir='(){mkdir $1;cd $1}'
-
-alias find="fd"
-
-alias :q='exit'
-# }}}
-chpwd(){
-        ls --color=auto
-}
