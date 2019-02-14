@@ -93,7 +93,32 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
+#Aliases which depends on the distribution using now{{{
 
+function arch(){
+    alias detailpac='pacman -Qi'
+    alias ns='sudo netctl start'
+    alias inst='sudo pacman -S'
+    alias unst='sudo pacman -Rs'
+    alias upgr='sudo pacman -Syu'
+    alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
+}
+
+function gentoo(){
+    alias inst='sudo emerge -avt'
+    alias unst='sudo emerge -cav'
+    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
+}
+
+function(){
+    local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
+    if  echo $dist | grep -sq 'arch' ; then
+        arch
+    elif echo $dist |grep -sq 'gentoo' ; then
+        gentoo
+    fi
+}
+# }}}
 #aliases {{{
 alias la='ls -aF --color=auto'
 alias ll='ls -lahF --color=auto'
@@ -130,36 +155,6 @@ alias find="fd"
 
 alias :q='exit'
 # }}}
-
-eval $(thefuck --alias)
 chpwd(){
         ls --color=auto
 }
-
-
-#Aliases which depends on the distribution using now{{{
-
-function arch(){
-    alias detailpac='pacman -Qi'
-    alias ns='sudo netctl start'
-    alias inst='sudo pacman -S'
-    alias unst='sudo pacman -Rs'
-    alias upgr='sudo pacman -Syu'
-    alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
-}
-
-function gentoo(){
-    alias inst='sudo emerge -avt'
-    alias unst='sudo emerge -cav'
-    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
-}
-
-function(){
-    local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
-    if  echo $dist | grep -sq 'arch' ; then
-        arch
-    elif echo $dist |grep -sq 'gentoo' ; then
-        gentoo
-    fi
-}
-# }}}
