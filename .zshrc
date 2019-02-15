@@ -40,7 +40,7 @@ setopt globdots
 
 # }}}
 # PATH
-export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH"
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
