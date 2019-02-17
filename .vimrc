@@ -35,6 +35,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 Plug 'zah/nim.vim'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-dispatch'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -246,6 +248,14 @@ let g:neosnippet#disable_runtime_snippets = {
             \   '_' : 1,
             \ }
 
+"}}}
+"Tests{{{
+let g:test#strategy='dispatch'
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 "}}}
 "Others{{{
 "--- For files ---
