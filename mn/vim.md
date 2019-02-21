@@ -9,3 +9,5 @@ InsertキーでInsertとReplaceを切り替えられる．
 ,: ;の逆方向
 gv: Reselect the last visual selection.
 o(in Visual): Go to other end of highlighted text
+it: htmlのタグの中身を選択．
+vで選択する時，ドットコマンドは使わない．
