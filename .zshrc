@@ -46,7 +46,6 @@ export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
@@ -61,6 +60,12 @@ promptinit
 setopt correct
 autoload -Uz colors
 colors
+#bindkey{{{
+bindkey -v
+
+bindkey '\C-f' autosuggest-accept
+#}}}
+
 #prompt{{{
 
 function zle-line-init zle-keymap-select {
