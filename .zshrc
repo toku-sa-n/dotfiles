@@ -46,7 +46,7 @@ export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -e
+bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
@@ -61,7 +61,24 @@ promptinit
 setopt correct
 autoload -Uz colors
 colors
-#prompt
+#prompt{{{
+
+function zle-line-init zle-keymap-select {
+    case $KEYMAP in
+        vicmd)
+            mode_indication="--- Normal ---"
+            ;;
+        main|viins)
+            mode_indication="--- Insert ---"
+            ;;
+    esac
+    export PROMPT="%(?..%{${fg[red]}Failed:${reset_color}%})[${fg[yellow]}%~${reset_color}] $mode_indication
+%#"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 autoload -Uz vcs_info
 precmd_vcs_info(){vcs_info}
 precmd_functions+=( precmd_vcs_info )
@@ -71,9 +88,7 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '✚'
 zstyle ':vcs_info:git:*' stagedstr '●'
 zstyle ':vcs_info:git:*' formats '%b %u%c'
-export PROMPT="%(?..%{${fg[red]}Failed:${reset_color}%})[${fg[yellow]}%~${reset_color}]
-%#"
-
+# }}}
 #hisotry
 setopt hist_ignore_dups
 setopt hist_save_no_dups
