@@ -23,6 +23,11 @@ local LIGHT_BLUE=$'%{^[[1;36m%}'$
 local WHITE=$'%{^[[1;37m%}'$
 # }}}
 #Completions {{{
+
+
+
+# }}}
+#setout{{{
 setopt auto_param_slash
 setopt mark_dirs
 setopt list_types
@@ -30,14 +35,19 @@ setopt auto_menu
 setopt auto_param_keys
 setopt interactive_comments
 setopt magic_equal_subst
-
 setopt complete_in_word
 setopt always_last_prompt
-
 setopt print_eight_bit
 setopt extended_glob
 setopt globdots
-
+setopt correct
+setopt prompt_subst
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt no_flow_control
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
 # }}}
 # PATH
 export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH"
@@ -57,7 +67,6 @@ autoload -U promptinit
 promptinit
 [ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 [ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-setopt correct
 autoload -Uz colors
 colors
 #bindkey{{{
@@ -87,7 +96,6 @@ zle -N zle-keymap-select
 autoload -Uz vcs_info
 precmd_vcs_info(){vcs_info}
 precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
 RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '✚'
@@ -95,14 +103,10 @@ zstyle ':vcs_info:git:*' stagedstr '●'
 zstyle ':vcs_info:git:*' formats '%b %u%c'
 # }}}
 #hisotry
-setopt hist_ignore_dups
-setopt hist_save_no_dups
 
 #noLockScreen
-setopt no_flow_control
 
 #auto cd
-setopt auto_cd
 
 #ls after cd
 
@@ -110,8 +114,6 @@ setopt auto_cd
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 #history of cd
-setopt auto_pushd
-setopt pushd_ignore_dups
 
 #aliases {{{
 alias la='ls -aF --color=auto'
