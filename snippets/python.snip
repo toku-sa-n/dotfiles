@@ -6,11 +6,7 @@ options     head
 snippet     def
 abbr        def...
 options     head
-<<<<<<< HEAD
 	def ${1:function_name}(${2}):
-=======
-	def ${1:function_name}(${2:}):
->>>>>>> 21264e5df6ab558e0f73f4ebc0dc4159ce1b888d
 		${3}
 	${4}
 
@@ -39,6 +35,15 @@ options     head
 		${2}
 	${3}
 
+snippet     ife
+abbr        if...else...
+options     head
+	if ${1:condition}:
+		${2}
+	else:
+		${3}
+	${4}
+
 snippet     else
 abbr        else...
 options     head
@@ -60,51 +65,12 @@ options     head
 		${3}
 	${4}
 
-snippet     ife
-abbr        if...else...
-options     head
-	if ${1:condition}:
-		${2}
-	else:
-		${3}
-	${4}
-
-<<<<<<< HEAD
 snippet     try
 abbr        try...except
 options     head
 	try:
 		${1}
 	except ${2:ErrorName}:
-		${3}
-	${4}
-
-=======
-snippet     else
-abbr        else...
-options     head
-	else:
-		${1}
-
-snippet     elif
-abbr        elif...
-options     head
-	elif ${1:condition}:
-		${2}
-
-# for
-
-snippet     for
-abbr        for...
-options     head
-	for ${1:i} in ${2}:
-		${3}
-	${4}
-
-snippet     forr
-abbr        for ${1:i} in range(${2}):
-options     head
-	for ${1:i} in range(${2}):
 		${3}
 	${4}
 
@@ -123,4 +89,3 @@ snippet     print
 abbr        print()
 options     head
 	print(${1})${2}
->>>>>>> 21264e5df6ab558e0f73f4ebc0dc4159ce1b888d

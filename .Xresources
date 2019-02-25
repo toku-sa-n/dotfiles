@@ -16,7 +16,8 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Source\ Code\ Pro\ for\ Powerline-11,\
+URxvt.font:                 xft:Source\ Code\ Pro,\
+                            xft:Source\ Code\ Pro\ for\ Powerline-11,\
                             xft:Standard Symbols L,\
                             xft:PowerlineSymbols,\
                             xft:Hack,\

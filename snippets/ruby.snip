@@ -1,3 +1,10 @@
+snippet     req
+abbr        require ...
+options     head
+alias       require
+	require '${1:module}'
+	${2}
+
 snippet     class
 abbr        class ... end
 options     head
@@ -10,9 +17,9 @@ snippet     def
 abbr        def ... end
 options     head
 	def ${1:function_name:}${2:(${3:parameters\})}
-		${3}
+		${4}
 	end
-	${4}
+	${5}
 
 snippet     if
 abbr        if ... end
@@ -21,6 +28,16 @@ options     head
 		${2}
 	end
 	${4}
+snippet     ife
+abbr        if ... else ... end
+options     head
+	if ${1:condition}
+		${2}
+	else
+		${3}
+	end
+	${4}
+
 
 snippet     else
 abbr        else ... end
