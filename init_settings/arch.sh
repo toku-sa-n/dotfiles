@@ -28,7 +28,7 @@ do
         continue
     fi
 
-	# confirm whether the package is installed or not.
+    # confirm whether the package is installed or not.
     $CALL_TO_PACKAGE_DATABASE $package_name >/dev/null 2>/dev/null
     return_value=$?
 
