@@ -71,7 +71,10 @@ colors
 #bindkey{{{
 bindkey -v
 
-bindkey '\C-f' autosuggest-accept
+bindkey -M viins '^P' up-line-or-history
+bindkey -M viins '^N' down-line-or-history
+bindkey -M viins '^F' forward-char
+bindkey -M viins '^B' backward-char
 #}}}
 #prompt{{{
 
