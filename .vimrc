@@ -204,7 +204,6 @@ noremap k gk
 
 "}}}
 "Shortcut{{{
-inoremap jj <Esc>
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap Y y$
