@@ -148,7 +148,7 @@ function arch(){
     alias ns='sudo netctl start'
     alias inst='sudo pacman -S'
     alias unst='sudo pacman -Rs'
-    alias upgr='sudo pacman -Syu'
+    alias upgr='yes|sudo pacman -Syu'
     alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 }
 
