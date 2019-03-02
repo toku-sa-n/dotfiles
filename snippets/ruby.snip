@@ -69,3 +69,20 @@ options     head
 		${2}
 	end
 	${3}
+
+snippet     until
+abbr        until ... end
+options     head
+	until ${1:condition}
+		${2}
+	end
+	${3}
+
+snippet     loop
+abbr        loop ... end
+options     head
+	loop do
+		${1}
+	end
+	${2}
+
