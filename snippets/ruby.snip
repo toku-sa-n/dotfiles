@@ -86,3 +86,10 @@ options     head
 	end
 	${2}
 
+snippet     assert_equal
+abbr        assert_equal true_value test_value
+options     head
+alias		assert
+	assert_equal ${1}, ${2}
+	${3}
+
