@@ -269,6 +269,8 @@ cnoreabbrev make make!
 
 set ttyfast
 
+set history=200
+
 set matchpairs+=「:」,<:>
 
 if has('python3')
