@@ -77,6 +77,7 @@ bindkey -M viins '^F' forward-char
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^E' end-of-line
 bindkey -M viins '^B' backward-char
+bindkey -M viins '^R' history-incremental-pattern-search-backward
 #}}}
 #prompt{{{
 
@@ -120,6 +121,7 @@ alias untargz='tar -zxvf'
 alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
 alias cdb='cd-bookmark '
 alias irb='irb --simple-prompt'
+alias grep='grep --color'
 
 alias -g L='| less'
 alias -g G='| grep'
