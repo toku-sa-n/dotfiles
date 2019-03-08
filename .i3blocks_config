@@ -1,24 +1,24 @@
 [cpu_temperature]
-label=CPU Temperature:
-command=echo `cat /sys/class/thermal/thermal_zone*/temp`/1000|bc -l|sed -r 's/([0-9]+\.[0-9]{3})[0-9]*/\1/'
-color=#8fa1b3
+command=~/dotfiles/cpu_temperature.sh
+format=json
 interval=1
+
 [memory]
 label=.
-command=echo -n $(free -h|awk 'match($0,/^Mem/){print $3 " / " $2}') ; echo -n "  :  " ;  echo -n $(free -b | awk 'match($0,/^Mem/){print int ($3*1000/$2)/10}') ; echo "%"
-color=#8fa1b3
+command=~/dotfiles/memory.sh
+format=json
 interval=1
 
 [network]
 label=.
 command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
-color=#8fa1b3
+color=#ccffff
 interval=1
 
 [lightness]
 label=☀.
 command=echo $(expr $(cat /sys/class/backlight/intel_backlight/brightness) \* 100 / $(cat /sys/class/backlight/intel_backlight/max_brightness))%
-color=#8fa1b3
+color=#ccffff
 interval=once
 signal=2
 
@@ -29,7 +29,7 @@ signal=1
 
 [date]
 command=date +'%m/%d %H:%M'
-color=#8fa1b3
+color=#ccffff
 interval=1
 
 [battery]
