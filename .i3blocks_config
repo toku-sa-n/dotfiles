@@ -38,6 +38,6 @@ command=acpi|awk '{print $4}'|tr -d ','
 interval=30
 
 [Dropbox]
-label=Dropbox:
+label=.
 command=dropbox-cli status|tr '\n' ';'
 interval=1
