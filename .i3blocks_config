@@ -27,11 +27,6 @@ label=
 interval=once
 signal=1
 
-[date]
-command=date +'%m/%d %H:%M'
-color=#ccffff
-interval=1
-
 [battery]
 label=Battery:
 command=acpi|awk '{print $4}'|tr -d ','
@@ -40,4 +35,9 @@ interval=30
 [Dropbox]
 label=.
 command=dropbox-cli status|tr '\n' ';'
+interval=1
+
+[date]
+command=date +'%m/%d %H:%M'
+color=#ccffff
 interval=1
