@@ -93,3 +93,11 @@ alias		assert
 	assert_equal ${1}, ${2}
 	${3}
 
+snippet     module
+abbr        module ... end
+options     head
+	module ${1:name}
+		${2}
+	end
+	${3}
+
