@@ -15,7 +15,7 @@ SPACES=`seq ${SPACE_NUM}|tr -d '0\n'|tr '[1-9]' ' '`
 BAR="${BLOCKS}${SPACES}"
 
 case "${BLOCKS}" in
-    <1-2>  ) COLOR= "#ccccff" ;;
+    <1-2>  ) COLOR= "#ffffff" ;;
     <3-4>  ) COLOR= "#00ff00" ;;
     <5-6>  ) COLOR= "#ffff00" ;;
     <7-8>  ) COLOR= "#ff9900" ;;

@@ -14,7 +14,7 @@ MARKS=(
 
 case "${TEMPERATURE}" in
     <-39>   )    ICON="$MARKS[empty]"
-                 COLOR="#ccccff" ;;
+                 COLOR="#ffffff" ;;
     <40-49> )    ICON="$MARKS[low]"
                  COLOR="#00ff00";;
     <50-69> )    ICON="$MARKS[half]"
