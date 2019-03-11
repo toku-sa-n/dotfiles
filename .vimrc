@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 "vim-plug{{{
 "vim-plug auto install{{{
@@ -374,6 +375,12 @@ augroup END
 augroup snippet_specific
     autocmd!
     autocmd BufNewFile,BufRead *.snip set noexpandtab
+augroup END
+"}}}
+"Assembly{{{
+augroup assembly_specific
+    autocmd!
+    autocmd BufNewFile,BufRead *.asm set filetype=nasm
 augroup END
 "}}}
 "}}}}}}
