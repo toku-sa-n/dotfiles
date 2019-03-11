@@ -38,6 +38,6 @@ command=dropbox-cli status|tr '\n' ';'
 interval=1
 
 [date]
-command=date +'%m/%d %H:%M'
+command=date +'%m/%d(%a) %H:%M'
 color=#ccffff
 interval=1
