@@ -101,3 +101,23 @@ options     head
 	end
 	${3}
 
+snippet     bre
+abbr        begin ... rescue ... end
+options     head
+	begin
+		${1}
+	rescue
+		${2}
+	end
+	${3}
+
+snippet     test
+abbr        minitest
+options     head
+	require 'minitest/autorun'
+	require_relative '../lib/${1:file_name}'
+
+	class ${2:ClassName} < Minitest::Test
+		${3}
+	end
+
