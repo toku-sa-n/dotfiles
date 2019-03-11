@@ -211,6 +211,16 @@ nnoremap Y y$
 nnoremap gO O<Esc>
 nnoremap go o<Esc>
 
+let g:filetype_to_ignore=['latex','plaintex','tex','text']
+
+"For preventing to create a new Buffer of make
+cnoreabbrev make make!
+
+augroup about_make
+    autocmd!
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :up <Bar> make!<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
+augroup END
 " inoremap ( ()<left>
 " inoremap { {}<left>
 " inoremap " ""<left>
@@ -265,8 +275,6 @@ set helplang=ja,en
 
 "cancelAutoComment
 set formatoptions-=cro
-"For preventing to create a new Buffer of make
-cnoreabbrev make make!
 
 set ttyfast
 
@@ -280,13 +288,6 @@ else
     set pyxversion=2
 endif
 
-let g:filetype_to_ignore=['latex','plaintex','tex','text']
-
-augroup about_make
-    autocmd!
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :w<CR>:make!<CR>
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :w<CR>:make! run<CR>
-augroup END
 
 set autoread
 
