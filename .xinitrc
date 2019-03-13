@@ -74,5 +74,5 @@ export TERMINAL=urxvtc
 
 
 #autolock
-xautolock -locker 'sudo s2ram'
+xautolock -time 5 -locker 'sudo s2ram' &
 exec i3
