@@ -1,12 +1,11 @@
 #zplug {{{
 
-where zplug>/dev/null
-is_zplug_installed=$?
-if [ $is_zplug_installed -ne 0 ]; then
+[ -r ~/.zplug/init.zsh ] && source ~/.zplug/init.zsh
+where zplug > /dev/null
+if [ $? -ne 0 ]; then
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
-source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
 
