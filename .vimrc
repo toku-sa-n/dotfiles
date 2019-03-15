@@ -288,6 +288,12 @@ else
     set pyxversion=2
 endif
 
+" chomp each line
+augroup chomp
+    autocmd!
+    autocmd BufWritePre * silent! exec "%s/ \\+$//g"
+augroup END
+
 
 set autoread
 
