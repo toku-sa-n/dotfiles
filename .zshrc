@@ -1,6 +1,11 @@
 #zplug {{{
 source ~/.zplug/init.zsh
 
+if [ `where zplug|echo $?` -ne 0 ]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+
+
 zplug "zsh-users/zsh-autosuggestions"
 
 if ! zplug check --verbose; then
@@ -53,7 +58,7 @@ export SAVEHIST=1000
 #}}}
 #sources{{{
 #z command
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh# 
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh#
 [[ -r "/etc/profile.d/cnf.sh" ]] && . /etc/profile.d/cnf.sh
 [[ -r "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #}}}
