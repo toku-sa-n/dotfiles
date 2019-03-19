@@ -37,6 +37,7 @@ Plug 'zah/nim.vim'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
+Plug 'chrisbra/Colorizer'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -54,6 +55,7 @@ Plug 'c9s/perlomni.vim'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neco-syntax'
 Plug 'takkii/Bignyanco'
+Plug 'artur-shaik/vim-javacomplete2'
 "}}}
 "For neosnippet{{{
 Plug 'Shougo/neosnippet.vim'
@@ -102,7 +104,7 @@ set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 "autoformat
 filetype plugin indent on
 noremap <F3> :Autoformat<CR>
-autocmd BufWritePre *.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+autocmd BufWritePre *.java,*.pl,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
 
 set pumheight=10
 set laststatus=2
