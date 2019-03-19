@@ -68,7 +68,7 @@ call plug#end()
 "Colorchange
 let g:hybrid_custom_term_colors=1
 let g:hybrid_reduced_contrast=1
-set t_Co=16
+set t_Co=256
 syntax on
 set background=dark
 
