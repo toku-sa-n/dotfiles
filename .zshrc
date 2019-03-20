@@ -144,6 +144,7 @@ alias gc="git commit"
 alias gck="git checkout"
 alias gdiff="git diff"
 alias gm="git merge"
+alias gp="git push"
 
 
 alias mkdir='(){mkdir $1;cd $1}'
