@@ -138,6 +138,7 @@ alias zrc="vim ~/.zshrc"
 alias zpro="vim ~/.zprofile"
 alias xrc="vim ~/.xinitrc"
 
+alias ga="git add"
 alias gb="git branch"
 alias gc="git checkout"
 
