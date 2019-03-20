@@ -39,7 +39,7 @@ URxvt.color9:              #EF2929 /* bright red */
 URxvt.color10:             #ACF456 /* bright green */
 URxvt.color11:             #FCE94F /* bright yellow */
 URxvt.color12:             #83AFDF /* bright blue */
-URxvt.color13:             #BE8FB9 /* bright magenta */
+URxvt.color13:             #CF8FB9 /* bright magenta */
 URxvt.color14:             #FCAF3E /* bright cyan */
 URxvt.color15:             #EEEEEC /* bright white */
 URxvt.foreground:          [90]#ebdbb2
