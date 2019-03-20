@@ -138,6 +138,8 @@ alias zrc="vim ~/.zshrc"
 alias zpro="vim ~/.zprofile"
 alias xrc="vim ~/.xinitrc"
 
+alias gb="git branch"
+
 
 alias mkdir='(){mkdir $1;cd $1}'
 
