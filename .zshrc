@@ -143,6 +143,7 @@ alias gb="git branch"
 alias gc="git commit"
 alias gck="git checkout"
 alias gdiff="git diff"
+alias gm="git merge"
 
 
 alias mkdir='(){mkdir $1;cd $1}'
