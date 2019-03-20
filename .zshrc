@@ -140,7 +140,8 @@ alias xrc="vim ~/.xinitrc"
 
 alias ga="git add"
 alias gb="git branch"
-alias gc="git checkout"
+alias gc="git commit"
+alias gck="git checkout"
 
 
 alias mkdir='(){mkdir $1;cd $1}'
