@@ -60,7 +60,6 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export DefaultIMModule=fcitx
 fcitx &
-compton &
 ~/.background.sh &
 urxvtd -o -f
 
