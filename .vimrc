@@ -39,27 +39,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Colorizer'
 
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-let g:deoplete#enable_at_startup = 1
-"For deoplete{{{
-Plug 'eagletmt/neco-ghc'
-Plug 'zchee/deoplete-jedi'
-Plug 'c9s/perlomni.vim'
-Plug 'Shougo/deoplete-clangx'
-Plug 'Shougo/neco-syntax'
-Plug 'takkii/Bignyanco'
-Plug 'artur-shaik/vim-javacomplete2'
-"}}}
-"For neosnippet{{{
-Plug 'Shougo/neosnippet.vim'
-"}}}
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 "}}}
@@ -131,6 +111,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"}}}
+"Snippet{{{
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/snippets']
 "}}}
 "indent{{{
 "indent
@@ -234,34 +224,6 @@ augroup END
 "}}}
 "vimrc{{{
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
-"}}}
-"NeoSnippet{{{
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-
-let g:neosnippet#enable_snipmate_compatibility=1
-let g:neosnippet#snippets_directory='~/dotfiles/snippets/'
-let g:neosnippet#disable_runtime_snippets = {
-            \   '_' : 1,
-            \ }
-
 "}}}
 "Tests{{{
 let g:test#strategy='dispatch'
