@@ -19,7 +19,32 @@ Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'steffanc/cscopemaps.vim'
 Plug 'thinca/vim-splash'
-Plug 'vim-latex/vim-latex'
+"vimtex{{{
+Plug 'lervag/vimtex'
+
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
+
+let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_latexmk = {
+            \ 'options':[
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \   '-pdfdvi',
+            \ ],
+            \}
+let g:vimtex_compiler_latexmk_engines={'_':'-pdfdvi'}   " See: https://texwiki.texjp.org/?vimtex
+
+"}}}
+"vim-gutentags{{{
+"Auto tags file generator.
+Plug 'ludovicchabant/vim-gutentags'
+
+set statusline+=%{gutentags#statusline()}
+"}}}
 Plug 'tpope/vim-fugitive'   " Git wrapper
 Plug 'airblade/vim-gitgutter'
 Plug 'szw/vim-dict'
@@ -139,23 +164,6 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 "}}}
 "Completions{{{
-set omnifunc=syntaxcomplete#Complete
-
-set tags+=~/.vim/tags/cpp
-
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q .<CR>
-
-" OmniCppComplete
-let g:OmniCpp_NamespaceSearch = 1
-let g:OmniCpp_GlobalScopeSearch = 1
-let g:OmniCpp_ShowAccess = 1
-let g:OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let g:OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let g:OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let g:OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let g:OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 set complete+=U,k,d,]
 
@@ -206,15 +214,13 @@ nnoremap Y y$
 nnoremap gO O<Esc>
 nnoremap go o<Esc>
 
-let g:filetype_to_ignore=['latex','plaintex','tex','text']
-
 "For preventing from creating a new Buffer of make
 cnoreabbrev make make!
 
 augroup about_make
     autocmd!
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :up <Bar> make!<CR>
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
+    autocmd BufNewFile,BufRead  nnoremap \ll :up <Bar> make!<CR>
+    autocmd BufNewFile,BufRead  nnoremap \lv :up <Bar> make! run<CR>
 augroup END
 
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
@@ -315,30 +321,10 @@ augroup haskell_specific
 augroup END
 "}}}
 "LaTeX{{{
-let g:tex_flavor='latex'
-let g:Tex_CompileRule_dvi='platex $*.tex'
-let g:Tex_MultipleCompileFormats='dvi,pdf'
-let g:Tex_FormatDependency_pdf='dvi,pdf'
-let g:Tex_CompileRule_pdf='dvipdfmx -interaction=nonstopmode $*.dvi'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRule_pdf='evince'
-let g:Tex_Env_table = "\\begin{table}[<+Hhtbp+>]\<CR>\\centering\<CR>\\caption{<++>}\<CR>\\begin{tabular}{<+lcr+>}\\toprule\<CR><++>\<CR>\\end{tabular}\<CR>\\end{table}<++>"
-let g:Tex_Env_equation="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
-let g:Tex_Env_equ="\\begin{equation}\<CR><+contents+>\<CR>\\end{equation}<++>"
-let g:Tex_Env_align="\\begin{align}\<CR><+contents+>\<CR>\\end{align}<++>"
-let g:Tex_HotKeyMappings='align,table,equation'
 set concealcursor=""
 set conceallevel=2
+let g:tex_flavor="latex"
 let g:tex_conceal="abdmgs"
-augroup tex_specific
-    autocmd!
-    autocmd BufNewFile,BufRead *.tex set iskeyword+=":."
-    autocmd Filetype tex call IMAP('`M','\sum_{<++>}^{<++>}<++>','tex')
-    autocmd Filetype tex call IMAP('((','{\left(<++>  \right)}<++>','tex')
-    autocmd Filetype tex call IMAP('`J','\mathrm{<++>}<++>','tex')
-    autocmd Filetype tex call IMAP('``','\partial','tex')
-    autocmd Filetype tex call Tex_ViewLaTeX()
-augroup END
 "}}}
 "Snippet{{{
 augroup snippet_specific
