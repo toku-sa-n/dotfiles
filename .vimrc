@@ -73,7 +73,7 @@ syntax on
 set background=dark
 
 set display=lastline
-colorscheme noctu
+colorscheme default
 set number
 
 let g:airline_powerline_fonts=1
