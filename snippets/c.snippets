@@ -1,0 +1,30 @@
+snippet inc "#include ... " bA
+#include <${1:stdio.h}>
+${0}
+endsnippet
+
+snippet mm "int main(int argc, char* argv[]){ ... }" bA
+int main(int argc, char* argv[])
+{
+	${1}
+	return 0;
+}
+${0}
+endsnippet
+
+snippet mn "int main(void){ ... }" bA
+int main(void)
+{
+	${1}
+	return 0;
+}
+${0}
+endsnippet
+
+snippet f "func funcname(arg){ ... }" bA
+${1:void} ${2:name}(${3:void})
+{
+	${4}
+}
+${0}
+endsnippet

@@ -114,8 +114,8 @@ let g:syntastic_check_on_wq = 0
 "}}}
 "Snippet{{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " If you want :UltiSnipsEdit to split your window.
@@ -208,7 +208,7 @@ nnoremap go o<Esc>
 
 let g:filetype_to_ignore=['latex','plaintex','tex','text']
 
-"For preventing to create a new Buffer of make
+"For preventing from creating a new Buffer of make
 cnoreabbrev make make!
 
 augroup about_make
@@ -216,14 +216,9 @@ augroup about_make
     autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :up <Bar> make!<CR>
     autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
 augroup END
-" inoremap ( ()<left>
-" inoremap { {}<left>
-" inoremap " ""<left>
-" inoremap ' ''<left>
-" inoremap [ []<left>
-"}}}
-"vimrc{{{
+
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
+nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
 "}}}
 "Tests{{{
 let g:test#strategy='dispatch'
