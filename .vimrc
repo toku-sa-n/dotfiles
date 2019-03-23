@@ -217,12 +217,8 @@ nnoremap go o<Esc>
 "For preventing from creating a new Buffer of make
 cnoreabbrev make make!
 
-augroup about_make
-    autocmd!
-    autocmd BufNewFile,BufRead  nnoremap \ll :up <Bar> make!<CR>
-    autocmd BufNewFile,BufRead  nnoremap \lv :up <Bar> make! run<CR>
-augroup END
-
+nnoremap <leader>ll :up <Bar> make!<CR>
+nnoremap <leader>lv :up <Bar> make! run<CR>
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
 nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
 "}}}
@@ -231,7 +227,7 @@ let g:test#strategy='dispatch'
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>L :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 "}}}
 "Others{{{
