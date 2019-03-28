@@ -147,8 +147,6 @@ alias gm="git merge"
 alias gp="git push"
 
 
-alias mkdir='(){mkdir $1;cd $1}'
-
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
 [ -r /usr/bin/fuck ] && alias f="fuck"
 [ -r /usr/bin/exa ] && alias ls='exa'
