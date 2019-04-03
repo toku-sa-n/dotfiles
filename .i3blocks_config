@@ -15,6 +15,13 @@ command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
 color=#ccffff
 interval=1
 
+[lightness]
+label=☀.
+command=echo $(expr $(cat /sys/class/backlight/intel_backlight/brightness) \* 100 / $(cat /sys/class/backlight/intel_backlight/max_brightness))%
+color=#ccffff
+interval=once
+signal=2
+
 [volume]
 label=
 interval=once
@@ -30,7 +37,12 @@ label=.
 command=dropbox-cli status|tr '\n' ';'
 interval=1
 
+[hibernate]
+full_text=hibernate
+command=sudo s2ram>/dev/null
+
 [date]
 command=date +'%m/%d(%a) %H:%M'
 color=#ccffff
 interval=1
+
