@@ -37,12 +37,12 @@ label=.
 command=dropbox-cli status|tr '\n' ';'
 interval=1
 
-[hibernate]
-full_text=hibernate
-command=sudo s2ram>/dev/null
-
 [date]
 command=date +'%m/%d(%a) %H:%M'
 color=#ccffff
 interval=1
+
+[hibernate]
+full_text=
+command=sudo s2ram>/dev/null
 
