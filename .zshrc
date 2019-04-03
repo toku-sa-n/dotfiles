@@ -145,6 +145,7 @@ alias gck="git checkout"
 alias gdiff="git diff"
 alias gm="git merge"
 alias gp="git push"
+alias gpl="git pull"
 
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
