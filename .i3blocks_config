@@ -15,13 +15,6 @@ command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
 color=#ccffff
 interval=1
 
-[lightness]
-label=☀.
-command=echo $(expr $(cat /sys/class/backlight/intel_backlight/brightness) \* 100 / $(cat /sys/class/backlight/intel_backlight/max_brightness))%
-color=#ccffff
-interval=once
-signal=2
-
 [volume]
 label=
 interval=once
