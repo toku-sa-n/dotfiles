@@ -217,8 +217,14 @@ nnoremap go o<Esc>
 "For preventing from creating a new Buffer of make
 cnoreabbrev make make!
 
-nnoremap <leader>ll :up <Bar> make!<CR>
-nnoremap <leader>lv :up <Bar> make! run<CR>
+let g:filetype_to_ignore=['latex','plaintex','tex','text']
+
+augroup about_make
+    autocmd!
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :up <Bar> make!<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
+augroup END
+
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
 nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
 "}}}
