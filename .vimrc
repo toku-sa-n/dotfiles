@@ -267,6 +267,7 @@ augroup END
 
 set autoread
 
+set mouse=a
 "}}}
 "Extension specific{{{
 "Text{{{
