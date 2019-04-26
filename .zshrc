@@ -172,7 +172,8 @@ function arch(){
 function gentoo(){
     alias inst='sudo emerge -avt'
     alias unst='sudo emerge -cav'
-    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world ; sudo emerge --ask --depclean'
+    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
+    alias aucl='sudo emerge --ask --depclean'
 }
 
 function(){
