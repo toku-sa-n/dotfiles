@@ -1,6 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
-"vim-plug{{{
+"Plugins{{{
 "vim-plug auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -67,6 +67,8 @@ Plug 'chrisbra/Colorizer'
 Plug 'SirVer/ultisnips'
 
 call plug#end()
+
+packadd! matchit
 "}}}
 "Display"{{{
 
@@ -227,6 +229,8 @@ augroup END
 
 nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
 nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "}}}
 "Tests{{{
 let g:test#strategy='dispatch'
