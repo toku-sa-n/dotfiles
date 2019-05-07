@@ -1,6 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
-"vim-plug{{{
+"Plugins{{{
 "vim-plug auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -67,6 +67,8 @@ Plug 'chrisbra/Colorizer'
 Plug 'SirVer/ultisnips'
 
 call plug#end()
+
+packadd! matchit
 "}}}
 "Display"{{{
 
