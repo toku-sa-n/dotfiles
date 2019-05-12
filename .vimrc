@@ -174,7 +174,6 @@ set complete+=U,k,d,]
 
 set ignorecase  " A and a is the same
 set smartcase   " If the sentence to search contains UPPER, then no-ignorecase.
-set wrapscan    " Automatically go to the head of the file when searching.
 set incsearch   " Automatically start to search when typing the word to search.
 set gdefault    " Always add "g" s/foo/bar/g <---
 set hlsearch
@@ -197,6 +196,10 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+nnoremap / /\v
+cnoremap s s\v
+
+set shortmess-=S    " To show the number of matched words.
 nmap <silent> <Esc><Esc> :nohl<CR>
 "}}}
 "Moving{{{
