@@ -1,4 +1,4 @@
-snippet TEMP "LaTeX Template" bA
+snippet temp "LaTeX Template" bA
 \documentclass[uplatex,a4j,12pt]{jsarticle}
 \begin{document}
 
@@ -10,35 +10,39 @@ $0
 
 \end{document}
 endsnippet
-snippet SSE "\section" bA
+snippet sec "\section" bA
 \section{$1}$0
 endsnippet
-snippet SSS "\subsection" bA
+snippet sub "\subsection" bA
 \subsection{$1}$0
 endsnippet
 
-snippet BKT "booktabs" bA
+snippet boo "booktabs" bA
 \usepackage{booktabs}
 endsnippet
 
-snippet ENUM "enumration" bA
+snippet enu "enumration" bA
 \begin{enumerate}
 	$1
 \end{enumerate}$0
 endsnippet
 
-snippet IT "itemize" bA
+snippet item "itemize" bA
 \begin{itemize}
 	$1
 \end{itemize}$0
 endsnippet
 
-snippet DE "Description" bA
+snippet de "Description" bA
 \begin{description}
 	$1
 \end{description}$0
 endsnippet
 
-snippet it "item" bA
+snippet itm "item" bA
 \item $0
+endsnippet
+
+snippet dit "item []" bA
+\item [$1] $0
 endsnippet
