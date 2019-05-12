@@ -197,10 +197,9 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 nnoremap / /\v
-cnoremap s s\v
 
 set shortmess-=S    " To show the number of matched words.
-nmap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 "}}}
 "Moving{{{
 
