@@ -142,10 +142,11 @@ alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
 alias gck="git checkout"
-alias gdiff="git diff"
+alias gd="git diff"
 alias gm="git merge"
 alias gp="git push"
 alias gpl="git pull"
+alias gl="git log"
 
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'

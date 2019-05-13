@@ -63,6 +63,7 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Colorizer'
+Plug 'nelstrom/vim-visual-star-search'
 
 Plug 'SirVer/ultisnips'
 
@@ -196,11 +197,8 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
-nnoremap / /\v
-cnoremap s s\v
-
 set shortmess-=S    " To show the number of matched words.
-nmap <silent> <Esc><Esc> :nohl<CR>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 "}}}
 "Moving{{{
 
@@ -230,10 +228,13 @@ augroup about_make
     autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
 augroup END
 
-nnoremap <space>. :<c-u>tabedit $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
+nnoremap <space>. :<C-u>tabnew $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
 nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 "}}}
 "Tests{{{
 let g:test#strategy='dispatch'
