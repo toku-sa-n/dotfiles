@@ -63,6 +63,7 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Colorizer'
+Plug 'nelstrom/vim-visual-star-search'
 
 Plug 'SirVer/ultisnips'
 
