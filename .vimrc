@@ -232,6 +232,9 @@ nnoremap <space>. :<C-u>tabnew $MYVIMRC<CR>    " Shortcut for vimrc. It may be g
 nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 "}}}
 "Tests{{{
 let g:test#strategy='dispatch'
