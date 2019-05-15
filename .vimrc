@@ -64,7 +64,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'chrisbra/Colorizer'
 Plug 'nelstrom/vim-visual-star-search'
-
+Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
 
 call plug#end()
@@ -171,7 +171,7 @@ set completeopt=menuone,menu,longest,preview
 set complete+=U,k,d,]
 
 "}}}
-"Search{{{
+" Search and Grep{{{
 
 set ignorecase  " A and a is the same
 set smartcase   " If the sentence to search contains UPPER, then no-ignorecase.
@@ -251,7 +251,7 @@ set ignorecase
 "--- Language ---
 set helplang=ja,en
 
-"cancelAutoComment
+" cancelAutoComment
 set formatoptions-=cro
 
 set ttyfast
