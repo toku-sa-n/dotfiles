@@ -180,9 +180,11 @@ function gentoo(){
 
 function(){
     local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
-    if  echo $dist | grep -sq 'arch' ; then
+
+    # To avoid using ack because ack has no `q' option.
+    if  echo $dist | /bin/grep -sq 'arch' ; then
         arch
-    elif echo $dist |grep -sq 'gentoo' ; then
+    elif echo $dist |/bin/grep -sq 'gentoo' ; then
         gentoo
     fi
 }
