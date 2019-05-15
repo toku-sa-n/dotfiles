@@ -169,6 +169,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 "Completions{{{
 set completeopt=menuone,menu,longest,preview
 set complete+=U,k,d,]
+set infercase
 
 "}}}
 " Search and Grep{{{
