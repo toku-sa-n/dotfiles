@@ -153,13 +153,14 @@ alias gl="git log"
 [ -r /usr/bin/fuck ] && alias f="fuck"
 [ -r /usr/bin/exa ] && alias ls='exa'
 [ -r /usr/bin/fd ] && alias find="fd"
+[ -r /usr/bin/ack ] && alias grep='ack'
 
 alias :q='exit'
 chpwd(){
         ls --color=auto
 }
 # }}}
-#Aliases which depends on the distribution using now{{{
+# Aliases which depends on the distribution using now{{{
 
 function arch(){
     alias detailpac='pacman -Qi'
@@ -179,9 +180,11 @@ function gentoo(){
 
 function(){
     local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
-    if  echo $dist | grep -sq 'arch' ; then
+
+    # To avoid using ack because ack has no `q' option.
+    if  echo $dist | /bin/grep -sq 'arch' ; then
         arch
-    elif echo $dist |grep -sq 'gentoo' ; then
+    elif echo $dist |/bin/grep -sq 'gentoo' ; then
         gentoo
     fi
 }
