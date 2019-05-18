@@ -179,7 +179,7 @@ set $cyan #96b5b4
 set $white #ffffff
 
 # class                     border  background       text    indicator   child_border
-client.focused              $secondary   $background      $white  $yellow     $secondary
+client.focused              $secondary   $background      $white  $black     $secondary
 
 bar {
     status_command i3blocks
