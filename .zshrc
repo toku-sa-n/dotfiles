@@ -108,9 +108,9 @@ precmd_vcs_info(){vcs_info}
 precmd_functions+=( precmd_vcs_info )
 RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '✚'
+zstyle ':vcs_info:git:*' unstagedstr '+'
 zstyle ':vcs_info:git:*' stagedstr '●'
-zstyle ':vcs_info:git:*' formats '%b %u%c'
+zstyle ':vcs_info:git:*' formats '%b %u%c'  # %b: current branch, %u: unstagedstr, %c: stagedstr
 # }}}
 #aliases {{{
 alias la='ls -aF --color=auto'
