@@ -128,6 +128,7 @@ alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|l
 alias cdb='cd-bookmark '
 alias irb='irb --simple-prompt'
 alias grep='grep --color'
+alias gcc='gcc -O2 -pipe -march=native'
 
 alias -g L='| less'
 alias -g G='| grep'
