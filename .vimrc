@@ -283,6 +283,7 @@ set mouse=a
 augroup text_specific
     autocmd!
     autocmd Filetype text IndentGuidesDisable
+    autocmd Filetype text setlocal textwidth=0 " No auto line break. See http://stst.hateblo.jp/entry/2014/07/14/010844.
 augroup END
 "}}}
 "Perl{{{
