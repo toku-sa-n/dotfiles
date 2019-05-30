@@ -118,7 +118,7 @@ alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto'
 alias l='ls'
 
-alias gcc='gcc -fdiagnostics-color'
+alias gcc='gcc -Ofast -pipe -march=native -fdiagnostics-color'
 alias vi='vim'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -128,7 +128,6 @@ alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|l
 alias cdb='cd-bookmark '
 alias irb='irb --simple-prompt'
 alias grep='grep --color'
-alias gcc='gcc -O2 -pipe -march=native'
 
 alias -g L='| less'
 alias -g G='| grep'
