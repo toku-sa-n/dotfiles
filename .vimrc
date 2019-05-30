@@ -66,7 +66,11 @@ Plug 'chrisbra/Colorizer'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
-
+"tagbar{{{
+Plug 'majutsushi/tagbar'
+set updatetime=0    " seemless syncking with tagbar.
+nnoremap <F8> :TagbarToggle<CR>
+"}}}
 call plug#end()
 
 packadd! matchit
