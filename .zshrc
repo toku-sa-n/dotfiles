@@ -32,6 +32,7 @@ local WHITE=$'%{^[[1;37m%}'$
 setopt auto_param_slash
 setopt mark_dirs
 setopt list_types
+setopt list_packed
 setopt auto_menu
 setopt auto_param_keys
 setopt interactive_comments
