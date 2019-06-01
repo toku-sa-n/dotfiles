@@ -113,6 +113,23 @@ zstyle ':vcs_info:git:*' stagedstr '●'
 zstyle ':vcs_info:git:*' formats '%b %u%c'  # %b: current branch, %u: unstagedstr, %c: stagedstr
 # }}}
 #aliases {{{
+
+# fugitive.vim doesn't work well with symlinks. Working directory must have .git directory.
+vim_expand_symlinks () {
+    args=()
+    for i in $@; do
+        if [[ -h $i ]]; then
+            args+=`readlink $i`
+        else
+            args+=$i
+        fi
+    done
+
+    vim -p "${args[@]}"
+}
+
+alias vim="vim_expand_symlinks"
+
 alias la='ls -aF --color=auto'
 alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto'
