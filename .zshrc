@@ -164,6 +164,7 @@ alias gm="git merge"
 alias gp="git push"
 alias gpl="git pull"
 alias gl="git log"
+alias gst="git status"  # gs command already exists. It will run GhostScript tool.
 
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
