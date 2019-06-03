@@ -66,6 +66,12 @@ Plug 'chrisbra/Colorizer'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
+"YouCompleteMe{{{
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_auto_trigger=1
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_autoclose_preview=1
+"}}}
 "tagbar{{{
 Plug 'majutsushi/tagbar'
 set updatetime=0    " seemless syncking with tagbar.
