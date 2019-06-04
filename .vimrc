@@ -67,7 +67,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
 "YouCompleteMe{{{
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_auto_trigger=1
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_autoclose_preview=1
