@@ -1,2 +1,3 @@
-tty=$(tty|cut -b10-)
-[[ -z $DISPLAY && ! $tty -eq 1 ]] && exec startx
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    exec startx
+fi
