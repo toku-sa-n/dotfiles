@@ -120,7 +120,7 @@ vim_expand_symlinks () {
     args=()
     for i in $@; do
         if [[ -h $i ]]; then
-            args+=`readlink $i`
+            args+=$(readlink $i)
         else
             args+=$i
         fi
@@ -150,7 +150,6 @@ alias grep='grep --color'
 alias -g L='| less'
 alias -g G='| grep'
 
-
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias zpro="vim ~/.zprofile"
@@ -166,7 +165,6 @@ alias gp="git push"
 alias gpl="git pull"
 alias gl="git log"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
-
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
 [ -r /usr/bin/fuck ] && alias f="fuck"
@@ -198,7 +196,7 @@ function gentoo(){
 }
 
 function(){
-    local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
+    local dist=$(cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}')
 
     # To avoid using ack because ack has no `q' option.
     if  echo $dist | /bin/grep -sq 'arch' ; then
