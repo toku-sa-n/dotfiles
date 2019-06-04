@@ -179,7 +179,7 @@ chpwd(){
 # }}}
 # Aliases which depends on the distribution using now{{{
 
-function arch(){
+arch(){
     alias detailpac='pacman -Qi'
     alias ns='sudo netctl start'
     alias inst='sudo pacman -S'
@@ -188,14 +188,14 @@ function arch(){
     alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 }
 
-function gentoo(){
+gentoo(){
     alias inst='sudo emerge -avt'
     alias unst='sudo emerge -cav'
     alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
     alias aucl='sudo emerge --ask --depclean'
 }
 
-function(){
+(){
     local dist=$(cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}')
 
     # To avoid using ack because ack has no `q' option.
