@@ -120,7 +120,7 @@ vim_expand_symlinks () {
     args=()
     for i in $@; do
         if [[ -h $i ]]; then
-            args+=`readlink $i`
+            args+=$(readlink $i)
         else
             args+=$i
         fi
@@ -150,7 +150,6 @@ alias grep='grep --color'
 alias -g L='| less'
 alias -g G='| grep'
 
-
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias zpro="vim ~/.zprofile"
@@ -167,7 +166,6 @@ alias gpl="git pull"
 alias gl="git log"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
 
-
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
 [ -r /usr/bin/fuck ] && alias f="fuck"
 [ -r /usr/bin/exa ] && alias ls='exa'
@@ -181,7 +179,7 @@ chpwd(){
 # }}}
 # Aliases which depends on the distribution using now{{{
 
-function arch(){
+arch(){
     alias detailpac='pacman -Qi'
     alias ns='sudo netctl start'
     alias inst='sudo pacman -S'
@@ -190,15 +188,15 @@ function arch(){
     alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 }
 
-function gentoo(){
+gentoo(){
     alias inst='sudo emerge -avt'
     alias unst='sudo emerge -cav'
     alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
     alias aucl='sudo emerge --ask --depclean'
 }
 
-function(){
-    local dist=`cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}'`
+(){
+    local dist=$(cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}')
 
     # To avoid using ack because ack has no `q' option.
     if  echo $dist | /bin/grep -sq 'arch' ; then

@@ -66,6 +66,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
+Plug 'thinca/vim-quickrun'
 "YouCompleteMe{{{
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_auto_trigger=1
