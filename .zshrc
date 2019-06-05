@@ -8,6 +8,7 @@ fi
 
 
 zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 if ! zplug check --verbose; then
     printf 'Install?[y/N]:'
