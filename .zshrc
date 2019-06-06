@@ -61,7 +61,7 @@ export SAVEHIST=1000
 #}}}
 #sources{{{
 #z command
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh#
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh && alias j="z"
 [[ -r "/etc/profile.d/cnf.sh" ]] && . /etc/profile.d/cnf.sh
 [[ -r "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #}}}
