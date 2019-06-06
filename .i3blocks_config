@@ -1,3 +1,8 @@
+[git_status]
+command=~/dotfiles/git_status.rb
+markup=pango
+interval=1
+
 [cpu_temperature]
 command=~/dotfiles/cpu_temperature.sh
 format=json
@@ -38,4 +43,3 @@ interval=1
 [hibernate]
 full_text=
 command=sudo s2ram>/dev/null
-
