@@ -19,6 +19,7 @@ end
 need_to_commit = []
 need_to_push = []
 git_status.each do |status|
+  status[1].gsub!(/#{ENV['HOME']}/, '~')
   if status[0] == 'C'
     need_to_commit.push(status[1])
   else
