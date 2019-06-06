@@ -6,3 +6,4 @@ tags
 *.log
 *.synctex.gz
 *.out
+*.swp
