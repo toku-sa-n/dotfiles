@@ -60,7 +60,7 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export DefaultIMModule=fcitx
 fcitx &
-~/.background.sh &
+$HOME/.background.sh &
 urxvtd -o -f
 
 #export
@@ -69,7 +69,7 @@ export VISUAL=vim
 export TERMINAL=urxvtc
 
 #dropbox
-[ -e ~/.dropbox-dist/dropboxd ] && ~/.dropbox-dist/dropboxd &
+[ -e $HOME/.dropbox-dist/dropboxd ] && $HOME/.dropbox-dist/dropboxd &
 
 
 #autolock

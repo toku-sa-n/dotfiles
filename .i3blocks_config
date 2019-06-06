@@ -1,16 +1,16 @@
 [git_status]
-command=~/dotfiles/git_status.rb
+command=$HOME/dotfiles/git_status.rb
 markup=pango
 interval=1
 
 [cpu_temperature]
-command=~/dotfiles/cpu_temperature.sh
+command=$HOME/dotfiles/cpu_temperature.sh
 format=json
 interval=1
 
 [memory]
 label=.
-command=~/dotfiles/memory.sh
+command=$HOME/dotfiles/memory.sh
 format=json
 interval=1
 

@@ -1,6 +1,6 @@
 #zplug {{{
 
-[ -r ~/.zplug/init.zsh ] && source ~/.zplug/init.zsh
+[ -r $HOME/.zplug/init.zsh ] && source $HOME/.zplug/init.zsh
 where zplug > /dev/null
 if [ $? -ne 0 ]; then
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
@@ -55,7 +55,7 @@ setopt pushd_ignore_dups
 #Environment paths{{{
 export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH"
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
-export HISTFILE=~/.histfile
+export HISTFILE=$HOME/.histfile
 export HISTSIZE=1000
 export SAVEHIST=1000
 #}}}
@@ -151,10 +151,10 @@ alias grep='grep --color'
 alias -g L='| less'
 alias -g G='| grep'
 
-alias vrc="vim ~/.vimrc"
-alias zrc="vim ~/.zshrc"
-alias zpro="vim ~/.zprofile"
-alias xrc="vim ~/.xinitrc"
+alias vrc="vim $HOME/.vimrc"
+alias zrc="vim $HOME/.zshrc"
+alias zpro="vim $HOME/.zprofile"
+alias xrc="vim $HOME/.xinitrc"
 
 alias ga="git add"
 alias gb="git branch"
