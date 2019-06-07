@@ -1,4 +1,5 @@
 [git_status]
+label=
 command=$HOME/dotfiles/git_status.rb
 markup=pango
 interval=1
