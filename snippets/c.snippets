@@ -1,7 +1,23 @@
+# sharp prefix.
 snippet inc "#include ... " bA
 #include <${1:stdio.h}>
 ${0}
 endsnippet
+
+snippet d "#define ..." bA
+#define ${1}
+${0}
+endsnippet
+
+# variable declaration
+
+snippet st "struct definition" b
+struct $1 {
+	$2
+}$0
+endsnippet
+
+# function
 
 snippet mm "int main(int argc, char* argv[]){ ... }" bA
 int main(int argc, char* argv[])
@@ -26,11 +42,6 @@ ${1:void} ${2:name}(${3:void})
 {
 	${4}
 }
-${0}
-endsnippet
-
-snippet d "#define ..." bA
-#define ${1}
 ${0}
 endsnippet
 
