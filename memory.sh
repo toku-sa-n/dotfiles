@@ -1,4 +1,4 @@
-#!/bin/zsh
+#/bin/bash
 
 USING_MEMORY=$(free|grep Mem|awk '{print $3}')
 FULL_MEMORY=$(free|grep Mem|awk '{print $2}')
