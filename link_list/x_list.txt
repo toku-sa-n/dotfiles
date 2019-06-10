@@ -1,0 +1,2 @@
+$HOME/dotfiles/.i3config            $HOME/.config/i3/config
+$HOME/dotfiles/.i3blocks_config     $HOME/.config/i3blocks/config
