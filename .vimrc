@@ -66,7 +66,13 @@ Plug 'chrisbra/Colorizer'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
+"quickrun{{{
 Plug 'thinca/vim-quickrun'
+let g:quickrun_config={
+            \"hook/output_encode/enable":1,
+            \"hook/output_encode/encoding":"utf-8",
+            \}
+"}}}
 "YouCompleteMe{{{
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_auto_trigger=1
@@ -365,3 +371,4 @@ augroup assembly_specific
 augroup END
 "}}}
 "}}}}}}
+set fileencodings=utf-8,sjis
