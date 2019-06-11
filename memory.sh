@@ -1,4 +1,4 @@
-#/bin/zsh
+#!/bin/zsh
 # use zsh to use zsh functions.
 
 USING_MEMORY=$(free|grep Mem|awk '{print $3}')
