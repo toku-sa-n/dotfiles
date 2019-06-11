@@ -71,9 +71,10 @@ Plug 'thinca/vim-quickrun'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_auto_trigger=1
 let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_autoclose_preview=1
 let g:ycm_semantic_triggers={'c':['re!.']}  " enable semantic_triggers automatically when editing c file.
 let g:ycm_global_ycm_extra_conf="~/dotfiles/.ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_insertion=1
 "}}}
 "tagbar{{{
 Plug 'majutsushi/tagbar'
