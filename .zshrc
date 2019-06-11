@@ -36,7 +36,6 @@ setopt list_types
 setopt list_packed
 setopt auto_menu
 setopt auto_param_keys
-setopt interactive_comments
 setopt magic_equal_subst
 setopt complete_in_word
 setopt always_last_prompt
