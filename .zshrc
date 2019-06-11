@@ -145,7 +145,6 @@ alias ....='cd ../../..'
 alias scroff='i3lock -c 000000 -e -f -u'
 alias untargz='tar -zxvf'
 alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
-alias cdb='cd-bookmark '
 alias irb='irb --simple-prompt'
 alias grep='grep --color'
 
