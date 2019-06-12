@@ -67,6 +67,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
 Plug 'thinca/vim-quickrun'
+Plug 'kchmck/vim-coffee-script'
 "YouCompleteMe{{{
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_auto_trigger=1
@@ -331,6 +332,14 @@ augroup ruby_specific
     autocmd Filetype ruby setlocal tabstop=2
     autocmd Filetype ruby setlocal softtabstop=2
     autocmd Filetype ruby setlocal shiftwidth=2
+augroup END
+"}}}
+"Coffeescript{{{
+augroup coffeescript_specific
+    autocmd!
+    autocmd Filetype coffee setlocal tabstop=2
+    autocmd Filetype coffee setlocal softtabstop=2
+    autocmd Filetype coffee setlocal shiftwidth=2
 augroup END
 "}}}
 "Haskell{{{
