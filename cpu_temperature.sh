@@ -1,5 +1,5 @@
 #!/bin/zsh
-
+# use zsh to use zsh functions.
 RAW_TEMPERATURE=$(cat /sys/class/thermal/thermal_zone0/temp)
 TEMPERATURE=$(echo "scale=0; ${RAW_TEMPERATURE}/1000"|bc -l)
 declare -A MARKS;

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 IMG_DIR="$HOME/background_images"
 

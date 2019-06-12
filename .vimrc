@@ -66,13 +66,22 @@ Plug 'chrisbra/Colorizer'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
-Plug 'thinca/vim-quickrun'
 Plug 'kchmck/vim-coffee-script'
+"quickrun{{{
+Plug 'thinca/vim-quickrun'
+let g:quickrun_config={
+            \"hook/output_encode/enable":1,
+            \"hook/output_encode/encoding":"utf-8",
+            \}
+"}}}
 "YouCompleteMe{{{
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_auto_trigger=1
 let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_autoclose_preview=1
+let g:ycm_semantic_triggers={'c':['re!.']}  " enable semantic_triggers automatically when editing c file.
+let g:ycm_global_ycm_extra_conf="~/dotfiles/.ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_show_diagnostics_ui = 0
 "}}}
 "tagbar{{{
 Plug 'majutsushi/tagbar'
@@ -372,3 +381,4 @@ augroup assembly_specific
 augroup END
 "}}}
 "}}}}}}
+set fileencodings=utf-8,sjis

@@ -36,7 +36,6 @@ setopt list_types
 setopt list_packed
 setopt auto_menu
 setopt auto_param_keys
-setopt interactive_comments
 setopt magic_equal_subst
 setopt complete_in_word
 setopt always_last_prompt
@@ -58,6 +57,7 @@ export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
 export HISTSIZE=1000
 export SAVEHIST=1000
+[[ -r "$HOME/.config/bat/syntaxes/Man.sublime-syntax" ]] && export MANPAGER="sh -c 'sed -e s/.\\\\x08//g|bat -l man -p'"
 #}}}
 #sources{{{
 #z command
@@ -144,7 +144,6 @@ alias ....='cd ../../..'
 alias scroff='i3lock -c 000000 -e -f -u'
 alias untargz='tar -zxvf'
 alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
-alias cdb='cd-bookmark '
 alias irb='irb --simple-prompt'
 alias grep='grep --color'
 
