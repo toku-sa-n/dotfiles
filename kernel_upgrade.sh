@@ -1,15 +1,16 @@
 #!/bin/bash
 
 MAKEOPTS="-j16"
-BACKUP_KERNEL_NAME=$HOME/kernel-config-$(uname -r)
-# back up an old kernel config.
-sudo cp /usr/src/linux/.config $BACKUP_KERNEL_NAME
+BACKUP_KERNEL_PATH=$HOME/kernel-config-$(uname -r)
+# back up the old kernel config.
+sudo cp /usr/src/linux-$(uname -r)/.config $BACKUP_KERNEL_PATH
 
 LATEST_KERNEL_ESELECT_OPTION=$(eselect kernel list|tail -n1|awk '{print $1}'|tr -d '\[\]')
 
 sudo eselect kernel set $LATEST_KERNEL_ESELECT_OPTION
 
-sudo cp $BACKUP_KERNEL_NAME /usr/src/linux/.config
+sudo cp /usr/src/linux-$(uname -r)/.config /usr/src/linux/.config
 
+# TODO: use sudo only once.
 # use parentheses to change working directory temporarily. also use `&&' not to install corrupt kernel.
-(cd /usr/src/linux && sudo sh -c $(eval echo "make $MAKEOPTS && make modules_install $MAKEOPTS && make install && genkernel --install initramfs && grub-mkconfig -o /boot/grub/grub.cfg"))
+cd /usr/src/linux && sudo make $MAKEOPTS && sudo make modules_install $MAKEOPTS && sudo make install && sudo genkernel --install initramfs && sudo grub-mkconfig -o /boot/grub/grub.cfg
