@@ -137,6 +137,7 @@ alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto'
 alias l='ls'
 
+alias df='df -h'
 alias gcc='gcc -Ofast -pipe -march=native -fdiagnostics-color'
 alias vi='vim'
 alias ...='cd ../..'
