@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAKEOPTS="-j16"
+MAKEOPTS="-j$(nproc||echo 8)"
 BACKUP_KERNEL_PATH=$HOME/kernel-config-$(uname -r)
 # back up the old kernel config.
 sudo cp /usr/src/linux-$(uname -r)/.config $BACKUP_KERNEL_PATH
