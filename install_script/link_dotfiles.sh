@@ -2,7 +2,7 @@
 
 ARGV=("$@")
 
-LINK_DIR="$HOME/dotfiles/link_list/"
+LINK_DIR="$HOME/dotfiles/install_script/link_list/"
 
 case "${ARGV[0]}" in
     "basic" )
