@@ -67,6 +67,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
 Plug 'kchmck/vim-coffee-script'
+Plug 'plasticboy/vim-markdown'
 "quickrun{{{
 Plug 'thinca/vim-quickrun'
 let g:quickrun_config={
@@ -87,6 +88,10 @@ let g:ycm_show_diagnostics_ui = 0
 Plug 'majutsushi/tagbar'
 set updatetime=0    " seemless syncking with tagbar.
 nnoremap <F8> :TagbarToggle<CR>
+"}}}
+"vim-cheatsheet{{{
+Plug 'reireias/vim-cheatsheet'
+let g:cheatsheet#cheat_file='$HOME/dotfiles/.cheatsheet.md'
 "}}}
 call plug#end()
 
