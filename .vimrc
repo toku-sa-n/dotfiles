@@ -280,7 +280,7 @@ set ttyfast
 
 set history=200
 
-set matchpairs+=「:」,<:>
+set matchpairs+=「:」
 
 if has('python3')
     set pyxversion=3
