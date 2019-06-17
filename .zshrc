@@ -127,7 +127,7 @@ vim_expand_symlinks () {
         fi
     done
 
-    vim -p "${args[@]}"
+    \vim -p "${args[@]}"
 }
 
 alias vim="vim_expand_symlinks"
