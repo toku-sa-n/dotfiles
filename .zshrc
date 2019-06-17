@@ -147,6 +147,7 @@ alias untargz='tar -zxvf'
 alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
 alias irb='irb --simple-prompt'
 alias grep='grep --color'
+alias ping='ping -c3'
 
 alias -g L='| less'
 alias -g G='| grep'
