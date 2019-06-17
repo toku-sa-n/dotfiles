@@ -10,25 +10,35 @@ class $2 < Minitest::Test
 	$4
 end$0
 endsnippet
+
+snippet "^r" "require" rA
+require '$1'$0
+endsnippet
+
+snippet "^d" "function definition" rA
+def $1($2)
+	$3
+end$0
+endsnippet
+
 snippet if "if ... end"
-if ${1}
-	${2}
+if $1
+	$2
 end
-${0}
+$0
 endsnippet
 
 snippet tt "t.times do ... end"
-${1}.times do${2: |${3:i}|}
-	${4}
+$1.times do${2: |${3:i}|}
+	$4
 end
-${0}
+$0
 endsnippet
 
 snippet et "(start...end).each do ... end"
-(${1}..${2}).each do${3: |${4:i}|}
-	${5}
+($1..$2).each do${3: |${4:i}|}
+	$5
 end
-${0}
 endsnippet
 snippet un "unless ... end"
 unless ${1}
