@@ -68,6 +68,7 @@ Plug 'mileszs/ack.vim'
 Plug 'SirVer/ultisnips'
 Plug 'kchmck/vim-coffee-script'
 Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-repeat'
 "quickrun{{{
 Plug 'thinca/vim-quickrun'
 let g:quickrun_config={
