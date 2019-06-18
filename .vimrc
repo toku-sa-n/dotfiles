@@ -14,7 +14,10 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
+"syntastic{{{
 Plug 'vim-syntastic/syntastic'
+let g:syntastic_asm_checkers=['']
+"}}}
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'steffanc/cscopemaps.vim'
