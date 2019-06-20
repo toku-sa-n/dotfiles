@@ -27,6 +27,14 @@ if $1
 end$0
 endsnippet
 
+snippet ie "if else end"
+if $1
+	$2
+else
+	$3
+end$0
+endsnippet
+
 snippet tt "t.times do ... end"
 $1.times do${2: |${3:i}|}
 	$4
@@ -40,8 +48,13 @@ snippet et "(start...end).each do ... end"
 end
 endsnippet
 snippet un "unless ... end"
-unless ${1}
-	${2}
-end
-${0}
+unless $1
+	$2
+end$0
+endsnippet
+
+snippet w "while"
+while $1
+	$2
+end$0
 endsnippet
