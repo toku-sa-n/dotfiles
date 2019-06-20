@@ -46,3 +46,6 @@ YCMインスト時，自動的にinstall.pyを実行,1,0
 電通大はクソのコードを垂れ流す,1,0
 ハノイの塔のシミュレーションを作成,0,0
 npm install -g remak-cliの実行,1,0
+Fix the problem of not showing a terminal.,1,0
+Fix the problem of not working dmenu.,1,0
+Fix the bug of not being checked a todo.,0,0
