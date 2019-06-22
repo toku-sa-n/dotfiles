@@ -27,6 +27,7 @@ push忘れ防止スクリプト,1,0
 todoファイルがシンボリックリンクだと挙動が変になるものを修正,1,0
 goのインスト,1,0
 本を読む,0,0
+jQueryの本,0,1
 Prologの本,0,1
 すごいHaskell楽しく学ぼう！,0,1
 本を買う,0,1
@@ -48,4 +49,9 @@ YCMインスト時，自動的にinstall.pyを実行,1,0
 npm install -g remak-cliの実行,1,0
 Fix the problem of not showing a terminal.,1,0
 Fix the problem of not working dmenu.,1,0
-Fix the bug of not being checked a todo.,0,0
+Fix the bug of not being checked a todo.,1,0
+Install powerline fonts.,1,0
+起動が遅いのを治す,0,0
+虫さされ塗る,1,0
+虫除け起動,1,0
+autojumpのための.zshrcの設定を書く,1,0
