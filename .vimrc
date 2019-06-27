@@ -9,7 +9,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "}}}
 call plug#begin('~/.vim/plugged')
+"vim-autoformat{{{
 Plug 'Chiel92/vim-autoformat'
+autocmd FileType tex let b:autoformat_autoindent=0
+"}}}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
