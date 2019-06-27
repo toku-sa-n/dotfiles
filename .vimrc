@@ -44,7 +44,7 @@ let g:vimtex_compiler_latexmk = {
             \}
 let g:vimtex_compiler_latexmk_engines={'_':'-pdfdvi'}   " See: https://texwiki.texjp.org/?vimtex
 let g:vimtex_fold_enabled=1
-
+let g:vimtex_fold_manual=1
 "}}}
 "vim-gutentags{{{
 "Auto tags file generator.
