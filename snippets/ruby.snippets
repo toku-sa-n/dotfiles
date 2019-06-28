@@ -1,3 +1,6 @@
+#
+# minitest
+#
 snippet minitest "test_snip" bA
 require 'minitest/autorun'
 require_relative '../lib/$1'
@@ -11,15 +14,27 @@ class $2 < Minitest::Test
 end$0
 endsnippet
 
+#
+# library
+#
+
 snippet "^r" "require" rA
 require '$1'$0
 endsnippet
+
+#
+# function definition
+#
 
 snippet "^d" "function definition" rA
 def $1($2)
 	$3
 end$0
 endsnippet
+
+#
+# if statement
+#
 
 snippet if "if ... end"
 if $1
@@ -34,6 +49,10 @@ else
 	$3
 end$0
 endsnippet
+
+#
+# iteration methods.
+#
 
 snippet tt "t.times do ... end"
 $1.times do${2: |${3:i}|}
