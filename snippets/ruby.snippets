@@ -23,10 +23,31 @@ require '$1'$0
 endsnippet
 
 #
+# class
+#
+
+snippet "^cl" "class definition" rA
+class $1 ${2:< ${3:Interit}}
+	$4
+end$0
+endsnippet
+
+snippet di "def initialize" bA
+def initialize($1)`!p
+snip >> 2
+args = [x for x in t[1].split(',')]
+if args:
+	for arg in args:
+		snip += "@%s = %s" % (arg, arg)
+`
+end
+endsnippet
+
+#
 # function definition
 #
 
-snippet "^d" "function definition" rA
+snippet "^de" "function definition" rA
 def $1($2)
 	$3
 end$0
