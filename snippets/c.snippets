@@ -70,6 +70,12 @@ snippet nl "putchar('\n');"
 putchar('\n');$0
 endsnippet
 
+snippet c "calloc" b
+$1 = calloc($2, sizeof($3));
+$0
+free($1);
+endsnippet
+
 #
 # for statement
 #
