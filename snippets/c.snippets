@@ -64,6 +64,20 @@ snip.rv += ");"
 `
 endsnippet
 
+# no space inside arguments!
+snippet "s (".+?[^\\]")( (.*))?"  "printf" br
+scanf(`!p
+snip.rv = match.group(1)
+
+# if arguments exist
+if match.group(2):
+	for argument in match.group(3).split(' '):
+			snip.rv += ", " + argument
+
+			snip.rv += ");"
+`
+endsnippet
+
 snippet pu "puts" b
 puts("$1");$0
 endsnippet
