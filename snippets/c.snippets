@@ -62,6 +62,10 @@ snippet pc "putchar" b
 putchar('$1');$0
 endsnippet
 
+snippet nl "putchar('\n');"
+putchar('\n');$0
+endsnippet
+
 #
 # for statement
 #
@@ -163,9 +167,5 @@ struct $1 {
 	$2
 };
 $0
-endsnippet
-
-snippet nl "putchar('\n');"
-putchar('\n');$0
 endsnippet
 
