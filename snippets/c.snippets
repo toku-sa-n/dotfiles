@@ -50,8 +50,17 @@ ${1:void} ${2:name}(${3:void})
 }$0
 endsnippet
 
-snippet p "printf" b
-printf("$1");$0
+snippet "p (".+?[^\\]")( (.*))?"  "printf" br
+printf(`!p
+snip.rv = match.group(1)
+
+# if arguments exist
+if match.group(2):
+	for argument in match.group(3).split(' '):
+		snip.rv += ", " + argument
+
+snip.rv += ");"
+`
 endsnippet
 
 snippet pu "puts" b
