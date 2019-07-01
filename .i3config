@@ -185,7 +185,7 @@ bar {
     status_command i3blocks
         position top
         font pango:Hack Regular 10
-        mode dock
+        mode hide
         separator_symbol " │ "
         workspace_buttons yes
         strip_workspace_numbers yes
