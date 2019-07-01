@@ -183,6 +183,7 @@ client.focused              $secondary   $background      $white  $black     $se
 
 bar {
     status_command i3blocks
+        position top
         font pango:Hack Regular 10
         mode dock
         separator_symbol " │ "

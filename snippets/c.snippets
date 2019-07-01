@@ -50,6 +50,42 @@ ${1:void} ${2:name}(${3:void})
 }$0
 endsnippet
 
+snippet pr  "printf" b
+printf("$1"`!p
+format_search = re.search("%[^%]",t[1])
+if format_search != None:
+	snip.rv = ","
+else:
+	snip.rv = ""
+`$2);$0
+endsnippet
+
+snippet sc  "scanf" b
+scanf("$1",$2);$0
+endsnippet
+
+snippet puts "puts" b
+puts("$1");$0
+endsnippet
+
+snippet putc "putchar" b
+putchar('$1');$0
+endsnippet
+
+snippet nl "putchar('\n');"
+putchar('\n');$0
+endsnippet
+
+snippet c "calloc" b
+$1 = calloc($2, sizeof($3));
+$0
+free($1);
+endsnippet
+
+snippet sr "srand(time(NULL));" b
+srand(time(NULL));$0
+endsnippet
+
 #
 # for statement
 #
@@ -62,6 +98,12 @@ endsnippet
 
 snippet fp "for (int i = ...; i < ... ; i++){ ... }"
 for (int $1 = $2; $1 < $3; $1++){
+	$4
+}$0
+endsnippet
+
+snippet fpe "for (int i = ...; i <= ...; i++){ ... }"
+for (int $1 = $2; $1 <= $3; $1++){
 	$4
 }$0
 endsnippet
@@ -113,23 +155,23 @@ while ($1){
 }$0
 endsnippet
 
-snippet s "struct ... { ... };"
-struct $1 {
-	$2
-};
-$0
+snippet do "do ... while statement" b
+do {
+	$1
+}while($2);$0
 endsnippet
 
-snippet pn "putchar('\n');"
-putchar('\n');
-$0
-endsnippet
+#
+# for
+#
 
 snippet for "general for"
 for (int $1 = $2; $1 $3 $4; $1$5) {
 	$6
 }
 $0
+
+
 endsnippet
 
 #
@@ -139,3 +181,11 @@ endsnippet
 snippet ret "return" bA
 return $0
 endsnippet
+
+snippet s "struct ... { ... };"
+struct $1 {
+	$2
+};
+$0
+endsnippet
+
