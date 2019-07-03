@@ -84,7 +84,7 @@ let g:quickrun_config={
             \}
 "}}}
 "YouCompleteMe{{{
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 let g:ycm_auto_trigger=1
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_semantic_triggers={'c':['re!.']}  " enable semantic_triggers automatically when editing c file.
