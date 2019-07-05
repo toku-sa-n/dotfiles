@@ -84,7 +84,7 @@ let g:quickrun_config={
             \}
 "}}}
 "YouCompleteMe{{{
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 let g:ycm_auto_trigger=1
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_semantic_triggers={'c':['re!.']}  " enable semantic_triggers automatically when editing c file.
@@ -263,7 +263,7 @@ augroup about_make
     autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
 augroup END
 
-nnoremap <space>. :<C-u>tabnew $MYVIMRC<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
+nnoremap <space>. :<C-u>execute 'tabnew '.escape(resolve(expand($MYVIMRC)),'\ ')<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
 nnoremap <space><space> :<c-u>UltiSnipsEdit<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
