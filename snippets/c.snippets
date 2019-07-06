@@ -146,6 +146,22 @@ if ($1){
 endsnippet
 
 #
+# switch
+#
+
+snippet sw "switch" b
+switch ($1){
+	case $2:
+		$3
+}$0
+endsnippet
+
+snippet ca "case" b
+case $1:
+	$0
+endsnippet
+
+#
 # while
 #
 
