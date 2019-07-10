@@ -7,6 +7,11 @@ snippet inc "#include ... " bA
 #include <${1:stdio.h}>$0
 endsnippet
 
+# inu = include user header
+snippet inu "#include '...'" bA
+#include "$1"$0
+endsnippet
+
 snippet "^de" "#define ..." brA
 #define $0
 endsnippet
