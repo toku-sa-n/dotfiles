@@ -181,19 +181,27 @@ chpwd(){
 # }}}
 # Aliases which depends on the distribution using now{{{
 
+common_upgr(){
+    # upgrades which doesn't depend on distributions
+    # user `command -v foo' to check whether `foo' command exists or not.
+    command -v pip > /dev/null && pip list --outdated --format=freeze|awk -F '=' '{print $1}'|xargs pip install --upgrade --user
+    command -v zplug > /dev/null && zplug update
+    command -v gem > /dev/null && gem update
+}
+
 arch(){
     alias detailpac='pacman -Qi'
     alias ns='sudo netctl start'
     alias inst='sudo pacman -S'
     alias unst='sudo pacman -Rs'
-    alias upgr='yes|sudo pacman -Syu'
+    alias upgr='yes|sudo pacman -Syu && common_upgr'
     alias paclist=$'pacman -Ql|awk -F " " \'{print $1}\'|uniq|less'
 }
 
 gentoo(){
     alias inst='sudo emerge -avt'
     alias unst='sudo emerge -cav'
-    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world'
+    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world && common_upgr'
     alias aucl='sudo emerge --ask --depclean'
 }
 
