@@ -5,3 +5,7 @@ install = [["gem", "install", "solargraph"]]
 
 [language.cpp]
 command = "clangd"
+
+[language.haskell]
+command = "hie-wrapper"
+args = ["--lsp"]
