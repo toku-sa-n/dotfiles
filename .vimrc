@@ -29,7 +29,7 @@ Plug 'thinca/vim-splash'
 Plug 'lervag/vimtex'
 
 if empty(v:servername) && exists('*remote_startserver')
-  call remote_startserver('VIM')
+    call remote_startserver('VIM')
 endif
 
 let g:vimtex_view_method='zathura'
@@ -83,14 +83,19 @@ let g:quickrun_config={
             \"hook/output_encode/encoding":"utf-8",
             \}
 "}}}
-"YouCompleteMe{{{
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-let g:ycm_auto_trigger=1
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_semantic_triggers={'c':['re!.']}  " enable semantic_triggers automatically when editing c file.
-let g:ycm_global_ycm_extra_conf="~/dotfiles/.ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_show_diagnostics_ui = 0
+"tabnine-vim{{{
+Plug 'zxqfl/tabnine-vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+if executable('cquery')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'cquery',
+                \ 'cmd': {server_info->['cquery']},
+                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+                \ 'initialization_options': { 'cacheDirectory': '/path/to/cquery/cache' },
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+                \ })
+endif
 "}}}
 "tagbar{{{
 Plug 'majutsushi/tagbar'

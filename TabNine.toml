@@ -1,0 +1,7 @@
+[language.ruby]
+command = "solargraph"
+args = ["stdio"]
+install = [["gem", "install", "solargraph"]]
+
+[language.cpp]
+command = "clangd"
