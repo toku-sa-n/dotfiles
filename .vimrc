@@ -368,7 +368,6 @@ augroup haskell_specific
     autocmd Filetype haskell setlocal softtabstop=4
     autocmd Filetype haskell setlocal shiftwidth=4
     autocmd Filetype haskell setlocal shiftround
-    autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 "}}}
 "LaTeX{{{
