@@ -76,6 +76,12 @@ Plug 'SirVer/ultisnips'
 Plug 'kchmck/vim-coffee-script'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-repeat'
+"ale{{{
+Plug 'w0rp/ale'
+let g:ale_set_loclist=0
+let g:ale_set_quickfix=1
+let g:ale_open_list=1
+"}}}
 "quickrun{{{
 Plug 'thinca/vim-quickrun'
 let g:quickrun_config={
@@ -169,7 +175,6 @@ let g:colorizer_colornames=0
 
 hi Folded ctermbg=none
 "}}}
-Plug 'w0rp/ale'
 "Snippet{{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-k>"
