@@ -17,10 +17,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
-"syntastic{{{
-Plug 'vim-syntastic/syntastic'
-let g:syntastic_asm_checkers=['']
-"}}}
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'steffanc/cscopemaps.vim'
@@ -322,12 +318,9 @@ augroup text_specific
 augroup END
 "}}}
 "Perl{{{
-let g:syntastic_enable_perl_checker = 1
 "}}}
 "C{{{
 set cinwords+=case
-let g:syntastic_c_checkers=['gcc','clang','cppcheck']
-let g:syntastic_c_compiler_options='-W -Wall -Wconversion -lm -lncurses'
 augroup c_specific
     autocmd!
     autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
