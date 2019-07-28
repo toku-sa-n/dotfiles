@@ -85,20 +85,7 @@ let g:quickrun_config={
             \"hook/output_encode/encoding":"utf-8",
             \}
 "}}}
-"tabnine-vim{{{
 Plug 'zxqfl/tabnine-vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-if executable('cquery')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'cquery',
-                \ 'cmd': {server_info->['cquery']},
-                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-                \ 'initialization_options': { 'cacheDirectory': '/path/to/cquery/cache' },
-                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-                \ })
-endif
-"}}}
 "tagbar{{{
 Plug 'majutsushi/tagbar'
 set updatetime=0    " seemless syncking with tagbar.
