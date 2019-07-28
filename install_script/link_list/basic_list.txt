@@ -8,3 +8,4 @@ $HOME/dotfiles/.zlogin            $HOME/.zlogin
 $HOME/dotfiles/.zprofile          $HOME/.zprofile
 $HOME/dotfiles/.zsh_profile       $HOME/.zsh_profile
 $HOME/dotfiles/.zshrc             $HOME/.zshrc
+$HOME/dotfiles/TabNine.toml       $HOME/.config/TabNine/TabNine.toml

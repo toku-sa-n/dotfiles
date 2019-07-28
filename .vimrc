@@ -17,10 +17,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
-"syntastic{{{
-Plug 'vim-syntastic/syntastic'
-let g:syntastic_asm_checkers=['']
-"}}}
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'steffanc/cscopemaps.vim'
@@ -29,7 +25,7 @@ Plug 'thinca/vim-splash'
 Plug 'lervag/vimtex'
 
 if empty(v:servername) && exists('*remote_startserver')
-  call remote_startserver('VIM')
+    call remote_startserver('VIM')
 endif
 
 let g:vimtex_view_method='zathura'
@@ -76,6 +72,12 @@ Plug 'SirVer/ultisnips'
 Plug 'kchmck/vim-coffee-script'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-repeat'
+"ale{{{
+Plug 'w0rp/ale'
+let g:ale_set_loclist=0
+let g:ale_set_quickfix=1
+let g:ale_open_list=1
+"}}}
 "quickrun{{{
 Plug 'thinca/vim-quickrun'
 let g:quickrun_config={
@@ -83,14 +85,19 @@ let g:quickrun_config={
             \"hook/output_encode/encoding":"utf-8",
             \}
 "}}}
-"YouCompleteMe{{{
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-let g:ycm_auto_trigger=1
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_semantic_triggers={'c':['re!.']}  " enable semantic_triggers automatically when editing c file.
-let g:ycm_global_ycm_extra_conf="~/dotfiles/.ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_show_diagnostics_ui = 0
+"tabnine-vim{{{
+Plug 'zxqfl/tabnine-vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+if executable('cquery')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'cquery',
+                \ 'cmd': {server_info->['cquery']},
+                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+                \ 'initialization_options': { 'cacheDirectory': '/path/to/cquery/cache' },
+                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+                \ })
+endif
 "}}}
 "tagbar{{{
 Plug 'majutsushi/tagbar'
@@ -163,16 +170,6 @@ let g:splash#path=$HOME.'/dotfiles/title.txt'
 let g:colorizer_colornames=0
 
 hi Folded ctermbg=none
-"}}}
-"Syntastic{{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 "}}}
 "Snippet{{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -321,12 +318,9 @@ augroup text_specific
 augroup END
 "}}}
 "Perl{{{
-let g:syntastic_enable_perl_checker = 1
 "}}}
 "C{{{
 set cinwords+=case
-let g:syntastic_c_checkers=['gcc','clang','cppcheck']
-let g:syntastic_c_compiler_options='-W -Wall -Wconversion -lm -lncurses'
 augroup c_specific
     autocmd!
     autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
@@ -372,7 +366,6 @@ augroup haskell_specific
     autocmd Filetype haskell setlocal softtabstop=4
     autocmd Filetype haskell setlocal shiftwidth=4
     autocmd Filetype haskell setlocal shiftround
-    autocmd Filetype haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 "}}}
 "LaTeX{{{
