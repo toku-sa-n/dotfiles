@@ -12,5 +12,5 @@ sudo eselect kernel set $LATEST_KERNEL_ESELECT_OPTION
 sudo cp /usr/src/linux-$(uname -r)/.config /usr/src/linux/.config
 
 # TODO: use sudo only once.
-# use parentheses to change working directory temporarily. also use `&&' not to install corrupt kernel.
+# use `&&' not to install corrupt kernel.
 cd /usr/src/linux && sudo make $MAKEOPTS && sudo make modules_install $MAKEOPTS && sudo make install && sudo genkernel --install initramfs && sudo grub-mkconfig -o /boot/grub/grub.cfg
