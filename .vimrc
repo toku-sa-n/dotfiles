@@ -295,6 +295,13 @@ augroup END
 set autoread
 
 set mouse=a
+
+" autoclose quickfix
+" See: https://stackoverflow.com/questions/7476126/how-to-automatically-close-the-quick-fix-window-when-leaving-a-file
+augroup close_quickfix
+    au!
+    au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+augroup END
 "}}}
 "Extension specific{{{
 "Text{{{
