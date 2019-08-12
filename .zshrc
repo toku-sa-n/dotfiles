@@ -201,7 +201,7 @@ arch(){
 gentoo(){
     alias inst='sudo emerge -avt'
     alias unst='sudo emerge -cav'
-    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world && common_upgr'
+    alias upgr='sudo emerge-webrsync ; sudo emerge -avtuDU --keep-going --with-bdeps=y @world && $HOME/dotfiles/kernel_upgrade.sh && aucl && common_upgr'
     alias aucl='sudo emerge --ask --depclean'
 }
 
