@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# if only one version of linux kernel is available, exit.
+if [[ $(eselect kernel list|wc -l) == 2 ]]; then
+    return 0
+fi
+
 MAKEOPTS="-j$(nproc||echo 8)"
 BACKUP_KERNEL_PATH=$HOME/kernel-config-$(uname -r)
 # back up the old kernel config.
