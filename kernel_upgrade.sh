@@ -2,7 +2,7 @@
 
 # if only one version of linux kernel is available, exit.
 if [[ $(eselect kernel list|wc -l) == 2 ]]; then
-    return 0
+    exit 0
 fi
 
 MAKEOPTS="-j$(nproc||echo 8)"
