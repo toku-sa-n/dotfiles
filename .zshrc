@@ -178,8 +178,6 @@ alias :q='exit'
 chpwd(){
         ls --color=auto
 }
-# }}}
-# Aliases which depends on the distribution using now{{{
 
 common_upgr(){
     # upgrades which doesn't depend on distributions
@@ -188,6 +186,9 @@ common_upgr(){
     command -v zplug > /dev/null && zplug update
     command -v gem > /dev/null && gem update
 }
+
+# }}}
+# Aliases which depends on the distribution using now{{{
 
 arch(){
     alias detailpac='pacman -Qi'
