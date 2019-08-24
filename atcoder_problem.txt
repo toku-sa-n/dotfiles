@@ -2,3 +2,4 @@ https://atcoder.jp/contests/abc134/tasks/abc134_c
 https://atcoder.jp/contests/abc135/tasks/abc135_d
 https://atcoder.jp/contests/abc136/tasks/abc136_b
 https://atcoder.jp/contests/abc136/tasks/abc136_d
+https://atcoder.jp/contests/jsc2019-qual/tasks/jsc2019_qual_b
