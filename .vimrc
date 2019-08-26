@@ -72,6 +72,7 @@ Plug 'SirVer/ultisnips'
 Plug 'kchmck/vim-coffee-script'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-repeat'
+Plug 'philj56/vim-asm-indent'
 "ale{{{
 Plug 'w0rp/ale'
 let g:ale_set_loclist=0
