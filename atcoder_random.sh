@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-shuf atcoder_problem.txt|head -n1|xargs firefox
+shuf atcoder_problem.txt|head -n1|xargs firefox &
