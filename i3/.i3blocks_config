@@ -1,17 +1,17 @@
 [git_status]
 label=
-command=$HOME/dotfiles/git_status.rb
+command=$HOME/dotfiles/i3/git_status.rb
 markup=pango
 interval=1
 
 [cpu_temperature]
-command=$HOME/dotfiles/cpu_temperature.sh
+command=$HOME/dotfiles/i3/cpu_temperature.sh
 format=json
 interval=1
 
 [memory]
 label=.
-command=$HOME/dotfiles/memory.sh
+command=$HOME/dotfiles/i3/memory.sh
 format=json
 interval=1
 
