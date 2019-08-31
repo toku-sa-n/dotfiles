@@ -14,6 +14,7 @@ Plug 'Chiel92/vim-autoformat'
 autocmd FileType tex let b:autoformat_autoindent=0
 "}}}
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'w0ng/vim-hybrid'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
@@ -113,7 +114,7 @@ syntax on
 set background=dark
 
 set display=lastline
-colorscheme default
+colorscheme hybrid
 set number
 
 let g:airline_powerline_fonts=1
@@ -187,6 +188,10 @@ let g:indent_guides_start_level=2
 let g:indent_guides_color_change_percent = 10
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors=0
+
+hi IndentGuidesOdd ctermbg=0
+hi IndentGuidesEven ctermbg=8
 "}}}
 "Completions{{{
 set completeopt=menuone,menu,longest,preview
