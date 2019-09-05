@@ -76,12 +76,12 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 "ale{{{
 Plug 'w0rp/ale'
-let g:ale_set_loclist=0
-let g:ale_set_quickfix=1
 let g:ale_open_list=1
-let g:ale_lint_on_save=1
-let g:ale_lint_on_text_changed=0
 let g:ale_linters={'c':['gcc']}
+augroup CloseLoclistWindowGroup
+    autocmd!
+    autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 "}}}
 "quickrun{{{
 Plug 'thinca/vim-quickrun'
