@@ -159,6 +159,7 @@ packadd! matchit
 "Display"{{{
 filetype plugin indent on
 syntax on
+colorscheme hybrid
 
 "Colorchange
 set t_Co=16
