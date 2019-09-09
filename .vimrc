@@ -170,7 +170,7 @@ set number
 "Show which keys are pressed
 set showcmd
 
-"Move the pair parenthesis when entering ( or ).
+"Highlighten the pair parenthesis when entering ( or ).
 set showmatch
 set matchtime=5
 
@@ -178,7 +178,6 @@ set matchtime=5
 set foldmethod=marker
 set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 
-set pumheight=10
 set laststatus=2
 
 "Cursor position
@@ -186,7 +185,6 @@ nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
 
 "Scroll
 set scrolloff=5
-
 
 "Colorize
 let g:colorizer_colornames=0
@@ -207,6 +205,7 @@ set shiftwidth=4
 set completeopt=menuone,menu,longest,preview
 set complete+=U,k,d,]
 set infercase
+set pumheight=10
 "}}}
 " Search and Grep{{{
 set ignorecase  " A and a is the same
@@ -245,6 +244,7 @@ noremap k gk
 
 "}}}
 "Shortcut{{{
+let mapleader="\<Space>"
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap Y y$
@@ -258,11 +258,14 @@ let g:filetype_to_ignore=['latex','plaintex','tex','text']
 
 augroup about_make
     autocmd!
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \ll :up <Bar> make!<CR>
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap \lv :up <Bar> make! run<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap <leader>l :up <Bar> make!<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap <leader>v :up <Bar> make! run<CR>
 augroup END
 
-nnoremap <space>. :<C-u>execute 'tabnew '.escape(resolve(expand($MYVIMRC)),'\ ')<CR>    " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
+" Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
+nnoremap <leader>. :<C-u>execute 'tabnew '.escape(resolve(expand($MYVIMRC)),'\ ')<CR>
+
+nnoremap <leader>w :up<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
