@@ -30,6 +30,40 @@ $0
 endsnippet
 
 #
+# type
+#
+
+snippet st "struct"
+struct $1{
+	$2
+};$0
+endsnippet
+
+snippet v "vector"
+std::vector <$1> $0
+endsnippet
+
+snippet se "set"
+std::set <$1> $0
+endsnippet
+
+snippet p "pair"
+std::pair <$1,$2> $0
+endsnippet
+
+#
+# io
+#
+
+snippet "cin?" "cin" r
+std::cin >> $0
+endsnippet
+
+snippet "co(ut?)?" "cout" r
+std::cout << $0
+endsnippet
+
+#
 # if statement
 #
 
@@ -55,12 +89,6 @@ endsnippet
 #
 # others
 #
-
-snippet st "struct"
-struct $1{
-	$2
-};$0
-endsnippet
 
 snippet "^de" "define" rA
 #define $0
