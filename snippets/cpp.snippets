@@ -1,3 +1,7 @@
+#
+# include
+#
+
 snippet inc "include" bA
 #include <${1:iostream}>$0
 endsnippet
@@ -6,24 +10,40 @@ snippet inf "include from file" bA
 #include "$1"$0
 endsnippet
 
+
+#
+# function
+#
+
 snippet mn "main no arguments" bA
 int main()
 {
 	$0
 }
 endsnippet
+
 snippet f0 "for i=0 i<xxx i++" bA
 for (int $1 = 0; $1 < $2; $1++){
 	$3
 }
 $0
 endsnippet
+
+#
+# if statement
+#
+
 snippet if "if statement"
 if ($1) {
 	$2
 }
 $0
 endsnippet
+
+#
+# loop
+#
+
 snippet w "while" b
 while ($1)
 {
@@ -31,6 +51,10 @@ while ($1)
 }
 $0
 endsnippet
+
+#
+# others
+#
 
 snippet st "struct"
 struct $1{
@@ -42,16 +66,21 @@ snippet "^de" "define" rA
 #define $0
 endsnippet
 
-snippet hdef "header define" bA
-#ifndef $1
-#define $1
-$0
-#endif
-endsnippet
 snippet ret "return" A
 return $0
 endsnippet
 
 snippet mod "mod 10**9 + 7"
 const int mod = 1000000007;${0}
+endsnippet
+
+#
+# .h file
+#
+
+snippet hdef "header define" bA
+#ifndef $1
+#define $1
+$0
+#endif
 endsnippet
