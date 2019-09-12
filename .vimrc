@@ -36,7 +36,24 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
+"tabnine-vim{{{
 Plug 'zxqfl/tabnine-vim'
+
+" To prevent YouCompleteMe(tabnine depends on it) from disabling syntastic
+let g:ycm_show_diagnostics_ui = 0
+"}}}
+"syntastic{{{
+Plug 'vim-syntastic/syntastic'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+"}}}
 "vim-test{{{
 Plug 'janko-m/vim-test'
 let g:test#strategy='dispatch'
@@ -126,15 +143,6 @@ let g:vimtex_fold_manual=1
 Plug 'ludovicchabant/vim-gutentags'
 
 set statusline+=%{gutentags#statusline()}
-"}}}
-"ale{{{
-Plug 'w0rp/ale'
-let g:ale_open_list=1
-let g:ale_linters={'c':['gcc']}
-augroup CloseLoclistWindowGroup
-    autocmd!
-    autocmd QuitPre * if empty(&buftype) | lclose | endif
-augroup END
 "}}}
 "quickrun{{{
 Plug 'thinca/vim-quickrun'
