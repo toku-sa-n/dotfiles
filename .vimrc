@@ -283,6 +283,7 @@ xnoremap & :&&<CR>
 
 nnoremap <leader>a :Gwrite<CR>
 nnoremap <leader>c :Gcommit<CR>
+nnoremap <leader>p :Gpush<CR>
 "}}}
 "Others{{{
 "--- For files ---
