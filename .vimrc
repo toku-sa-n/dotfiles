@@ -280,6 +280,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
+
+nnoremap <leader>a :Gwrite<CR>
+nnoremap <leader>c :Gcommit<CR>
 "}}}
 "Others{{{
 "--- For files ---
