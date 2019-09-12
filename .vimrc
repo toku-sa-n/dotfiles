@@ -253,7 +253,7 @@ noremap k gk
 
 "}}}
 "Shortcut{{{
-let mapleader="\<Space>"
+let g:mapleader="\<Space>"
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap Y y$
