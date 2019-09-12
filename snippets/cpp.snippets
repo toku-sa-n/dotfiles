@@ -76,6 +76,12 @@ snippet "co(ut?)?" "cout" r
 std::cout << $0
 endsnippet
 
+snippet cia "cia to array"
+for(int i = 0; i < $1; i++) {
+	std::cin >> $2[i];
+}$0
+endsnippet
+
 #
 # if statement
 #
