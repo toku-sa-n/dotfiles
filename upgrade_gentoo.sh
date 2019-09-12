@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Immediately stop running this script when an error occurs.
+set -e
+
 if [[ $(whoami) != "root" ]]; then
     echo 'Run as root.'
     exit 1
@@ -11,7 +14,7 @@ emerge --ask --verbose --tree --update --deep --newuse --keep-going --with-bdeps
 # $HOME is not the home directory of the user who runs sudo.
 # I hate direct path so copied kernel_upgrade.sh.
 
-# if only one version of linux kernel is available, exit.
+# if only one version of Linux kernel is available, exit.
 if [[ $(eselect kernel list|wc -l) != 2 ]]; then
 
     MAKEOPTS="-j$(nproc||echo 8)"
