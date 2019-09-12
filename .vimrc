@@ -189,9 +189,6 @@ set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 
 set laststatus=2
 
-"Cursor position
-nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
-
 "Scroll
 set scrolloff=5
 
