@@ -82,6 +82,15 @@ for(int i = 0; i < $1; i++) {
 }$0
 endsnippet
 
+snippet cii "cin to int"
+int $1;
+std::cin`!p
+args = [x for x in t[1].split(',')]
+if args:
+	for arg in args:
+		snip.rv += " >> %s" % (arg)`;$0
+endsnippet
+
 snippet cis "cin to string"
 std::string $1;
 std::cin`!p
