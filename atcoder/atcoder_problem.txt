@@ -8,3 +8,5 @@ https://atcoder.jp/contests/abc139/tasks/abc139_e
 https://atcoder.jp/contests/abc140/tasks/abc140_d
 https://atcoder.jp/contests/abc140/tasks/abc140_e
 https://atcoder.jp/contests/abc138/tasks/abc138_e
+https://atcoder.jp/contests/abc141/tasks/abc141_d
+https://atcoder.jp/contests/abc141/tasks/abc141_e
