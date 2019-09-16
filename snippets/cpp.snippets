@@ -100,6 +100,13 @@ if args:
 		snip.rv += " >> %s" % (arg)`;$0
 endsnippet
 
+snippet civ "cin to vector"
+std::vector<$1> $2($3);
+for (int i = 0; i < $3; i++) {
+	std::cin >> $2[i];
+}
+endsnippet
+
 #
 # if statement
 #
