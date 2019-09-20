@@ -1,11 +1,3 @@
 https://atcoder.jp/contests/abc127/tasks/abc127_e
 https://atcoder.jp/contests/abc128/tasks/abc128_d
-https://atcoder.jp/contests/abc129/tasks/abc129_c
-https://atcoder.jp/contests/abc134/tasks/abc134_c
-https://atcoder.jp/contests/abc135/tasks/abc135_d
-https://atcoder.jp/contests/abc138/tasks/abc138_e
-https://atcoder.jp/contests/abc139/tasks/abc139_e
-https://atcoder.jp/contests/abc140/tasks/abc140_d
-https://atcoder.jp/contests/abc141/tasks/abc141_d
-https://atcoder.jp/contests/jsc2019-qual/tasks/jsc2019_qual_b
 https://kenkoooo.com/atcoder/#/table/toku_san
