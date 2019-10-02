@@ -85,6 +85,7 @@ endsnippet
 # io
 #
 
+# TODO Use function in cii and cill
 snippet "cin?" "cin" r
 std::cin >> $0
 endsnippet
@@ -122,6 +123,15 @@ std::vector<$1> $2($3);
 for (int i = 0; i < $3; i++) {
 	std::cin >> $2[i];
 }
+endsnippet
+
+snippet cill "cin to long long"
+long long $1;
+std::cin`!p
+args = [x for x in t[1].split(',')]
+if args:
+	for arg in args:
+		snip.rv += " >> %s" % (arg)`;$0
 endsnippet
 
 #
