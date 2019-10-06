@@ -12,4 +12,4 @@ https://atcoder.jp/contests/abc127/tasks/abc127_e
 https://atcoder.jp/contests/abc128/tasks/abc128_d
 https://atcoder.jp/contests/abc138/tasks/abc138_d
 https://atcoder.jp/contests/apc001/tasks/apc001_b
-https://kenkoooo.com/atcoder/#/table/toku_san
+https://kenkoooo.com/atcoder/#/user/toku_san
