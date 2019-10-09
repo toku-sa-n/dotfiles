@@ -237,6 +237,34 @@ snippet comp "competitive programming" bA
 #include <numeric>
 
 const int mod = 1e9 + 7;
+const int kmax = 510000;
+
+long long fact[kmax], fact_inv[kmax], inv[kmax];
+
+void init_comb()
+{
+	fact[0] = fact[1] = 1;
+	fact_inv[0] = fact_inv[1] = 1;
+	inv[1] = 1;
+	for (int i = 2; i < kmax; i++){
+		fact[i] = fact[i - 1] * i % mod;
+		inv[i] = mod - inv[mod % i] * (mod / i) % mod;
+		fact_inv[i] = fact_inv[i - 1] * inv[i] % mod;
+	}
+}
+
+long long comb(int n, int r)
+{
+	if ( n < r ){
+		return 0;
+	}
+
+	if( n < 0 || r < 0 ){
+		return 0;
+	}
+
+	return fact[n] * (fact_inv[r] * fact_inv[n - r] % mod) % mod;
+}
 
 int main()
 {
