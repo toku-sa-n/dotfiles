@@ -216,6 +216,13 @@ snippet mod "mod 10**9 + 7"
 const int mod = 1000000007;$0
 endsnippet
 
+snippet sumq "sum of queue"
+while ($1.size()) {
+	$2 += $1.top();
+	$1.pop();
+}$0
+endsnippet
+
 #
 # .h file
 #
