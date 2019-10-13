@@ -8,7 +8,6 @@ https://atcoder.jp/contests/abc121/tasks/abc121_d
 https://atcoder.jp/contests/abc122/tasks/abc122_d
 https://atcoder.jp/contests/abc123/tasks/abc123_d
 https://atcoder.jp/contests/abc124/tasks/abc124_d
-https://atcoder.jp/contests/abc125/tasks/abc125_c
 https://atcoder.jp/contests/abc126/tasks/abc126_d
 https://atcoder.jp/contests/abc127/tasks/abc127_e
 https://atcoder.jp/contests/abc128/tasks/abc128_d
