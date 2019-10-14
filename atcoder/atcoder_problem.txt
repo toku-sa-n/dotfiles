@@ -1,7 +1,6 @@
 https://atc001.contest.atcoder.jp/tasks/unionfind_a
 https://atcoder.jp/contests/abc042/tasks/arc058_b
 https://atcoder.jp/contests/abc107/tasks/arc101_a
-https://atcoder.jp/contests/abc118/tasks/abc118_d
 https://atcoder.jp/contests/abc119/tasks/abc119_c
 https://atcoder.jp/contests/abc120/tasks/abc120_d
 https://atcoder.jp/contests/abc121/tasks/abc121_d
