@@ -168,6 +168,8 @@ alias gpl="git pull"
 alias gl="git log"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
 
+alias v=vim
+
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
 [ -r /usr/bin/fuck ] && alias f="fuck"
 [ -r /usr/bin/exa ] && alias ls='exa'
