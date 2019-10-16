@@ -106,3 +106,32 @@ while $1
 	$2
 end$0
 endsnippet
+
+#
+# others
+#
+
+snippet comp "competitive programming" bA
+def factor(n)
+	if n==1
+		return [1]
+	end
+	return \`factor #{n}|sed -r 's/[0-9]+://g'|tr ' ' '\n'|sort -n\`.split.map(&:to_i)
+end
+
+# Example: factors(100) => {2=>2, 5=>2}
+def factors_and_num(n)
+	factors=factor(n)
+	ret=Hash.new(0)
+	factors.each do |i|
+		ret[i]+=1
+	end
+	return ret
+end
+
+def uniq_factor(n)
+	return \`factor #{n}|sed -r 's/[0-9]+://g'|tr ' ' '\n'|sort -n|uniq\`.split.map(&:to_i)
+end
+
+$0
+endsnippet
