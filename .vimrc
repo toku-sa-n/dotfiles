@@ -290,7 +290,7 @@ set formatoptions-=cro
 
 set ttyfast
 
-set history=200
+set history=500
 
 set matchpairs+=「:」
 
