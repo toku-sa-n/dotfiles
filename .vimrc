@@ -271,6 +271,7 @@ augroup END
 nnoremap <leader>. :<C-u>execute 'tabnew '.escape(resolve(expand($MYVIMRC)),'\ ')<CR>
 
 nnoremap <leader>w :up<CR>
+nnoremap <leader>W :w !sudo tee %<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
