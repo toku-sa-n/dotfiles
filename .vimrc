@@ -219,7 +219,6 @@ set smartcase   " If the sentence to search contains UPPER, then no-ignorecase.
 set incsearch   " Automatically start to search when typing the word to search.
 set gdefault    " Always add "g" s/foo/bar/g <---
 set hlsearch
-set smartcase   " If the word contains UPPER, then do not ignore UPPER and lower when searching.
 
 "Auto load when editing file is changed
 set autoread
@@ -227,7 +226,7 @@ set autowrite
 
 "Autocomplete of command line
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:full
 
 "Show the searched word at the center of the display.
 nnoremap n nzz
@@ -272,6 +271,7 @@ augroup END
 nnoremap <leader>. :<C-u>execute 'tabnew '.escape(resolve(expand($MYVIMRC)),'\ ')<CR>
 
 nnoremap <leader>w :up<CR>
+nnoremap <leader>W :w !sudo tee %<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -283,9 +283,6 @@ nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>p :Gpush<CR>
 "}}}
 "Others{{{
-"--- For files ---
-set ignorecase
-
 "--- Language ---
 set helplang=ja,en
 
@@ -294,7 +291,9 @@ set formatoptions-=cro
 
 set ttyfast
 
-set history=200
+set hidden
+
+set history=500
 
 set matchpairs+=「:」
 
@@ -310,6 +309,10 @@ augroup chomp
     autocmd BufWritePre * silent! exec "%s/ \\+$//g"
 augroup END
 
+nnoremap x "_x
+nnoremap s "_s
+
+nnoremap xp xp
 
 set autoread
 
