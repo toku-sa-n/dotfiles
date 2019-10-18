@@ -226,7 +226,7 @@ set autowrite
 
 "Autocomplete of command line
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:full
 
 "Show the searched word at the center of the display.
 nnoremap n nzz
