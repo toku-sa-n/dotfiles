@@ -219,7 +219,6 @@ set smartcase   " If the sentence to search contains UPPER, then no-ignorecase.
 set incsearch   " Automatically start to search when typing the word to search.
 set gdefault    " Always add "g" s/foo/bar/g <---
 set hlsearch
-set smartcase   " If the word contains UPPER, then do not ignore UPPER and lower when searching.
 
 "Auto load when editing file is changed
 set autoread
@@ -283,9 +282,6 @@ nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>p :Gpush<CR>
 "}}}
 "Others{{{
-"--- For files ---
-set ignorecase
-
 "--- Language ---
 set helplang=ja,en
 
