@@ -309,6 +309,10 @@ augroup chomp
     autocmd BufWritePre * silent! exec "%s/ \\+$//g"
 augroup END
 
+nnoremap x "_x
+nnoremap s "_s
+
+nnoremap xp xp
 
 set autoread
 
