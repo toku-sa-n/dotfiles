@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile(filename, **keyword_args):$/;"	f
+GitRepository	i3/git_status.rb	/^class GitRepository$/;"	c
+SOURCE_EXTENTIONS	.ycm_extra_conf.py	/^SOURCE_EXTENTIONS = ['.cpp', '.c', '.cxx', '.cc', ]$/;"	v
+flags	.ycm_extra_conf.py	/^flags = [$/;"	v
+initialize	i3/git_status.rb	/^  def initialize(path)$/;"	f	class:GitRepository
+main	i3/git_status.rb	/^def main$/;"	f
+need_to_commit?	i3/git_status.rb	/^  def need_to_commit?$/;"	f
+need_to_push?	i3/git_status.rb	/^  def need_to_push?$/;"	f
+path	i3/git_status.rb	/^  def path$/;"	f
+print_git_status	i3/git_status.rb	/^def print_git_status(repositories, push_or_commit, color)$/;"	f
