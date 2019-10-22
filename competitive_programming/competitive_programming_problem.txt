@@ -1,4 +1,5 @@
 http://codeforces.com/contest/1236/problem/D
+https://arc057.contest.atcoder.jp/tasks/arc057_b
 https://atc001.contest.atcoder.jp/tasks/unionfind_a
 https://atcoder.jp/contests/abc107/tasks/arc101_a
 https://atcoder.jp/contests/abc119/tasks/abc119_c
