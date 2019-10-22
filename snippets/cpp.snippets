@@ -139,6 +139,15 @@ for (int i = 0; i < $3; i++) {
 }
 endsnippet
 
+snippet civv "cin to two-array vector"
+std::vector<std::vector<$1>> $2($3, std::vector<$1>($4));
+for (int i = 0; i < $3; i++) {
+	for (int j = 0; j < $4; j++) {
+		std::cin >> $2[i][j];
+	}
+}
+endsnippet
+
 snippet cill "cin to long long"
 long long $1;
 std::cin`!p
