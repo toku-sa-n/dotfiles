@@ -333,13 +333,13 @@ augroup text_specific
     autocmd Filetype text setlocal textwidth=0 " No auto line break. See http://stst.hateblo.jp/entry/2014/07/14/010844.
 augroup END
 "}}}
-"C{{{
+"C and C++{{{
 set cinwords+=case
 augroup c_specific
     autocmd!
-    autocmd Filetype c inoremap {<CR> {<CR>}<Esc>O
-    autocmd Filetype c inoremap {;<CR> {<CR>};<Esc>O
-    autocmd Filetype c setlocal foldmethod=indent
+    autocmd Filetype c,cpp inoremap {<CR> {<CR>}<Esc>O
+    autocmd Filetype c,cpp inoremap {;<CR> {<CR>};<Esc>O
+    autocmd Filetype c,cpp setlocal foldmethod=indent
 augroup END
 "}}}
 "HTML{{{
