@@ -1,3 +1,6 @@
+#
+# Template
+#
 snippet temp "LaTeX Template" bA
 \documentclass[uplatex,a4j,12pt]{jsarticle}
 \begin{document}
@@ -10,9 +13,23 @@ $0
 
 \end{document}
 endsnippet
+
+#
+# header
+#
+
 snippet use "usepackage" bA
 \usepackage{$1}$0
 endsnippet
+
+snippet boo "booktabs" bA
+\usepackage{booktabs}
+endsnippet
+
+#
+# Headline
+#
+
 snippet sec "\section" bA
 \section{$1}$0
 endsnippet
@@ -20,13 +37,14 @@ endsnippet
 snippet par "\paragraph" bA
 \paragraph{$1}$0
 endsnippet
+
 snippet sub "\subsection" bA
 \subsection{$1}$0
 endsnippet
 
-snippet boo "booktabs" bA
-\usepackage{booktabs}
-endsnippet
+#
+# Itemize
+#
 
 snippet enu "enumration" bA
 \begin{enumerate}
@@ -46,6 +64,18 @@ snippet de "Description" bA
 \end{description}$0
 endsnippet
 
+snippet itm "item" bA
+\item $0
+endsnippet
+
+snippet dit "item []" bA
+\item [$1] $0
+endsnippet
+
+#
+# Math Area
+#
+
 snippet al "align" bA
 \begin{align}
 	$1
@@ -58,13 +88,13 @@ snippet equ "equation" bA
 \end{equation}$0
 endsnippet
 
-snippet itm "item" bA
-\item $0
+snippet "\$\$" "math" rA
+\$$1\$$0
 endsnippet
 
-snippet dit "item []" bA
-\item [$1] $0
-endsnippet
+#
+# Math Symbol
+#
 
 snippet integ "integral" wA
 \int_{$1}^{$2} $0
@@ -86,13 +116,13 @@ snippet (( "parentheses" iA
 \left( $1 \right)$0
 endsnippet
 
-snippet sb "somebody" wA
-somebody$0
+snippet // "fraction" iA
+\\frac{$1}{$2}$0
 endsnippet
 
-snippet sth "something" wA
-something
-endsnippet
+#
+# Other sections
+#
 
 snippet ver "verbatim" bA
 \begin{verbatim}
@@ -100,9 +130,9 @@ $1
 \end{verbatim}$0
 endsnippet
 
-snippet "\$\$" "math" rA
-\$$1\$$0
-endsnippet
+#
+# Reference
+#
 
 snippet la "label"
 \label{$1}$0
@@ -112,6 +142,15 @@ snippet "ref" "\ref{}" r
 \ref{$1}$0
 endsnippet
 
-snippet // "fraction" iA
-\\frac{$1}{$2}$0
+#
+# Abbreviation
+#
+
+snippet sb "somebody" wA
+somebody$0
 endsnippet
+
+snippet sth "something" wA
+something
+endsnippet
+
