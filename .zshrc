@@ -134,7 +134,7 @@ alias vim="vim_expand_symlinks"
 
 alias la='ls -aF --color=auto'
 alias ll='ls -lahF --color=auto'
-alias ls='ls -F --color=auto'
+alias ls='ls -F --color=auto --group-directories-first'
 alias l='ls'
 
 alias df='df -h'
@@ -172,7 +172,7 @@ alias v=vim
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
 [ -r /usr/bin/fuck ] && alias f="fuck"
-[ -r /usr/bin/exa ] && alias ls='exa'
+[ -r /usr/bin/exa ] && alias ls='exa --group-directories-first'
 [ -r /usr/bin/fd ] && alias find="fd"
 [ -r /usr/bin/ack ] && alias grep='ack'
 
