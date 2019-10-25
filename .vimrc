@@ -174,7 +174,7 @@ set t_Co=16
 set background=dark
 
 set display=lastline
-set number
+set relativenumber
 
 "Show which keys are pressed
 set showcmd
