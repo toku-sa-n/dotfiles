@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Immediately stop running this script when an error occurs.
+# Immediately abort to run this script when an error occurs.
 set -e
 
 if [[ $(whoami) != "root" ]]; then
