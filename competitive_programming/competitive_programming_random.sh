@@ -7,13 +7,14 @@ diff_date=$(( ($(date +'%s') - $past_date)/86400))
 
 count_problem=$(( $count_problem+4*$diff_date ))
 
-echo "残り${count_problem}問"
 shuf competitive_programming_problem.txt|head -n1|xargs firefox &
 
 if [[ $count_problem -gt 0 ]];
 then
     ((count_problem--))
 fi
+
+echo "残り${count_problem}問"
 
 if [[ $diff_date -gt 0 ]]; then
     date +'%s' > records.txt
