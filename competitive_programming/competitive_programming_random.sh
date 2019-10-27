@@ -15,5 +15,9 @@ then
     ((count_problem--))
 fi
 
-date +'%s' > records.txt
+if [[ $diff_date -gt 0 ]]; then
+    date +'%s' > records.txt
+else
+    echo $past_date > records.txt
+fi
 echo $count_problem >> records.txt
