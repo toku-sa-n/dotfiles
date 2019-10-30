@@ -1,7 +1,9 @@
 #!/bin/zsh
 
-past_date=$(sed '1!d' ./records.txt)
-count_problem=$(sed '2!d' ./records.txt)
+RECORD_FILE=$HOME/.competitive_programming_record
+
+past_date=$(sed '1!d' $RECORD_FILE)
+count_problem=$(sed '2!d' $RECORD_FILE)
 
 diff_date=$(( ($(date +'%s') - $past_date)/86400))
 
@@ -17,8 +19,8 @@ fi
 echo "残り${count_problem}問"
 
 if [[ $diff_date -gt 0 ]]; then
-    date +'%s' > records.txt
+    date +'%s' > $RECORD_FILE
 else
-    echo $past_date > records.txt
+    echo $past_date > $RECORD_FILE
 fi
-echo $count_problem >> records.txt
+echo $count_problem >> $RECORD_FILE
