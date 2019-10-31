@@ -55,6 +55,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
 let g:syntastic_cpp_compiler_options="-std=c++17"
+let g:syntastic_nasm_nasm_args="-f elf"
 
 "}}}
 "vim-test{{{
