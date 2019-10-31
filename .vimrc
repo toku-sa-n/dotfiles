@@ -283,7 +283,10 @@ xnoremap & :&&<CR>
 
 nnoremap <leader>a :Gwrite<CR>
 nnoremap <leader>c :Gcommit<CR>
-nnoremap <leader>p :Gpush<CR>
+
+nnoremap <silent> <leader>b :bprevious<CR>
+nnoremap <silent> <leader>n :bnext<CR>
+
 "}}}
 "Others{{{
 "--- Language ---
