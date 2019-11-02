@@ -9,7 +9,7 @@ diff_date=$(( ($(date +'%s') - $past_date)/86400))
 
 count_problem=$(( $count_problem+4*$diff_date ))
 
-shuf competitive_programming_problem.txt|head -n1|xargs firefox &
+shuf competitive_programming_problem.txt|grep -v "\A#"|head -n1|xargs firefox &
 
 if [[ $count_problem -gt 0 ]];
 then
