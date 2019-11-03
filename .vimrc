@@ -108,7 +108,7 @@ let g:hybrid_reduced_contrast=1
 "vim-autoformat{{{
 Plug 'Chiel92/vim-autoformat'
 autocmd FileType tex let b:autoformat_autoindent=0
-autocmd BufWritePre *.pl,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+autocmd BufWritePre *.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
 "}}}
 "vim-indent-guides{{{
 Plug 'nathanaelkane/vim-indent-guides'
