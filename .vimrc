@@ -55,6 +55,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
+let g:syntastic_c_compiler_options="-std=c99 -Wall -Wextra"
+
 let g:syntastic_cpp_compiler_options="-std=c++17"
 let g:syntastic_nasm_nasm_args="-f elf"
 
