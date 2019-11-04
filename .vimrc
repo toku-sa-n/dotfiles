@@ -36,6 +36,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
+Plug 'rust-lang/rust.vim'
 "tabnine-vim{{{
 Plug 'zxqfl/tabnine-vim'
 
