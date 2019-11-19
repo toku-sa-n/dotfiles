@@ -1,10 +1,27 @@
 #
+# module
+#
+
+snippet m "mod"
+mod $1 {
+	$2
+}$0
+endsnippet
+
+#
 # Functions
 #
 
-snippet fn "Function declaration" bA
+snippet fu "Function declaration" bA
 fn $1($2) -> $3 {
 	$4
+}$0
+endsnippet
+
+snippet ft "Test function" bA
+#[test]
+fn $1() {
+	$2
 }$0
 endsnippet
 
@@ -40,6 +57,22 @@ endsnippet
 
 snippet ei "else if" i
 else if $1 {
+	$2
+}$0
+endsnippet
+
+#
+# struct
+#
+
+snippet s "struct"
+struct $1 {
+	$2
+}$0
+endsnippet
+
+snippet im "impl"
+impl $1 {
 	$2
 }$0
 endsnippet
