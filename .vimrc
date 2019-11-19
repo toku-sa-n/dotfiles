@@ -254,6 +254,9 @@ set whichwrap=h,l,<,>,[,],b
 noremap j gj
 noremap k gk
 
+noremap gj j
+noremap gk k
+
 "}}}
 "Shortcut{{{
 let g:mapleader="\<Space>"
