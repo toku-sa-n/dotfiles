@@ -46,6 +46,15 @@ let g:ycm_show_diagnostics_ui = 0
 "syntastic{{{
 Plug 'vim-syntastic/syntastic'
 
+if findfile('.syntasticrc','.;')!=''
+    for s:line in readfile(findfile('.syntasticrc','.;'))
+        let [s:lang,s:lint,s:options]=split(s:line,',')
+
+        let g:syntastic_{s:lang}_checkers=[s:lint]
+        let g:syntastic_{s:lang}_{s:lint}_args=s:options
+    endfor
+endif
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
