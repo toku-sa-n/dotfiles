@@ -420,8 +420,9 @@ augroup END
 "}}}
 "}}}}}}
 "load .local_vimrc
-if findfile('.local_vimrc','.;')!=''
-    exec "source " . findfile('.local_vimrc','.;')
-endif
+augroup load_local_vimrc
+    autocmd!
+    autocmd BufNewFile,BufReadPost * if findfile('.local_vimrc','.;')!=''|silent! exec "source " . findfile('.local_vimrc','.;')| endif
+augroup END
 
 set fileencodings=utf-8,sjis
