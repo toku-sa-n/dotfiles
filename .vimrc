@@ -266,15 +266,12 @@ nnoremap Y y$
 nnoremap gO O<Esc>
 nnoremap go o<Esc>
 
-"For preventing from creating a new Buffer of make
-cnoreabbrev make make!
-
 let g:filetype_to_ignore=['latex','plaintex','tex','text']
 
 augroup about_make
     autocmd!
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap <leader>l :up <Bar> make!<CR>
-    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap <leader>v :up <Bar> make! run<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap <leader>l :up <Bar> make<CR>
+    autocmd BufNewFile,BufRead * if index(filetype_to_ignore,&ft)<0 | nnoremap <leader>v :up <Bar> make run<CR>
 augroup END
 
 " Shortcut for vimrc. It may be good to add the shortcut ":source ~/.vimrc" when .vimrc are opened.
