@@ -422,5 +422,13 @@ augroup assembly_specific
     autocmd BufNewFile,BufRead *.asm set filetype=nasm
 augroup END
 "}}}
+"Rust{{{
+augroup rust_specific
+    autocmd!
+    autocmd Filetype rust inoremap {<CR> {<CR>}<Esc>O
+    autocmd Filetype rust inoremap {;<CR> {<CR>};<Esc>O
+    autocmd Filetype rust setlocal foldmethod=indent
+augroup END
+"}}}
 "}}}}}}
 set fileencodings=utf-8,sjis
