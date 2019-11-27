@@ -159,13 +159,14 @@ alias xrc="vim $HOME/.xinitrc"
 
 alias ga="git add"
 alias gb="git branch"
+alias gbd="git branch --delete"
 alias gc="git commit"
 alias gck="git checkout"
 alias gd="git diff --color-words"
 alias gm="git merge"
 alias gp="git push"
 alias gpl="git pull"
-alias gl="git log"
+alias gl="git log --graph"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
 
 alias v=vim
