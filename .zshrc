@@ -167,7 +167,7 @@ alias gd="git diff --color-words"
 alias gm="git merge"
 alias gp="git push"
 alias gpl="git pull"
-alias gl="git log --graph"
+alias gl="git log --graph --all"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
 
 alias v=vim
