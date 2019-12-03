@@ -12,11 +12,4 @@ https://atcoder.jp/contests/agc036/tasks/agc036_a
 https://atcoder.jp/contests/agc037/tasks/agc037_a
 https://atcoder.jp/contests/apc001/tasks/apc001_b
 https://atcoder.jp/contests/cf16-final/tasks/codefestival_2016_final_b
-https://atcoder.jp/contests/dp/
-https://codeforces.com/contest/1248/problem/C
-https://codeforces.com/contest/1248/problem/C
 https://kenkoooo.com/atcoder/#/user/toku_san
-https://qiita.com/drken/items/7c6ff2aa4d8fce1c9361
-https://qiita.com/drken/items/e77685614f3c6bf86f44
-https://tdpc.contest.atcoder.jp/
-https://tdpc.contest.atcoder.jp/tasks/tdpc_dice
