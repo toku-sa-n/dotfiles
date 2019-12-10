@@ -168,10 +168,6 @@ Plug 'majutsushi/tagbar'
 set updatetime=0    " seemless syncking with tagbar.
 nnoremap <F8> :TagbarToggle<CR>
 "}}}
-"vim-cheatsheet{{{
-Plug 'reireias/vim-cheatsheet'
-let g:cheatsheet#cheat_file='$HOME/dotfiles/.cheatsheet.md'
-"}}}
 call plug#end()
 
 packadd! matchit
