@@ -3,8 +3,6 @@ $HOME/dotfiles/.irbrc             $HOME/.irbrc
 $HOME/dotfiles/.latexmkrc         $HOME/.latexmkrc
 $HOME/dotfiles/.todo              $HOME/.todo
 $HOME/dotfiles/vim/vimrc          $HOME/.vimrc
-$HOME/dotfiles/.zlogin            $HOME/.zlogin
 $HOME/dotfiles/.zprofile          $HOME/.zprofile
-$HOME/dotfiles/zsh/zsh_profile    $HOME/.zsh_profile
 $HOME/dotfiles/zsh/zshrc          $HOME/.zshrc
 $HOME/dotfiles/TabNine.toml       $HOME/.config/TabNine/TabNine.toml
