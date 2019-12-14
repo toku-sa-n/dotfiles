@@ -77,7 +77,7 @@ augroup END
 "}}}
 "vim-splash{{{
 Plug 'thinca/vim-splash'
-let g:splash#path=$HOME.'/dotfiles/title.txt'
+let g:splash#path=$HOME.'/dotfiles/vim/title.txt'
 "}}}
 "ultisnips{{{
 Plug 'SirVer/ultisnips'
@@ -89,7 +89,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/snippets']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/snippets']
 "}}}
 "vim-airline{{{
 Plug 'vim-airline/vim-airline'
