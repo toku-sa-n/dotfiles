@@ -1,6 +1,6 @@
 $HOME/dotfiles/X/Xresources        $HOME/.Xresources
 $HOME/dotfiles/.irbrc             $HOME/.irbrc
-$HOME/dotfiles/.latexmkrc         $HOME/.latexmkrc
+$HOME/dotfiles/tex/latexmkrc         $HOME/.latexmkrc
 $HOME/dotfiles/.todo              $HOME/.todo
 $HOME/dotfiles/vim/vimrc          $HOME/.vimrc
 $HOME/dotfiles/.zprofile          $HOME/.zprofile
