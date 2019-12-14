@@ -1,5 +1,4 @@
 $HOME/dotfiles/.Xresources        $HOME/.Xresources
-$HOME/dotfiles/.gitignore_global  $HOME/.gitignore
 $HOME/dotfiles/.irbrc             $HOME/.irbrc
 $HOME/dotfiles/.latexmkrc         $HOME/.latexmkrc
 $HOME/dotfiles/.todo              $HOME/.todo
