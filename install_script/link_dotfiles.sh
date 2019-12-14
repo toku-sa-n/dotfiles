@@ -17,7 +17,7 @@ case "${ARGV[0]}" in
         ;;
 esac
 
-#TODO make a directory when needed. ex. i3 files.
+# TODO make a directory when needed. ex. i3 files.
 
 while read line
 do
