@@ -1,4 +1,4 @@
-$HOME/dotfiles/.Xresources        $HOME/.Xresources
+$HOME/dotfiles/X/Xresources        $HOME/.Xresources
 $HOME/dotfiles/.irbrc             $HOME/.irbrc
 $HOME/dotfiles/.latexmkrc         $HOME/.latexmkrc
 $HOME/dotfiles/.todo              $HOME/.todo
