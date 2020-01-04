@@ -10,15 +10,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
         xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -26,15 +18,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
         xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -57,15 +41,15 @@ export DefaultIMModule=fcitx
 fcitx &
 urxvtd -o -f
 
-#export
+# export
 export EDITOR=vim
 export VISUAL=vim
 export TERMINAL=urxvtc
 
-#dropbox
+# dropbox
 [ -e $HOME/.dropbox-dist/dropboxd ] && $HOME/.dropbox-dist/dropboxd &
 
-
-#autolock
+# autolock
 xautolock -time 5 -locker 'sudo s2ram' &
+
 exec i3
