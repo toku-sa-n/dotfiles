@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ $(whoami) == "root" ]]; then
+if [[ $(whoami) = "root" ]]; then
     echo "Run as non-root. Root user can't update non-systemwide packages such as pip, zplug, gem, etc." >&2
     exit 1
 fi
