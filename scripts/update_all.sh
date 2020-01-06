@@ -7,7 +7,7 @@ if [[ $(whoami) = "root" ]]; then
     exit 1
 fi
 
-sudo ./upgrade_gentoo.sh
+sudo ./update_gentoo.sh
 
 command_exists () {
     command -v $1 > /dev/null

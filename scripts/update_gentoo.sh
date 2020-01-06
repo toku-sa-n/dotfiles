@@ -10,7 +10,7 @@ fi
 emerge-webrsync
 emerge --ask --verbose --tree --update --deep --newuse --keep-going --with-bdeps=y @world
 
-./upgrade_kernel.sh
+./update_kernel.sh
 
 emerge --ask --depclean
 
