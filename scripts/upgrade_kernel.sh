@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # if only one version of linux kernel is available, exit.
 if [[ $(eselect kernel list|wc -l) == 2 ]]; then
     exit 0
