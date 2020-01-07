@@ -12,7 +12,7 @@ class GitRepository
                         true
                       else
                         false
-                    end
+                      end
     end
   end
 
