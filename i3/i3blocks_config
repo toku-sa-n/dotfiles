@@ -25,11 +25,6 @@ command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
 color=#ccffff
 interval=1
 
-[volume]
-label=
-interval=once
-signal=1
-
 [battery]
 label=Battery:
 command=acpi|awk '{print $4}'|tr -d ','
