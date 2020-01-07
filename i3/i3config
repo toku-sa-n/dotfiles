@@ -167,16 +167,16 @@ bindsym $mod+F1 exec xdg-open https://google.com/
 
 # settings of colors
 set $background #222222
-set $foreground #c0c5ce
+set $foreground #C0C5CE
 set $secondary #444444
-set $black #2b303b
-set $red #bf616a
-set $green #a3be8c
-set $yellow #ebcb8b
-set $blue #8fa1b3
-set $magenta #b48ead
-set $cyan #96b5b4
-set $white #ffffff
+set $black #2B303B
+set $red #BF616A
+set $green #A3BE8C
+set $yellow #EBCB8B
+set $blue #8FA1B3
+set $magenta #B48EAD
+set $cyan #96B5B4
+set $white #FFFFFF
 
 # class                     border  background       text    indicator   child_border
 client.focused              $secondary   $background      $white  $black     $secondary

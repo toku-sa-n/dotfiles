@@ -14,15 +14,15 @@ MARKS=(
 
 case "${TEMPERATURE}" in
     <-39>   )    ICON="$MARKS[empty]"
-                 COLOR="#ffffff" ;;
+                 COLOR="#FFFFFF" ;;
     <40-49> )    ICON="$MARKS[low]"
-                 COLOR="#00ff00";;
+                 COLOR="#00FF00";;
     <50-69> )    ICON="$MARKS[half]"
-                 COLOR="#ffff00";;
+                 COLOR="#FFFF00";;
     <60-79> )    ICON="$MARKS[high]"
-                 COLOR="#ff9900";;
+                 COLOR="#FF9900";;
     <80->   )    ICON="$MARKS[full]"
-                 COLOR="#ff0000";;
+                 COLOR="#FF0000";;
 esac
 
 echo -n "\"full_text\": \"${ICON}.${TEMPERATURE}℃\", \"color\": \"${COLOR}\""

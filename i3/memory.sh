@@ -17,11 +17,11 @@ BAR="${BLOCKS}${SPACES}"
 
 COLOR=""
 case "${BLOCK_NUM}" in
-    <1-2>  ) COLOR="#ffffff" ;;
-    <3-4>  ) COLOR="#00ff00" ;;
-    <5-6>  ) COLOR="#ffff00" ;;
-    <7-8>  ) COLOR="#ff9900" ;;
-    <->    ) COLOR="#ff0000" ;;
+    <1-2>  ) COLOR="#FFFFFF" ;;
+    <3-4>  ) COLOR="#00FF00" ;;
+    <5-6>  ) COLOR="#FFFF00" ;;
+    <7-8>  ) COLOR="#FF9900" ;;
+    <->    ) COLOR="#FF0000" ;;
 esac
 
 echo -n "\"full_text\": \"${USING_MEMORY_READABLE} / ${FULL_MEMORY_READABLE} [${BAR}]  ${USE_RATE}%\", \"color\": \"${COLOR}\""

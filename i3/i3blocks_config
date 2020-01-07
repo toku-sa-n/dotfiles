@@ -22,7 +22,7 @@ interval=1
 [network]
 label=.
 command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
-color=#ccffff
+color=#CCFFFF
 interval=1
 
 [battery]
@@ -32,5 +32,5 @@ interval=30
 
 [date]
 command=date +'%m/%d(%a) %H:%M'
-color=#ccffff
+color=#CCFFFF
 interval=1
