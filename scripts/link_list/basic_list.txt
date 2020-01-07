@@ -1,7 +1,7 @@
-$HOME/dotfiles/X/Xresources        $HOME/.Xresources
-$HOME/dotfiles/irbrc             $HOME/.irbrc
-$HOME/dotfiles/tex/latexmkrc         $HOME/.latexmkrc
-$HOME/dotfiles/vim/vimrc          $HOME/.vimrc
-$HOME/dotfiles/zsh/zprofile          $HOME/.zprofile
-$HOME/dotfiles/zsh/zshrc          $HOME/.zshrc
-$HOME/dotfiles/vim/TabNine.toml       $HOME/.config/TabNine/TabNine.toml
+X/Xresources        $HOME/.Xresources
+irbrc             $HOME/.irbrc
+tex/latexmkrc         $HOME/.latexmkrc
+vim/vimrc          $HOME/.vimrc
+zsh/zprofile          $HOME/.zprofile
+zsh/zshrc          $HOME/.zshrc
+vim/TabNine.toml       $HOME/.config/TabNine/TabNine.toml

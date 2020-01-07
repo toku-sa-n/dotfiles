@@ -1,6 +1,8 @@
 #!/bin/zsh
 
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
 mkdir -p $HOME/.config/bat/syntaxes
-ln -s $HOME/dotfiles/scripts/Man.sublime-syntax $HOME/.config/bat/syntaxes/Man.sublime-syntax
+ln -s {$SCRIPT_DIR,$HOME/.config/bat/syntaxes}/Man.sublime-syntax
 
 bat cache --build
