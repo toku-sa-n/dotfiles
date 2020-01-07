@@ -28,7 +28,5 @@ while read line
 do
     src=$(eval echo $(echo $line|awk '{print $1}'))
     dst=$(eval echo $(echo $line|awk '{print $2}'))
-    # TODO: Delete unnecessary ""
-    # TODO: Delete -F option
-    ln -sF "$DOTFILES_DIR/$src" "$dst"
+    ln -s "$DOTFILES_DIR/$src" "$dst"
 done <"${LINK_DIR}${LINK_FILE}"
