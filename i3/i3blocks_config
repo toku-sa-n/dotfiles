@@ -34,7 +34,3 @@ interval=30
 command=date +'%m/%d(%a) %H:%M'
 color=#ccffff
 interval=1
-
-[hibernate]
-full_text=
-command=sudo s2ram>/dev/null
