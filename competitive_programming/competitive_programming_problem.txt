@@ -1,4 +1,3 @@
-# 削除は自分でホワイトボードを使用して説明できるようになってから！
 http://codeforces.com/contest/1236/problem/D
 https://arc057.contest.atcoder.jp/tasks/arc057_b
 https://atcoder.jp/contests/abc120/tasks/abc120_d
