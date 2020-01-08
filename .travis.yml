@@ -1,0 +1,8 @@
+services:
+    - docker
+
+install:
+    - docker build -t dotfiles .
+
+script:
+    - docker run dotfiles
