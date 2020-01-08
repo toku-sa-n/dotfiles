@@ -17,13 +17,22 @@ Available commands:
 EOS
 }
 
+# pip will exit with return status non-zero when there is no package to update.
+# Therefore only try to update when outdated exists.
+update_pip () {
+    readonly PACKAGE_LIST="$(pip list --outdated --format=freeze|awk -F '=' '{print $1}')"
+
+    if [[ $PACKAGE_LIST != "" ]]; then
+        echo $PACKAGE_LIST|xargs pip install --upgrade --user
+    fi
+}
+
 non_systemwide () {
     command_exists () {
         command -v $1 > /dev/null
     }
 
-    # TODO: Prevent pip from exiting with return code non-zero when there is no package to update.
-    command_exists pip && pip list --outdated --format=freeze | awk -F '=' '{print $1}'| xargs pip install --upgrade --user
+    command_exists pip && update_pip
     command_exists zplug && zplug update
     command_exists gem && gem update
 
