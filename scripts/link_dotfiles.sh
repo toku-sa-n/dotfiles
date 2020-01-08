@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The root dir of all src paths in link_list is dotfiles, not root (/).
-# However, dst is root (/).
+# However for dst, root is root (/).
 
 ARGV=("$@")
 
