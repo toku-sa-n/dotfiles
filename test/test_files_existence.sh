@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SCRIPT_NAME="$(basename "${BASH_SOURCE:-$0}")"
 
 usage () {
