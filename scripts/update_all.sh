@@ -16,3 +16,7 @@ command_exists () {
 command_exists pip && pip list --outdated --format=freeze | awk -F '=' '{print $1}'| xargs pip install --upgrade --user
 command_exists zplug && zplug update
 command_exists gem && gem update
+
+# Vim will exit with exit status 0 even vim-plug is not installed.
+# Therefore it is not needed to delete `set -e`.
+vim +PlugUpdate +q +q
