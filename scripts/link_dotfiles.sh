@@ -27,5 +27,5 @@ do
     src=$(eval echo $(echo $line|awk '{print $1}'))
     dst=$(eval echo $(echo $line|awk '{print $2}'))
     mkdir -p $(dirname $dst)
-    ln -s "$DOTFILES_DIR/$src" "$dst"
+    ln -sf "$DOTFILES_DIR/$src" "$dst"
 done <"${LINK_DIR}${LINK_FILE}"
