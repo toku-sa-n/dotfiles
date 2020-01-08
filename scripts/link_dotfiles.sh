@@ -19,8 +19,8 @@ case "${ARGV[0]}" in
 esac
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-LINK_DIR="$SCRIPT_DIR/link_list/"
 DOTFILES_DIR=$(echo $SCRIPT_DIR|sed -r 's/(.*dotfiles)\/.*/\1/g')
+LINK_DIR="$DOTFILES_DIR/link_list/"
 
 while read line
 do
