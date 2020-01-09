@@ -1,27 +1,27 @@
 #!/bin/zsh
 # use zsh to use zsh functions.
 
-USING_MEMORY=$(free|grep Mem|awk '{print $3}')
-FULL_MEMORY=$(free|grep Mem|awk '{print $2}')
+readonly USING_MEMORY=$(free|grep Mem|awk '{print $3}')
+readonly FULL_MEMORY=$(free|grep Mem|awk '{print $2}')
 
-USING_MEMORY_READABLE=$(free -h|grep Mem|awk '{print $3}')
-FULL_MEMORY_READABLE=$(free -h|grep Mem|awk '{print $2}')
+readonly USING_MEMORY_READABLE=$(free -h|grep Mem|awk '{print $3}')
+readonly FULL_MEMORY_READABLE=$(free -h|grep Mem|awk '{print $2}')
 
-USE_RATE=$(echo "scale=2; 100*${USING_MEMORY}/${FULL_MEMORY}"|bc -l)
-BLOCK_NUM=$(echo "scale=0; ${USE_RATE}/10+1"|bc)
-SPACE_NUM=$(echo "10-${BLOCK_NUM}"|bc)
+readonly USE_RATE=$(echo "scale=2; 100*${USING_MEMORY}/${FULL_MEMORY}"|bc -l)
+readonly BLOCK_NUM=$(echo "scale=0; ${USE_RATE}/10+1"|bc)
+readonly SPACE_NUM=$(echo "10-${BLOCK_NUM}"|bc)
 
-BLOCKS=$(seq ${BLOCK_NUM}|tr -d '0\n'|tr '[1-9]' '@')
-SPACES=$(seq ${SPACE_NUM}|tr -d '0\n'|tr '[1-9]' ' ')
-BAR="${BLOCKS}${SPACES}"
+readonly BLOCKS=$(seq ${BLOCK_NUM}|tr -d '0\n'|tr '[1-9]' '@')
+readonly SPACES=$(seq ${SPACE_NUM}|tr -d '0\n'|tr '[1-9]' ' ')
+readonly BAR="${BLOCKS}${SPACES}"
 
-COLOR=""
+color=""
 case "${BLOCK_NUM}" in
-    <1-2>  ) COLOR="#FFFFFF" ;;
-    <3-4>  ) COLOR="#00FF00" ;;
-    <5-6>  ) COLOR="#FFFF00" ;;
-    <7-8>  ) COLOR="#FF9900" ;;
-    <->    ) COLOR="#FF0000" ;;
+    <1-2>  ) color="#FFFFFF" ;;
+    <3-4>  ) color="#00FF00" ;;
+    <5-6>  ) color="#FFFF00" ;;
+    <7-8>  ) color="#FF9900" ;;
+    <->    ) color="#FF0000" ;;
 esac
 
-echo -n "\"full_text\": \"${USING_MEMORY_READABLE} / ${FULL_MEMORY_READABLE} [${BAR}]  ${USE_RATE}%\", \"color\": \"${COLOR}\""
+echo -n "\"full_text\": \"${USING_MEMORY_READABLE} / ${FULL_MEMORY_READABLE} [${BAR}]  ${USE_RATE}%\", \"color\": \"${color}\""

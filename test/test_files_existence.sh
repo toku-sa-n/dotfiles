@@ -2,7 +2,7 @@
 
 set -e
 
-SCRIPT_NAME="$(basename "${BASH_SOURCE:-$0}")"
+readonly SCRIPT_NAME="$(basename "${BASH_SOURCE:-$0}")"
 
 usage () {
     cat << EOS
@@ -26,15 +26,15 @@ if [[ $1  == help ]]; then
     exit
 fi
 
-LINK_LIST_DIR="$(cd ../link_list; pwd)"
-LINK_FILES="$LINK_LIST_DIR/basic_list.txt"
+readonly LINK_LIST_DIR="$(cd ../link_list; pwd)"
+link_files="$LINK_LIST_DIR/basic_list.txt"
 if [[ $1 == all ]]; then
-    LINK_FILES+=" $LINK_LIST_DIR/x_list.txt"
+    link_files+=" $LINK_LIST_DIR/x_list.txt"
 fi
 
-DOTFILES_DIR="$(pwd|sed -r 's/(.*dotfiles)\/.*/\1/g')"
+readonly DOTFILES_DIR="$(pwd|sed -r 's/(.*dotfiles)\/.*/\1/g')"
 
-cat $LINK_FILES|while read line
+cat $link_files|while read line
 do
     symlink=$(eval echo $(echo $line|awk '{print $2}'))
     origin="$DOTFILES_DIR/$(eval echo $(echo $line|awk '{print $1}'))"
