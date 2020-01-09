@@ -8,4 +8,5 @@ USER foo
 WORKDIR /home/foo/
 ADD . ./dotfiles
 RUN dotfiles/scripts/link_dotfiles.sh all
+RUN dotfiles/scripts/link_download_dir.sh
 CMD cd dotfiles && ./test.sh
