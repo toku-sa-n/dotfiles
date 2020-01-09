@@ -1,19 +1,40 @@
 #!/bin/bash
 
+set -e
+
 # The root dir of all src paths in link_list is dotfiles, not root (/).
 # However for dst, root is root (/).
+
+readonly SCRIPT_NAME="$(basename "${BASH_SOURCE:-$0}")"
+
+usage () {
+    cat << EOS
+Usage: $SCRIPT_NAME
+       $SCRIPT_NAME <command>
+Make symlinks to dotfiles (.vimrc, .zshrc, etc.) and config files (~/.config/i3/config, etc.) .
+If no command is specified, then dotfiles and config files which are not related to Xwindows (except .Xresources because this file is also used by rxvt-unicode) .
+
+Available commands:
+    all     Make symlinks to dotfiles and config files of Xwindows-related applications also.
+    help    Show this help.
+EOS
+}
 
 ARGV=("$@")
 
 case "${ARGV[0]}" in
-    "basic" )
+    "" )
         LINK_FILE="basic_list.txt"
         ;;
-    "X" )
-        LINK_FILE="x_list.txt"
+    "all" )
+        LINK_FILE="basic_list.txt x_list.txt"
+        ;;
+    "help" )
+        usage
+        exit
         ;;
     * )
-        echo "Specify basic or X." >&2
+        usage >&2
         exit 1
         ;;
 esac
@@ -22,10 +43,10 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 DOTFILES_DIR=$(echo $SCRIPT_DIR|sed -r 's/(.*dotfiles)\/.*/\1/g')
 LINK_DIR="$DOTFILES_DIR/link_list/"
 
-while read line
+cat "${LINK_DIR}${LINK_FILE}"|while read line
 do
     src=$(eval echo $(echo $line|awk '{print $1}'))
     dst=$(eval echo $(echo $line|awk '{print $2}'))
     mkdir -p $(dirname $dst)
     ln -sf "$DOTFILES_DIR/$src" "$dst"
-done <"${LINK_DIR}${LINK_FILE}"
+done

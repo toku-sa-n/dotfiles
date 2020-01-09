@@ -7,6 +7,5 @@ RUN emerge zsh
 USER foo
 WORKDIR /home/foo/
 ADD . ./dotfiles
-RUN dotfiles/scripts/link_dotfiles.sh basic
-RUN dotfiles/scripts/link_dotfiles.sh X
+RUN dotfiles/scripts/link_dotfiles.sh all
 CMD cd dotfiles && ./test.sh
