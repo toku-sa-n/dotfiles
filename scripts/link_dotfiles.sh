@@ -22,12 +22,15 @@ EOS
 
 ARGV=("$@")
 
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+DOTFILES_DIR=$(echo $SCRIPT_DIR|sed -r 's/(.*dotfiles)\/.*/\1/g')
+LINK_DIR="$DOTFILES_DIR/link_list/"
 case "${ARGV[0]}" in
     "" )
-        LINK_FILE="basic_list.txt"
+        LINK_FILE="${LINK_DIR}basic_list.txt"
         ;;
     "all" )
-        LINK_FILE="basic_list.txt x_list.txt"
+        LINK_FILE="${LINK_DIR}basic_list.txt ${LINK_DIR}x_list.txt"
         ;;
     "help" )
         usage
@@ -39,11 +42,7 @@ case "${ARGV[0]}" in
         ;;
 esac
 
-SCRIPT_DIR=$(cd $(dirname $0); pwd)
-DOTFILES_DIR=$(echo $SCRIPT_DIR|sed -r 's/(.*dotfiles)\/.*/\1/g')
-LINK_DIR="$DOTFILES_DIR/link_list/"
-
-cat "${LINK_DIR}${LINK_FILE}"|while read line
+cat ${LINK_FILE}|while read line
 do
     src=$(eval echo $(echo $line|awk '{print $1}'))
     dst=$(eval echo $(echo $line|awk '{print $2}'))
