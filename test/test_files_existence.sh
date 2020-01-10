@@ -34,21 +34,24 @@ fi
 
 readonly DOTFILES_DIR="$(pwd|sed -r 's/(.*dotfiles)\/.*/\1/g')"
 
-cat $link_files|while read line
+for file in $ilnk_files
 do
-    symlink=$(eval echo $(echo $line|awk '{print $2}'))
-    origin="$DOTFILES_DIR/$(eval echo $(echo $line|awk '{print $1}'))"
+    while read line
+    do
+        symlink=$(eval echo $(echo $line|awk '{print $2}'))
+        origin="$DOTFILES_DIR/$(eval echo $(echo $line|awk '{print $1}'))"
 
-    echo -n "Checking $symlink -> $origin..."
-    if [[ $(readlink $symlink) != "$origin" ]]; then
-        echo
-        echo "Test failed!" >&2
-        echo "readlink $symlink" >&2
-        echo "  expected $origin" >&2
-        echo "  got $(readlink $symlink)" >&2
-        exit 1
-    fi
-    echo " OK."
+        echo -n "Checking $symlink -> $origin..."
+        if [[ $(readlink $symlink) != "$origin" ]]; then
+            echo
+            echo "Test failed!" >&2
+            echo "readlink $symlink" >&2
+            echo "  expected $origin" >&2
+            echo "  got $(readlink $symlink)" >&2
+            exit 1
+        fi
+        echo " OK."
+    done
 done
 
 echo "$SCRIPT_NAME succeeded!"
