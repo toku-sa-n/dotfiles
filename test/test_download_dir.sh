@@ -8,7 +8,7 @@ usage () {
     cat << EOS
 Usage: $SCRIPT_NAME
 Check whether "ダウンロード" directory is the symlink to "Downloads" directory.
-Any given arguments except "help" are ignored.
+Any arguments except "help" are ignored.
 EOS
 }
 
