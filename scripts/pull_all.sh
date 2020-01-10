@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 for path in $(git config --global remind.paths|tr ',' ' ')
 do
