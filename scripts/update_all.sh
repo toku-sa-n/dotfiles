@@ -53,7 +53,14 @@ if [[ $# -gt 1 ]]; then
 fi
 
 case "$1" in
-    "" ) sudo ./update_gentoo.sh && non_systemwide ;;
+    "" )
+        readonly DISTRIBUTION=$(cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}')
+
+        if [[ $DISTRIBUTION == gentoo ]]; then
+            sudo ./update_gentoo.sh
+        fi
+
+        non_systemwide ;;
     "non_systemwide") non_systemwide ;;
     "help") usage ;;
     * ) usage >&2 && exit 1 ;;
