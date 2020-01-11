@@ -9,4 +9,5 @@ WORKDIR /home/foo/
 ADD . ./dotfiles
 RUN dotfiles/scripts/link_dotfiles.sh all
 RUN dotfiles/scripts/link_download_dir.sh
+RUN dotfiles/scripts/git_setting.sh
 CMD cd dotfiles && ./test.sh
