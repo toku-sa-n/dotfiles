@@ -23,4 +23,4 @@ if [[ $(readlink $HOME/ダウンロード) != "$HOME/Downloads" ]]; then
     exit 1
 fi
 
-echo "$SCRIPT_NAME succeded!"
+echo "$SCRIPT_NAME succeeded!"
