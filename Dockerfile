@@ -3,7 +3,7 @@ FROM gentoo/stage3-amd64:latest
 COPY --from=portage /var/db/repos/gentoo /var/db/repos/gentoo
 RUN emerge-webrsync
 RUN useradd -m -s /bin/bash foo
-RUN emerge app-shells/zsh dev-vcs/git
+RUN MAKEOPTS="-j$(($(nproc)+1))" emerge app-shells/zsh dev-vcs/git
 USER foo
 WORKDIR /home/foo/
 ADD . ./dotfiles
