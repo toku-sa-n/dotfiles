@@ -12,9 +12,10 @@ EOS
 }
 
 test () {
-    if [[ $1 != $2 ]]; then
+    if [[ $(eval $1) != $2 ]]; then
         echo "Test failed!" >&2
-        echo "  Expected: $1" >&2
+        echo "Command: $1" >&2
+        echo "  Expected: $(eval $1)" >&2
         echo "  Got:      $2" >&2
         exit 1
     fi
@@ -25,7 +26,7 @@ if [[ $1 == "help" ]]; then
     exit
 fi
 
-test $(git config --global merge.ff) "false"
-test $(git config --global pull.ff) "true"
+test "git config --global merge.ff" "false"
+test "git config --global pull.ff" "true"
 
 echo "$SCRIPT_NAME succeeded!"
