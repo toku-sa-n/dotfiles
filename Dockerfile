@@ -12,7 +12,7 @@ RUN dotfiles/scripts/link_dotfiles.sh all
 RUN dotfiles/scripts/link_download_dir.sh
 RUN dotfiles/scripts/git_setting.sh
 USER root
-RUN /home/hiroki/foo/dotfiles/scripts/update_kernel.sh
+RUN /home/foo/dotfiles/scripts/update_kernel.sh
 USER foo
 WORKDIR /home/foo
 CMD cd dotfiles && ./test.sh
