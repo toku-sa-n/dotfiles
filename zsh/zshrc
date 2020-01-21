@@ -197,7 +197,6 @@ arch(){
 gentoo(){
     alias inst='sudo emerge -avt'
     alias unst='sudo emerge -cav'
-    alias aucl='sudo emerge --ask --depclean'
 }
 
 (){
