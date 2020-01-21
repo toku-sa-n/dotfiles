@@ -1,5 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
+
+let g:vimrc_dir=system("dirname $(readlink $MYVIMRC)|tr -d '\n'")
 "Plugins{{{
 "vim-plug auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -76,7 +78,7 @@ augroup END
 "}}}
 "vim-splash{{{
 Plug 'thinca/vim-splash'
-let g:splash#path=$HOME.'/dotfiles/vim/title.txt'
+let g:splash#path=g:vimrc_dir . '/title.txt'
 "}}}
 "ultisnips{{{
 Plug 'SirVer/ultisnips'
@@ -88,7 +90,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/snippets']
+let g:UltiSnipsSnippetDirectories=[g:vimrc_dir . '/snippets']
 "}}}
 "vim-airline{{{
 Plug 'vim-airline/vim-airline'
