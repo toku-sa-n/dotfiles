@@ -36,8 +36,8 @@ non_systemwide () {
     command_exists zplug && zplug update
     command_exists gem && gem update
 
-    # Vim will exit with exit status 0 even vim-plug is not installed.
-    # Therefore it is not needed to delete `set -e`.
+    # Vim will exit with exit status 0 even if vim-plug is not installed.
+    # Therefore it's not needed to delete `set -e`.
     vim +PlugUpdate +q +q
 }
 
