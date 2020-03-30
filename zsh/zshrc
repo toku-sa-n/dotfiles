@@ -166,6 +166,7 @@ alias gckb="git checkout -b"
 alias gd="git diff"
 alias gm="git merge"
 alias gp="git push"
+alias gpa="git push --all"
 alias gpl="git pull"
 alias gl="git log --graph --all"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
