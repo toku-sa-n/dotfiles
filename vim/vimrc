@@ -63,18 +63,19 @@ let g:syntastic_nasm_nasm_args="-f elf"
 
 "}}}
 "vim-test{{{
-Plug 'janko-m/vim-test'
-let g:test#strategy='dispatch'
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>L :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+" vim-test doesn't work well with rust. It needs to be examined.
+" Plug 'janko-m/vim-test'
+" let g:test#strategy='dispatch'
+" nmap <silent> <leader>t :TestNearest<CR>
+" nmap <silent> <leader>T :TestFile<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>L :TestLast<CR>
+" nmap <silent> <leader>g :TestVisit<CR>
 
-augroup vim_test
-    autocmd!
-    autocmd BufWrite * if test#exists()|TestFile|endif
-augroup END
+" augroup vim_test
+"     autocmd!
+"     autocmd BufWrite * if test#exists()|TestFile|endif
+" augroup END
 "}}}
 "vim-splash{{{
 Plug 'thinca/vim-splash'
