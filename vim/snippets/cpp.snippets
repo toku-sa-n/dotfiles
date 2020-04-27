@@ -371,6 +371,38 @@ T UnionFind<T, N>::GetSize(T idx)
 	return size_[Root(idx)];
 }
 
+long long pow_mod(long long n, long long p, long long m)
+{
+	if (p == 0) {
+		return 1;
+	}
+
+	if (p % 2 == 0) {
+		long long t = pow_mod(n, p / 2, m);
+		return t * t % m;
+	}
+	return n * pow_mod(n, p - 1, m) % mod;
+}
+
+long long nCr_mod(long long n, long long r)
+{
+	long long x = 1;
+	for (long long i = n - r + 1; i <= n; i++) {
+		x *= i;
+		x %= mod;
+	}
+
+	long long a = 1;
+	for (long long i = 1; i <= r; i++) {
+		a *= i;
+		a %= mod;
+	}
+
+	long long y = pow_mod(a, mod - 2, mod) % mod;
+
+	return x * y % mod;
+}
+
 int main()
 {
 	$0
