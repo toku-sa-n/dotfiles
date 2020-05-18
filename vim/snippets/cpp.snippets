@@ -275,15 +275,6 @@ const int kmax = 510000;
 
 long long fact[kmax], fact_inv[kmax], inv[kmax];
 
-int gcd(int a, int b)
-{
-	if (!b) {
-		return a;
-	}
-
-	return gcd(b, a % b);
-}
-
 void init_comb()
 {
 	fact[0] = fact[1] = 1;
