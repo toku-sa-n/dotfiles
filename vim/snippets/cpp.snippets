@@ -129,6 +129,15 @@ if args:
 		snip.rv += " >> %s" % (arg)`;$0
 endsnippet
 
+snippet cic "cin to char"
+char $1;
+std::cin`!p
+args = [x for x in t[1].split(',')]
+if args:
+	for arg in args:
+		snip.rv += " >> %s" % (arg)`;$0
+endsnippet
+
 snippet cis "cin to string" A
 std::string $1;
 std::cin`!p
