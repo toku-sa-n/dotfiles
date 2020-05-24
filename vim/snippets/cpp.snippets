@@ -41,7 +41,7 @@ snippet nl "newline"
 putchar('\n');$0
 endsnippet
 
-snippet r "reverse"
+snippet rev "reverse" A
 std::reverse($1.begin(), $1.end());$0
 endsnippet
 
@@ -129,7 +129,7 @@ if args:
 		snip.rv += " >> %s" % (arg)`;$0
 endsnippet
 
-snippet cis "cin to string"
+snippet cis "cin to string" A
 std::string $1;
 std::cin`!p
 args = [x for x in t[1].split(',')]
