@@ -163,6 +163,12 @@ if args:
 		snip.rv += " >> %s" % (arg)`;$0
 endsnippet
 
+snippet ov "output vector" A
+std::for_each($1.begin(), $1.end(), [](auto t){
+	std::cout << t << std::endl;
+});$0
+endsnippet
+
 #
 # if statement
 #
