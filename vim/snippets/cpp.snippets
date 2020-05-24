@@ -163,6 +163,15 @@ if args:
 		snip.rv += " >> %s" % (arg)`;$0
 endsnippet
 
+snippet cild "cin to long double" A
+long double $1;
+std::cin`!p
+args = [x for x in t[1].split(',')]
+if args:
+	for arg in args:
+		snip.rv += " >> %s" % (arg)`;$0
+endsnippet
+
 snippet ov "output vector" A
 std::for_each($1.begin(), $1.end(), [](auto t){
 	std::cout << t << std::endl;
