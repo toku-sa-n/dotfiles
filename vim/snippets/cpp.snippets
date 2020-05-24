@@ -287,6 +287,7 @@ snippet comp "competitive programming" bA
 
 const int mod = 1e9 + 7;
 const int kmax = 510000;
+const int last_days[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 long long fact[kmax], fact_inv[kmax], inv[kmax];
 
@@ -427,6 +428,21 @@ bool is_prime(long long n)
 
 bool is_leap(long long y){
 	return (y%4==0 && y%100 != 0) || y%400 == 0;
+}
+
+void next_day(long long& y, long long& m, long long& d)
+{
+	d++;
+
+	if (d > last_days[m - 1] + (m == 2 && is_leap(y) ? 1 : 0)) {
+		d = 1;
+		m++;
+	}
+
+	if (m > 12) {
+		y++;
+		m = 1;
+	}
 }
 
 int main()
