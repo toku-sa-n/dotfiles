@@ -155,6 +155,18 @@ snippet ma "mathrm" i
 \mathrm{$1}$0
 endsnippet
 
+snippet sum "sum with sigma" iA
+\\sum_{$1}^{$2}$0
+endsnippet
+
+snippet <= "leq" iA
+\leq
+endsnippet
+
+snippet >= "geq" iA
+\geq
+endsnippet
+
 #
 # Other environment
 #
@@ -169,6 +181,12 @@ snippet env "environment" bA
 \begin{$1}
 $2
 \end{$1}$0
+endsnippet
+
+snippet lst "lstlisting" bA
+\begin{lstlisting}[caption=$1]
+$2
+\end{lstlisting}$0
 endsnippet
 
 snippet img "Put an image to the center of paper" A
