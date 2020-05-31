@@ -25,22 +25,39 @@ URxvt.font:                 xft:Source\ Code\ Pro,\
                             xft:IPAGothic,\
                             xft:Unifont
 
-URxvt.color0:              #282A2E /* black */
-URxvt.color1:              #A54242 /* red */
-URxvt.color2:              #8C9440 /* green */
-URxvt.color3:              #DE935F /* yellow */
-URxvt.color4:              #5F819D /* blue */
-URxvt.color5:              #85678F /* magenta */
-URxvt.color6:              #5E8D87 /* cyan */
-URxvt.color7:              #707880 /* white */
-URxvt.color8:              #373B41 /* bright black */
-URxvt.color9:              #CC6666 /* bright red */
-URxvt.color10:             #B5BD68 /* bright green */
-URxvt.color11:             #F0C674 /* bright yellow */
-URxvt.color12:             #81A2BE /* bright blue */
-URxvt.color13:             #B294BB /* bright magenta */
-URxvt.color14:             #8ABEB7 /* bright cyan */
-URxvt.color15:             #C5C8C6 /* bright white */
+!black
+URxvt.color0:              #282A2E
+!red
+URxvt.color1:              #A54242
+!green
+URxvt.color2:              #8C9440
+!yellow
+URxvt.color3:              #DE935F
+!blue
+URxvt.color4:              #5F819D
+!magenta
+URxvt.color5:              #85678F
+!cyan
+URxvt.color6:              #5E8D87
+!white
+URxvt.color7:              #707880
+!bright black
+URxvt.color8:              #373B41
+!bright red
+URxvt.color9:              #CC6666
+!bright green
+URxvt.color10:             #B5BD68
+!bright yellow
+URxvt.color11:             #F0C674
+!bright blue
+URxvt.color12:             #81A2BE
+!bright magenta
+URxvt.color13:             #B294BB
+!bright cyan
+URxvt.color14:             #8ABEB7
+!bright white
+URxvt.color15:             #C5C8C6
+
 URxvt.foreground:          #C5C8C6
 URxvt.background:          #1D1F21
 URxvt.colorIT:             #8EC07C
