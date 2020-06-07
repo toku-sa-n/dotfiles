@@ -468,6 +468,28 @@ long long fib(long long n)
 	return a;
 }
 
+// Note that the order of this function is O(n**n).
+template <typename T>
+std::vector<size_t> calculate_ranks(const std::vector<T>& v)
+{
+	std::vector<T> sorted = v;
+
+	std::sort(sorted.begin(), sorted.end());
+
+	std::map<T, long long> m;
+	for (auto i = 0LU; i < v.size(); i++) {
+		m.insert(std::make_pair(sorted[i], i));
+	}
+
+	std::vector<size_t> rank(v.size());
+
+	for (auto i = 0LU; i < v.size(); i++) {
+		rank[i] = m.find(v[i])->second + 1;
+	}
+
+	return rank;
+}
+
 int main()
 {
 	$0
