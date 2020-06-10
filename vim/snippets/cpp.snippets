@@ -503,6 +503,11 @@ std::map<long long, long long> prime_factors_and_num(long long n)
 	return m;
 }
 
+inline long long calculate_sum(const std::vector<long long>& v)
+{
+	return std::accumulate(v.begin(), v.end(), 0LL);
+}
+
 int main()
 {
 	$0
