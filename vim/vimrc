@@ -60,6 +60,9 @@ let g:syntastic_c_compiler_options="-std=c99 -Wall -Wextra"
 
 let g:syntastic_cpp_compiler_options="-std=c++17 -Wall -Wextra -Wunused-variable"
 let g:syntastic_nasm_nasm_args="-f elf"
+let g:syntastic_quiet_messages = { "regex": [
+            \'\mpossible unwanted space at "{"',
+            \]}
 
 "}}}
 "vim-test{{{
