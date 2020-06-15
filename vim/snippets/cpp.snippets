@@ -521,7 +521,10 @@ class Graph {
 
 public:
 	Graph(std::vector<std::vector<T>> weights, std::vector<std::vector<T>> edges);
+	Graph(std::vector<std::vector<T>> weights, T inf);
+
 	T BellmanFord(T start, T end);
+	T Dijkstra(T start, T end);
 };
 
 template <typename T, T N>
@@ -531,6 +534,23 @@ Graph<T, N>::Graph(std::vector<std::vector<T>> weights, std::vector<std::vector<
 	predecessors_ = std::vector<T>(N, -1);
 	shortest_path_estimate_ = std::vector<T>(N, mod);
 	edges_ = edges;
+}
+
+template <typename T, T N>
+Graph<T, N>::Graph(std::vector<std::vector<T>> weights, T inf)
+{
+	weights_ = weights;
+	predecessors_ = std::vector<T>(N, -1);
+	shortest_path_estimate_ = std::vector<T>(N, inf);
+	edges_ = std::vector<std::vector<T>>(N, std::vector<T>());
+
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			if (weights_[i][j] != inf) {
+				edges_[i].push_back(j);
+			}
+		}
+	}
 }
 
 template <typename T, T N>
@@ -571,6 +591,33 @@ T Graph<T, N>::BellmanFord(T start, T end)
 				fprintf(stderr, "Graph contains negative circle!\n");
 				exit(1);
 			}
+		}
+	}
+
+	return shortest_path_estimate_[end];
+}
+
+template <typename T, T N>
+T Graph<T, N>::Dijkstra(T start, T end)
+{
+	InitializeSingleSource(start);
+	std::set<T> s;
+
+	auto compare_d = [=](const T& x, const T& y) {
+		return shortest_path_estimate_[x] > shortest_path_estimate_[y];
+	};
+
+	std::priority_queue<T, std::vector<T>, decltype(compare_d)> q(compare_d);
+	for (int i = 0; i < N; i++) {
+		q.push(i);
+	}
+
+	while (q.size()) {
+		T u = q.top();
+		q.pop();
+		s.insert(u);
+		for (auto v : edges_[u]) {
+			Relax(u, v);
 		}
 	}
 
