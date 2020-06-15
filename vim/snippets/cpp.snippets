@@ -508,6 +508,74 @@ inline long long calculate_sum(const std::vector<long long>& v)
 	return std::accumulate(v.begin(), v.end(), 0LL);
 }
 
+template <typename T, T N>
+class Graph {
+	std::vector<std::vector<T>> weights_;
+	std::vector<T> predecessors_;
+	std::vector<T> shortest_path_estimate_;
+	std::vector<std::vector<T>> edges_;
+
+	void InitializeSingleSource(T start);
+	void Relax(T v, T u);
+
+public:
+	Graph(std::vector<std::vector<T>> weights, std::vector<std::vector<T>> edges);
+	T BellmanFord(T start, T end);
+};
+
+template <typename T, T N>
+Graph<T, N>::Graph(std::vector<std::vector<T>> weights, std::vector<std::vector<T>> edges)
+{
+	weights_ = weights;
+	predecessors_ = std::vector<T>(N, -1);
+	shortest_path_estimate_ = std::vector<T>(N, mod);
+	edges_ = edges;
+}
+
+template <typename T, T N>
+void Graph<T, N>::InitializeSingleSource(T start)
+{
+	for (int i = 0; i < N; i++) {
+		shortest_path_estimate_[i] = mod;
+		predecessors_[i] = -1;
+	}
+
+	shortest_path_estimate_[start] = 0;
+}
+
+template <typename T, T N>
+void Graph<T, N>::Relax(T u, T v)
+{
+	if (shortest_path_estimate_[v] > shortest_path_estimate_[u] + weights_[u][v]) {
+		shortest_path_estimate_[v] = shortest_path_estimate_[u] + weights_[u][v];
+		predecessors_[v] = u;
+	}
+}
+
+template <typename T, T N>
+T Graph<T, N>::BellmanFord(T start, T end)
+{
+	InitializeSingleSource(start);
+	for (int i = 0; i < N - 1; i++) {
+		for (int j = 0; j < N; j++) {
+			for (auto edge : edges_[j]) {
+				Relax(j, edge);
+			}
+		}
+	}
+
+	for (int i = 0; i < N; i++) {
+		for (auto edge : edges_[i]) {
+			if (shortest_path_estimate_[edge] > shortest_path_estimate_[i] + weights_[i][edge]) {
+				fprintf(stderr, "Graph contains negative circle!\n");
+				exit(1);
+			}
+		}
+	}
+
+	return shortest_path_estimate_[end];
+}
+
 int main()
 {
 	$0
