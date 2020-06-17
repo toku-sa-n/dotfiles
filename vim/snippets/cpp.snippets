@@ -425,13 +425,14 @@ T nCr_mod(T n, T r)
 	return x * y % mod;
 }
 
-bool is_prime(long long n)
+template <typename T>
+bool is_prime(T n)
 {
 	if (n == 1) {
 		return false;
 	}
 
-	for (long long i = 2; i * i <= n; i++) {
+	for (T i = 2; i * i <= n; i++) {
 		if (n % i == 0) {
 			return false;
 		}
@@ -440,11 +441,14 @@ bool is_prime(long long n)
 	return true;
 }
 
-bool is_leap(long long y){
-	return (y%4==0 && y%100 != 0) || y%400 == 0;
+template <typename T>
+bool is_leap(T y)
+{
+	return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0;
 }
 
-void next_day(long long& y, long long& m, long long& d)
+template <typename T>
+void next_day(T& y, T& m, T& d)
 {
 	d++;
 
@@ -459,11 +463,12 @@ void next_day(long long& y, long long& m, long long& d)
 	}
 }
 
-long long fib(long long n)
+template <typename T>
+T fib(T n)
 {
-	long long a = 0, b = 1;
-	for (int i = 0; i < n; i++) {
-		long long t = a;
+	T a = 0, b = 1;
+	for (T i = 0; i < n; i++) {
+		T t = a;
 		a = b;
 		b = a + t;
 	}
