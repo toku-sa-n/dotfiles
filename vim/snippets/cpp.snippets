@@ -493,10 +493,11 @@ std::vector<size_t> calculate_ranks(const std::vector<T>& v)
 	return rank;
 }
 
-std::map<long long, long long> prime_factors_and_num(long long n)
+template <typename T>
+std::map<T, T> prime_factors_and_num(T n)
 {
-	std::map<long long, long long> m;
-	for (int i = 2; i <= n; i++) {
+	std::map<T, T> m;
+	for (T i = 2; i <= n; i++) {
 		while (n % i == 0) {
 			m[i]++;
 			n /= i;
