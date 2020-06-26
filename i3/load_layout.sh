@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 i=1
+
+# -v option to sort by number.
 for file in $(\ls -v ~/.config/i3/workspace_*.json)
 do
     i3-msg "workspace $i; append_layout $file"
