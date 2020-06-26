@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 i=1
 for file in $(\ls -v ~/.config/i3/workspace_*.json)
 do
