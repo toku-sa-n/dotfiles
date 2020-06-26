@@ -139,7 +139,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym Print exec scrot --focused "$HOME/Screenshots/%d-%m-%Y_%H:%M:%S_screenshot.png"
 
 for_window [class = "^.*"] border pixel 0
-new_window 1pixel
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
