@@ -163,8 +163,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+F1 exec xdg-open https://google.com/
-
 # settings of colors
 set_from_resource $background i3wm.background #222222
 set_from_resource $foreground i3wm.foreground #C0C5CE
