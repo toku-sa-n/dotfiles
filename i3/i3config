@@ -9,6 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+exec ~/dotfiles/i3/load_layout.sh
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -168,8 +170,8 @@ set $exit "Exit h: shutdown r: reboot x: exit i3"
 bindsym $mod+q mode $exit
 
 mode $exit {
-    bindsym h exec sudo shutdown -h now
-    bindsym r exec sudo shutdown -r now
+    bindsym h exec "~/dotfiles/i3/save_layout.sh && sudo shutdown -h now"
+    bindsym r exec "~/dotfiles/i3/save_layout.sh && sudo shutdown -r now"
     bindsym x exit
 
     bindsym Return mode "default"
