@@ -163,6 +163,19 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $exit "Exit h: shutdown r: reboot x: exit i3"
+
+bindsym $mod+q mode $exit
+
+mode $exit {
+    bindsym h exec sudo shutdown -h now
+    bindsym r exec sudo shutdown -r now
+    bindsym x exit
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # settings of colors
 set_from_resource $background i3wm.background #222222
 set_from_resource $foreground i3wm.foreground #C0C5CE
