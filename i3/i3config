@@ -166,19 +166,19 @@ bindsym $mod+r mode "resize"
 bindsym $mod+F1 exec xdg-open https://google.com/
 
 # settings of colors
-set $background #222222
-set $foreground #C0C5CE
-set $secondary #444444
-set $black #2B303B
-set $red #BF616A
-set $green #A3BE8C
-set $yellow #EBCB8B
-set $blue #8FA1B3
-set $magenta #B48EAD
-set $cyan #96B5B4
-set $white #FFFFFF
+set_from_resource $background i3wm.background #222222
+set_from_resource $foreground i3wm.foreground #C0C5CE
+set_from_resource $secondary i3wm.scrollColor #444444
+set_from_resource $black i3wm.color0 #2B303B
+set_from_resource $red i3wm.color1 #BF616A
+set_from_resource $green i3wm.color2 #A3BE8C
+set_from_resource $yellow i3wm.color3 #EBCB8B
+set_from_resource $blue i3wm.color4 #8FA1B3
+set_from_resource $magenta i3wm.color5 #B48EAD
+set_from_resource $cyan i3wm.color6 #96B5B4
+set_from_resource $white i3wm.color15 #FFFFFF
 
-# class                     border  background       text    indicator   child_border
+# class                     border       background       text    indicator   child_border
 client.focused              $secondary   $background      $white  $black     $secondary
 
 bar {

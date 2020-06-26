@@ -26,44 +26,44 @@ URxvt.font:                 xft:Source\ Code\ Pro,\
                             xft:Unifont
 
 !black
-URxvt.color0:              #282A2E
+*color0:              #282A2E
 !red
-URxvt.color1:              #A54242
+*color1:              #A54242
 !green
-URxvt.color2:              #8C9440
+*color2:              #8C9440
 !yellow
-URxvt.color3:              #DE935F
+*color3:              #DE935F
 !blue
-URxvt.color4:              #5F819D
+*color4:              #5F819D
 !magenta
-URxvt.color5:              #85678F
+*color5:              #85678F
 !cyan
-URxvt.color6:              #5E8D87
+*color6:              #5E8D87
 !white
-URxvt.color7:              #707880
+*color7:              #707880
 !bright black
-URxvt.color8:              #373B41
+*color8:              #373B41
 !bright red
-URxvt.color9:              #CC6666
+*color9:              #CC6666
 !bright green
-URxvt.color10:             #B5BD68
+*color10:             #B5BD68
 !bright yellow
-URxvt.color11:             #F0C674
+*color11:             #F0C674
 !bright blue
-URxvt.color12:             #81A2BE
+*color12:             #81A2BE
 !bright magenta
-URxvt.color13:             #B294BB
+*color13:             #B294BB
 !bright cyan
-URxvt.color14:             #8ABEB7
+*color14:             #8ABEB7
 !bright white
-URxvt.color15:             #C5C8C6
+*color15:             #C5C8C6
 
-URxvt.foreground:          #C5C8C6
-URxvt.background:          #1D1F21
+*foreground:          #C5C8C6
+*background:          #1D1F21
 URxvt.colorIT:             #8EC07C
 URxvt.colorBD:             #D5C4A1
 URxvt.colorUL:             #83A598
-URxvt.scrollColor:         #504945
+*scrollColor:         #504945
 
 URxvt.inputMethod:          fcitx
 URxvt.preeditType:          OnTheSpot
