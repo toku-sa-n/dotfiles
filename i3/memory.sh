@@ -24,4 +24,4 @@ case "${BLOCK_NUM}" in
     <->    ) color="#FF0000" ;;
 esac
 
-echo -n "\"full_text\": \"${USING_MEMORY_READABLE} / ${FULL_MEMORY_READABLE} [${BAR}]  ${USE_RATE}%\", \"color\": \"${color}\""
+echo "\"full_text\": \"${USING_MEMORY_READABLE} / ${FULL_MEMORY_READABLE} [${BAR}]  ${USE_RATE}%\", \"color\": \"${color}\""

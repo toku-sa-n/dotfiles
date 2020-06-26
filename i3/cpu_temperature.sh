@@ -25,4 +25,4 @@ case "${TEMPERATURE}" in
                  COLOR="#FF0000";;
 esac
 
-echo -n "\"full_text\": \"${ICON}.${TEMPERATURE}℃\", \"color\": \"${COLOR}\""
+echo "\"full_text\": \"${ICON}.${TEMPERATURE}℃\", \"color\": \"${COLOR}\""

@@ -37,7 +37,7 @@ def print_git_status(repositories, push_or_commit, color)
   end
   # [0...-2] is intended to delete the last of ', '
   print location_msg[0...-2]
-  print '</span> '
+  puts '</span> '
 end
 
 def main
@@ -53,7 +53,9 @@ def main
     end
   end
 
-  print_git_status(need_to_commit, 'commit', 'ff9900') unless need_to_commit.empty?
+  unless need_to_commit.empty?
+    print_git_status(need_to_commit, 'commit', 'ff9900')
+  end
   print_git_status(need_to_push, 'push', 'ff0000') unless need_to_push.empty?
 end
 
