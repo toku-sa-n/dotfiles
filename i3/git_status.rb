@@ -44,7 +44,10 @@ def main
   need_to_commit = []
   need_to_push = []
 
-  `git config --global remind.paths`.chomp.split(',').each do |path|
+  git_repository_dir = '~/git_repository'
+
+  # -d to get fullpath.
+  `ls -d #{git_repository_dir}/*`.chomp.split(',').each do |path|
     git_repository = GitRepository.new(path)
     if git_repository.need_to_push?
       need_to_push << git_repository
