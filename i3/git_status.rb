@@ -25,7 +25,7 @@ class GitRepository
   end
 
   def path
-    @path.gsub(/#{ENV['HOME']}/, '~')
+    File.basename(@path)
   end
 end
 
