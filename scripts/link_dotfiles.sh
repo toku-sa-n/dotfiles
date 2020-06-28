@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 set -e
 
@@ -48,4 +48,5 @@ do
     dst=$(eval echo $(echo $line|awk '{print $2}'))
     mkdir -p $(dirname $dst)
     ln -sf "$DOTFILES_DIR/$src" "$dst"
+    echo "$src -> $dst"
 done
