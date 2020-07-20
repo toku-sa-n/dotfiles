@@ -420,7 +420,7 @@ T nCr_mod(T n, T r)
 		a %= mod;
 	}
 
-	T y = pow_mod(a, mod - 2, mod) % mod;
+	T y = pow_mod(a, mod - 2) % mod;
 
 	return x * y % mod;
 }
