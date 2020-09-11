@@ -18,14 +18,16 @@ snippet temp "LaTeX Template" bA
 	tabsize=2,
 	numbers=left,
 	numberstyle={\ttfamily\scriptsize},
-	columns=[1]{fullflexible},
+	columns=[l]{fullflexible},
 }
-\renewcommand{\lstlistingname}{ソースコード}
+\renewcommand\lstlistingname{ソースコード}
 \renewcommand\proofname{\bf 証明}
-\begin{document}
 
 \title{$1}
 \author{$2}
+
+\begin{document}
+
 \maketitle
 
 $0
@@ -59,6 +61,10 @@ endsnippet
 
 snippet sub "\subsection" bA
 \subsection{$1}$0
+endsnippet
+
+snippet ssub "\subsubsection" bA
+\subsubsection{$1}$0
 endsnippet
 
 #
@@ -148,7 +154,11 @@ snippet {{ "curly braces" iA
 endsnippet
 
 snippet [[ "square braces" iA
-\left[ $1 \right] $0
+\left[ $1 \right]$0
+endsnippet
+
+snippet ang "angle" iA
+\left\langle $1 \right\rangle $0
 endsnippet
 
 snippet // "fraction" iA
@@ -169,6 +179,14 @@ endsnippet
 
 snippet cos "cos"
 \cos $0
+endsnippet
+
+snippet ceil "ceil function" i
+\left\lceil{$1}\right\rceil $0
+endsnippet
+
+snippet floor "floor function" i
+\left\lfloor{$1}\right\rfloor $0
 endsnippet
 
 snippet || "Absolute value" iA
@@ -222,8 +240,8 @@ snippet env "environment" bA
 endsnippet
 
 snippet lstl "lstlisting" bA
-\begin{lstlisting}[language={$1}, caption=$2]
-$3
+\begin{lstlisting}[language={$1}, label=$2, caption=$3]
+$4
 \end{lstlisting}$0
 endsnippet
 
@@ -294,5 +312,9 @@ snippet lsti "lstinline" iA
 endsnippet
 
 snippet lstf "lstinputlistings" iA
-\lstinputlisting[caption=$1]{$2}$0
+\lstinputlisting[label=$1, caption=$2]{$3}$0
+endsnippet
+
+snippet inc "include" A
+\include{$1}$0
 endsnippet
