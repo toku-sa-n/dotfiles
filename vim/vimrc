@@ -39,6 +39,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
+Plug 'preservim/nerdtree'
 "syntastic{{{
 Plug 'vim-syntastic/syntastic'
 let g:syntastic_always_populate_loc_list = 1
