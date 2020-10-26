@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 if [[ $(whoami) != "root" ]]; then
     echo 'Run as root.' >&2
     exit 1
