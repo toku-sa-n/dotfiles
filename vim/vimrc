@@ -327,6 +327,11 @@ nnoremap <silent> <leader>n :bnext<CR>
 "--- Language ---
 set helplang=ja,en
 
+augroup spell_git_commit
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+augroup END
+
 " cancelAutoComment
 set formatoptions-=cro
 
