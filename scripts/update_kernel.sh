@@ -27,3 +27,6 @@ cp {$OLD_KERNEL_PATH,$NEW_KERNEL_PATH}/.config
 
 readonly MAKEOPTS="-j$(nproc||echo 8)"
 cd $NEW_KERNEL_PATH && make $MAKEOPTS && make modules_install $MAKEOPTS && make install && genkernel --install initramfs && grub-mkconfig -o /boot/grub/grub.cfg
+
+# Save the installed kernel and the current one.
+eclean-kernel -n 2
