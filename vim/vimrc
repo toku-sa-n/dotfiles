@@ -316,6 +316,9 @@ nnoremap <leader>a :Gwrite<CR>
 nnoremap <leader>c :Gcommit<CR>
 nnoremap <up> :Gpush<CR>
 nnoremap <down> :Gpull<CR>
+cnoremap gck Git checkout
+cnoremap gckb Git checkout -b
+cnoremap gm Gmerge
 
 nnoremap <silent> <leader>b :bprevious<CR>
 nnoremap <silent> <leader>n :bnext<CR>
