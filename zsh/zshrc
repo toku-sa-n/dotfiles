@@ -175,6 +175,8 @@ alias grm="git rebase master"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
+alias odp="objdump --disassemble --demangle --disassembler-options=intel"
+
 alias v=vim
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
