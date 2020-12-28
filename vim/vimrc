@@ -12,7 +12,6 @@ endif
 "}}}
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-endwise'
-Plug 'junegunn/fzf'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'jeffkreeftmeijer/vim-dim'
@@ -40,6 +39,10 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
+"{{{
+Plug 'junegunn/fzf'
+nnoremap <leader>f :FZF<CR>
+"}}}
 "NERDTree{{{
 Plug 'preservim/nerdtree'
 augroup nerdtree
