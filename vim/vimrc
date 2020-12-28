@@ -39,10 +39,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
-"{{{
 Plug 'junegunn/fzf'
-nnoremap <leader>f :FZF<CR>
-"}}}
 "NERDTree{{{
 Plug 'preservim/nerdtree'
 augroup nerdtree
@@ -332,6 +329,7 @@ cnoremap gck Git checkout
 cnoremap gckb Git checkout -b
 cnoremap gm Gmerge
 cnoremap gb Git branch
+nnoremap <leader>f :FZF<CR>
 
 nnoremap <silent> <leader>b :bprevious<CR>
 nnoremap <silent> <leader>n :bnext<CR>
