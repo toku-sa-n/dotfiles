@@ -375,6 +375,11 @@ set autoread
 
 set mouse=a
 
+augroup exclude_quickfix_from_bnext_bprevious
+    autocmd!
+    autocmd FileType qf set nobuflisted
+augroup END
+
 " autoclose quickfix
 " See: https://stackoverflow.com/questions/7476126/how-to-automatically-close-the-quick-fix-window-when-leaving-a-file
 augroup close_quickfix
