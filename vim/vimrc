@@ -40,17 +40,17 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
+"ale{{{
+Plug 'dense-analysis/ale'
+let g:ale_linters = {'rust': ['analyzer']}
+let g:ale_open_list = 1
+"}}}
 "NERDTree{{{
 Plug 'preservim/nerdtree'
 augroup nerdtree
     autocmd!
     nnoremap <F9> :NERDTreeFind<CR>
 augroup END
-"}}}
-"syntastic{{{
-Plug 'vim-syntastic/syntastic'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 "}}}
 "vim-lsp{{{
 Plug 'prabirshrestha/vim-lsp'
