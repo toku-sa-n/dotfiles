@@ -333,6 +333,7 @@ xnoremap & :&&<CR>
 nnoremap <leader>a :Gwrite<CR>
 nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>p :!gh pr create<CR>
+nnoremap <leader>s :Gstatus<CR>
 nnoremap <up> :Gpush<CR>
 nnoremap <down> :Gpull<CR>
 cnoremap gck Git checkout
