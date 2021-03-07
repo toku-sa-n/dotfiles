@@ -331,11 +331,11 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 nnoremap <leader>a :Gwrite<CR>
-nnoremap <leader>c :Gcommit<CR>
+nnoremap <leader>c :Git commit<CR>
 nnoremap <leader>p :!gh pr create<CR>
 nnoremap <leader>s :Gstatus<CR>
-nnoremap <up> :Gpush<CR>
-nnoremap <down> :Gpull<CR>
+nnoremap <up> :Git push<CR>
+nnoremap <down> :Git pull<CR>
 cnoremap gck Git checkout
 cnoremap gckb Git checkout -b
 cnoremap gm Gmerge
