@@ -12,6 +12,7 @@ endif
 "}}}
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-endwise'
+Plug 'psliwka/vim-smoothie'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'jeffkreeftmeijer/vim-dim'
