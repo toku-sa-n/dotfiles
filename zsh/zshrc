@@ -52,7 +52,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 # }}}
 #Environment paths{{{
-export PATH="$HOME/cquery/build/release/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/cquery/build/release/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH:$HOME/go/bin"
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
 export HISTSIZE=1000
@@ -167,6 +167,7 @@ alias gckb="git checkout -b"
 alias gd="git diff"
 alias gm="git merge"
 alias gp="git push"
+alias gpf="git push --force"
 alias gpa="git push --all"
 alias gpl="git pull"
 alias gl="git log --graph --all"
@@ -177,11 +178,12 @@ alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
 alias odp="objdump --disassemble --demangle --disassembler-options=intel"
+alias hs='hub sync'
 
 alias v=vim
 
 [ -r /usr/bin/bat ] && alias cat='bat' && alias less='bat'
-[ -r /usr/bin/fuck ] && alias f="fuck"
+[ -r /usr/bin/fuck ] && eval $(thefuck --alias) && alias f="fuck"
 [ -r /usr/bin/exa ] && alias ls='exa --group-directories-first'
 [ -r /usr/bin/fd ] && alias find="fd"
 [ -r /usr/bin/ack ] && alias grep='ack'
