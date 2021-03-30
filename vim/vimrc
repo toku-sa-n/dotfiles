@@ -73,10 +73,10 @@ Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 if executable('pyls')
     " pip install python-language-server
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'allowlist': ['python'],
-        \ })
+                \ 'name': 'pyls',
+                \ 'cmd': {server_info->['pyls']},
+                \ 'allowlist': ['python'],
+                \ })
 endif
 
 function! s:on_lsp_buffer_enabled() abort
@@ -160,8 +160,11 @@ let g:hybrid_reduced_contrast=1
 "}}}
 "vim-autoformat{{{
 Plug 'Chiel92/vim-autoformat'
-autocmd FileType tex let b:autoformat_autoindent=0
-autocmd BufWritePre *.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+augroup autoformat
+    autocmd!
+    autocmd FileType tex let b:autoformat_autoindent=0
+    autocmd BufWritePre *.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+augroup END
 "}}}
 "vim-indent-guides{{{
 Plug 'nathanaelkane/vim-indent-guides'
