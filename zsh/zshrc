@@ -177,7 +177,6 @@ alias grm="git rebase master"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
-alias odp="objdump --disassemble --demangle --disassembler-options=intel"
 alias hs='hub sync'
 
 alias v=vim
@@ -191,6 +190,10 @@ alias v=vim
 alias :q='exit'
 chpwd(){
         ls --color=auto
+}
+
+odp(){
+    objdump --disassemble --demangle --disassembler-options=intel $1 | bat --language=asm
 }
 # }}}
 # Aliases which depends on the distribution using now{{{
