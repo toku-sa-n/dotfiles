@@ -177,7 +177,13 @@ alias grm="git rebase master"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
-alias hs='hub sync'
+hs(){
+    hub sync && \
+    readonly CURRENT=$(git branch --show-current) && \
+    git checkout main
+    git branch|grep -v main|sed 's/ //g'|xargs -I {} sh -c '(git checkout {} && git rebase main) || exit 255' && \
+    git checkout $CURRENT
+}
 
 alias v=vim
 
