@@ -173,14 +173,14 @@ alias gpl="git pull"
 alias gl="git log --graph --all"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
 alias gr="git rebase"
-alias grm="git rebase master"
+alias grm="git rebase main"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
 hs(){
+    readonly CURRENT=$(git branch --show-current)
     hub sync && \
-    readonly CURRENT=$(git branch --show-current) && \
-    git checkout main
+    git checkout main && \
     git branch|grep -v main|sed 's/ //g'|xargs -I {} sh -c '(git checkout {} && git rebase main) || exit 255' && \
     git checkout $CURRENT
 }
