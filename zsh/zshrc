@@ -176,7 +176,7 @@ alias gr="git rebase"
 alias grm="git rebase main"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
-alias hs = "hub sync"
+alias hs="hub sync"
 
 alias v=vim
 
