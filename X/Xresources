@@ -25,6 +25,7 @@ URxvt.font:                 xft:Source\ Code\ Pro,\
                             xft:IPAGothic,\
                             xft:Unifont
 
+
 !black
 *color0:              #282A2E
 !red
