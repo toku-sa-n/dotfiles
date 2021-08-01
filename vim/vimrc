@@ -388,8 +388,6 @@ augroup END
 
 nnoremap s "_s
 
-nnoremap xp xp
-
 set autoread
 
 set mouse=a
