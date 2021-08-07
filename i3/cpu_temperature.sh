@@ -1,4 +1,5 @@
 #!/bin/zsh
+
 # use zsh to use zsh functions.
 readonly RAW_TEMPERATURE=$(cat /sys/class/thermal/thermal_zone0/temp)
 readonly TEMPERATURE=$(echo "scale=0; ${RAW_TEMPERATURE}/1000"|bc -l)
