@@ -165,7 +165,7 @@ Plug 'Chiel92/vim-autoformat'
 augroup autoformat
     autocmd!
     autocmd FileType tex let b:autoformat_autoindent=0
-    autocmd BufWritePre *.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
 augroup END
 "}}}
 "vim-indent-guides{{{
