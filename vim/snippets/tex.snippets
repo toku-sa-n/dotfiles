@@ -6,6 +6,7 @@ snippet temp "LaTeX Template" bA
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage[ruled,vlined]{algorithm2e}
 \usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage{amsmath}
@@ -101,7 +102,7 @@ endsnippet
 # Math Area
 #
 
-snippet al "align" bA
+snippet ali "align" bA
 \begin{align}
 	$1
 \end{align}$0
@@ -167,7 +168,7 @@ snippet [[ "square braces" iA
 \left[ $1 \right]$0
 endsnippet
 
-snippet ang "angle" iA
+snippet angle "angle" iA
 \left\langle $1 \right\rangle $0
 endsnippet
 
@@ -327,6 +328,12 @@ snippet fr "Frame" A
 \begin{frame}{$1}
 	$2
 \end{frame}$0
+endsnippet
+
+snippet alg "algorithm" A
+\begin{algorithm}[H]
+	$1
+\end{algorithm}$0
 endsnippet
 
 #
