@@ -192,7 +192,7 @@ chpwd(){
 }
 
 odp(){
-    objdump --disassemble --demangle --disassembler-options=intel $1 | bat --language asm
+    objdump --disassemble --demangle --disassembler-options=intel $1 | bat --language asm --style plain
 }
 # }}}
 # Aliases which depends on the distribution using now{{{
