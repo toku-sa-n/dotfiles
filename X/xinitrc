@@ -54,7 +54,7 @@ xautolock -time 5 -locker 'sudo s2ram' &
 
 
 # -b: compton runs as a daemon.
-compton -b --inactive-dim=0.2 --focus-exclude='name*="ピクチャーインピクチャー"'
+picom -b --inactive-dim=0.2 --focus-exclude='name*="ピクチャーインピクチャー"'
 hsetroot -solid "#000000"
 
 exec i3
