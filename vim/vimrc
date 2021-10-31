@@ -469,7 +469,7 @@ augroup END
 let g:haskellmode_completion_ghc=0
 augroup haskell_specific
     autocmd!
-    autocmd Filetype haskell setlocal tabstop=8
+    autocmd Filetype haskell setlocal tabstop=4
     autocmd Filetype haskell setlocal softtabstop=4
     autocmd Filetype haskell setlocal shiftwidth=4
     autocmd Filetype haskell setlocal shiftround
