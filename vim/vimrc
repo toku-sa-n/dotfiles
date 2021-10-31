@@ -359,6 +359,7 @@ cnoremap gck Git checkout
 cnoremap gckb Git checkout -b
 cnoremap gm Gmerge
 cnoremap gb Git branch
+cnoremap gbd Git branch -d
 nnoremap <leader>f :FZF<CR>
 
 nnoremap <silent> <leader>b :bprevious<CR>
