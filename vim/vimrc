@@ -44,6 +44,7 @@ Plug 'junegunn/fzf'
 "ale{{{
 Plug 'dense-analysis/ale'
 let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint']}
+let g:ale_haskell_hlint_options = '--show'
 let g:ale_open_list = 1
 let g:ale_fix_on_save = 0
 let g:ale_rust_cargo_use_clippy = 1
@@ -317,14 +318,6 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 "Moving{{{
 "Endless Moving
 set whichwrap=h,l,<,>,[,],b
-
-"Move by display row
-noremap j gj
-noremap k gk
-
-noremap gj j
-noremap gk k
-
 "}}}
 "Shortcut{{{
 let g:mapleader="\<Space>"
