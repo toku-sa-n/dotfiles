@@ -59,10 +59,12 @@ let g:ale_set_quickfix = 1
 "}}}
 "NERDTree{{{
 Plug 'preservim/nerdtree'
+let NERDTreeShowLineNumbers=1
 augroup nerdtree
     autocmd!
     nnoremap <F9> :NERDTreeFind<CR>
 augroup END
+autocmd FileType nerdtree setlocal relativenumber
 "}}}
 "vim-lsp{{{
 Plug 'prabirshrestha/vim-lsp'
