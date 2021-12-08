@@ -12,7 +12,6 @@ endif
 "}}}
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-endwise'
-Plug 'psliwka/vim-smoothie'
 Plug 'dag/vim2hs'
 Plug 'kana/vim-filetype-haskell'
 Plug 'jeffkreeftmeijer/vim-dim'
@@ -472,6 +471,7 @@ augroup haskell_specific
     autocmd Filetype haskell setlocal softtabstop=4
     autocmd Filetype haskell setlocal shiftwidth=4
     autocmd Filetype haskell setlocal shiftround
+    autocmd Filetype haskell nnoremap <leader>t :!cabal test<CR>
 augroup END
 "}}}
 "LaTeX{{{
