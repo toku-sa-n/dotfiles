@@ -2,6 +2,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 let g:vimrc_dir=system("dirname $(readlink $MYVIMRC)|tr -d '\n'")
+
 "Plugins{{{
 "vim-plug auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -122,21 +123,6 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand('~/vim-lsp.log')
 """}}}
-"vim-test{{{
-" vim-test doesn't work well with rust. It needs to be examined.
-" Plug 'janko-m/vim-test'
-" let g:test#strategy='dispatch'
-" nmap <silent> <leader>t :TestNearest<CR>
-" nmap <silent> <leader>T :TestFile<CR>
-" nmap <silent> <leader>a :TestSuite<CR>
-" nmap <silent> <leader>L :TestLast<CR>
-" nmap <silent> <leader>g :TestVisit<CR>
-
-" augroup vim_test
-"     autocmd!
-"     autocmd BufWrite * if test#exists()|TestFile|endif
-" augroup END
-"}}}
 "vim-splash{{{
 Plug 'thinca/vim-splash'
 let g:splash#path=g:vimrc_dir . '/title.txt'
