@@ -47,7 +47,7 @@ def main
   git_repository_dir = '~/git_repository'
 
   # -d to get fullpath.
-  `ls -d #{git_repository_dir}/*`.chomp.split("\n").each do |path|
+  `ls -d #{git_repository_dir}/*/`.chomp.split("\n").each do |path|
     git_repository = GitRepository.new(path)
     if git_repository.need_to_push?
       need_to_push << git_repository
