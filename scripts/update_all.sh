@@ -40,6 +40,12 @@ non_systemwide () {
     # Vim will exit with exit status 0 even if vim-plug is not installed.
     # Therefore it's not needed to delete `set -e`.
     vim +PlugUpdate +q +q
+
+    ghcup upgrade
+    ghcup install ghc
+    ghcup install cabal
+    ghcup install hls
+    ghcup install stack
 }
 
 
