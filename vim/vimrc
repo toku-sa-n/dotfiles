@@ -401,6 +401,13 @@ augroup close_quickfix
     au!
     au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 augroup END
+
+" See
+" https://vi.stackexchange.com/questions/9760/arrow-keys-dont-work-in-insert-mode
+" and :h vt100-cursor-keys
+set notimeout
+set ttimeout
+set timeoutlen=100
 "}}}
 "Extension specific{{{
 "Text{{{
