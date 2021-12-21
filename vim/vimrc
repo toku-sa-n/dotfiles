@@ -14,7 +14,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
-Plug 'kana/vim-filetype-haskell'
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'steffanc/cscopemaps.vim'
