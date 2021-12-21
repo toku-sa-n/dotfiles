@@ -22,7 +22,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'adimit/prolog.vim'
 Plug 'vim-jp/vimdoc-ja'
-Plug 'vim-scripts/OmniCppComplete'
 Plug 'KeitaNakamura/tex-conceal.vim', {'for':'tex'}
 Plug 'zah/nim.vim'
 Plug 'ocaml/vim-ocaml'
