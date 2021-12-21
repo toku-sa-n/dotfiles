@@ -16,7 +16,6 @@ Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'tpope/vim-fugitive'   " Git wrapper
 Plug 'airblade/vim-gitgutter'
-Plug 'szw/vim-dict'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'    " line up
 Plug 'adimit/prolog.vim'
