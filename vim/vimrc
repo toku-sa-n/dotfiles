@@ -18,7 +18,6 @@ Plug 'tpope/vim-fugitive'   " Git wrapper
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'adimit/prolog.vim'
-Plug 'vim-jp/vim-vimlparser'
 Plug 'syngan/vim-vimlint'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/OmniCppComplete'
