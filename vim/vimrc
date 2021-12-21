@@ -1,7 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-let g:vimrc_dir=system("dirname $(readlink $MYVIMRC)|tr -d '\n'")
+let g:vimrc_dir=fnamemodify(resolve(expand('$MYVIMRC')),':h')
 
 "Plugins{{{
 "vim-plug auto install{{{
