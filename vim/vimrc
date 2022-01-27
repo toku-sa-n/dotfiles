@@ -104,6 +104,9 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> K <plug>(lsp-hover)
     nmap <buffer> ga <plug>(lsp-code-action)
 
+    " See: https://github.com/prabirshrestha/vim-lsp/issues/1263#issuecomment-1011892059
+    nmap <plug>() <Plug>(lsp-float-close)
+
     " refer to doc to add more commands
 endfunction
 
