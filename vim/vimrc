@@ -162,7 +162,7 @@ let g:hybrid_reduced_contrast=1
 "vim-autoformat{{{
 Plug 'Chiel92/vim-autoformat'
 
-let g:formatdef_hs = '"(hindent | stylish-haskell)"'
+let g:formatdef_hs = '"ormolu"'
 let g:formatters_haskell = ['hs']
 
 augroup autoformat
