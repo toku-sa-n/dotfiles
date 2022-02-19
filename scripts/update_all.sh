@@ -41,6 +41,8 @@ non_systemwide () {
     # Therefore it's not needed to delete `set -e`.
     vim +PlugUpdate +q +q
 
+    cabal update
+
     ghcup upgrade
     ghcup install ghc
     ghcup install cabal
