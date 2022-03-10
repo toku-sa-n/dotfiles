@@ -47,6 +47,7 @@ let g:ale_set_quickfix = 1
 "}}}
 "NERDTree{{{
 Plug 'preservim/nerdtree'
+Plug 'PhilRunninger/nerdtree-visual-selection'
 let NERDTreeShowLineNumbers=1
 augroup nerdtree
     autocmd!
