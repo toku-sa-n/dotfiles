@@ -29,6 +29,14 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
+"pytest{{{
+Plug 'alfredodeza/pytest.vim'
+augroup pytest
+    autocmd!
+    autocmd Filetype python nnoremap <silent> <space>t :Pytest project<CR>
+    autocmd BufWrite *.py :Pytest project
+augroup END
+"}}}
 "ale{{{
 Plug 'dense-analysis/ale'
 let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint']}
