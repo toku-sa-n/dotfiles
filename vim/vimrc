@@ -29,6 +29,14 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
+"pytest{{{
+Plug 'alfredodeza/pytest.vim'
+augroup pytest
+    autocmd!
+    autocmd Filetype python nnoremap <silent> <space>t :Pytest project<CR>
+    autocmd BufWrite *.py :Pytest project
+augroup END
+"}}}
 "ale{{{
 Plug 'dense-analysis/ale'
 let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint']}
@@ -47,6 +55,7 @@ let g:ale_set_quickfix = 1
 "}}}
 "NERDTree{{{
 Plug 'preservim/nerdtree'
+Plug 'PhilRunninger/nerdtree-visual-selection'
 let NERDTreeShowLineNumbers=1
 augroup nerdtree
     autocmd!
@@ -165,13 +174,17 @@ Plug 'Chiel92/vim-autoformat'
 let g:formatdef_hs = '"(hindent | stylish-haskell)"'
 let g:formatters_haskell = ['hs']
 
+
 let g:formatdef_elmformat = '"elm-format --stdin"'
 let g:formatters_elm = ['elmformat']
+
+let g:formatdef_awk = '"awk -o- -f -"'
+let g:formatters_awk = ['awk']
 
 augroup autoformat
     autocmd!
     autocmd FileType tex let b:autoformat_autoindent=0
-    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm :Autoformat
+    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm,*.awk :Autoformat
 augroup END
 "}}}
 "vim-indent-guides{{{
