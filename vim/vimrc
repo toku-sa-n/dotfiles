@@ -183,17 +183,6 @@ augroup autoformat
     autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.awk :Autoformat
 augroup END
 "}}}
-"vim-indent-guides{{{
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_start_level=2
-let g:indent_guides_color_change_percent = 10
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors=0
-
-hi IndentGuidesOdd ctermbg=0
-hi IndentGuidesEven ctermbg=8
-"}}}
 "vimtex{{{
 Plug 'lervag/vimtex'
 
@@ -417,7 +406,6 @@ augroup END
 "Text{{{
 augroup text_specific
     autocmd!
-    autocmd Filetype text IndentGuidesDisable
     autocmd Filetype text setlocal textwidth=0 " No auto line break. See http://stst.hateblo.jp/entry/2014/07/14/010844.
 augroup END
 "}}}
