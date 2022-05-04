@@ -165,10 +165,13 @@ Plug 'Chiel92/vim-autoformat'
 let g:formatdef_hs = '"(hindent | stylish-haskell)"'
 let g:formatters_haskell = ['hs']
 
+let g:formatdef_elmformat = '"elm-format --stdin"'
+let g:formatters_elm = ['elmformat']
+
 augroup autoformat
     autocmd!
     autocmd FileType tex let b:autoformat_autoindent=0
-    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb :Autoformat
+    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm :Autoformat
 augroup END
 "}}}
 "vim-indent-guides{{{
