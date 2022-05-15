@@ -3,6 +3,8 @@ scriptencoding utf-8
 
 let g:vimrc_dir=fnamemodify(resolve(expand('$MYVIMRC')),':h')
 
+set runtimepath+=/usr/local/share/lilypond/current/vim/
+
 "Plugins{{{
 "vim-plug auto install{{{
 if empty(glob('~/.vim/autoload/plug.vim'))
