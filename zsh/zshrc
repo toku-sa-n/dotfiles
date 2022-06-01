@@ -212,7 +212,7 @@ gentoo(){
 }
 
 (){
-    local dist=$(cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}')
+    local dist=$(cat /etc/*-release|grep '^ID'|awk -F '[=]' '{print $2}')
 
     case $dist in
         "arch" ) arch ;;
