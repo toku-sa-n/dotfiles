@@ -63,7 +63,7 @@ fi
 
 case "$1" in
     "" )
-        readonly DISTRIBUTION=$(cat /etc/*-release|grep ID|awk -F '[=]' '{print $2}')
+        readonly DISTRIBUTION=$(cat /etc/*-release|grep '^ID'|awk -F '[=]' '{print $2}')
 
         if [[ $DISTRIBUTION == gentoo ]]; then
             sudo ./update_gentoo.sh
