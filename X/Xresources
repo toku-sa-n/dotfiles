@@ -23,7 +23,7 @@ URxvt.font:                 xft:Source\ Code\ Pro,\
                             xft:PowerlineSymbols,\
                             xft:Hack,\
                             xft:IPAGothic,\
-                            xft:DejaVu\ Sans\ Mono,
+                            xft:DejaVu\ Sans\ Mono,\
                             xft:Unifont
 
 
