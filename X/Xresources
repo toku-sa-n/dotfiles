@@ -16,15 +16,15 @@ URxvt.saveLines:            3000
 URxvt.fading:               40
 
 !! Font list and Spacing
-URxvt.font:                 xft:Source\ Code\ Pro:size=14,\
-                            xft:IPAGothic:size=14,\
-                            xft:Source\ Code\ Pro\ for\ Powerline-11:size=14,\
-                            xft:Font\ Awesome\ 5\ Free:size=14,\
-                            xft:Standard Symbols L:size=14,\
-                            xft:PowerlineSymbols:size=14,\
-                            xft:Hack:size=14,\
-                            xft:DejaVu\ Sans\ Mono:size=14,\
-                            xft:Unifont:size=14
+URxvt.font:                 xft:Source\ Code\ Pro,\
+                            xft:Source\ Code\ Pro\ for\ Powerline-11,\
+                            xft:Font\ Awesome\ 5\ Free,\
+                            xft:Standard Symbols L,\
+                            xft:PowerlineSymbols,\
+                            xft:Hack,\
+                            xft:IPAGothic,\
+                            xft:DejaVu\ Sans\ Mono,\
+                            xft:Unifont
 
 
 !black
