@@ -15,6 +15,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "}}}
 call plug#begin('~/.vim/plugged')
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'tpope/vim-fugitive'   " Git wrapper
@@ -31,7 +32,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
 "ale{{{
 Plug 'dense-analysis/ale'
-let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint']}
+let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint', 'cabal']}
 let g:ale_haskell_hlint_options = '--show'
 let g:ale_open_list = 1
 let g:ale_fix_on_save = 0
@@ -173,10 +174,13 @@ let g:formatters_elm = ['elmformat']
 let g:formatdef_awk = '"awk -o- -f -"'
 let g:formatters_awk = ['awk']
 
+let g:formatdef_stylelint = '"stylelint --fix"'
+let g:formatters_sass = ['stylelint']
+
 augroup autoformat
     autocmd!
     autocmd FileType tex let b:autoformat_autoindent=0
-    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm,*.awk,*.go :Autoformat
+    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm,*.awk,*.go,*.json,*.scss,*.sass :Autoformat
 augroup END
 "}}}
 "vimtex{{{
@@ -452,7 +456,7 @@ augroup haskell_specific
     autocmd Filetype haskell setlocal softtabstop=4
     autocmd Filetype haskell setlocal shiftwidth=4
     autocmd Filetype haskell setlocal shiftround
-    autocmd Filetype haskell nnoremap <leader>t :!cabal test<CR>
+    autocmd Filetype haskell nnoremap <leader>t :!cabal build && cabal test<CR>
 augroup END
 "}}}
 "LaTeX{{{
