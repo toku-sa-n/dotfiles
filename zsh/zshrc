@@ -52,7 +52,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 # }}}
 #Environment paths{{{
-export PATH="$HOME/cquery/build/release/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH:$HOME/go/bin:$HOME/.ghcup/bin:$HOME/.cabal/bin"
+export PATH="$HOME/cquery/build/release/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.gem/ruby/2.4.0/bin:$HOME/.cargo/bin:$PATH:$HOME/go/bin:$HOME/.ghcup/bin"
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
 export HISTSIZE=1000
@@ -185,6 +185,7 @@ alias v=vim
 [ -r /usr/bin/exa ] && alias ls='exa --group-directories-first'
 [ -r /usr/bin/fd ] && alias find="fd"
 [ -r /usr/bin/ack ] && alias grep='ack'
+[ -r /usr/bin/fzf ] && alias vf='vim $(fzf)'
 
 alias :q='exit'
 chpwd(){
@@ -222,3 +223,5 @@ gentoo(){
 # }}}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f "/home/hiroki/.ghcup/env" ] && source "/home/hiroki/.ghcup/env" # ghcup-env
