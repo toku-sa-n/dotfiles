@@ -20,7 +20,7 @@ EOS
 # pip will exit with return status non-zero when there is no package to update.
 # Therefore only try to update when outdated exists.
 update_pip () {
-    readonly PACKAGE_LIST="$(pip list --outdated --format=freeze|awk -F '=' '{print $1}')"
+    readonly PACKAGE_LIST="$(pip list --outdated --format=freeze|grep -v 'notice'|awk -F '=' '{print $1}')"
 
     if [[ $PACKAGE_LIST != "" ]]; then
         echo $PACKAGE_LIST|xargs pip install --upgrade --user
