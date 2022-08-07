@@ -161,10 +161,13 @@ let g:formatters_awk = ['awk']
 let g:formatdef_stylelint = '"stylelint --fix"'
 let g:formatters_sass = ['stylelint']
 
+let g:formatdef_bibtex = '"bibtex-tidy -"'
+let g:formatters_bib = ['bibtex']
+
 augroup autoformat
     autocmd!
     autocmd FileType tex let b:autoformat_autoindent=0
-    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm,*.awk,*.go,*.json,*.scss,*.sass :Autoformat
+    autocmd BufWritePre *.s,*.pl,*.rs,*.hs,*.java,*.css,*.tex,*.c,*.cpp,*.hpp,*.html,*.css,*.h,*.js,*.py,*.rb,*.elm,*.awk,*.go,*.json,*.scss,*.sass,*.bib :Autoformat
 augroup END
 "}}}
 "vimtex{{{
