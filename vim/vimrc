@@ -30,6 +30,7 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
+Plug 'LunarWatcher/auto-pairs'
 "ale{{{
 Plug 'dense-analysis/ale'
 let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint', 'cabal']}
@@ -104,8 +105,7 @@ augroup END
 
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_log_verbose = 0
-let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_log_verbose = 1
 """}}}
 "vim-splash{{{
 Plug 'thinca/vim-splash'
@@ -400,8 +400,6 @@ augroup END
 set cinwords+=case
 augroup c_specific
     autocmd!
-    autocmd Filetype c,cpp inoremap {<CR> {<CR>}<Esc>O
-    autocmd Filetype c,cpp inoremap {;<CR> {<CR>};<Esc>O
     autocmd Filetype c,cpp setlocal foldmethod=indent
 augroup END
 "}}}
@@ -468,8 +466,6 @@ augroup END
 "Rust{{{
 augroup rust_specific
     autocmd!
-    autocmd Filetype rust inoremap {<CR> {<CR>}<Esc>O
-    autocmd Filetype rust inoremap {;<CR> {<CR>};<Esc>O
     autocmd Filetype rust setlocal foldmethod=indent
 augroup END
 "}}}
