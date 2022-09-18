@@ -30,7 +30,6 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
-Plug 'LunarWatcher/auto-pairs'
 "ale{{{
 Plug 'dense-analysis/ale'
 let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint', 'cabal']}
