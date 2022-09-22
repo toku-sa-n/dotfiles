@@ -115,7 +115,7 @@ zstyle ':vcs_info:git:*' unstagedstr '+'
 zstyle ':vcs_info:git:*' stagedstr '●'
 zstyle ':vcs_info:git:*' formats '%b %u%c'  # %b: current branch, %u: unstagedstr, %c: stagedstr
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # }}}
 #aliases {{{
 
@@ -229,3 +229,19 @@ gentoo(){
 # }}}
 
 [ -f "/home/hiroki/.ghcup/env" ] && source "/home/hiroki/.ghcup/env" # ghcup-env
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/hiroki/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hiroki/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/hiroki/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hiroki/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
