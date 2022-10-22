@@ -31,4 +31,4 @@ cd $NEW_KERNEL_PATH && make $MAKEOPTS && make modules_install $MAKEOPTS && make 
 # Save the installed kernel and the current one.
 eclean-kernel -n 2
 
-# TODO: Reemerge nvidia-drivers if it's installed.
+emerge -1 nvidia-drivers
