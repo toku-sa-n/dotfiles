@@ -115,7 +115,7 @@ zstyle ':vcs_info:git:*' unstagedstr '+'
 zstyle ':vcs_info:git:*' stagedstr '●'
 zstyle ':vcs_info:git:*' formats '%b %u%c'  # %b: current branch, %u: unstagedstr, %c: stagedstr
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && export FZF_DEFAULT_COMMAND='find'
 # }}}
 #aliases {{{
 
@@ -176,6 +176,9 @@ alias gpa="git push --all"
 alias gpl="git pull"
 alias gl="git log --graph --all"
 alias gst="git status"  # gs command already exists. It will run GhostScript tool.
+alias gsw="git switch"
+alias gswc="git switch -c"
+alias grt="git restore"
 alias gr="git rebase"
 alias grm="git rebase main"
 alias grc="git rebase --continue"
