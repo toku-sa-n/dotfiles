@@ -46,6 +46,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 "}}}
+Plug 'whonore/Coqtail'
 "NERDTree{{{
 Plug 'preservim/nerdtree'
 Plug 'PhilRunninger/nerdtree-visual-selection'
@@ -147,7 +148,7 @@ let g:hybrid_reduced_contrast=1
 "vim-autoformat{{{
 Plug 'Chiel92/vim-autoformat'
 
-let g:formatdef_hs = '"(hindent | stylish-haskell)"'
+let g:formatdef_hs = '"(stack run --cwd /home/hiroki/git_repository/hindent/| stylish-haskell)"'
 let g:formatters_haskell = ['hs']
 
 
@@ -441,6 +442,7 @@ augroup haskell_specific
     autocmd Filetype haskell setlocal shiftwidth=4
     autocmd Filetype haskell setlocal shiftround
     autocmd Filetype haskell nnoremap <leader>t :!cabal build && cabal test<CR>
+    autocmd Filetype haskell let g:autoformat_autoindent = 0
 augroup END
 "}}}
 "LaTeX{{{
