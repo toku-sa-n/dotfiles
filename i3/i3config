@@ -219,3 +219,5 @@ bar {
             binding_mode       $blue $blue $background
         }
 }
+
+exec_always --no-startup-id flashfocus

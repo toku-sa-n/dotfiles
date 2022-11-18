@@ -13,7 +13,6 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 URxvt.visualBell:           false
 URxvt.saveLines:            3000
-URxvt.fading:               40
 
 !! Font list and Spacing
 URxvt.font:                 xft:Source\ Code\ Pro,\
