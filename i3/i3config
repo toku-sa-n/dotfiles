@@ -220,4 +220,5 @@ bar {
         }
 }
 
-exec_always --no-startup-id flashfocus
+# The following `exec_always` fails without the `zsh` because default shell for `exec_always` is `sh` while the path to binaries installed by `.zshrc`.
+exec_always --no-startup-id zsh -c 'glimmer --styles $(dirname $(readlink -m $HOME/.config/i3/config))/glimmer.css'
