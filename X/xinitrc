@@ -52,9 +52,8 @@ export TERMINAL=urxvtc
 # autolock
 xautolock -time 5 -locker 'sudo s2ram' &
 
-
 # -b: compton runs as a daemon.
-picom -b --inactive-dim=0.2 --focus-exclude='name*="ピクチャーインピクチャー"'
+picom -b
 hsetroot -solid "#000000"
 
 source ~/.xprofile
