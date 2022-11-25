@@ -3,5 +3,5 @@ irbrc             $HOME/.irbrc
 tex/latexmkrc         $HOME/.latexmkrc
 vim/vimrc          $HOME/.vimrc
 zsh/zprofile          $HOME/.zprofile
-zsh/zshrc          $HOME/.zshrc
+zsh/zshrc/.zshrc          $HOME/.zshrc
 vim/TabNine.toml       $HOME/.config/TabNine/TabNine.toml
