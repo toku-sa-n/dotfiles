@@ -58,4 +58,4 @@ hsetroot -solid "#000000"
 
 source ~/.xprofile
 
-exec dbus-launch --exit-with-session i3
+exec i3
