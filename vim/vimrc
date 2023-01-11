@@ -15,7 +15,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "}}}
 call plug#begin('~/.vim/plugged')
+"vim-table-mode{{{
 Plug 'dhruvasagar/vim-table-mode'
+let g:table_mode_corner='|'
+"}}}
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim2hs'
 Plug 'tpope/vim-fugitive'   " Git wrapper
@@ -30,6 +33,10 @@ Plug 'tpope/vim-repeat'
 Plug 'philj56/vim-asm-indent'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf'
+"vim-markdown-folding{{{
+Plug 'mikeboiko/vim-markdown-folding'
+let g:markdown_fold_style = 'nested'
+"}}}
 "ale{{{
 Plug 'dense-analysis/ale'
 let g:ale_linters = {'rust': ['cargo'], 'haskell': ['hls', 'hlint', 'cabal']}
@@ -160,6 +167,9 @@ let g:formatters_awk = ['awk']
 
 let g:formatdef_stylelint = '"stylelint --fix"'
 let g:formatters_sass = ['stylelint']
+
+let g:formatdef_stylelint = '"stylelint --fix"'
+let g:formatters_scss = ['stylelint']
 
 let g:formatdef_bibtex = '"bibtex-tidy -"'
 let g:formatters_bib = ['bibtex']
