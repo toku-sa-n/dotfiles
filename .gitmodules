@@ -1,3 +1,8 @@
 [submodule "zsh/zshrc"]
 	path = zsh/zshrc
 	url = https://github.com/toku-sa-n/zshrc.git
+	branch = main
+[submodule "X/Xresources"]
+	path = X/Xresources
+	url = https://github.com/toku-sa-n/Xresources
+	branch = main
