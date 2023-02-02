@@ -6,3 +6,7 @@
 	path = X/Xresources
 	url = https://github.com/toku-sa-n/Xresources
 	branch = main
+[submodule "Xresources"]
+	path = Xresources
+	url = https://github.com/toku-sa-n/Xresources
+	branch = main
