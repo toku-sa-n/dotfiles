@@ -1,4 +1,4 @@
-X/Xresources        $HOME/.Xresources
+X/Xresources/Xresources        $HOME/.Xresources
 irbrc             $HOME/.irbrc
 tex/latexmkrc         $HOME/.latexmkrc
 vim/vimrc          $HOME/.vimrc
