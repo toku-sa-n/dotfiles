@@ -10,3 +10,7 @@
 	path = Xresources
 	url = https://github.com/toku-sa-n/Xresources
 	branch = main
+[submodule "vimrc"]
+	path = vimrc
+	url = https://github.com/toku-sa-n/vimrc
+	branch = main
