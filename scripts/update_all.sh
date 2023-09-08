@@ -48,6 +48,8 @@ non_systemwide () {
     ghcup install cabal
     ghcup install hls
     ghcup install stack
+
+    command_exists opam && opam update
 }
 
 
