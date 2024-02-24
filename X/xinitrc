@@ -2,6 +2,8 @@
 
 LANG="ja_JP.UTF-8"
 
+eval "$(dbus-launch --sh-syntax --exit-with-session)"
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -36,7 +38,7 @@ fi
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export XMODIFIERS="@im=fcitx"
 export DefaultIMModule=fcitx
 fcitx &
 urxvtd -o -f
@@ -50,7 +52,7 @@ export TERMINAL=urxvtc
 [ -e $HOME/.dropbox-dist/dropboxd ] && $HOME/.dropbox-dist/dropboxd &
 
 # autolock
-xautolock -time 5 -locker 'sudo s2ram' &
+xautolock -time 5 -locker 'i3lock -f; loginctl suspend' &
 
 # -b: compton runs as a daemon.
 picom -b
@@ -58,4 +60,13 @@ hsetroot -solid "#000000"
 
 source ~/.xprofile
 
+# Do not launch i3 with `dbus-launch`.
+#
+# ```sh
+# exec dbus-launch --exit-with-session i3
+# ```
+#
+# Otherwise, fcitx will not be able to connect to dbus, and fcitx-configtool will not show any keyboard layouts.
 exec i3
+
+
