@@ -44,7 +44,7 @@ def main
   need_to_commit = []
   need_to_push = []
 
-  git_repository_dir = '~/git_repository'
+  git_repository_dir = '~/git_repositories'
 
   # -d to get fullpath.
   `ls -d #{git_repository_dir}/*/`.chomp.split("\n").each do |path|
