@@ -2,7 +2,7 @@
 
 # use zsh to use zsh functions.
 readonly RAW_TEMPERATURE=$(cat /sys/class/thermal/thermal_zone0/temp)
-readonly TEMPERATURE=$(echo "scale=0; ${RAW_TEMPERATURE}/1000"|bc -l)
+readonly TEMPERATURE=$(printf "%.0f\n" $(sensors -j|jq '."coretemp-isa-0000"."Package id 0"."temp1_input"'))
 declare -A MARKS;
 
 MARKS=(
