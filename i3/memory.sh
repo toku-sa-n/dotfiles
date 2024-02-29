@@ -1,11 +1,15 @@
 #!/bin/zsh
 # use zsh to use zsh functions.
 
-readonly USING_MEMORY=$(free|grep Mem|awk '{print $3}')
-readonly FULL_MEMORY=$(free|grep Mem|awk '{print $2}')
+readonly FREE_MEM_ROW=$(free --bytes|grep Mem)
 
-readonly USING_MEMORY_READABLE=$(free -h|grep Mem|awk '{print $3}')
-readonly FULL_MEMORY_READABLE=$(free -h|grep Mem|awk '{print $2}')
+readonly FULL_MEMORY=$(echo ${FREE_MEM_ROW}|awk '{print $2}')
+readonly AVAILABLE_MEMORY=$(echo ${FREE_MEM_ROW}|awk '{print $7}')
+
+readonly USING_MEMORY=$(echo "${FULL_MEMORY}-${AVAILABLE_MEMORY}"|bc)
+
+readonly USING_MEMORY_READABLE=$(echo "${USING_MEMORY}"|numfmt --to=iec)
+readonly FULL_MEMORY_READABLE=$(echo "${FULL_MEMORY}"|numfmt --to=iec)
 
 readonly USE_RATE=$(echo "scale=2; 100*${USING_MEMORY}/${FULL_MEMORY}"|bc -l)
 readonly BLOCK_NUM=$(echo "scale=0; ${USE_RATE}/10+1"|bc)
