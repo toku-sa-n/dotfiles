@@ -3,24 +3,25 @@
 
 # TODO: Use another way to get the directory of the source of symlink of i3blocks config file.
 [git_status]
-label=
+label=🤖
 command=$(dirname $(readlink $HOME/.config/i3/config))/git_status.rb
 markup=pango
 interval=1
 
 [cpu_temperature]
+label=🌡️
 command=$(dirname $(readlink $HOME/.config/i3/config))/cpu_temperature.sh
 format=json
 interval=1
 
 [memory]
-label=.
+label=🖥️
 command=$(dirname $(readlink $HOME/.config/i3/config))/memory.sh
 format=json
 interval=1
 
 [network]
-label=.
+label=🌐
 command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
 color=#CCFFFF
 interval=1
