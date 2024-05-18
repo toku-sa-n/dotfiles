@@ -1,16 +1,16 @@
 [submodule "zsh/zshrc"]
 	path = zsh/zshrc
-	url = https://github.com/toku-sa-n/zshrc.git
+	url = ../zshrc.git
 	branch = main
 [submodule "X/Xresources"]
 	path = X/Xresources
-	url = https://github.com/toku-sa-n/Xresources
+	url = ../Xresources
 	branch = main
 [submodule "Xresources"]
 	path = Xresources
-	url = https://github.com/toku-sa-n/Xresources
+	url = ../Xresources
 	branch = main
 [submodule "vimrc"]
 	path = vimrc
-	url = https://github.com/toku-sa-n/vimrc
+	url = ../vimrc
 	branch = main
