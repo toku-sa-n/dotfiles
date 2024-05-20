@@ -10,7 +10,3 @@
 	path = Xresources
 	url = ../Xresources
 	branch = main
-[submodule "vimrc"]
-	path = vimrc
-	url = ../vimrc
-	branch = main
