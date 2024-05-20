@@ -12,3 +12,12 @@ the sub-files, which was frustrating. Configuration files should be easy to
 edit and immediately effective. Although consolidating everything into one file
 can make it lengthy and challenging to edit, using features like folding
 settings, it is still better to keep everything in a single file.
+
+### Manage multiple configuration files in a single repository
+
+Previously, I have tried to separate this repository into multiple submodules,
+but it was troublesome to manage them. When I had to modify a configuration, I
+had to make a commit in both the main and submodule repositories. It is better
+to keep everything in a single repository and manage them as separate files.
+This way, I can easily modify and commit changes without worrying about the
+submodules.
