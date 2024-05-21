@@ -2,6 +2,14 @@
 
 ## Notes to future self
 
+### Easily-forgotten dependencies
+
+Besides usual dependencies like `git`, `vim`, and `zsh`, you need the following
+things.
+
+- [SauceCodePro Nerd Font](https://www.nerdfonts.com/font-downloads)
+- Compile `rxvt-unicode` with the `wide-glyphs` USE flag.
+
 ### Store in single file, not multiple files
 
 Configuration files like `.vimrc` should be created as a single file rather
