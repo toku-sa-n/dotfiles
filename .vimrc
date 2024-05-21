@@ -256,6 +256,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'whonore/Coqtail'
 Plug 'github/copilot.vim'
 Plug 'ocaml/vim-ocaml'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
