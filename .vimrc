@@ -257,6 +257,7 @@ Plug 'whonore/Coqtail'
 Plug 'github/copilot.vim'
 Plug 'ocaml/vim-ocaml'
 Plug 'ryanoasis/vim-devicons'
+Plug 'markonm/traces.vim'
 
 call plug#end()
 
