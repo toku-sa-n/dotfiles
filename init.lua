@@ -31,8 +31,21 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("lualine").setup()
+			require("lualine").setup({
+				options = {
+					theme = "tokyonight",
+				},
+			})
 		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("tokyonight")
+		end,
+		opts = {},
 	},
 	"nvim-tree/nvim-web-devicons",
 	"github/copilot.vim",
