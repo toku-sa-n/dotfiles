@@ -58,10 +58,16 @@ require("lazy").setup({
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"folke/neodev.nvim",
+		},
 		config = function()
 			require("lspconfig").lua_ls.setup({
 				settings = {
 					Lua = {
+						completion = {
+							callSnippet = "Replace",
+						},
 						diagnostics = {
 							-- Using `folke/neodev.nvim` should be much better than adding `vim` to globals because the latter considers `vim` is a global variable in all Lua files, but
 							-- we avoid using the former for now because of a bug.
@@ -117,4 +123,19 @@ require("lazy").setup({
 			end
 		end,
 	},
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("cmp").setup({
+				expand = function(args)
+					vim.snippet.expand(args.body)
+				end,
+			})
+		end,
+	},
+	"folke/neodev.nvim",
 })
