@@ -1,4 +1,7 @@
 vim.o.scriptencoding = "utf-8"
+
+vim.g.mapleader = " "
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
@@ -13,10 +16,29 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{
+		"nvim-tree/nvim-tree.lua",
+		init = function()
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+		end,
+		config = function()
+			vim.api.nvim_set_keymap("n", "<F9>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+			require("nvim-tree").setup({})
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
+	"nvim-tree/nvim-web-devicons",
 	"github/copilot.vim",
 	{
 		"vim-autoformat/vim-autoformat",
-		init = function()
+		config = function()
 			vim.g.autoformat_autoindent = 0
 			vim.api.nvim_create_autocmd({ "BufWritePre" }, { command = "Autoformat" })
 		end,
