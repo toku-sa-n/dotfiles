@@ -1,5 +1,4 @@
 return {
-	"github/copilot.vim",
 	{
 		"vim-autoformat/vim-autoformat",
 		config = function()
