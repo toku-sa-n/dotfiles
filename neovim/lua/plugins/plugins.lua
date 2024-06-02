@@ -1,5 +1,4 @@
 return {
-	"dag/vim2hs",
 	{
 		"mikeboiko/vim-markdown-folding",
 		config = function()
