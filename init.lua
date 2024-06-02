@@ -207,4 +207,12 @@ require("lazy").setup({
 			vim.g.vim_markdown_folding_disabled = 1
 		end,
 	},
+	"is0n/jaq-nvim",
+	"thinca/vim-quickrun",
+	{
+		"RRethy/nvim-treesitter-endwise",
+		config = function()
+			require("nvim-treesitter.configs").setup({ endwise = { enable = true } })
+		end,
+	},
 })
