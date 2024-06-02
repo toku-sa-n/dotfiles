@@ -33,17 +33,17 @@ require("lazy").setup({
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "tokyonight",
+					theme = "ayu_dark",
 				},
 			})
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
+		"w0ng/vim-hybrid",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("hybrid")
 		end,
 		opts = {},
 	},
@@ -62,7 +62,23 @@ require("lazy").setup({
 			"folke/neodev.nvim",
 		},
 		config = function()
-			require("lspconfig").lua_ls.setup({
+			local lspconfig = require("lspconfig")
+
+			local on_attach = function(_, bufnr)
+				vim.api.nvim_buf_set_keymap(
+					bufnr,
+					"n",
+					"K",
+					"<cmd>lua vim.lsp.buf.hover()<CR>",
+					{ noremap = true, silent = true }
+				)
+			end
+
+			lspconfig.hls.setup({
+				filetypes = { "haskell", "lhaskell", "cabal" },
+				on_attach = on_attach,
+			})
+			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
 						completion = {
@@ -130,12 +146,32 @@ require("lazy").setup({
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
-			require("cmp").setup({
+			local cmp = require("cmp")
+			cmp.setup({
 				expand = function(args)
 					vim.snippet.expand(args.body)
 				end,
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "buffer" },
+				}),
 			})
 		end,
 	},
 	"folke/neodev.nvim",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = "all",
+				highlight = {
+					enable = true,
+					disable = { "haskell" },
+				},
+				additional_vim_regex_highlighting = { "haskell" },
+			})
+		end,
+	},
+	"dag/vim2hs",
 })
