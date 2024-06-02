@@ -1,5 +1,4 @@
 return {
-	"thinca/vim-quickrun",
 	{
 		"RRethy/nvim-treesitter-endwise",
 		config = function()
