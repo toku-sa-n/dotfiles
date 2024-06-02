@@ -1,1 +1,1 @@
-return { "github/copilot.lua" }
+return { "github/copilot.vim" }
