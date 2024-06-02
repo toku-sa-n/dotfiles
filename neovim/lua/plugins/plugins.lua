@@ -1,5 +1,4 @@
 return {
-	"is0n/jaq-nvim",
 	"thinca/vim-quickrun",
 	{
 		"RRethy/nvim-treesitter-endwise",
