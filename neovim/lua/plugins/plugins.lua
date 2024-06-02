@@ -1,19 +1,4 @@
 return {
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.6",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			vim.api.nvim_set_keymap(
-				"n",
-				"<Leader>f",
-				":Telescope find_files hidden=true no_ignore=false<CR>",
-				{ noremap = true, silent = true }
-			)
-		end,
-	},
 	"nvim-lua/plenary.nvim",
 	{
 		"voldikss/vim-floaterm",
