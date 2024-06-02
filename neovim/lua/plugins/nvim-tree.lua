@@ -1,6 +1,5 @@
 return {
 	"nvim-tree/nvim-tree.lua",
-	commit = "4c8ddee4539052f8e94c907c4e02a3ffd2511ea4",
 	init = function()
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
