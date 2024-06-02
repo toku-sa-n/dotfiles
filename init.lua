@@ -221,4 +221,5 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
+	"numToStr/Comment.nvim",
 })
