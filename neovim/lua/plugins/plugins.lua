@@ -1,11 +1,5 @@
 return {
 	{
-		"voldikss/vim-floaterm",
-		config = function()
-			vim.api.nvim_set_keymap("n", "<Leader>g", ":FloatermNew lazygit<CR>", { noremap = true, silent = true })
-		end,
-	},
-	{
 		"tpope/vim-fugitive",
 		config = function()
 			local mappings = {
