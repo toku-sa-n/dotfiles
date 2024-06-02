@@ -1,5 +1,4 @@
 return {
-	"nvim-tree/nvim-web-devicons",
 	"github/copilot.vim",
 	{
 		"vim-autoformat/vim-autoformat",
