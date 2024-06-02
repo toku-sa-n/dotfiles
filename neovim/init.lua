@@ -18,3 +18,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+
+vim.api.nvim_set_keymap("n", "<leader>w", ":update<CR>", { noremap = true, silent = true })
