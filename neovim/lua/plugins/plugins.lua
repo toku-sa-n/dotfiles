@@ -1,5 +1,4 @@
 return {
-	"folke/neodev.nvim",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
