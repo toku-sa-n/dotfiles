@@ -1,11 +1,5 @@
 return {
 	{
-		"RRethy/nvim-treesitter-endwise",
-		config = function()
-			require("nvim-treesitter.configs").setup({ endwise = { enable = true } })
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
