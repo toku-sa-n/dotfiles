@@ -1,16 +1,20 @@
-vim.api.nvim_set_keymap("n", "s", '"_s', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "+", "<C-a>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "-", "<C-x>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "go", "o<Esc>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gO", "O<Esc>", { noremap = true, silent = true })
+local nmaps = {
+	{ "s", '"_s' },
+	{ "Y", "y$" },
+	{ "+", "<C-a>" },
+	{ "-", "<C-x>" },
+	{ "go", "o<Esc>" },
+	{ "gO", "O<Esc>" },
+	{ "n", "nzz" },
+	{ "N", "Nzz" },
+	{ "*", "*zz" },
+	{ "#", "#zz" },
+	{ "<leader>w", ":update<CR>" },
+}
 
-vim.api.nvim_set_keymap("n", "n", "nzz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "N", "Nzz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "*", "*zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "#", "#zz", { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap("n", "<leader>w", ":update<CR>", { noremap = true, silent = true })
+for _, map in ipairs(nmaps) do
+	vim.api.nvim_set_keymap("n", map[1], map[2], { noremap = true, silent = true })
+end
 
 vim.api.nvim_set_keymap(
 	"n",
