@@ -19,8 +19,9 @@ require("lazy").setup("plugins", {
 	change_detection = {
 		notify = false,
 	},
-	defaults={
-		lazy=true}
+	defaults = {
+		lazy = true,
+	},
 })
 
 vim.api.nvim_set_keymap("n", "<leader>w", ":update<CR>", { noremap = true, silent = true })
