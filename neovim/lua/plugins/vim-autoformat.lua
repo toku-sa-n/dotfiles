@@ -7,5 +7,5 @@ return {
 		vim.g.formatdef_hs = '"(hindent | stylish-haskell)"'
 		vim.g.formatters_haskell = { "hs" }
 	end,
-	event = "BufWritePre",
+	event = "InsertEnter",
 }
