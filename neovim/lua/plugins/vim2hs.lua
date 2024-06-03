@@ -1,1 +1,1 @@
-return { "dag/vim2hs", ft = "Haskell" }
+return { "dag/vim2hs", ft = "haskell" }
