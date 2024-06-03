@@ -1,7 +1,1 @@
-return {
-	"vim-jp/vimdoc-ja",
-	keys = {
-		"h",
-		mode = "c",
-	},
-}
+return { "vim-jp/vimdoc-ja", lazy = false }
