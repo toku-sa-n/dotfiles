@@ -1,5 +1,4 @@
 return {
-	"vim-jp/vimdoc-ja",
 	{
 		"kylechui/nvim-surround",
 		event = "VeryLazy",
