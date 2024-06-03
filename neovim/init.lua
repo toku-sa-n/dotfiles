@@ -24,13 +24,5 @@ require("lazy").setup("plugins", {
 	},
 })
 
-vim.opt.list = true
-vim.opt.listchars = {
-	tab = ">-",
-	trail = "_",
-}
-vim.opt.cindent = true
-vim.opt.expandtab = true
-
 require("mappings")
 require("options")

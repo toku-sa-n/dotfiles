@@ -1,3 +1,11 @@
+vim.opt.list = true
+vim.opt.listchars = {
+	tab = ">-",
+	trail = "_",
+}
+vim.opt.cindent = true
+vim.opt.expandtab = true
+
 vim.opt.relativenumber = true
 vim.opt.showmatch = true
 vim.opt.matchtime = 5
