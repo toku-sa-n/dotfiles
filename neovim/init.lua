@@ -33,3 +33,4 @@ vim.opt.cindent = true
 vim.opt.expandtab = true
 
 require("mappings")
+require("options")
