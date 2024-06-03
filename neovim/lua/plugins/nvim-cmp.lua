@@ -34,4 +34,5 @@ return {
 			end, { expr = true })
 		end
 	end,
+	event = "InsertEnter",
 }

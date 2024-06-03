@@ -17,4 +17,5 @@ return {
 			vim.api.nvim_set_keymap(maps[1], maps[2], maps[3], { noremap = true, silent = true })
 		end
 	end,
+	event = "VeryLazy",
 }

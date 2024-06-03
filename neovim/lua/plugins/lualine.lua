@@ -6,4 +6,5 @@ return {
 			theme = "ayu_dark",
 		},
 	},
+	event = "VeryLazy",
 }

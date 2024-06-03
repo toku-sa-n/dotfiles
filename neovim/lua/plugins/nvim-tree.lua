@@ -8,4 +8,5 @@ return {
 		vim.api.nvim_set_keymap("n", "<F9>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 		require("nvim-tree").setup({})
 	end,
+	event = "VeryLazy",
 }

@@ -10,4 +10,5 @@ return {
 		additional_vim_regex_highlighting = { "haskell" },
 	},
 	config = true,
+	event = "VeryLazy",
 }

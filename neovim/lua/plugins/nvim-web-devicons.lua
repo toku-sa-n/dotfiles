@@ -1,1 +1,4 @@
-return { "nvim-web-devicons" }
+return {
+	"nvim-web-devicons",
+	event = "VeryLazy",
+}
