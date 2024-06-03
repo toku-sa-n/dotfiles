@@ -10,7 +10,7 @@ return {
 		additional_vim_regex_highlighting = { "haskell" },
 	},
 	config = true,
-	event = "VeryLazy",
+	event = { "BufRead", "BufNewFile" },
 
 	-- Neovim complains about missing a Lua parser if this plugin is loaded
 	-- lazily.
