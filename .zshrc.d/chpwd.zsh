@@ -1,0 +1,4 @@
+chpwd(){
+    ls --color=auto
+}
+
