@@ -1,3 +1,0 @@
-i3/i3config            $HOME/.config/i3/config
-i3/i3blocks_config     $HOME/.config/i3blocks/config
-X/xinitrc             $HOME/.xinitrc
