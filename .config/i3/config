@@ -221,7 +221,7 @@ bar {
 }
 
 # The following `exec_always` fails without the `zsh` because default shell for `exec_always` is `sh` while the path to binaries installed by `.zshrc`.
-exec_always --no-startup-id zsh -c 'glimmer --styles $(dirname $(readlink -m $HOME/.config/i3/config))/glimmer.css'
+exec_always --no-startup-id zsh -c 'glimmer --styles $HOME/.config/i3/glimmer.css'
 
 workspace 1 output DP-2
 workspace 9 output DP-0
