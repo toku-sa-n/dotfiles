@@ -8,5 +8,5 @@ for f in zplug.zsh \
     autojump.zsh \
     chpwd.zsh
 do
-    source .zshrc.d/$f
+    source $HOME/.zshrc.d/$f
 done
