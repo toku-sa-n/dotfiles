@@ -38,5 +38,7 @@ return {
 			},
 		})
 	end,
-	event = "LspAttach",
+
+	-- `LspAttach` does not work.
+	event = { "BufRead", "BufNewFile" },
 }
