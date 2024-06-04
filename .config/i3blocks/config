@@ -9,29 +9,25 @@ markup=pango
 interval=1
 
 [cpu_temperature]
-label=🌡️
-command=$(dirname $(readlink $HOME/.config/i3/config))/cpu_temperature.sh
+command=./cpu_temperature
 format=json
 interval=1
 
 [memory]
-label=🖥️
-command=$(dirname $(readlink $HOME/.config/i3/config))/memory.sh
+command=./memory
 format=json
 interval=1
 
 [network]
-label=🌐
-command=iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g'
+command=echo " "$(iwconfig|grep "ESSID"|awk '{print $4}'|sed 's/ESSID://'|sed 's/"//g')
 color=#CCFFFF
 interval=1
 
 [battery]
-label=Battery:
-command=acpi|awk '{print $4}'|tr -d ','
+command=echo " "$(acpi|awk '{print $4}'|tr -d ',')
 interval=30
 
 [date]
-command=date +'%m/%d(%a) %H:%M'
+command=echo " "$(date +'%m/%d(%a) %H:%M')
 color=#CCFFFF
 interval=1
