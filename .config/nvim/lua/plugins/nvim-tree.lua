@@ -6,7 +6,12 @@ return {
 	end,
 	config = function()
 		vim.api.nvim_set_keymap("n", "<F9>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-		require("nvim-tree").setup({})
+		require("nvim-tree").setup({
+			update_focused_file = {
+				enable = true,
+				update_cwd = true,
+			},
+		})
 	end,
 	event = "VeryLazy",
 }
