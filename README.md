@@ -1,5 +1,19 @@
 # dotfiles
 
+## How to install
+
+1.  Clone this project
+
+```shell
+git clone https://github.com/toku-sa-n/dotfiles.git
+```
+
+2.  Use [`stow`](https://www.gnu.org/software/stow/) to make symbolic links
+
+```shell
+cd dotfiles && stow -v .
+```
+
 ## Notes to future self
 
 ### Easily-forgotten dependencies
