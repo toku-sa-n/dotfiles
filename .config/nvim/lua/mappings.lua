@@ -9,8 +9,6 @@ local nmaps = {
 	{ "N", "Nzz" },
 	{ "*", "*zz" },
 	{ "#", "#zz" },
-	{ "<leader>b", ":bprevious<CR>" },
-	{ "<leader>n", ":bnext<CR>" },
 	{ "<leader>w", ":update<CR>" },
 }
 
