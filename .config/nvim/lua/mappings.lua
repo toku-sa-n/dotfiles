@@ -25,7 +25,7 @@ local vimrc_path = (function()
 end)()
 
 if vimrc_path then
-	vim.api.nvim_set_keymap("n", "<leader>.", ":tabnew " .. vimrc_path .. "<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "<leader>.", ":edit " .. vimrc_path .. "<CR>", { noremap = true, silent = true })
 end
 
 vim.api.nvim_set_keymap("c", "%%", "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true })
