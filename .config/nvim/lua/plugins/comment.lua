@@ -1,1 +1,1 @@
-return { "numToStr/Comment.nvim", event = "VeryLazy" }
+return { "numToStr/Comment.nvim", event = { "BufRead", "BufNewFile" } }
