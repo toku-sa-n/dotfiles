@@ -8,6 +8,10 @@ command=$(dirname $(readlink $HOME/.config/i3/config))/git_status.rb
 markup=pango
 interval=1
 
+[music]
+command=echo " "$(playerctl metadata --format "{{ status }}: {{ artist }} - {{ title }}")
+interval=1
+
 [cpu_temperature]
 command=./cpu_temperature
 format=json
