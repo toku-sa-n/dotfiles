@@ -42,6 +42,13 @@ return {
 				"<cmd>lua vim.lsp.buf.hover()<CR>",
 				{ noremap = true, silent = true }
 			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<F2>",
+				"<cmd>lua vim.lsp.buf.rename()<CR>",
+				{ noremap = true, silent = true }
+			)
 		end
 
 		lspconfig.hls.setup({
@@ -64,6 +71,9 @@ return {
 					},
 				},
 			},
+		})
+		lspconfig.gopls.setup({
+			on_attach = on_attach,
 		})
 	end,
 
