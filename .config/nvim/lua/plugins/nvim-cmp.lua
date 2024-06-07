@@ -11,6 +11,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+				-- Using <Tab> interferes with Copilot.
 				["<Enter>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
@@ -19,6 +20,7 @@ return {
 			}),
 		})
 
+		-- Ditto for not using <Tab> here.
 		local key_dir = {
 			["<C-k>"] = 1,
 			["<C-K>"] = -1,
