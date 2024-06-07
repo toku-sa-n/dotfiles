@@ -11,7 +11,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
+				["<Enter>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
@@ -20,8 +20,8 @@ return {
 		})
 
 		local key_dir = {
-			["<Tab>"] = 1,
-			["<S-Tab>"] = -1,
+			["<C-k>"] = 1,
+			["<C-K>"] = -1,
 		}
 
 		for key, dir in pairs(key_dir) do
@@ -34,5 +34,11 @@ return {
 			end, { expr = true })
 		end
 	end,
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+	},
 	event = "InsertEnter",
 }
