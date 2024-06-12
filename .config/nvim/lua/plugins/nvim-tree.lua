@@ -11,6 +11,9 @@ return {
 				enable = true,
 				update_cwd = true,
 			},
+			view = {
+				relativenumber = true,
+			},
 		})
 	end,
 	event = "VeryLazy",
