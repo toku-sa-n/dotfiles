@@ -36,6 +36,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "unixorn/fzf-zsh-plugin"
 zplug "Aloxaf/fzf-tab"
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 
 # See https://github.com/knu/zsh-manydots-magic/issues/2.
 zplug "twang817/zsh-manydots-magic", \
