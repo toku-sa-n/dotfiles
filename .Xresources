@@ -25,43 +25,40 @@ URxvt.font:                 xft:SauceCodePro\ NF:size=13,\
 
 
 !black
-*color0:              #282A2E
+*color0:              #000000
 !red
-*color1:              #A54242
+*color1:              #B83019
 !green
-*color2:              #8C9440
+*color2:              #51BF37
 !yellow
-*color3:              #DE935F
+*color3:              #C6C43D
 !blue
-*color4:              #5F819D
+*color4:              #0C24BF
 !magenta
-*color5:              #85678F
+*color5:              #B93EC1
 !cyan
-*color6:              #5E8D87
+*color6:              #53C2C5
 !white
-*color7:              #707880
+*color7:              #C7C7C7
 !bright black
-*color8:              #373B41
+*color8:              #676767
 !bright red
-*color9:              #CC6666
+*color9:              #EF766D
 !bright green
-*color10:             #B5BD68
+*color10:             #8CF67A
 !bright yellow
-*color11:             #F0C674
+*color11:             #FEFB7E
 !bright blue
-*color12:             #81A2BE
+*color12:             #6A71F6
 !bright magenta
-*color13:             #B294BB
+*color13:             #F07EF8
 !bright cyan
-*color14:             #8ABEB7
+*color14:             #8EF9FD
 !bright white
-*color15:             #C5C8C6
+*color15:             #FEFFFF
 
-*foreground:          #C5C8C6
-*background:          #1D1F21
-URxvt.colorIT:             #8EC07C
-URxvt.colorBD:             #D5C4A1
-URxvt.colorUL:             #83A598
+*foreground:          #C7C7C7
+*background:          #000000
 *scrollColor:         #504945
 
 URxvt.inputMethod:          fcitx
