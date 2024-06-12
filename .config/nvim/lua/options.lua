@@ -14,6 +14,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.gdefault = true
 
+vim.opt.cursorline = true
+
 vim.opt.matchpairs:append("「:」")
 
 vim.opt.fileencodings:append({ "utf-8", "sjis" })
