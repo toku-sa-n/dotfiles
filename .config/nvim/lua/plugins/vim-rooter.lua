@@ -1,1 +1,4 @@
-return { "airblade/vim-rooter", event = "BufReadPre" }
+return {
+	"airblade/vim-rooter",
+	event = "BufReadPre",
+}
