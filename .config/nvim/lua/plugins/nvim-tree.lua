@@ -5,7 +5,6 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 	end,
 	config = function()
-		vim.api.nvim_set_keymap("n", "<F9>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 		require("nvim-tree").setup({
 			update_focused_file = {
 				enable = true,
@@ -16,5 +15,7 @@ return {
 			},
 		})
 	end,
-	event = "VeryLazy",
+	keys = {
+		{ "<F9>", "<cmd>NvimTreeToggle<CR>" },
+	},
 }
