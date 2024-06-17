@@ -6,6 +6,7 @@ vim.opt.listchars = {
 vim.opt.cindent = true
 vim.opt.expandtab = true
 
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmatch = true
 vim.opt.matchtime = 5
