@@ -12,5 +12,4 @@ return {
 		{ "gb<space>", "Git branch<space>", mode = "c" },
 		{ "gbd<space>", "Git branch -d<space>", mode = "c" },
 	},
-	event = { "BufRead", "BufNewFile" },
 }
