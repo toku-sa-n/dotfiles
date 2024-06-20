@@ -5,6 +5,7 @@ export HISTFILE=$HOME/.histfile
 export HISTSIZE=1000
 export SAVEHIST=1000
 export GPG_TTY=$(tty)
+export WORDCHARS='_'
 [[ -r "$HOME/.config/bat/syntaxes/Man.sublime-syntax" ]] && export MANPAGER="sh -c 'sed -e s/.\\\\x08//g|bat -l man -p'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && export FZF_DEFAULT_COMMAND='\find .'
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
