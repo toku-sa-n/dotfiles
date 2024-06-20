@@ -39,11 +39,6 @@ zplug "Aloxaf/fzf-tab"
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "jeffreytse/zsh-vi-mode"
 
-# See https://github.com/knu/zsh-manydots-magic/issues/2.
-zplug "twang817/zsh-manydots-magic", \
-    use:manydots-magic, \
-    defer:2
-
 if ! zplug check --verbose; then
     printf 'Install?[y/N]:'
     if read -q; then
