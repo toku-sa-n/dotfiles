@@ -1,4 +1,5 @@
-for f in zplug.zsh \
+for f in \
+    zplug.zsh \
     prompt.zsh \
     setopt.zsh \
     envvar.zsh \
