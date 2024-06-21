@@ -20,3 +20,5 @@ vim.opt.cursorline = true
 vim.opt.matchpairs:append("「:」")
 
 vim.opt.fileencodings:append({ "utf-8", "sjis" })
+
+vim.opt.completeopt = { "menu", "preview", "menuone", "noselect" }

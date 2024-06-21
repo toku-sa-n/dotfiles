@@ -11,8 +11,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-				-- Using <Tab> interferes with Copilot.
-				["<Enter>"] = cmp.mapping.confirm({ select = true }),
+				["<Tab>"] = cmp.mapping.confirm(),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
@@ -20,12 +19,12 @@ return {
 				{ name = "cmdline" },
 				{ name = "buffer" },
 			}),
+			preselect = cmp.PreselectMode.None,
 		})
 
-		-- Ditto for not using <Tab> here.
 		local key_dir = {
-			["<C-k>"] = 1,
-			["<C-K>"] = -1,
+			["<Tab>"] = 1,
+			["<S-Tab>"] = -1,
 		}
 
 		for key, dir in pairs(key_dir) do
