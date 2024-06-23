@@ -6,6 +6,9 @@ return {
 
 		vim.g.formatdef_hs = '"(hindent | stylish-haskell)"'
 		vim.g.formatters_haskell = { "hs" }
+
+		vim.g.formatdef_dune = '"dune format-dune-file"'
+		vim.g.formatters_dune = { "dune" }
 	end,
 	event = "InsertEnter",
 }
