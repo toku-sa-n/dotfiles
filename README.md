@@ -11,7 +11,7 @@ git clone https://github.com/toku-sa-n/dotfiles.git
 2.  Use [`stow`](https://www.gnu.org/software/stow/) to make symbolic links
 
 ```shell
-cd dotfiles && stow -v .
+cd dotfiles && stow -t ~ -v .
 ```
 
 ## Notes to future self
