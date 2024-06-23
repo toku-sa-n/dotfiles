@@ -82,6 +82,9 @@ return {
 		lspconfig.yamlls.setup({
 			on_attach = on_attach,
 		})
+		lspconfig.ocamllsp.setup({
+			on_attach = on_attach,
+		})
 	end,
 
 	-- `LspAttach` does not work.
