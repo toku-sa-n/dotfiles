@@ -4,7 +4,6 @@ return {
 		modes = {
 			diagnostics = {
 				auto_open = true,
-				auto_close = true,
 			},
 		},
 	},
