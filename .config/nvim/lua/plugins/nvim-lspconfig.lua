@@ -92,6 +92,9 @@ return {
 		lspconfig.ocamllsp.setup({
 			on_attach = on_attach,
 		})
+		lspconfig.coq_lsp.setup({
+			on_attach = on_attach,
+		})
 	end,
 
 	-- `LspAttach` does not work.
