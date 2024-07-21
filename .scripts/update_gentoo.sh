@@ -7,7 +7,7 @@ if [[ $(whoami) != "root" ]]; then
     exit 1
 fi
 
-emerge-webrsync
+emerge --sync
 emerge --ask --verbose --tree --update --deep --newuse --keep-going --with-bdeps=y @world
 
 ./update_kernel.sh
