@@ -8,6 +8,7 @@ if [[ $(whoami) != "root" ]]; then
 fi
 
 emerge --sync
+haskell-updater
 emerge --ask --verbose --tree --update --deep --newuse --keep-going --with-bdeps=y @world
 
 ./update_kernel.sh
