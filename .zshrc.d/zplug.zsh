@@ -32,6 +32,7 @@ else
     exec zsh
 fi
 
+zplug "toku-sa-n/zsh-dot-up"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "unixorn/fzf-zsh-plugin"
