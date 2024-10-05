@@ -11,8 +11,7 @@ eix-sync
 haskell-updater
 emerge --ask --verbose --tree --update --deep --newuse --keep-going --with-bdeps=y @world
 
-./update_kernel.sh
-
 emerge --ask --depclean
+eclean-kernel -n 2
 
 emerge @preserved-rebuild
