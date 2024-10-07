@@ -3,6 +3,9 @@ vim.opt.listchars = {
 	tab = ">-",
 	trail = "_",
 }
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.cindent = true
 vim.opt.expandtab = true
 
