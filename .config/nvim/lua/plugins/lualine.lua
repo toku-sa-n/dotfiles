@@ -5,6 +5,13 @@ return {
 		options = {
 			theme = "ayu_dark",
 		},
+		extensions = {
+			"fugitive",
+			"lazy",
+			"nvim-tree",
+			"quickfix",
+			"toggleterm",
+		},
 	},
 	event = "VeryLazy",
 }
