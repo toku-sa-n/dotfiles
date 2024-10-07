@@ -1,2 +1,2 @@
-command -v autojump >/dev/null 2>&1 && source /usr/share/autojump/autojump.zsh
-
+[[ -f "/usr/share/autojump/autojump.zsh" ]] && source /usr/share/autojump/autojump.zsh
+[[ -f "/opt/homebrew/etc/profile.d/autojump.sh" ]] && source /opt/homebrew/etc/profile.d/autojump.sh
