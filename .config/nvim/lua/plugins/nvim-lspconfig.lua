@@ -1,8 +1,5 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = {
-		"folke/neodev.nvim",
-	},
 	config = function()
 		local lspconfig = require("lspconfig")
 
@@ -60,14 +57,6 @@ return {
 				Lua = {
 					completion = {
 						callSnippet = "Replace",
-					},
-					diagnostics = {
-						-- Using `folke/neodev.nvim` should be much better than adding `vim` to globals because the latter considers `vim` is a global variable in all Lua files, but
-						-- we avoid using the former for now because of a bug.
-						-- See https://github.com/folke/neodev.nvim/issues/98.
-						globals = {
-							"vim",
-						},
 					},
 				},
 			},
