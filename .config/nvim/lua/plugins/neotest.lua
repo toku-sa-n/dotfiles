@@ -25,4 +25,13 @@ return {
 			},
 		})
 	end,
+	keys = {
+		{
+			"<leader><leader>",
+			function()
+				require("neotest").summary.toggle()
+			end,
+			desc = "Watch/Unwatch all tests in the current project",
+		},
+	},
 }
