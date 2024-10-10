@@ -18,6 +18,7 @@ return {
 				{ name = "path" },
 				{ name = "cmdline" },
 				{ name = "buffer" },
+				{ name = "lazydev", group_index = 0 },
 			}),
 			preselect = cmp.PreselectMode.None,
 		})
