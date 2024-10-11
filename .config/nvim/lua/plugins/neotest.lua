@@ -29,7 +29,19 @@ return {
 		{
 			"<leader><leader>",
 			function()
-				require("neotest").summary.toggle()
+				local neotest = require("neotest")
+				local cwd = vim.uv.cwd()
+				if cwd == nil then
+					return
+				end
+
+				if neotest.watch.is_watching(cwd) then
+					neotest.watch.stop(cwd)
+					neotest.summary.close()
+				else
+					neotest.watch.watch(cwd)
+					neotest.summary.open()
+				end
 			end,
 			desc = "Watch/Unwatch all tests in the current project",
 		},
