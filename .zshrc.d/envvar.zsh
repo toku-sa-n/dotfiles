@@ -1,7 +1,6 @@
 export FLYCTL_INSTALL="$HOME/.fly"
 
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.ghcup/bin:$FLYCTL_INSTALL/bin:$PATH"
-[[ -d "/opt/homebrew/bin" ]] && export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.ghcup/bin:$FLYCTL_INSTALL/bin:/opt/homebrew/bin:$PATH"
 
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
@@ -14,6 +13,7 @@ export WORDCHARS='_'
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh >/dev/null 2>/dev/null
 
 command -v rbenv 2>&1 >/dev/null && eval "$(rbenv init - --no-rehash zsh)"
+[[ command -v ]]
 
 fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 autoload -U compinit
