@@ -13,6 +13,8 @@ export WORDCHARS='_'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && export FZF_DEFAULT_COMMAND='\find .'
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh >/dev/null 2>/dev/null
 
+command -v rbenv 2>&1 >/dev/null && eval "$(rbenv init - --no-rehash zsh)"
+
 fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit
