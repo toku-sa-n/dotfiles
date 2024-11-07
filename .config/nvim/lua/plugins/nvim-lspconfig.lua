@@ -84,6 +84,13 @@ return {
 		lspconfig.coq_lsp.setup({
 			on_attach = on_attach,
 		})
+
+		lspconfig.ruby_lsp.setup({
+			on_attach = on_attach,
+		})
+		lspconfig.rubocop.setup({
+			on_attach = on_attach,
+		})
 	end,
 
 	-- `LspAttach` does not work.
