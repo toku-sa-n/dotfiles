@@ -56,3 +56,7 @@ alias :q='exit'
 odp(){
     objdump --disassemble --demangle --disassembler-options=intel $1 | bat --language asm --style plain
 }
+
+gsq(){
+    git reset $(git merge-base $1 $(git branch --show-current))
+}
