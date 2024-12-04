@@ -1,18 +1,3 @@
-# fugitive.vim doesn't work well with symlinks. Working directory must have .git directory.
-vim_expand_symlinks () {
-    args=()
-    for i in $@; do
-        if [[ -h $i ]]; then
-            args+=$(readlink -f $i)
-        else
-            args+=$i
-        fi
-    done
-
-    \vim "${args[@]}"
-}
-alias vim="vim_expand_symlinks"
-
 alias la='ls -aF --color=auto'
 alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto --group-directories-first'
@@ -59,8 +44,6 @@ alias grm="git rebase main"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 alias hs="hub sync"
-
-alias v=vim
 
 [ -x "$(command -v bat)" ] && alias cat='bat' && alias less='bat'
 [ -x "$(command -v fuck)" ] && eval $(thefuck --alias) && alias f="fuck"
