@@ -43,7 +43,6 @@ alias gr="git rebase"
 alias grm="git rebase main"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
-alias hs="hub sync"
 
 [ -x "$(command -v bat)" ] && alias cat='bat' && alias less='bat'
 [ -x "$(command -v fuck)" ] && eval $(thefuck --alias) && alias f="fuck"
