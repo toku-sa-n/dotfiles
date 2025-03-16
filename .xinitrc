@@ -41,12 +41,11 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export DefaultIMModule=fcitx
 fcitx5 &
-urxvtd -o -f
 
 # export
 export EDITOR=vim
 export VISUAL=vim
-export TERMINAL=urxvtc
+export TERMINAL=kitty
 
 # dropbox
 [ -e $HOME/.dropbox-dist/dropboxd ] && $HOME/.dropbox-dist/dropboxd &
