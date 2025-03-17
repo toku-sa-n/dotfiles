@@ -40,6 +40,11 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export DefaultIMModule=fcitx
+
+# See:
+# - https://wiki.gentoo.org/wiki/Kitty
+# - https://qiita.com/slin/items/a402f906bf80bee99ec9
+export GLFW_IM_MODULE=ibus
 fcitx5 &
 
 # export
