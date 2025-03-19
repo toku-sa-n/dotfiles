@@ -6,6 +6,8 @@ return {
 	keys = {
 		{ "<leader>f", "<cmd>Telescope find_files hidden=true no_ignore=false<CR>" },
 		{ "<leader>b", "<cmd>Telescope buffers<CR>" },
-		{ "<leader>gr", "<cmd>Telescope live_grep<CR>" },
+
+		-- See https://github.com/nvim-telescope/telescope.nvim/issues/564#issuecomment-1173167550
+		{ "<leader>gr", "<cmd>Telescope grep_string search=<CR>" },
 	},
 }
