@@ -16,7 +16,7 @@ export WORDCHARS='_'
 command -v rbenv 2>&1 >/dev/null && eval "$(rbenv init - --no-rehash zsh)"
 command -v jenv 2>&1 >/dev/null && eval "$(jenv init -)"
 
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+fpath=(/opt/homebrew/share/zsh/site-functions $HOME/.zshrc.d/zfunc $fpath)
 autoload -U compinit
 compinit
 
