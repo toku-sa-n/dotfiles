@@ -18,11 +18,10 @@ cd dotfiles && stow -t ~ -v .
 
 ### Easily-forgotten dependencies
 
-Besides usual dependencies like `git`, `vim`, and `zsh`, you need the following
+Besides usual dependencies like `git`, `nvim`, and `zsh`, you need the following
 things.
 
-*   [SauceCodePro Nerd Font](https://www.nerdfonts.com/font-downloads)
-*   Compile `rxvt-unicode` with the `wide-glyphs` USE flag.
+*   [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ### Manage multiple configuration files in a single repository
 
