@@ -14,8 +14,9 @@ readonly USE_RATE=$(echo "scale=2; 100*${USING_MEMORY}/${FULL_MEMORY}"|bc -l)
 readonly BLOCK_NUM=$(echo "scale=0; ${USE_RATE}/10+1"|bc)
 readonly SPACE_NUM=$(echo "10-${BLOCK_NUM}"|bc)
 
-readonly BLOCKS=$(seq ${BLOCK_NUM}|tr -d '0\n'|tr '[1-9]' '@')
-readonly SPACES=$(seq ${SPACE_NUM}|tr -d '0\n'|tr '[1-9]' ' ')
+readonly BLOCKS=$(printf '█%.0s' $(seq "${BLOCK_NUM}"))
+readonly SPACES=$(printf ' %.0s' $(seq "${SPACE_NUM}"))
+
 readonly BAR="${BLOCKS}${SPACES}"
 
 class=""
