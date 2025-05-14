@@ -1,0 +1,149 @@
+font pango:JetBrainsMono Nerd Font 10
+
+set $mod Mod4
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+set $menu wmenu-run
+
+set $background #222222
+set $foreground #C0C5CE
+set $secondary  #444444
+set $black      #2B303B
+set $red        #BF616A
+set $green      #A3BE8C
+set $yellow     #EBCB8B
+set $blue       #8FA1B3
+set $magenta    #B48EAD
+set $cyan       #96B5B4
+set $white      #FFFFFF
+
+output DP-2 pos 0 0 resolution 1920x1080
+output DP-3 resolution 5120x2160@120Hz scale 1.5 pos 1920 0
+output DP-1 pos 5333 0 resolution 1920x1080
+output HDMI-A-1 disable
+
+exec swayidle -w timeout 300 'swaylock -f -c ffffff; loginctl suspend'
+
+floating_modifier $mod normal
+
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c reload
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+ampersand workspace number 1
+bindsym $mod+bracketleft workspace number 2
+bindsym $mod+braceleft workspace number 3
+bindsym $mod+braceright workspace number 4
+bindsym $mod+parenleft workspace number 5
+bindsym $mod+equal workspace number 6
+bindsym $mod+asterisk workspace number 7
+bindsym $mod+parenright workspace number 8
+bindsym $mod+plus workspace number 9
+bindsym $mod+bracketright workspace number 10
+
+bindsym $mod+Shift+ampersand move container to workspace number 1
+bindsym $mod+Shift+bracketleft move container to workspace number 2
+bindsym $mod+Shift+braceleft move container to workspace number 3
+bindsym $mod+Shift+braceright move container to workspace number 4
+bindsym $mod+Shift+parenleft move container to workspace number 5
+bindsym $mod+Shift+equal move container to workspace number 6
+bindsym $mod+Shift+asterisk move container to workspace number 7
+bindsym $mod+Shift+parenright move container to workspace number 8
+bindsym $mod+Shift+plus move container to workspace number 9
+bindsym $mod+Shift+bracketright move container to workspace number 10
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+f fullscreen
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+minus move scratchpad
+
+bindsym $mod+minus scratchpad show
+
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+bindsym Print exec grim
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Escape mode "default"
+}
+
+set $exit "Shutdown: h, Reboot: r, Exit Sway: x"
+bindsym $mod+q mode $exit
+mode $exit {
+    bindsym h exec "loginctl poweroff"
+    bindsym r exec "loginctl reboot"
+    bindsym x exit
+
+    bindsym Escape mode "default"
+}
+
+workspace 0 output HDMI-A-1
+workspace 1 output DP-3
+workspace 8 output DP-2
+workspace 9 output DP-1
+
+client.focused $secondary $background $white $black $secondary
+
+input * {
+    xkb_layout us
+    xkb_variant dvp
+}
+
+bar {
+    swaybar_command waybar
+}
