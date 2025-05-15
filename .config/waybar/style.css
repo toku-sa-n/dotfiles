@@ -1,68 +1,65 @@
+@define-color background   #222222;
+@define-color foreground   #C0C5CE;
+@define-color secondary    #444444;
+@define-color black        #2B303B;
+@define-color red          #BF616A;
+@define-color green        #A3BE8C;
+@define-color yellow       #EBCB8B;
+@define-color blue         #8FA1B3;
+@define-color magenta      #B48EAD;
+@define-color cyan         #96B5B4;
+@define-color white        #FFFFFF;
+
 * {
     font-family: "JetBrainsMono Nerd Font", "monospace";
     font-size: 10pt;
 }
 
 window {
-  background-color: #222222;
-  color: #C0C5CE;
+    background-color: @background;
+    color: @white;
 }
 
 #workspaces button {
-    background: red;
-    font-size: 30px;
-}
-
-#workspaces button {
-  background: #222222;
-  color: #C0C5CE;
-  border: none;
-  padding: 0 8px;
+    background: @background;
+    color: @white;
+    border: none;
+    padding: 0 8px;
 }
 
 #workspaces button.focused {
-  color: #FFFFFF;
+    background-color: @white;
+    color: @white;
+    border: 1px solid @background;
 }
 
-#workspaces button.active {
-  background: #222222;
-  color: #C0C5CE;
-}
-
+#workspaces button.active,
 #workspaces button.inactive {
-  background: #222222;
-  color: #C0C5CE;
+    background-color: @background;
+    color: @foreground;
+    border: 1px solid @foreground;
 }
 
 #workspaces button.urgent {
-  background: #BF616A;
-  color: #222222;
+    background-color: @red;
+    color: @red;
+    border: 1px solid @background;
 }
 
 #mode {
-  background-color: #8FA1B3;
-  color: #222222;
-  padding: 0 8px;
-  border-radius: 5px;
+    background-color: @blue;
+    color: @blue;
+    padding: 0 8px;
+    border: 1px solid @background;
+    border-radius: 5px;
 }
 
 .separator {
-  color: #444444;
-  padding: 0 6px;
+    color: @secondary;
+    padding: 0 6px;
 }
 
-#custom-memory.green {
-    color: #00FF00;
-}
-
-#custom-memory.yellow {
-    color: #FFFF00;
-}
-
-#custom-memory.orange {
-    color: #FF9900;
-}
-
-#custom-memory.red {
-    color: #FF0000;
-}
+#custom-memory.green  { color: @green; }
+#custom-memory.yellow { color: @yellow; }
+#custom-memory.orange { color: @magenta; }
+#custom-memory.red    { color: @red; }
