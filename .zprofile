@@ -1,3 +1,3 @@
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    exec startx
+    exec dbus-run-session sway --unsupported-gpu
 fi
