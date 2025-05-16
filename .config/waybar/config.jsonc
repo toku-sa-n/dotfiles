@@ -8,7 +8,7 @@
     "custom/memory": {
         "exec": "$HOME/.config/waybar/memory",
         "return-type": "json",
-        "interval": 5
+        "interval": 1
     },
 
     "clock": {
