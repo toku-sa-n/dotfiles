@@ -53,9 +53,18 @@ window {
     border-radius: 5px;
 }
 
-.separator {
-    color: @secondary;
-    padding: 0 6px;
+#clock {
+    padding-right: 1em;
+}
+
+#custom-memory {
+    border-left: 1px solid @secondary;
+    border-right: 1px solid @secondary;
+
+    margin-right: 1em;
+    margin-left: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
 }
 
 #custom-memory.green  { color: @green; }
