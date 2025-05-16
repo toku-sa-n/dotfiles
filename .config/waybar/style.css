@@ -46,7 +46,7 @@ window {
 }
 
 #mode {
-    background-color: @blue;
+    background-color: @magenta;
     color: @blue;
     padding: 0 8px;
     border: 1px solid @background;
