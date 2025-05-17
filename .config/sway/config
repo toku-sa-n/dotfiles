@@ -28,6 +28,7 @@ output DP-1 pos 5333 0 resolution 1920x1080
 output HDMI-A-1 disable
 
 exec swayidle -w timeout 300 'swaylock -f -c ffffff; loginctl suspend'
+exec fcitx5 -d
 
 floating_modifier $mod normal
 
