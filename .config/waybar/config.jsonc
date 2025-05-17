@@ -1,4 +1,10 @@
 {
+    "ipc": true,
+    "mode": "hide",
+    "start_hidden": true,
+    "modifier-reset": "press",
+    "layer": "overlay",
+
     "position": "top",
 
     "modules-left": ["sway/workspaces", "sway/mode"],

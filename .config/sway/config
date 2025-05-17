@@ -146,4 +146,7 @@ input * {
 
 bar {
     swaybar_command waybar
+
+    mode hide
+    modifier $mod
 }
