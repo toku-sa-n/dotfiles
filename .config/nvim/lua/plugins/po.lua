@@ -1,5 +1,5 @@
 return {
-	dir = "/home/hiroki/git_repositories/po.nvim",
+	"toku-sa-n/po.nvim",
 	ft = "po",
 	keys = {
 		{ "<M-u>", ":Po jump next<CR>" },
