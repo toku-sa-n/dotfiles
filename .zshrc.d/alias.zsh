@@ -17,6 +17,9 @@ alias -g L='| less'
 alias -g G='| grep'
 alias -g F=' $(fzf)'
 
+# See https://github.com/ohmyzsh/ohmyzsh/issues/10925 for why `&>/dev/null &|` is needed.
+alias -g C='| { wl-copy &>/dev/null &| }'
+
 alias vrc="vim $HOME/.vimrc"
 alias zrc="vim $HOME/.zshrc"
 alias zpro="vim $HOME/.zprofile"
