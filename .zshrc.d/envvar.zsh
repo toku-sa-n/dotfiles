@@ -1,7 +1,5 @@
 export FLYCTL_INSTALL="$HOME/.fly"
 
-export PATH="$HOME/.jenv/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.ghcup/bin:$FLYCTL_INSTALL/bin:/opt/homebrew/bin:$PATH"
-
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
 export HISTSIZE=1000
