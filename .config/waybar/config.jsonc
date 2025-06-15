@@ -18,7 +18,8 @@
     },
 
     "battery": {
-        "format": "Battery: {capacity}%"
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "network": {
