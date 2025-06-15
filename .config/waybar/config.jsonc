@@ -9,12 +9,16 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/memory", "clock"],
+    "modules-right": ["custom/memory",  "battery", "clock"],
 
     "custom/memory": {
         "exec": "$HOME/.config/waybar/memory",
         "return-type": "json",
         "interval": 1
+    },
+
+    "battery": {
+        "format": "Battery: {capacity}%"
     },
 
     "clock": {

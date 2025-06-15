@@ -57,13 +57,10 @@ window {
     padding-right: 1em;
 }
 
-#custom-memory {
+#custom-memory, #battery, #clock {
     border-left: 1px solid @secondary;
-    border-right: 1px solid @secondary;
 
-    margin-right: 1em;
     margin-left: 1em;
-    padding-right: 1em;
     padding-left: 1em;
 }
 
