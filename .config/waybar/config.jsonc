@@ -9,7 +9,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/memory",  "battery", "clock"],
+    "modules-right": ["custom/memory", "battery", "network", "clock"],
 
     "custom/memory": {
         "exec": "$HOME/.config/waybar/memory",
@@ -19,6 +19,11 @@
 
     "battery": {
         "format": "Battery: {capacity}%"
+    },
+
+    "network": {
+        "format-wifi": "{icon}  {essid}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
     },
 
     "clock": {
