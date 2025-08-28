@@ -9,7 +9,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["idle_inhibitor", "custom/memory", "clock"],
+    "modules-right": ["idle_inhibitor", "custom/memory", "battery", "network", "clock"],
 
     "idle_inhibitor": {
         "format": "{icon} ",
@@ -23,6 +23,16 @@
         "exec": "$HOME/.config/waybar/memory",
         "return-type": "json",
         "interval": 1
+    },
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "network": {
+        "format-wifi": "{icon}  {essid}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
     },
 
     "clock": {

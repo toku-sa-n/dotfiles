@@ -53,21 +53,29 @@ window {
     border-radius: 5px;
 }
 
-#clock {
-    padding-right: 1em;
-}
-
-#custom-memory {
+#custom-memory,
+#battery,
+#clock,
+#network {
     border-left: 1px solid @secondary;
-    border-right: 1px solid @secondary;
-
-    margin-right: 1em;
-    margin-left: 1em;
+    padding-left: 2em;
     padding-right: 1em;
-    padding-left: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
-#custom-memory.green  { color: @green; }
-#custom-memory.yellow { color: @yellow; }
-#custom-memory.orange { color: @magenta; }
-#custom-memory.red    { color: @red; }
+#custom-memory.green {
+    color: @green;
+}
+
+#custom-memory.yellow {
+    color: @yellow;
+}
+
+#custom-memory.orange {
+    color: @magenta;
+}
+
+#custom-memory.red {
+    color: @red;
+}
