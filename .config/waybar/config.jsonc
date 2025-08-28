@@ -9,7 +9,15 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/memory", "clock"],
+    "modules-right": ["idle_inhibitor", "custom/memory", "clock"],
+
+    "idle_inhibitor": {
+        "format": "{icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
 
     "custom/memory": {
         "exec": "$HOME/.config/waybar/memory",
