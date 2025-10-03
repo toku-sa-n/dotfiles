@@ -12,7 +12,7 @@ setopt extended_glob
 setopt globdots
 setopt correct
 setopt prompt_subst
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt no_flow_control
 setopt auto_cd
