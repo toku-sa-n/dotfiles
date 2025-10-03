@@ -3,7 +3,7 @@ function load_component() {
     local src=$HOME/.zshrc.d/$name.zsh
     local obj=$HOME/.zshrc.d/$name.zwc
 
-    if [[ $src -nt $obj ]]
+    if [[ ! -r $obj || $src -nt $obj ]]
     then
         zcompile $src
     fi
