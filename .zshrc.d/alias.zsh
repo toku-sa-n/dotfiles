@@ -64,3 +64,21 @@ odp(){
 gsq(){
     git reset $(git merge-base $1 $(git branch --show-current))
 }
+
+if command -v jenv >/dev/null 2>&1
+then
+    jenv(){
+        unfunction jenv
+        eval "$(command jenv init -)"
+        jenv "$@"
+    }
+fi
+
+if command -v rbenv >/dev/null 2>&1
+then
+    rbenv(){
+        unfunction rbenv
+        eval "$(command rbenv init - --no-rehash zsh)"
+        rbenv "$@"
+    }
+fi

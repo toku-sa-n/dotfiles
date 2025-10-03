@@ -11,9 +11,6 @@ export WORDCHARS='_'
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh >/dev/null 2>/dev/null
 [[ -f $HOME/.elan/env ]] && source $HOME/.elan/env
 
-command -v rbenv 2>&1 >/dev/null && eval "$(rbenv init - --no-rehash zsh)"
-command -v jenv 2>&1 >/dev/null && eval "$(jenv init -)"
-
 fpath=(/opt/homebrew/share/zsh/site-functions $HOME/.zshrc.d/zfunc $fpath)
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
