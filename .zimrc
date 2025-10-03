@@ -1,0 +1,24 @@
+zmodule toku-sa-n/zsh-dot-up
+zmodule unixorn/fzf-zsh-plugin
+zmodule Aloxaf/fzf-tab
+zmodule romkatv/powerlevel10k
+zmodule jeffreytse/zsh-vi-mode
+
+zmodule environment
+zmodule git
+zmodule input
+zmodule termtitle
+zmodule utility
+
+zmodule zsh-users/zsh-completions --fpath src
+
+# `completion` must be sourced after all modules that add completion definitions.
+zmodule completion
+
+# This module must be loaded after `completion`.
+zmodule zsh-users/zsh-syntax-highlighting
+
+# This module must be loaded after zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
+
+zmodule zsh-users/zsh-autosuggestions

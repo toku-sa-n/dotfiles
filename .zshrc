@@ -1,15 +1,19 @@
-for f in \
-    zplug.zsh \
-    prompt.zsh \
-    setopt.zsh \
-    envvar.zsh \
-    bindkey.zsh \
-    alias.zsh \
-    distro_spec.zsh \
-    autojump.zsh \
-    chpwd.zsh
+function load_component() {
+    local name=$1
+    local src=$HOME/.zshrc.d/$name.zsh
+    local obj=$HOME/.zshrc.d/$name.zwc
+
+    if [[ $src -nt $obj ]]
+    then
+        zcompile $src
+    fi
+
+    source $src
+}
+
+for f in zimrc prompt setopt envvar bindkey alias distro_spec autojump chpwd
 do
-    source $HOME/.zshrc.d/$f
+    load_component $f
 done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

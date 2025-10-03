@@ -15,8 +15,6 @@ command -v rbenv 2>&1 >/dev/null && eval "$(rbenv init - --no-rehash zsh)"
 command -v jenv 2>&1 >/dev/null && eval "$(jenv init -)"
 
 fpath=(/opt/homebrew/share/zsh/site-functions $HOME/.zshrc.d/zfunc $fpath)
-autoload -U compinit
-compinit
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
 ZSH_HIGHLIGHT_REGEXP+=('^\s*(\.){2,}$' fg=green,bold)
