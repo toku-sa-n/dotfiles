@@ -1,0 +1,72 @@
+# --- swayidlectl: control swayidle via signals (pause/resume/lock/status) ---
+
+_swayidlectl_pids() { pgrep -x swayidle }
+
+swayidlectl() {
+  local subcmd="$1"; shift
+  local pids=$(_swayidlectl_pids)
+
+  case "$subcmd" in
+    pause)
+      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
+      kill -STOP $pids && echo "swayidle paused"
+      ;;
+    resume)
+      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
+      kill -CONT $pids && echo "swayidle resumed"
+      ;;
+    lock)
+      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
+      kill -USR1 $pids && echo "lock triggered"
+      ;;
+    status)
+      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
+      ps -o pid,stat,cmd -p "$pids" | sed 1d | while IFS= read -r line; do
+        if [[ "$line" == *" T "* ]] || [[ "$line" =~ [[:space:]]T[+]*[[:space:]] ]]; then
+          echo "stopped: $line"
+        else
+          echo "running: $line"
+        fi
+      done
+      ;;
+    help|"")
+      cat <<'__HELP__'
+Usage: swayidlectl <subcommand>
+  pause   - stop swayidle (SIGSTOP)
+  resume  - continue swayidle (SIGCONT)
+  lock    - trigger immediate lock (SIGUSR1)
+  status  - show current status
+  help    - show this help
+__HELP__
+      ;;
+    *)
+      echo "unknown command: $subcmd"
+      return 2
+      ;;
+  esac
+}
+
+# optional tab completion
+if typeset -f compdef >/dev/null; then
+  _swayidlectl_subcmds() {
+    local -a subcmds
+    subcmds=(
+      'pause:stop swayidle with SIGSTOP'
+      'resume:continue swayidle with SIGCONT'
+      'lock:trigger immediate lock via SIGUSR1'
+      'status:show swayidle status'
+      'help:show usage help'
+    )
+
+    _arguments -C \
+      '1:subcommand:->subcmd' \
+      '*::args:->args'
+
+    case $state in
+      subcmd)
+        _describe -t commands 'subcommand' subcmds
+      ;;
+    esac
+  }
+  compdef _swayidlectl_subcmds swayidlectl
+fi
