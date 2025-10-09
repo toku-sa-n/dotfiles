@@ -1,5 +1,3 @@
-# --- swayidlectl: control swayidle via signals (pause/resume/lock/status) ---
-
 _swayidlectl_pids() { pgrep -x swayidle }
 
 swayidlectl() {
@@ -46,7 +44,6 @@ __HELP__
   esac
 }
 
-# optional tab completion
 if typeset -f compdef >/dev/null; then
   _swayidlectl_subcmds() {
     local -a subcmds
