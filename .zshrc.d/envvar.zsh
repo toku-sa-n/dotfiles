@@ -2,8 +2,8 @@ export FLYCTL_INSTALL="$HOME/.fly"
 
 export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=50000
+export SAVEHIST=50000
 export GPG_TTY=$(tty)
 export WORDCHARS='_'
 

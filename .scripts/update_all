@@ -20,10 +20,15 @@ EOS
 # pip will exit with return status non-zero when there is no package to update.
 # Therefore only try to update when outdated exists.
 update_pip () {
-    readonly PACKAGE_LIST="$(pip list --outdated --format=freeze|grep -v 'notice'|awk -F '=' '{print $1}')"
+    if ! command -v pip >/dev/null 2>&1; then
+        return
+    fi
 
-    if [[ $PACKAGE_LIST != "" ]]; then
-        echo $PACKAGE_LIST|xargs pip install --upgrade --user
+    local package_list
+    package_list="$(pip list --outdated --format=freeze | grep -v 'notice' | awk -F '=' '{print $1}')"
+
+    if [[ -n $package_list ]]; then
+        printf '%s\n' "$package_list" | xargs -n1 pip install --upgrade --user
     fi
 }
 
@@ -32,7 +37,7 @@ non_systemwide () {
         command -v $1 > /dev/null
     }
 
-    command_exists pip && update_pip
+    update_pip
     command_exists gem && gem update
     command_exists rustup && rustup update
 
