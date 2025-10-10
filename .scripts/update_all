@@ -8,11 +8,11 @@ usage () {
     cat << EOS
 Usage: $SCRIPT_NAME
        $SCRIPT_NAME <command>
-Update portage, kernel, and non-systemwide packages (pip, zplug, gem etc.) . If no command is specified, then these all will be updated.
-Run this script as NON-ROOT. Root user cannot update non-systemwide packages (pip, zplug, gem etc.) .
+Update portage, kernel, and non-systemwide packages (pip, gem etc.). If no command is specified, then these all will be updated.
+Run this script as NON-ROOT. Root user cannot update non-systemwide packages (pip, gem etc.).
 
 Available commands:
-    non_systemwide  Update non-systemwide packages (pip, zplug, gem etc.) only.
+    non_systemwide  Update non-systemwide packages (pip, gem etc.) only.
     help            Show this help.
 EOS
 }
@@ -33,7 +33,6 @@ non_systemwide () {
     }
 
     command_exists pip && update_pip
-    command_exists zplug && zplug update
     command_exists gem && gem update
     command_exists rustup && rustup update
 
@@ -50,7 +49,7 @@ non_systemwide () {
 
 
 if [[ $(whoami) = "root" ]]; then
-    echo "Run as non-root. Root user can't update non-systemwide packages such as pip, zplug, gem, etc." >&2
+    echo "Run as non-root. Root user can't update non-systemwide packages such as pip, gem, etc." >&2
     exit 1
 fi
 
