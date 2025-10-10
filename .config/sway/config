@@ -27,9 +27,7 @@ output DP-2 resolution 5120x2160@60Hz scale 1.5 pos 1920 0
 output DP-3 pos 7040 0 resolution 1920x1080
 output HDMI-A-1 resolution 1920x1080 pos 2666 1440
 
-exec swayidle -w \
-         timeout 300 'loginctl suspend' \
-         before-sleep 'swaylock -f -c ffffff'
+exec $HOME/.local/bin/swayidlectl start
 exec fcitx5 -d
 exec gentoo-pipewire-launcher restart &
 

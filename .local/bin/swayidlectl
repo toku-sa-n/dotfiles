@@ -1,42 +1,228 @@
 #!/bin/zsh
 
-_swayidlectl_pids() { pgrep -x swayidle }
+set -euo pipefail
+
+typeset -a SWAYIDLE_CMD=(
+  swayidle
+  -w
+  timeout
+  300
+  'loginctl suspend'
+  before-sleep
+  'swaylock -f -c ffffff'
+)
+
+readonly SWAYIDLE_DESC="swayidle -w timeout 300 'loginctl suspend' before-sleep 'swaylock -f -c ffffff'"
+readonly WAYBAR_SIGNAL=5
+
+_swayidlectl_pids() {
+  pgrep -x swayidle || true
+}
+
+_ensure_command() {
+  local cmd="$1"
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    echo "command not found: $cmd" >&2
+    exit 127
+  fi
+}
+
+_state_from_pids() {
+  local pids="$1"
+  if [[ -z "$pids" ]]; then
+    echo "not running"
+    return 3
+  fi
+
+  local paused=0
+  local running=0
+
+  local stat_output
+  stat_output=$(ps -o stat= -p "$pids" 2>/dev/null || true)
+
+  if [[ -z "$stat_output" ]]; then
+    echo "not running"
+    return 3
+  fi
+
+  local stat_line
+  while IFS= read -r stat_line; do
+    [[ -z "$stat_line" ]] && continue
+    if [[ "$stat_line" == *T* ]]; then
+      paused=1
+    else
+      running=1
+    fi
+  done <<<"$stat_output"
+
+  if (( paused && running )); then
+    echo "mixed"
+  elif (( paused )); then
+    echo "paused"
+  else
+    echo "running"
+  fi
+}
+
+_print_status() {
+  local pids="$1"
+
+  if [[ -z "$pids" ]]; then
+    echo "state: not running"
+    echo "command: $SWAYIDLE_DESC"
+    return 0
+  fi
+
+  local state
+  state=$(_state_from_pids "$pids")
+
+  echo "state: $state"
+  echo "command: $SWAYIDLE_DESC"
+
+  local ps_output
+  ps_output=$(ps -o pid=,stat= -p "$pids" 2>/dev/null || true)
+
+  if [[ -z "$ps_output" ]]; then
+    return 0
+  fi
+
+  while read -r pid stat; do
+    [[ -z "$pid" ]] && continue
+    echo "pid ${pid}: ${stat}"
+  done <<<"$ps_output"
+}
+
+_notify_waybar() {
+  if command -v pkill >/dev/null 2>&1; then
+    pkill -RTMIN+$WAYBAR_SIGNAL waybar >/dev/null 2>&1 || true
+  fi
+}
+
+_stop_swayidle() {
+  local pids="$1"
+  if [[ -z "$pids" ]]; then
+    echo "swayidle not running"
+    _notify_waybar
+    return 0
+  fi
+
+  kill -CONT $pids >/dev/null 2>&1 || true
+  kill $pids >/dev/null 2>&1 || true
+
+  local attempts=0
+  local remaining
+  while (( attempts < 20 )); do
+    sleep 0.05
+    remaining=$(_swayidlectl_pids)
+    [[ -z "$remaining" ]] && break
+    (( attempts++ ))
+  done
+
+  remaining=$(_swayidlectl_pids)
+  if [[ -n "$remaining" ]]; then
+    kill -KILL $remaining >/dev/null 2>&1 || true
+    sleep 0.05
+  fi
+
+  echo "swayidle stopped"
+  _notify_waybar
+}
+
+_start_swayidle() {
+  local pids="$1"
+  if [[ -n "$pids" ]]; then
+    echo "swayidle already running"
+    return 0
+  fi
+
+  _ensure_command "${SWAYIDLE_CMD[1]}"
+
+  if command -v setsid >/dev/null 2>&1; then
+    setsid --fork -- "${SWAYIDLE_CMD[@]}" >/dev/null 2>&1 || {
+      echo "failed to launch swayidle via setsid" >&2
+      return 1
+    }
+  else
+    nohup "${SWAYIDLE_CMD[@]}" >/dev/null 2>&1 &
+  fi
+
+  local new_pids=""
+  local attempts=0
+  while (( attempts < 40 )); do
+    sleep 0.05
+    new_pids=$(_swayidlectl_pids)
+    if [[ -n "$new_pids" ]]; then
+      break
+    fi
+    (( attempts++ ))
+  done
+
+  if [[ -z "$new_pids" ]]; then
+    echo "failed to start swayidle" >&2
+    return 1
+  fi
+
+  echo "swayidle started"
+  _notify_waybar
+}
+
+_restart_swayidle() {
+  local pids="$1"
+  _stop_swayidle "$pids"
+  _start_swayidle "$(_swayidlectl_pids)"
+}
 
 swayidlectl() {
-  local subcmd="$1"; shift
-  local pids=$(_swayidlectl_pids)
+  local subcmd="${1:-}"
+  shift || true
+
+  local pids
+  pids=$(_swayidlectl_pids)
 
   case "$subcmd" in
+    start)
+      _start_swayidle "$pids"
+      ;;
+    stop)
+      _stop_swayidle "$pids"
+      ;;
+    restart)
+      _restart_swayidle "$pids"
+      ;;
+    toggle)
+      if [[ -n "$pids" ]]; then
+        _stop_swayidle "$pids" || return $?
+      else
+        _start_swayidle "$pids" || return $?
+      fi
+      ;;
     pause)
-      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
-      kill -STOP $pids && echo "swayidle paused"
+      echo "pause is an alias for stop in this version"
+      _stop_swayidle "$pids"
       ;;
     resume)
-      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
-      kill -CONT $pids && echo "swayidle resumed"
+      echo "resume is an alias for start in this version"
+      _start_swayidle "$pids"
       ;;
     lock)
       [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
       kill -USR1 $pids && echo "lock triggered"
       ;;
     status)
-      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
-      ps -o pid,stat,cmd -p "$pids" | sed 1d | while IFS= read -r line; do
-        if [[ "$line" == *" T "* ]] || [[ "$line" =~ [[:space:]]T[+]*[[:space:]] ]]; then
-          echo "stopped: $line"
-        else
-          echo "running: $line"
-        fi
-      done
+      _print_status "$pids"
       ;;
     help|"")
       cat <<'__HELP__'
 Usage: swayidlectl <subcommand>
-  pause   - stop swayidle (SIGSTOP)
-  resume  - continue swayidle (SIGCONT)
-  lock    - trigger immediate lock (SIGUSR1)
-  status  - show current status
-  help    - show this help
+  start    - launch swayidle with the embedded command line
+  stop     - terminate swayidle
+  restart  - restart swayidle
+  toggle   - stop if running, start otherwise
+  pause    - alias for stop
+  resume   - alias for start
+  lock     - trigger immediate lock (SIGUSR1)
+  status   - show swayidle status and command line
+  help     - show this help
 __HELP__
       ;;
     *)
@@ -46,4 +232,4 @@ __HELP__
   esac
 }
 
-swayidlectl $@
+swayidlectl "$@"
