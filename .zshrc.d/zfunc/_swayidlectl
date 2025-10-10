@@ -1,0 +1,21 @@
+#compdef swayidlectl
+
+local -a subcmds
+subcmds=(
+  'pause:stop swayidle with SIGSTOP'
+  'resume:continue swayidle with SIGCONT'
+  'lock:trigger immediate lock via SIGUSR1'
+  'status:show swayidle status'
+  'help:show usage help'
+)
+
+_arguments -C \
+  '1:subcommand:->subcmd' \
+  '*::args:->args'
+
+case $state in
+  subcmd)
+    _describe -t commands 'subcommand' subcmds
+  ;;
+esac
+

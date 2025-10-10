@@ -11,7 +11,7 @@ function load_component() {
     source $src
 }
 
-for f in zimrc prompt setopt envvar bindkey alias distro_spec autojump chpwd swayidlectl
+for f in zimrc prompt setopt envvar bindkey alias distro_spec autojump chpwd
 do
     load_component $f
 done
