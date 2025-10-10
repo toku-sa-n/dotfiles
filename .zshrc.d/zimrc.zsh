@@ -1,5 +1,3 @@
-zstyle ':zim:git' aliases-prefix 'g'
-
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
 # Download zimfw plugin manager if missing.
