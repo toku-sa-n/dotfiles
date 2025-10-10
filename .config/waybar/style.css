@@ -79,3 +79,28 @@ window {
 #custom-memory.red {
     color: @red;
 }
+
+#custom-swayidle {
+    border-left: 1px solid @secondary;
+    padding-left: 2em;
+    padding-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+#custom-swayidle.active {
+    color: @green;
+}
+
+#custom-swayidle.paused,
+#custom-swayidle.inactive {
+    color: @yellow;
+}
+
+#custom-swayidle.mixed {
+    color: @magenta;
+}
+
+#custom-swayidle.warning {
+    color: @red;
+}

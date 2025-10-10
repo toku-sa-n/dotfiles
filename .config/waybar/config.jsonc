@@ -9,14 +9,15 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["idle_inhibitor", "custom/memory", "battery", "network", "clock"],
+    "modules-right": ["custom/swayidle", "custom/memory", "battery", "network", "clock"],
 
-    "idle_inhibitor": {
-        "format": "{icon} ",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
+    "custom/swayidle": {
+        "exec": "$HOME/.config/waybar/swayidle-status",
+        "return-type": "json",
+        "interval": 1,
+        "exec-on-event": true,
+        "signal": 5,
+        "on-click": "$HOME/.local/bin/swayidlectl toggle"
     },
 
     "custom/memory": {

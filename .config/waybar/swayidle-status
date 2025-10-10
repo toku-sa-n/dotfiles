@@ -1,0 +1,62 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+PATH="$HOME/.local/bin:$PATH"
+
+if ! command -v swayidlectl >/dev/null 2>&1; then
+    jq -n --compact-output \
+        --arg text "idle n/a" \
+        --arg class "error" \
+        --arg tooltip "swayidlectl not found in PATH" \
+        '{ text: $text, class: $class, tooltip: $tooltip }'
+    exit 0
+fi
+
+status_output=$(swayidlectl status 2>&1)
+status_exit=$?
+
+clean_output=$(printf '%s\n' "$status_output" | tr -d '\r')
+state=$(printf '%s\n' "$clean_output" | awk -F': *' 'tolower($1) == "state" {print $2; exit}')
+[[ -n "${state}" ]] || state=$(printf '%s\n' "$clean_output" | awk 'length($0) {print; exit}')
+[[ -n "${state}" ]] || state="unknown"
+
+lower_state=${state:l}
+class=""
+case "${lower_state}" in
+    paused|stopped|disabled)
+        class="paused"
+        ;;
+    active|enabled|running|resumed)
+        class="active"
+        ;;
+    mixed)
+        class="mixed"
+        ;;
+    "not running"|"not_running"|inactive)
+        class="inactive"
+        ;;
+esac
+
+if (( status_exit != 0 )); then
+    if [[ -n "$class" ]]; then
+        class="${class} warning"
+    else
+        class="warning"
+    fi
+fi
+
+tooltip=${clean_output//$'\n'/$'\r'}
+text="idle ${state}"
+alt="${lower_state// /-}"
+
+jq -n --compact-output \
+    --arg text "$text" \
+    --arg tooltip "$tooltip" \
+    --arg class "$class" \
+    --arg alt "$alt" '
+        { text: $text }
+        + (if ($tooltip | length) > 0 then { tooltip: $tooltip } else {} end)
+        + (if ($class | length) > 0 then { class: $class } else {} end)
+        + (if ($alt | length) > 0 then { alt: $alt } else {} end)
+    '
