@@ -48,25 +48,31 @@ fi
 
 tooltip=${clean_output//$'\n'/$'\r'}
 icon=""
+label="${state}"
 case "${lower_state}" in
     active|running|enabled|resumed)
         icon=""
+        label="on"
         ;;
     paused|stopped|disabled)
         icon=""
+        label="paused"
         ;;
     mixed)
         icon=""
+        label="mixed"
         ;;
     inactive|"not running"|not_running)
         icon=""
+        label="off"
         ;;
     *)
         icon=""
+        label="unknown"
         ;;
 esac
 
-text="${icon} ${state}"
+text="${icon} idle ${label}"
 alt="${lower_state// /-}"
 
 jq -n --compact-output \
