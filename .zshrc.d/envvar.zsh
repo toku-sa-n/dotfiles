@@ -12,6 +12,3 @@ export WORDCHARS='_'
 [[ -f $HOME/.elan/env ]] && source $HOME/.elan/env
 
 fpath=(/opt/homebrew/share/zsh/site-functions $HOME/.zshrc.d/zfunc $fpath)
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
-ZSH_HIGHLIGHT_REGEXP+=('^\s*(\.){2,}$' fg=green,bold)
