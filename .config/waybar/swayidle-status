@@ -47,23 +47,26 @@ if (( status_exit != 0 )); then
 fi
 
 tooltip=${clean_output//$'\n'/$'\r'}
+icon=""
 case "${lower_state}" in
-    active)
-        text="󰒲  ${state}"
+    active|running|enabled|resumed)
+        icon=""
         ;;
-    paused)
-        text="󰏤  ${state}"
+    paused|stopped|disabled)
+        icon=""
         ;;
     mixed)
-        text="󰓓  ${state}"
+        icon=""
         ;;
-    inactive|"not-running")
-        text="󰒳  ${state}"
+    inactive|"not running"|not_running)
+        icon=""
         ;;
     *)
-        text="󰔟  ${state}"
+        icon=""
         ;;
 esac
+
+text="${icon} ${state}"
 alt="${lower_state// /-}"
 
 jq -n --compact-output \
