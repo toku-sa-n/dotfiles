@@ -1,7 +1,7 @@
 typeset -g -a ZSH_HIGHLIGHT_HIGHLIGHTERS
-typeset -g -a ZSH_HIGHLIGHT_REGEXP
+typeset -g -A ZSH_HIGHLIGHT_REGEXP
 
 (( ${ZSH_HIGHLIGHT_HIGHLIGHTERS[(I)main]} )) || ZSH_HIGHLIGHT_HIGHLIGHTERS=(main ${ZSH_HIGHLIGHT_HIGHLIGHTERS[@]})
 (( ${ZSH_HIGHLIGHT_HIGHLIGHTERS[(I)regexp]} )) || ZSH_HIGHLIGHT_HIGHLIGHTERS+=(regexp)
 
-ZSH_HIGHLIGHT_REGEXP+=('^\s*(\.){2,}$' fg=green,bold)
+ZSH_HIGHLIGHT_REGEXP+=('^\s*(\.){2,}$' 'fg=green,bold')
