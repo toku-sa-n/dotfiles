@@ -2,17 +2,33 @@
 
 set -euo pipefail
 
+readonly SWAYIDLE_HELPER="$HOME/.local/bin/swayidle-lock-suspend"
+
+typeset -a SWAYIDLE_TIMEOUT_EXEC=(
+  "$SWAYIDLE_HELPER"
+)
+
+typeset -a SWAYIDLE_LOCK_EXEC=(
+  "$SWAYIDLE_HELPER"
+  lock-only
+)
+
+readonly SWAYIDLE_TIMEOUT_STR="${SWAYIDLE_TIMEOUT_EXEC[*]}"
+readonly SWAYIDLE_LOCK_STR="${SWAYIDLE_LOCK_EXEC[*]}"
+
 typeset -a SWAYIDLE_CMD=(
   swayidle
   -w
   timeout
   300
-  'loginctl suspend'
+  "$SWAYIDLE_TIMEOUT_STR"
+  lock
+  "$SWAYIDLE_TIMEOUT_STR"
   before-sleep
-  'swaylock -f -c ffffff'
+  "$SWAYIDLE_LOCK_STR"
 )
 
-readonly SWAYIDLE_DESC="swayidle -w timeout 300 'loginctl suspend' before-sleep 'swaylock -f -c ffffff'"
+readonly SWAYIDLE_DESC="swayidle -w timeout 300 '${SWAYIDLE_TIMEOUT_STR}' lock '${SWAYIDLE_TIMEOUT_STR}' before-sleep '${SWAYIDLE_LOCK_STR}'"
 readonly WAYBAR_SIGNAL=5
 
 _swayidlectl_pids() {
@@ -98,6 +114,24 @@ _notify_waybar() {
   fi
 }
 
+_run_helper() {
+  local mode="$1"
+  local -a cmd=()
+
+  case "$mode" in
+    lock)
+      cmd=("${SWAYIDLE_TIMEOUT_EXEC[@]}")
+      ;;
+    *)
+      echo "unknown helper mode: $mode" >&2
+      return 2
+      ;;
+  esac
+
+  _ensure_command "${cmd[1]}"
+  "${cmd[@]}"
+}
+
 _stop_swayidle() {
   local pids="$1"
   if [[ -z "$pids" ]]; then
@@ -136,6 +170,8 @@ _start_swayidle() {
   fi
 
   _ensure_command "${SWAYIDLE_CMD[1]}"
+  _ensure_command "${SWAYIDLE_TIMEOUT_EXEC[1]}"
+  _ensure_command "${SWAYIDLE_LOCK_EXEC[1]}"
 
   if command -v setsid >/dev/null 2>&1; then
     setsid --fork -- "${SWAYIDLE_CMD[@]}" >/dev/null 2>&1 || {
@@ -205,7 +241,11 @@ swayidlectl() {
       _start_swayidle "$pids"
       ;;
     lock)
-      [[ -z "$pids" ]] && { echo "swayidle not running"; return 1; }
+      if [[ -z "$pids" ]]; then
+        echo "swayidle not running; executing lock helper (lock + suspend) directly"
+        _run_helper lock
+        return $?
+      fi
       kill -USR1 $pids && echo "lock triggered"
       ;;
     status)
@@ -220,7 +260,7 @@ Usage: swayidlectl <subcommand>
   toggle   - stop if running, start otherwise
   pause    - alias for stop
   resume   - alias for start
-  lock     - trigger immediate lock (SIGUSR1)
+  lock     - lock + suspend via swayidle (SIGUSR1) or helper fallback
   status   - show swayidle status and command line
   help     - show this help
 __HELP__
