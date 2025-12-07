@@ -146,6 +146,11 @@ input * {
     xkb_variant dvp
 }
 
+input "1386:934:Wacom_One_Pen_Display_13_Pen" {
+    tool_mode * absolute
+    map_to_output HDMI-A-1
+}
+
 bar {
     swaybar_command waybar
 
