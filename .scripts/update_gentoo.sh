@@ -8,7 +8,7 @@ if [[ $(whoami) != "root" ]]; then
 fi
 
 eix-sync
-haskell-updater
+command -v haskell-updater >/dev/null 2>&1 && haskell-updater
 emerge --ask --verbose --tree --update --deep --newuse --keep-going --with-bdeps=y @world
 
 emerge --ask --depclean
