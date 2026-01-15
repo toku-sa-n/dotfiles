@@ -2,33 +2,36 @@
 
 set -euo pipefail
 
-readonly SWAYIDLE_HELPER="$HOME/.local/bin/swayidle-lock-suspend"
+_detect_suspend_cmd() {
+  if command -v systemctl >/dev/null 2>&1; then
+    echo "systemctl suspend"
+  elif command -v loginctl >/dev/null 2>&1; then
+    echo "loginctl suspend"
+  else
+    return 1
+  fi
+}
 
-typeset -a SWAYIDLE_TIMEOUT_EXEC=(
-  "$SWAYIDLE_HELPER"
-)
-
-typeset -a SWAYIDLE_LOCK_EXEC=(
-  "$SWAYIDLE_HELPER"
-  lock-only
-)
-
-readonly SWAYIDLE_TIMEOUT_STR="${SWAYIDLE_TIMEOUT_EXEC[*]}"
-readonly SWAYIDLE_LOCK_STR="${SWAYIDLE_LOCK_EXEC[*]}"
+readonly SWAYIDLE_SUSPEND_CMD="$(_detect_suspend_cmd 2>/dev/null || true)"
+readonly SWAYIDLE_LOCK_ONLY_CMD="swaylock -f"
+readonly SWAYIDLE_LOCK_AND_SUSPEND_CMD="swaylock -f${SWAYIDLE_SUSPEND_CMD:+ && $SWAYIDLE_SUSPEND_CMD}"
+readonly SWAYIDLE_TIMEOUT_CMD="$SWAYIDLE_LOCK_AND_SUSPEND_CMD"
+readonly SWAYIDLE_LOCK_CMD="$SWAYIDLE_LOCK_AND_SUSPEND_CMD"
+readonly SWAYIDLE_BEFORE_SLEEP_CMD="$SWAYIDLE_LOCK_ONLY_CMD"
 
 typeset -a SWAYIDLE_CMD=(
   swayidle
   -w
   timeout
   300
-  "$SWAYIDLE_TIMEOUT_STR"
+  "$SWAYIDLE_TIMEOUT_CMD"
   lock
-  "$SWAYIDLE_TIMEOUT_STR"
+  "$SWAYIDLE_LOCK_CMD"
   before-sleep
-  "$SWAYIDLE_LOCK_STR"
+  "$SWAYIDLE_BEFORE_SLEEP_CMD"
 )
 
-readonly SWAYIDLE_DESC="swayidle -w timeout 300 '${SWAYIDLE_TIMEOUT_STR}' lock '${SWAYIDLE_TIMEOUT_STR}' before-sleep '${SWAYIDLE_LOCK_STR}'"
+readonly SWAYIDLE_DESC="swayidle -w timeout 300 '${SWAYIDLE_TIMEOUT_CMD}' lock '${SWAYIDLE_LOCK_CMD}' before-sleep '${SWAYIDLE_BEFORE_SLEEP_CMD}'"
 readonly WAYBAR_SIGNAL=5
 
 _swayidlectl_pids() {
@@ -116,11 +119,12 @@ _notify_waybar() {
 
 _run_helper() {
   local mode="$1"
-  local -a cmd=()
+  local cmd=""
 
   case "$mode" in
     lock)
-      cmd=("${SWAYIDLE_TIMEOUT_EXEC[@]}")
+      cmd="$SWAYIDLE_LOCK_CMD"
+      _ensure_command swaylock
       ;;
     *)
       echo "unknown helper mode: $mode" >&2
@@ -128,8 +132,7 @@ _run_helper() {
       ;;
   esac
 
-  _ensure_command "${cmd[1]}"
-  "${cmd[@]}"
+  /bin/sh -c "$cmd"
 }
 
 _stop_swayidle() {
@@ -170,8 +173,16 @@ _start_swayidle() {
   fi
 
   _ensure_command "${SWAYIDLE_CMD[1]}"
-  _ensure_command "${SWAYIDLE_TIMEOUT_EXEC[1]}"
-  _ensure_command "${SWAYIDLE_LOCK_EXEC[1]}"
+  _ensure_command swaylock
+  if [[ -z "$SWAYIDLE_SUSPEND_CMD" ]]; then
+    echo "suspend command not found (systemctl or loginctl)" >&2
+    return 127
+  fi
+  if [[ "$SWAYIDLE_SUSPEND_CMD" == systemctl* ]]; then
+    _ensure_command systemctl
+  else
+    _ensure_command loginctl
+  fi
 
   if command -v setsid >/dev/null 2>&1; then
     setsid --fork -- "${SWAYIDLE_CMD[@]}" >/dev/null 2>&1 || {
@@ -260,7 +271,7 @@ Usage: swayidlectl <subcommand>
   toggle   - stop if running, start otherwise
   pause    - alias for stop
   resume   - alias for start
-  lock     - lock + suspend via swayidle (SIGUSR1) or helper fallback
+    lock     - lock via swayidle (SIGUSR1) or helper fallback
   status   - show swayidle status and command line
   help     - show this help
 __HELP__
