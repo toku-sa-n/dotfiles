@@ -1,6 +1,7 @@
 vim.scriptencoding = "utf-8"
 
 vim.g.mapleader = " "
+vim.g.clipboard = "osc52"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
