@@ -9,7 +9,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/swayidle", "custom/memory", "battery", "network", "clock"],
+    "modules-right": ["custom/swayidle", "temperature", "custom/memory", "battery", "network", "clock"],
 
     "custom/swayidle": {
         "exec": "$HOME/.config/waybar/swayidle-status",
@@ -18,6 +18,12 @@
         "exec-on-event": true,
         "signal": 5,
         "on-click": "$HOME/.local/bin/swayidlectl toggle"
+    },
+
+    "temperature": {
+        "critical-threshold": 100,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
     },
 
     "custom/memory": {
