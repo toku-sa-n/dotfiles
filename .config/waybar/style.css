@@ -54,7 +54,7 @@ window {
 }
 
 #custom-memory,
-#temperature,
+#custom-temperature,
 #battery,
 #clock,
 #network {
@@ -63,6 +63,22 @@ window {
     padding-right: 1em;
     margin-left: 0.5em;
     margin-right: 0.5em;
+}
+
+#custom-temperature.green {
+    color: @green;
+}
+
+#custom-temperature.yellow {
+    color: @yellow;
+}
+
+#custom-temperature.orange {
+    color: @magenta;
+}
+
+#custom-temperature.red {
+    color: @red;
 }
 
 #custom-memory.green {

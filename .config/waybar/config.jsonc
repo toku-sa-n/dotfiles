@@ -9,7 +9,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/swayidle", "temperature", "custom/memory", "battery", "network", "clock"],
+    "modules-right": ["custom/swayidle", "custom/temperature", "custom/memory", "battery", "network", "clock"],
 
     "custom/swayidle": {
         "exec": "$HOME/.config/waybar/swayidle-status",
@@ -20,10 +20,12 @@
         "on-click": "$HOME/.local/bin/swayidlectl toggle"
     },
 
-    "temperature": {
-        "critical-threshold": 100,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", "", "", ""]
+    // Waybar's default temperature module reads thermal_zone0 on this machine,
+    // which reports PCH temperature instead of CPU temperature.
+    "custom/temperature": {
+        "exec": "$HOME/.config/waybar/temperature",
+        "return-type": "json",
+        "interval": 1
     },
 
     "custom/memory": {

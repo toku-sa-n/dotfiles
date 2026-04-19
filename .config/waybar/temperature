@@ -1,0 +1,78 @@
+#!/bin/zsh
+
+set -eu
+
+typeset -i total_temp=0
+typeset -i core_count=0
+
+coretemp_dir=""
+for name_file in /sys/class/hwmon/hwmon*/name; do
+    [ -f "$name_file" ] || continue
+
+    if [ "$(cat "$name_file")" = "coretemp" ]; then
+        coretemp_dir=${name_file%/name}
+        break
+    fi
+done
+
+if [ -z "$coretemp_dir" ]; then
+    jq -n --compact-output \
+        --arg text " N/A" \
+        --arg tooltip "CPU core temperature sensor not found" \
+        '{ text: $text, tooltip: $tooltip }'
+    exit 0
+fi
+
+for label_file in "$coretemp_dir"/temp*_label; do
+    [ -f "$label_file" ] || continue
+
+    label=$(cat "$label_file")
+    case "$label" in
+        "Core "*)
+            input_file=${label_file%_label}_input
+            [ -f "$input_file" ] || continue
+
+            temp_millic=$(cat "$input_file")
+            total_temp=$((total_temp + temp_millic))
+            core_count=$((core_count + 1))
+            ;;
+    esac
+done
+
+if [ "$core_count" -eq 0 ]; then
+    jq -n --compact-output \
+        --arg text " N/A" \
+        --arg tooltip "No CPU core temperature readings were found" \
+        '{ text: $text, tooltip: $tooltip }'
+    exit 0
+fi
+
+avg_millic=$(((total_temp + core_count / 2) / core_count))
+avg_c=$(((avg_millic + 500) / 1000))
+
+# Use one shared set of thresholds so icon and color always represent the same
+# temperature band; start warning well before coretemp's high limit (~101C).
+icon=""
+class=""
+if [ "$avg_c" -ge 90 ]; then
+    icon=""
+    class="red"
+elif [ "$avg_c" -ge 80 ]; then
+    icon=""
+    class="orange"
+elif [ "$avg_c" -ge 65 ]; then
+    icon=""
+    class="yellow"
+elif [ "$avg_c" -ge 50 ]; then
+    icon=""
+    class="green"
+fi
+
+text=$(printf '%s %s°C' "$icon" "$avg_c")
+tooltip=$(printf 'CPU core average across %s cores: %s°C' "$core_count" "$avg_c")
+
+jq -n --compact-output \
+    --arg text "$text" \
+    --arg tooltip "$tooltip" \
+    --arg class "$class" \
+    '{ text: $text, tooltip: $tooltip, class: $class }'
