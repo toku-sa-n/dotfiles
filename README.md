@@ -22,6 +22,9 @@ Besides usual dependencies like `git`, `nvim`, and `zsh`, you need the following
 things.
 
 *   [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
+*   On Gentoo, build `gui-apps/waybar` with the `network` USE flag if you want
+    to use the built-in `network` widget. Without it, Waybar reports
+    `Unknown module: network`.
 
 ### Manage multiple configuration files in a single repository
 
