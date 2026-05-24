@@ -3,6 +3,7 @@
 set -e
 
 readonly SCRIPT_NAME="$(basename "${BASH_SOURCE:-$0}")"
+readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE:-$0}")" && pwd)"
 
 usage () {
     cat << EOS
@@ -30,6 +31,19 @@ update_pip () {
     if [[ -n $package_list ]]; then
         printf '%s\n' "$package_list" | xargs -n1 pip install --upgrade --user
     fi
+}
+
+get_distribution () {
+    local os_release='/etc/os-release'
+
+    if [[ ! -r $os_release ]]; then
+        return
+    fi
+
+    (
+        source "$os_release"
+        printf '%s\n' "$ID"
+    )
 }
 
 non_systemwide () {
@@ -65,10 +79,10 @@ fi
 
 case "$1" in
     "" )
-        readonly DISTRIBUTION=$(cat /etc/*-release|grep '^ID'|awk -F '[=]' '{print $2}')
+        readonly DISTRIBUTION="$(get_distribution)"
 
         if [[ $DISTRIBUTION == gentoo ]]; then
-            sudo ./update_gentoo.sh
+            sudo "$SCRIPT_DIR/update_gentoo.sh"
         fi
 
         non_systemwide ;;
