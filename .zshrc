@@ -1,7 +1,7 @@
 function load_component() {
     local name=$1
     local src=$HOME/.zshrc.d/$name.zsh
-    local obj=$HOME/.zshrc.d/$name.zwc
+    local obj=$src.zwc
 
     if [[ ! -r $obj || $src -nt $obj ]]
     then
@@ -11,7 +11,7 @@ function load_component() {
     source $src
 }
 
-for f in envvar zimrc prompt setopt bindkey alias distro_spec autojump chpwd highlight
+for f in envvar zimrc completion prompt setopt bindkey alias distro_spec autojump chpwd highlight
 do
     load_component $f
 done
