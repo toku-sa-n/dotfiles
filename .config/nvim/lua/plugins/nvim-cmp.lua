@@ -16,11 +16,23 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "path" },
-				{ name = "cmdline" },
 				{ name = "buffer" },
 				{ name = "lazydev", group_index = 0 },
 			}),
 			preselect = cmp.PreselectMode.None,
+		})
+
+		cmp.setup.cmdline({ "/", "?" }, {
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+
+		cmp.setup.cmdline(":", {
+			sources = {
+				{ name = "path" },
+				{ name = "cmdline" },
+			},
 		})
 
 		local key_dir = {

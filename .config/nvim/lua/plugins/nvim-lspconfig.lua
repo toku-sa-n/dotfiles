@@ -1,58 +1,21 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		local on_attach = function(_, bufnr)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"ga",
-				"<cmd>lua vim.lsp.buf.code_action()<CR>",
-				{ noremap = true, silent = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"gd",
-				"<cmd>lua vim.lsp.buf.definition()<CR>",
-				{ noremap = true, silent = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"<leader>n",
-				"<cmd>lua vim.diagnostic.goto_next()<CR>",
-				{ noremap = true, silent = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"gd",
-				"<cmd>lua vim.diagnostic.goto_prev()<CR>",
-				{ noremap = true, silent = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"K",
-				"<cmd>lua vim.lsp.buf.hover()<CR>",
-				{ noremap = true, silent = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"<F2>",
-				"<cmd>lua vim.lsp.buf.rename()<CR>",
-				{ noremap = true, silent = true }
-			)
+			local opts = { noremap = true, silent = true, buffer = bufnr }
+			vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, opts)
+			vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev, opts)
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
 		end
 
-		lspconfig.hls.setup({
+		vim.lsp.config("hls", {
 			filetypes = { "haskell", "lhaskell", "cabal" },
 			on_attach = on_attach,
 		})
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					completion = {
@@ -62,10 +25,10 @@ return {
 			},
 			on_attach = on_attach,
 		})
-		lspconfig.gopls.setup({
+		vim.lsp.config("gopls", {
 			on_attach = on_attach,
 		})
-		lspconfig.rust_analyzer.setup({
+		vim.lsp.config("rust_analyzer", {
 			on_attach = on_attach,
 			settings = {
 				["rust-analyzer"] = {
@@ -75,21 +38,33 @@ return {
 				},
 			},
 		})
-		lspconfig.yamlls.setup({
+		vim.lsp.config("yamlls", {
 			on_attach = on_attach,
 		})
-		lspconfig.ocamllsp.setup({
+		vim.lsp.config("ocamllsp", {
 			on_attach = on_attach,
 		})
-		lspconfig.coq_lsp.setup({
+		vim.lsp.config("coq_lsp", {
 			on_attach = on_attach,
 		})
 
-		lspconfig.ruby_lsp.setup({
+		vim.lsp.config("ruby_lsp", {
 			on_attach = on_attach,
 		})
-		lspconfig.rubocop.setup({
+		vim.lsp.config("rubocop", {
 			on_attach = on_attach,
+		})
+
+		vim.lsp.enable({
+			"hls",
+			"lua_ls",
+			"gopls",
+			"rust_analyzer",
+			"yamlls",
+			"ocamllsp",
+			"coq_lsp",
+			"ruby_lsp",
+			"rubocop",
 		})
 	end,
 
