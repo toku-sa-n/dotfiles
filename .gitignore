@@ -3,3 +3,6 @@ tags
 .zcompdump*
 **/*.swp
 *.zwc
+.codex
+.nvimlog
+.scripts/AGENTS.md
