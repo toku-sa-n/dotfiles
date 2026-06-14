@@ -68,6 +68,5 @@ return {
 		})
 	end,
 
-	-- `LspAttach` does not work.
-	event = { "BufRead", "BufNewFile" },
+	lazy = false,
 }
