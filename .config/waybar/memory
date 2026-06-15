@@ -1,26 +1,60 @@
 #!/bin/zsh
 
-readonly FREE_MEM_ROW=$(free --bytes|grep Mem)
+set -eu
 
-readonly FULL_MEMORY=$(echo ${FREE_MEM_ROW}|awk '{print $2}')
-readonly AVAILABLE_MEMORY=$(echo ${FREE_MEM_ROW}|awk '{print $7}')
+typeset -i full_memory_kib=0
+typeset -i available_memory_kib=0
 
-readonly USING_MEMORY=$(echo "${FULL_MEMORY}-${AVAILABLE_MEMORY}"|bc)
+while read -r key value unit; do
+    case "$key" in
+        MemTotal:)
+            full_memory_kib=$value
+            ;;
+        MemAvailable:)
+            available_memory_kib=$value
+            ;;
+    esac
 
-readonly USING_MEMORY_READABLE=$(echo "${USING_MEMORY}"|numfmt --to=iec)
-readonly FULL_MEMORY_READABLE=$(echo "${FULL_MEMORY}"|numfmt --to=iec)
+    if (( full_memory_kib > 0 && available_memory_kib > 0 )); then
+        break
+    fi
+done < /proc/meminfo
 
-readonly USE_RATE=$(echo "scale=2; 100*${USING_MEMORY}/${FULL_MEMORY}"|bc -l)
-readonly BLOCK_NUM=$(echo "scale=0; ${USE_RATE}/10+1"|bc)
-readonly SPACE_NUM=$(echo "10-${BLOCK_NUM}"|bc)
+if (( full_memory_kib == 0 || available_memory_kib == 0 )); then
+    jq -n --compact-output \
+        --arg text "  N/A" \
+        --arg class "red" \
+        '{ text: $text, class: $class }'
+    exit 0
+fi
 
-readonly BLOCKS=$(printf '█%.0s' $(seq "${BLOCK_NUM}"))
-readonly SPACES=$(printf ' %.0s' $(seq "${SPACE_NUM}"))
+typeset -i using_memory_kib=$((full_memory_kib - available_memory_kib))
+typeset -i use_rate_x100=$((10000 * using_memory_kib / full_memory_kib))
+typeset -i block_num=$(((use_rate_x100 + 999) / 1000))
+typeset -i space_num
 
-readonly BAR="${BLOCKS}${SPACES}"
+(( block_num < 1 )) && block_num=1
+(( block_num > 10 )) && block_num=10
+space_num=$((10 - block_num))
+
+using_memory_readable=$(numfmt --from-unit=1024 --to=iec "$using_memory_kib")
+full_memory_readable=$(numfmt --from-unit=1024 --to=iec "$full_memory_kib")
+use_rate=$(printf '%d.%02d' $((use_rate_x100 / 100)) $((use_rate_x100 % 100)))
+
+blocks=""
+for (( i = 0; i < block_num; i++ )); do
+    blocks+="█"
+done
+
+spaces=""
+for (( i = 0; i < space_num; i++ )); do
+    spaces+=" "
+done
+
+bar="${blocks}${spaces}"
 
 class=""
-case "${BLOCK_NUM}" in
+case "${block_num}" in
     <1-2>  ) class="" ;;
     <3-4>  ) class="green" ;;
     <5-6>  ) class="yellow" ;;
@@ -28,13 +62,13 @@ case "${BLOCK_NUM}" in
     <->    ) class="red" ;;
 esac
 
-readonly FULL_TEXT=$(printf '  %s / %s [%s]  %s%%' \
-    "$USING_MEMORY_READABLE" \
-    "$FULL_MEMORY_READABLE" \
-    "$BAR" \
-    "$USE_RATE")
+full_text=$(printf '  %s / %s [%s]  %s%%' \
+    "$using_memory_readable" \
+    "$full_memory_readable" \
+    "$bar" \
+    "$use_rate")
 
 jq -n --compact-output   \
-    --arg ft "$FULL_TEXT"   \
+    --arg ft "$full_text"   \
     --arg color "$class"    \
     '{ text: $ft, class: $color }'

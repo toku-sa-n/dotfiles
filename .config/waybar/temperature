@@ -9,7 +9,7 @@ coretemp_dir=""
 for name_file in /sys/class/hwmon/hwmon*/name; do
     [ -f "$name_file" ] || continue
 
-    if [ "$(cat "$name_file")" = "coretemp" ]; then
+    if [ "$(< "$name_file")" = "coretemp" ]; then
         coretemp_dir=${name_file%/name}
         break
     fi
@@ -26,13 +26,13 @@ fi
 for label_file in "$coretemp_dir"/temp*_label; do
     [ -f "$label_file" ] || continue
 
-    label=$(cat "$label_file")
+    label=$(< "$label_file")
     case "$label" in
         "Core "*)
             input_file=${label_file%_label}_input
             [ -f "$input_file" ] || continue
 
-            temp_millic=$(cat "$input_file")
+            temp_millic=$(< "$input_file")
             total_temp=$((total_temp + temp_millic))
             core_count=$((core_count + 1))
             ;;
