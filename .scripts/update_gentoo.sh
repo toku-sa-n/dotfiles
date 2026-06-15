@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ $(whoami) != "root" ]]; then
+if (( EUID != 0 )); then
     echo 'Run as root.' >&2
     exit 1
 fi

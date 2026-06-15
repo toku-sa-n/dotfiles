@@ -67,7 +67,7 @@ non_systemwide () {
 }
 
 
-if [[ $(whoami) = "root" ]]; then
+if (( EUID == 0 )); then
     echo "Run as non-root. Root user can't update non-systemwide packages such as pip, gem, etc." >&2
     exit 1
 fi
