@@ -4,7 +4,11 @@ export BSTINPUTS=$BSTINPUTS:/usr/share/texmf-dist/pbibtex/bst
 export HISTFILE=$HOME/.histfile
 export HISTSIZE=50000
 export SAVEHIST=50000
-export GPG_TTY=${TTY:-$(tty)}
+if [[ -n "$TTY" && "$TTY" != "not a tty" ]]; then
+    export GPG_TTY="$TTY"
+else
+    unset GPG_TTY
+fi
 export WORDCHARS='_'
 
 if [[ -z $PAGER ]]; then
@@ -20,4 +24,5 @@ export LESS=${LESS:---ignore-case --jump-target=4 --LONG-PROMPT --no-init --quit
 [[ -r "$HOME/.opam/opam-init/init.zsh" ]] && source "$HOME/.opam/opam-init/init.zsh" >/dev/null 2>/dev/null
 [[ -r "$HOME/.elan/env" ]] && source "$HOME/.elan/env"
 
-fpath=(/opt/homebrew/share/zsh/site-functions $HOME/.zshrc.d/zfunc $fpath)
+typeset -gU path fpath
+fpath=(/opt/homebrew/share/zsh/site-functions "$HOME/.zshrc.d/zfunc" $fpath)

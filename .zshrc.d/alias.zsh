@@ -3,6 +3,12 @@ alias ll='ls -lahF --color=auto'
 alias ls='ls -F --color=auto --group-directories-first'
 alias l='ls'
 
+(( ${+commands[bat]} )) && alias cat='bat' && alias less='bat'
+(( ${+commands[eza]} )) && alias ls='eza --group-directories-first'
+(( ${+commands[fd]} )) && alias find='fd'
+(( ${+commands[ack]} )) && alias grep='ack'
+(( ${+commands[fzf]} )) && alias vf='vim $(fzf)'
+
 alias df='df -h'
 alias gcc='gcc -Ofast -pipe -march=native -fdiagnostics-color'
 alias vi='vim'
@@ -49,35 +55,28 @@ alias grm="git rebase main"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
-(( ${+commands[bat]} )) && alias cat='bat' && alias less='bat'
-(( ${+commands[fuck]} )) && eval $(thefuck --alias) && alias f="fuck"
-(( ${+commands[eza]} )) && alias ls='eza --group-directories-first'
-(( ${+commands[fd]} )) && alias find="fd"
-(( ${+commands[ack]} )) && alias grep='ack'
-(( ${+commands[fzf]} )) && alias vf='vim $(fzf)'
+(( ${+commands[fuck]} )) && eval "$(thefuck --alias)" && alias f='fuck'
 
 alias :q='exit'
 
-odp(){
-    objdump --disassemble --demangle --disassembler-options=intel $1 | bat --language asm --style plain
+function odp() {
+    objdump --disassemble --demangle --disassembler-options=intel "$1" | bat --language asm --style plain
 }
 
-gsq(){
-    git reset $(git merge-base $1 $(git branch --show-current))
+function gsq() {
+    git reset "$(git merge-base "$1" "$(git branch --show-current)")"
 }
 
-if (( ${+commands[jenv]} ))
-then
-    jenv(){
+if (( ${+commands[jenv]} )); then
+    function jenv() {
         unfunction jenv
         eval "$(command jenv init -)"
         jenv "$@"
     }
 fi
 
-if (( ${+commands[rbenv]} ))
-then
-    rbenv(){
+if (( ${+commands[rbenv]} )); then
+    function rbenv() {
         unfunction rbenv
         eval "$(command rbenv init - --no-rehash zsh)"
         rbenv "$@"

@@ -1,19 +1,33 @@
 # Use vim-like bindings.
 bindkey -v
 
-bindkey -M viins '^P' up-line-or-history
-bindkey -M viins '^N' down-line-or-history
-bindkey -M viins '^F' forward-char
-bindkey -M viins '^A' beginning-of-line
-bindkey -M viins '^E' end-of-line
-bindkey -M viins '^B' backward-char
-bindkey -M viins '^R' history-incremental-pattern-search-backward
+typeset -A viins_bindings=(
+    '^P' up-line-or-history
+    '^N' down-line-or-history
+    '^F' forward-char
+    '^A' beginning-of-line
+    '^E' end-of-line
+    '^B' backward-char
+    '^R' history-incremental-pattern-search-backward
+)
 
-bindkey '^[[3~' delete-char
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-bindkey '^[.' insert-last-word
-bindkey '^[_' insert-last-word
+for key widget in "${(@kv)viins_bindings}"; do
+    bindkey -M viins "$key" "$widget"
+done
+
+typeset -A default_bindings=(
+    '^[[3~' delete-char
+    '^[[H' beginning-of-line
+    '^[[F' end-of-line
+    '^[.' insert-last-word
+    '^[_' insert-last-word
+)
+
+for key widget in "${(@kv)default_bindings}"; do
+    bindkey "$key" "$widget"
+done
+
+unset key widget viins_bindings default_bindings
 
 autoload -Uz edit-command-line
 zle -N edit-command-line

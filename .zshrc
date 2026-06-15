@@ -5,10 +5,23 @@ fi
 
 [[ -o interactive ]] || return
 
-for f in envvar zimrc completion setopt bindkey alias distro_spec autojump chpwd highlight
-do
-    source "$HOME/.zshrc.d/$f.zsh"
+typeset -a zshrc_modules=(
+  envvar
+  zimrc
+  completion
+  setopt
+  bindkey
+  alias
+  distro_spec
+  autojump
+  chpwd
+  highlight
+)
+
+for f in "${zshrc_modules[@]}"; do
+  [[ -r "$HOME/.zshrc.d/$f.zsh" ]] && source "$HOME/.zshrc.d/$f.zsh"
 done
+unset f zshrc_modules
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ -r "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
