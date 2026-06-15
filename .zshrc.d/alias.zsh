@@ -12,14 +12,15 @@ alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|l
 alias irb='irb --simple-prompt'
 alias grep='grep --color'
 alias ping='ping -c3'
+alias du='du -h'
 
 alias -g L='| less'
 alias -g G='| grep'
 alias -g F=' $(fzf)'
 
 # See https://github.com/ohmyzsh/ohmyzsh/issues/10925 for why `&>/dev/null &|` is needed.
-[ -x "$(command -v wl-copy)" ] && alias -g C='| { wl-copy &>/dev/null &| }'
-[ -x "$(command -v clipboard)" ] && alias -g C='| { clipboard &>/dev/null &| }'
+(( ${+commands[wl-copy]} )) && alias -g C='| { wl-copy &>/dev/null &| }'
+(( ${+commands[clipboard]} )) && alias -g C='| { clipboard &>/dev/null &| }'
 
 alias vrc="vim $HOME/.vimrc"
 alias zrc="vim $HOME/.zshrc"
@@ -48,12 +49,12 @@ alias grm="git rebase main"
 alias grc="git rebase --continue"
 alias cpr="gh pr create"
 
-[ -x "$(command -v bat)" ] && alias cat='bat' && alias less='bat'
-[ -x "$(command -v fuck)" ] && eval $(thefuck --alias) && alias f="fuck"
-[ -x "$(command -v eza)" ] && alias ls='eza --group-directories-first'
-[ -x "$(command -v fd)" ] && alias find="fd"
-[ -x "$(command -v ack)" ] && alias grep='ack'
-[ -x "$(command -v fzf)" ] && alias vf='vim $(fzf)'
+(( ${+commands[bat]} )) && alias cat='bat' && alias less='bat'
+(( ${+commands[fuck]} )) && eval $(thefuck --alias) && alias f="fuck"
+(( ${+commands[eza]} )) && alias ls='eza --group-directories-first'
+(( ${+commands[fd]} )) && alias find="fd"
+(( ${+commands[ack]} )) && alias grep='ack'
+(( ${+commands[fzf]} )) && alias vf='vim $(fzf)'
 
 alias :q='exit'
 
@@ -65,7 +66,7 @@ gsq(){
     git reset $(git merge-base $1 $(git branch --show-current))
 }
 
-if command -v jenv >/dev/null 2>&1
+if (( ${+commands[jenv]} ))
 then
     jenv(){
         unfunction jenv
@@ -74,7 +75,7 @@ then
     }
 fi
 
-if command -v rbenv >/dev/null 2>&1
+if (( ${+commands[rbenv]} ))
 then
     rbenv(){
         unfunction rbenv
