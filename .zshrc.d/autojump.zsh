@@ -1,2 +1,5 @@
-[[ -f "/usr/share/autojump/autojump.zsh" ]] && source /usr/share/autojump/autojump.zsh
-[[ -f "/opt/homebrew/etc/profile.d/autojump.sh" ]] && source /opt/homebrew/etc/profile.d/autojump.sh
+if [[ -r /usr/share/autojump/autojump.zsh ]]; then
+    source /usr/share/autojump/autojump.zsh
+elif [[ -r /opt/homebrew/etc/profile.d/autojump.sh ]]; then
+    source /opt/homebrew/etc/profile.d/autojump.sh
+fi

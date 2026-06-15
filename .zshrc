@@ -3,6 +3,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+[[ -o interactive ]] || return
+
 for f in envvar zimrc completion setopt bindkey alias distro_spec autojump chpwd highlight
 do
     source "$HOME/.zshrc.d/$f.zsh"
