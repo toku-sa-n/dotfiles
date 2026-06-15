@@ -1,12 +1,6 @@
 zmodule toku-sa-n/zsh-dot-up
 zmodule romkatv/powerlevel10k
-zmodule jeffreytse/zsh-vi-mode
 
-zmodule environment
-zmodule git
-zmodule input
-zmodule termtitle
-zmodule utility
 zmodule Aloxaf/fzf-tab
 
 zmodule zsh-users/zsh-completions --fpath src
