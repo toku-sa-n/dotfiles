@@ -12,7 +12,6 @@ alias l='ls'
 alias df='df -h'
 alias gcc='gcc -Ofast -pipe -march=native -fdiagnostics-color'
 alias vi='vim'
-alias scroff='i3lock -c 000000 -e -f -u'
 alias untargz='tar -zxvf'
 alias fontlist=$'fc-list|awk -F \'[:]\' \'{print $2}\'|sort|uniq|sed \'s/ //\'|less'
 alias irb='irb --simple-prompt'
@@ -31,7 +30,6 @@ alias -g F=' $(fzf)'
 alias vrc="vim $HOME/.vimrc"
 alias zrc="vim $HOME/.zshrc"
 alias zpro="vim $HOME/.zprofile"
-alias xrc="vim $HOME/.xinitrc"
 
 alias ga="git add"
 alias gb="git branch"
