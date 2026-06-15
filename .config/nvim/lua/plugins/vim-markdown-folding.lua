@@ -1,7 +1,7 @@
 return {
 	"mikeboiko/vim-markdown-folding",
 	config = function()
-		vim.g.vim_markdown_folding_disabled = 1
+		vim.opt_local.foldlevel = 99
 	end,
 	ft = "markdown",
 }
