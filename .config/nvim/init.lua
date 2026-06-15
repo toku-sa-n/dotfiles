@@ -1,5 +1,13 @@
 vim.scriptencoding = "utf-8"
 
+local cache_dir = vim.fn.stdpath("cache")
+if vim.fn.isdirectory(cache_dir) == 0 then
+	pcall(vim.fn.mkdir, cache_dir, "p")
+end
+if vim.fn.filewritable(cache_dir) == 2 then
+	vim.loader.enable()
+end
+
 vim.g.mapleader = " "
 vim.g.clipboard = "osc52"
 
@@ -22,6 +30,20 @@ require("lazy").setup("plugins", {
 	},
 	defaults = {
 		lazy = true,
+	},
+	local_spec = false,
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
 	},
 })
 

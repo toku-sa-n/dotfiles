@@ -38,7 +38,6 @@
   "vim-moonfly-colors": { "branch": "master", "commit": "43d8eb9dd2a1154dd8259ee3ce37cbbdb28c405c" },
   "vim-quickrun": { "branch": "master", "commit": "77b4d6ea9972a206f02c736882c2398c36d2983c" },
   "vim-rooter": { "branch": "master", "commit": "51402fb77c4d6ae94994e37dc7ca13bec8f4afcc" },
-  "vim-splash": { "branch": "master", "commit": "1d0a1d6b820f06fd379768a61ca130ea6d9b74ca" },
   "vim-suda": { "branch": "master", "commit": "c492741b4679b3cdd4d9e34138209784e061d916" },
   "vim2hs": { "branch": "master", "commit": "f2afd55704bfe0a2d66e6b270d247e9b8a7b1664" },
   "vimdoc-ja": { "branch": "master", "commit": "1f75eefd3f19f7c061742bda19f57a41e88c5754" }
