@@ -5,6 +5,10 @@ set -e
 readonly SCRIPT_NAME="$(basename "${BASH_SOURCE:-$0}")"
 readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE:-$0}")" && pwd)"
 
+command_exists () {
+    command -v "$1" > /dev/null
+}
+
 usage () {
     cat << EOS
 Usage: $SCRIPT_NAME
@@ -21,12 +25,12 @@ EOS
 # pip will exit with return status non-zero when there is no package to update.
 # Therefore only try to update when outdated exists.
 update_pip () {
-    if ! command -v pip >/dev/null 2>&1; then
+    if ! command_exists pip; then
         return
     fi
 
     local package_list
-    package_list="$(pip list --outdated --format=freeze | grep -v 'notice' | awk -F '=' '{print $1}')"
+    package_list="$(pip list --outdated --format=freeze 2>/dev/null | awk -F '=' 'NF {print $1}')"
 
     if [[ -n $package_list ]]; then
         printf '%s\n' "$package_list" | xargs -n1 pip install --upgrade --user
@@ -47,21 +51,19 @@ get_distribution () {
 }
 
 non_systemwide () {
-    command_exists () {
-        command -v $1 > /dev/null
-    }
-
     update_pip
     command_exists gem && gem update
     command_exists rustup && rustup update
 
-    cabal update
+    command_exists cabal && cabal update
 
-    ghcup upgrade
-    ghcup install ghc
-    ghcup install cabal
-    ghcup install hls
-    ghcup install stack
+    if command_exists ghcup; then
+        ghcup upgrade
+        ghcup install ghc
+        ghcup install cabal
+        ghcup install hls
+        ghcup install stack
+    fi
 
     command_exists opam && opam update
 }
