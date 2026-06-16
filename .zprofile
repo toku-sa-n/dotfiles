@@ -1,6 +1,8 @@
 typeset -U path PATH
 path=(
     "$HOME/.npm-global/bin"
+    "$HOME/.rbenv/shims"
+    "$HOME/.jenv/shims"
     "$HOME/.jenv/bin"
     "$HOME/.local/bin"
     "$HOME/.cargo/bin"
