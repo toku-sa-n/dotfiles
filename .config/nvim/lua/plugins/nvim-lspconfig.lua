@@ -1,5 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+	},
 	config = function()
 		local on_attach = function(_, bufnr)
 			local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -41,6 +44,10 @@ return {
 		vim.lsp.config("yamlls", {
 			on_attach = on_attach,
 		})
+		vim.lsp.config("terraformls", {
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			on_attach = on_attach,
+		})
 		vim.lsp.config("ocamllsp", {
 			on_attach = on_attach,
 		})
@@ -61,6 +68,7 @@ return {
 			"gopls",
 			"rust_analyzer",
 			"yamlls",
+			"terraformls",
 			"ocamllsp",
 			"coq_lsp",
 			"ruby_lsp",
