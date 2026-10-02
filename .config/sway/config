@@ -153,7 +153,7 @@ input "1386:934:Wacom_One_Pen_Display_13_Pen" {
 }
 
 bar {
-    swaybar_command waybar
+    swaybar_command /home/hiroki/.local/bin/waybar-with-log
 
     mode hide
     modifier $mod

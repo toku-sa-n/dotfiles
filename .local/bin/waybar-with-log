@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+"""Launch Waybar once and retain diagnostics in $XDG_STATE_HOME/waybar.
+
+Keep waybar.log and waybar.log.1 at at most 1 MiB each. Forward Sway's
+signals and WAYLAND_SOCKET, record the child status, and never restart it.
+"""
+import ctypes
+from datetime import datetime
+import os
+from pathlib import Path
+import selectors
+import signal
+import subprocess
+import sys
+import time
+
+MAX_BYTES = 1024 * 1024
+
+
+class RotatingLog:
+    def __init__(self):
+        directory = Path(os.environ.get("XDG_STATE_HOME") or Path.home() / ".local/state") / "waybar"
+        directory.mkdir(mode=0o700, parents=True, exist_ok=True)
+        directory.chmod(0o700)
+        self.path = directory / "waybar.log"
+        self.previous = directory / "waybar.log.1"
+        try:
+            fd = os.open(self.previous, os.O_RDWR | os.O_NOFOLLOW)
+        except FileNotFoundError:
+            pass
+        else:
+            try:
+                os.fchmod(fd, 0o600)
+                self.trim(fd)
+            finally:
+                os.close(fd)
+        self.open()
+
+    @staticmethod
+    def trim(fd):
+        size = os.fstat(fd).st_size
+        if size > MAX_BYTES:
+            tail = memoryview(os.pread(fd, MAX_BYTES, size - MAX_BYTES))
+            os.ftruncate(fd, 0)
+            while tail:
+                written = os.write(fd, tail)
+                if written == 0:
+                    raise OSError("log write made no progress")
+                tail = tail[written:]
+
+    def open(self):
+        fd = os.open(self.path, os.O_RDWR | os.O_CREAT | os.O_APPEND | os.O_NOFOLLOW, 0o600)
+        try:
+            os.fchmod(fd, 0o600)
+            self.trim(fd)
+        except OSError:
+            os.close(fd)
+            raise
+        self.stream = os.fdopen(fd, "ab", buffering=0)
+        self.size = os.fstat(fd).st_size
+
+    def write(self, data):
+        while data:
+            if self.size >= MAX_BYTES:
+                self.stream.close()
+                self.path.replace(self.previous)
+                self.open()
+                self.size = 0
+            chunk, data = data[:MAX_BYTES - self.size], data[MAX_BYTES - self.size:]
+            remaining = memoryview(chunk)
+            while remaining:
+                written = self.stream.write(remaining)
+                if not written:
+                    raise OSError("log write made no progress")
+                remaining = remaining[written:]
+                self.size += written
+
+    def close(self):
+        self.stream.close()
+
+
+def main():
+    args = ["waybar", *sys.argv[1:]]
+    try:
+        log = RotatingLog()
+    except OSError as error:
+        print(f"waybar-with-log: logging unavailable: {error}; launching normally", file=sys.stderr)
+        os.execvp(args[0], args)
+
+    def emit(data):
+        nonlocal log
+        if log is not None:
+            try:
+                log.write(data)
+            except OSError as error:
+                print(f"waybar-with-log: logging stopped: {error}", file=sys.stderr)
+                log.close()
+                log = None
+        try:
+            sys.stdout.buffer.write(data)
+            sys.stdout.buffer.flush()
+        except OSError:
+            pass
+
+    def record(message):
+        emit(f"[waybar-launch {datetime.now().isoformat(timespec='seconds')}] {message}\n".encode())
+
+    child = None
+    received = []
+    pending = []
+
+    def forward(number, _frame):
+        received.append(number)
+        if child is None:
+            pending.append(number)
+        else:
+            try:
+                child.send_signal(number)
+            except ProcessLookupError:
+                pass
+
+    for number in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP, signal.SIGUSR1, signal.SIGUSR2):
+        signal.signal(number, forward)
+
+    # This launcher is single-threaded. Avoid an orphan if it is killed.
+    parent_pid = os.getpid()
+    libc = ctypes.CDLL(None, use_errno=True)
+
+    def child_setup():
+        signal.signal(signal.SIGTERM, signal.SIG_DFL)
+        if libc.prctl(1, signal.SIGTERM, 0, 0, 0) != 0:  # PR_SET_PDEATHSIG
+            os._exit(126)
+        if os.getppid() != parent_pid:
+            os._exit(126)
+
+    inherited = os.environ.get("WAYLAND_SOCKET")
+    try:
+        preserved_fds = (int(inherited),) if inherited is not None else ()
+        child = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                 pass_fds=preserved_fds, preexec_fn=child_setup)
+    except (OSError, ValueError, subprocess.SubprocessError) as error:
+        record(f"launch failed: {error}")
+        if log is not None:
+            log.close()
+        return 127
+    for number in pending:
+        child.send_signal(number)
+    if preserved_fds:
+        os.close(preserved_fds[0])
+    record(f"started pid={child.pid} args={sys.argv[1:]!r}")
+    try:
+        with selectors.DefaultSelector() as selector:
+            selector.register(child.stdout, selectors.EVENT_READ)
+            drain_deadline = None
+            drain_remaining = MAX_BYTES
+            while True:
+                while received:
+                    record(f"forwarded {signal.Signals(received.pop(0)).name}")
+                if child.poll() is not None and drain_deadline is None:
+                    # A custom module can inherit stdout. Bound draining after
+                    # Waybar exits even if that descendant keeps writing.
+                    drain_deadline = time.monotonic() + 0.5
+                if drain_deadline is not None:
+                    if time.monotonic() >= drain_deadline or drain_remaining <= 0:
+                        break
+                ready = selector.select(timeout=0.1)
+                if ready:
+                    data = os.read(child.stdout.fileno(), min(65536, drain_remaining))
+                    if not data:
+                        break
+                    emit(data)
+                    if drain_deadline is not None:
+                        drain_remaining -= len(data)
+                elif drain_deadline is not None:
+                    break
+        status = child.wait()
+        if status < 0:
+            record(f"terminated by {signal.Signals(-status).name} ({-status})")
+            return 128 - status
+        record(f"exited status={status}")
+        return status
+    finally:
+        child.stdout.close()
+        if child.poll() is None:
+            child.terminate()
+            child.wait()
+        if log is not None:
+            log.close()
+
+
+if __name__ == "__main__":
+    sys.exit(main())
