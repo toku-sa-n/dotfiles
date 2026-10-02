@@ -1,0 +1,11 @@
+onboarding = false
+
+# Use Sway's pane keys after Herdr's default Ctrl+B prefix.
+# Focus, swap, and resize keep their existing h/j/k/l bindings.
+[keys]
+split_vertical = "prefix+b" # Side by side, like Sway's splith.
+split_horizontal = ["prefix+minus", "prefix+v"] # Stacked, like Sway's splitv.
+toggle_sidebar = "prefix+shift+b" # Free prefix+b for splitting.
+zoom = ["prefix+z", "prefix+f"]
+close_pane = ["prefix+x", "prefix+shift+q"]
+reload_config = ["prefix+shift+r", "prefix+shift+c"]
